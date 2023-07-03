@@ -1,0 +1,2 @@
+# 🔥 Role: Storage (dApp) User
+
