@@ -21,7 +21,7 @@
   * [Videown](role-storage-dapp-user/videown.md)
   * [DeCloud](role-storage-dapp-user/decloud.md)
   * [DeShare](role-storage-dapp-user/deshare.md)
-* [🧑💻 🧑💻 Role: dApp Developer](role-dapp-developer/README.md)
+* [🧑💻 Role: dApp Developer](role-dapp-developer/README.md)
   * [Tutorials](role-dapp-developer/tutorials/README.md)
     * [Building a golang App](role-dapp-developer/tutorials/building-a-golang-app.md)
     * [Web3 Smart Contact App (Solidity)](role-dapp-developer/tutorials/web3-smart-contact-app-solidity.md)
