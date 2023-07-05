@@ -8,27 +8,34 @@ If you are interested in building the CESS protocol and contribute to the decent
 
 ## Contact
 
-- e-mail: [hello@cess.cloud](mailto:hello@cess.cloud)
+e-mail: [**hello@cess.cloud**](mailto:hello@cess.cloud)
 
 ## Get Involved
 
-- 👀 [Our Ambassador Program](https://cess.cloud/ambassador.html)
-- 🌐 [Our Blogs](https://cess.cloud/posts/news)
-- 🗓 [Our Events](https://cess.cloud/posts/events)
+👀 [Our Ambassador Program](https://cess.cloud/ambassador.html)
+
+🌐 [Our Blogs](https://cess.cloud/posts/news)
+
+🗓 [Our Events](https://cess.cloud/posts/events)
 
 ## Job Openings
 
-- 👥 [Our team](https://cess.cloud/team.html)
-- 📝 [Job openings](https://cess.cloud/jobs.html)
+👥 [Our team](https://cess.cloud/team.html)
+
+📝 [Job openings](https://cess.cloud/jobs.html)
 
 ## Community
 
-<a href="https://github.com/CESSProject" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+<img src="../assets/images/icons/github.svg" alt="" data-size="line" width="24"> [Github](https://github.com/CESSProject)
 
-- [Github](https://github.com/CESSProject)
-- [Twitter](https://twitter.com/CESS_Storage)
-- [Discord](https://discord.gg/cess)
-- [Telegram](https://t.me/CESS_Storage_official)
-- [Youtube](https://www.youtube.com/@cess_storage2312)
-- [Medium](https://medium.com/@CESS_LAB)
-- [LinkedIn](https://www.linkedin.com/company/cumulus-encrypted-storage-system)
+<img src="../assets/images/icons/twitter.svg" alt="" data-size="line" width="24"> [Twitter](https://twitter.com/CESS_Storage)
+
+<img src="../assets/images/icons/discord.svg" alt="" data-size="line" width="24"> [Discord](https://discord.gg/cess)
+
+<img src="../assets/images/icons/telegram.svg" alt="" data-size="line" width="24"> [Telegram](https://t.me/CESS_Storage_official)
+
+<img src="../assets/images/icons/youtube.svg" alt="" data-size="line" width="24"> [Youtube](https://www.youtube.com/@cess_storage2312)
+
+<img src="../assets/images/icons/medium.svg" alt="" data-size="line" width="24"> [Medium](https://medium.com/@CESS_LAB)
+
+<img src="../assets/images/icons/linkedin.svg" alt="" data-size="line" width="24"> [LinkedIn](https://www.linkedin.com/company/cumulus-encrypted-storage-system)
