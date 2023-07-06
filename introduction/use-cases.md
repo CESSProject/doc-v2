@@ -8,7 +8,7 @@ NFT developers and/or owners now only need to upload NFT files and CESS will ver
 
 For example, if an American artist creates an NFT artwork and sells it to a UK buyer online through CESS, the copyright transfer and time-stamping of the transaction will be executed transparently and remain permanently trackable, as intrinsically guaranteed by CESS blockchain technology. The new owner of the NFT (i.e., the UK buyer) will be automatically and uniquely issued an encrypted code (i.e., private key) upon the completion of online transaction. Meanwhile, the old private key held by the American artist will automatically become obsolete.
 
-![Use Cases 01](../assets/introduction/use-cases-01.png)
+![NFT issuance workflow on CESS](../assets/introduction/use-cases-01.png)
 
 ## 2. Decentralized Data Marketplace
 
@@ -19,7 +19,7 @@ attributes, the system checks if the accessors have permission to retrieve the f
 
 On CESS platform, all data file retrieval records are recorded on blockchain and hence are backward traceable. The CESS data rights protection mechanism maintains a recording module to allow users to view their data file retrieval records, providing strong evidence for user data rights protection.
 
-![Use Cases 02](../assets/introduction/use-cases-02.png)
+![Decentralized data marketplace on CESS](../assets/introduction/use-cases-02.png)
 
 ## 3. Distributed Enterprise Storage Service
 

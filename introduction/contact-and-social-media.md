@@ -24,7 +24,7 @@ e-mail: [**hello@cess.cloud**](mailto:hello@cess.cloud)
 
 ## Community
 
-<img src="../assets/others/icons/github.png" alt="" data-size="line">[Github](https://github.com/CESSProject)
+<img src="../assets/others/icons/github.png" alt="" data-size="line"> [Github](https://github.com/CESSProject)
 
 <img src="../assets/others/icons/twitter.png" alt="" data-size="line"> [Twitter](https://twitter.com/CESS_Storage)
 
