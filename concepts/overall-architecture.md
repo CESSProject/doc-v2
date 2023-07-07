@@ -1,2 +1,0 @@
-# Overall Architecture
-
