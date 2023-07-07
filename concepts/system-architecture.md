@@ -1,6 +1,4 @@
-# System Architecture
-
-## Overall System Architecture
+# Overall Architecture
 
 CESS offers large-scale storage capacity, managing billions of data files with up to 100PB space, to meet enterprise level demands. At the same time, CESS provides data services including data rights confirmation and protection. Therefore, our platform not only provides expandable data storages for DAPPs, but also strongdata owner rights protection.
 
