@@ -8,6 +8,8 @@
   * [💬 Contact & Social Media](introduction/contact-and-social-media.md)
 * [🌱 Concepts](concepts/README.md)
   * [System Architecture](concepts/system-architecture.md)
+  * [Blockchain Layer Architecture](concepts/blockchain-layer-architecture.md)
+  * [dApp: DeOSS Architecture](concepts/dapp-deoss-architecture.md)
   * [Blockchain Core](concepts/blockchain-core.md)
   * [Protocol Terminology](concepts/protocol-terminology.md)
 * [👥 User Roles](user-roles.md)
