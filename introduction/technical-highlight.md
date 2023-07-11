@@ -14,32 +14,32 @@ Unlike the storage space bidding of contemporary decentralized storage protocol,
 
 ## 4. IPFS compatiblity
 
-CESS is compatible with IPFS standard and allows developers to integrate their dApps with an array of storage solutions that utilize IPFS. Data stored on CESS can also be addressed with cryptographic hashes, making the content immutable and tamper-resistant.
-
 {% hint style="info" %}
-Launch in 2023 product roadmap.
+Launch in 2023 product roadmap
 {% endhint %}
+
+CESS is compatible with IPFS standard and allows developers to integrate their dApps with an array of storage solutions that utilize IPFS. Data stored on CESS can also be addressed with cryptographic hashes, making the content immutable and tamper-resistant.
 
 ## 5. Secure Data Access
 
-**Proxy Re-encryption Technology (PReT)** is built on top of Public Key Encryption to allow users to authorize decryption permissions to others without disclosing the data's contents. User data is also processed and accessed in a Trusted Execution Environment (TEE) within the storage nodes.
-
 {% hint style="info" %}
-Launch in 2023 product roadmap.
+Launch in 2023 product roadmap
 {% endhint %}
+
+**Proxy Re-encryption Technology (PReT)** is built on top of Public Key Encryption to allow users to authorize decryption permissions to others without disclosing the data's contents. User data is also processed and accessed in a Trusted Execution Environment (TEE) within the storage nodes.
 
 ## 6. Performance Fast Data Retrieval
 
-Data indexing and Decentralized Content Delivery Network support (DCDN) are used to improve searching and download speed from user endpoints. Consensus mechanism has been iterated on top of [Polkadot GRANDPA](https://wiki.polkadot.network/docs/learn-consensus#finality-gadget-grandpa) to achieve lower gas fees and higher transaction processing speeds.
-
 {% hint style="info" %}
-Launch in 2023 product roadmap.
+Launch in 2023 product roadmap
 {% endhint %}
+
+Data indexing and Decentralized Content Delivery Network support (DCDN) are used to improve searching and download speed from user endpoints. Consensus mechanism has been iterated on top of [Polkadot GRANDPA](https://wiki.polkadot.network/docs/learn-consensus#finality-gadget-grandpa) to achieve lower gas fees and higher transaction processing speeds.
 
 ## 7. Data Ownership Traceability
 
-Data ownership can be verified with **Multiformat Data Rights Confirmation technology (MDRC)**. This protocol extracts fingerprint from all data and permanently stores them on-chain, in smart contracts, for traceability.
-
 {% hint style="info" %}
-Launch in future.
+Launch in future
 {% endhint %}
+
+Data ownership can be verified with **Multiformat Data Rights Confirmation technology (MDRC)**. This protocol extracts fingerprint from all data and permanently stores them on-chain, in smart contracts, for traceability.

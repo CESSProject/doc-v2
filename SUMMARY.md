@@ -19,7 +19,7 @@
   * [Governance](community/governance.md)
 * [🔥 Role: Storage (dApp) User](user/README.md)
   * [Basics](user/basics.md)
-* [👨‍💻 Role: dApp Developer](developer/README.md)
+* [💻 Role: dApp Developer](developer/README.md)
   * [Tutorials](developer/tutorials/README.md)
     * [Building a golang App](developer/tutorials/building-a-golang-app.md)
     * [Web3 Smart Contact App (Solidity)](developer/tutorials/web3-smart-contact-app-solidity.md)
