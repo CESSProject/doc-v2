@@ -10,6 +10,8 @@
   * [System Architecture](concepts/system-arch.md)
   * [Blockchain Architecture](concepts/blockchain-arch.md)
   * [Blockchain Core](concepts/blockchain-core/README.md)
+    * [Block](concepts/blockchain-core/block.md)
+    * [Storage](concepts/blockchain-core/storage.md)
   * [Protocol Terminology](concepts/protocol-terminology.md)
 * [👥 User Roles](user-roles.md)
 * [🌏 Role: Community Member](community/README.md)
