@@ -43,28 +43,14 @@ There are two types of consensus nodes in CESS network: active consensus node an
 
 ## Incentive Layer
 
-As any distributed file systems, CESS main system resources are storage and network resources. In the CESS network, there are two types of storage mining nodes: Content Storage Node (CSN) and Content Delivery Node (CDN). The CSN node is responsible for file storage while the CDN node is responsible for file delivery. Miners can provide two types of resources to join the CESS network, and the CESS system will reward the miners with CESS tokens according to their contributions to the network.
+As any distributed file systems, CESS main system resources are storage and network resources. Miners can provide these two types of resources to join the CESS network, and the CESS system will reward the miners with CESS tokens according to their contributions to the network. CESS has an algorithm to calculate each miner’s contribution to the network. The algorithm is a comprehensive consensus algorithm that considers the factors of miners' storage capacity, network bandwidth, and node configuration, to calculate an overall node score, and thus the rewards in form of CESS tokens.
 
-**How to Partner with CESS Network?**
+CESS tokens are distributed in the following ways to the corresponding parties:
 
-For miners, rewards are similar to "crypto mining". CESS has designed an algorithm, namely, Contribution of Proof (COP) to calculate each miner’s contribution to the network. The
-Contribution of Proof algorithm is a comprehensive consensus algorithm that considers the factors
-of miners' storage capacity, network bandwidth and node configuration, to calculate an overall
-node score. Miners receive rewards in form of CESS tokens, based on their scores
+**Storage Mining**: Miners with storage capacity join the storage network to earn tokens proportional to their bandwidth and storage capacity.
 
+**Consensus Mining**: Miners with qualified computational resources can deposit collaterals in form of CESS tokens to become candidate consensus nodes. If selected by CESS random consensus mechanism as one of the active validators, these nodes can earn rewards.
 
-Stor age mining:
-Miners with storage capacity join either the storage network or content delivery network toearn tokens proportional to their bandwidth and storage capacity
+**Community Governance and Contribution**: To promote the CESS network, developers, community members, and partners can submit their proposals and receive community votes. When a quorum is established, corresponding rewards will be issued from the blockchain system. Proposals are accepted based on the governance of an Decentralized Autonomous Organization (DAO). CESS community transparently operates the Community Development Fund (CDF) through the votes.
 
-) Consensus mining:
-
-Miners/nodes with qualified computational resources can deposit collaterals in formof CESStokens to become candidate consensus nodes. If selected by CESS random consensus mechanismas 11 on-duty nodes, these nodes can earn rewards
-
-Community contribution:
-To further promote the CESS network, developers, community members and partners cansubmit their proposals and receive community votes. When a quorum is established, corresponding rewards will be issued from the blockchain system. 4) Token governance will adopt the Decentralized Autonomous Organization (DAO) to achieve
-on-chain governance capability. CESS community transparently operates the CommunityDevelopment Fund (CDF) through the votes.
-
-Token Distribution
-All incentive related activities are implemented based on smart contracts which include
-on-chain operations of proof of miners’ space and time and reward distribution. This ensures the
-fairness and transparency of the CESS incentive mechanism.
+**Token Distribution**: All incentive related activities are implemented based on smart contracts. This ensures the fairness and transparency of the CESS incentive mechanism.
