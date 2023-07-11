@@ -10,7 +10,21 @@ For example, if an American artist creates an NFT artwork and sells it to a UK b
 
 ![NFT issuance workflow on CESS](../assets/introduction/use-cases-01.png)
 
-## 2. Decentralized Data Marketplace
+## 2. Personal Network Drive
+
+CESS offers distributed network drive to end users, so individual can securely store personal data such as photos and documents in it. Compared to traditional network drives, CESS has significant advantages on security, ownership protection, cost, and capacity. CESS disks do not require cloud servers, effectively avoiding dependency on centralized servers. Instead, user data are stored in multiple peer-to-peer (p2p) storage nodes.
+
+By adopting blockchain-based cryptographic algorithms to encrypt stored data, CESS ensures the privacy of user data without worrying about data loss or central server outages.
+
+## 3. Decentralized Streaming and Social Media
+
+There is a genuine concern about articles and videos being subjected to censorship by large corporations and governments. By utilizing CESS and incorporating blockchain-written metadata, storing such content ensures its resistance to censorship, safeguarding data integrity and freedom of speech.
+
+## 4. Distributed Enterprise Storage Service
+
+As a decentralized cloud storage system with a tremendous amount of storage resource pool, CESS meets the demand of enterprise data storage service perfectly. CESS storage network is built on blockchain technology with multiple storage proof mechanisms. This make the system provide a fast, secure storage solution at a lower cost compared to centralized storage providers. Enterprises can also utilize CESS for their data archival and backup.
+
+## 5. Decentralized Data Marketplace
 
 CESS offers two types of smart contracts to users with different pricing models. When users
 upload data files, they get to choose its values. CESS generates data file attributes based on user inputs. The data attributes include pricing model type, access control list, etc... Data
@@ -20,17 +34,3 @@ attributes, the system checks if the accessors have permission to retrieve the f
 On CESS platform, all data file retrieval records are recorded on blockchain and hence are backward traceable. The CESS data rights protection mechanism maintains a recording module to allow users to view their data file retrieval records, providing strong evidence for user data rights protection.
 
 ![Decentralized data marketplace on CESS](../assets/introduction/use-cases-02.png)
-
-## 3. Distributed Enterprise Storage Service
-
-As a decentralized cloud storage system with a tremendous amount of storage resource pool, CESS meets the demand of enterprise data storage service perfectly. CESS storage network is built on blockchain technology with multiple storage proof mechanisms. This make the system provide a fast, secure storage solution at a lower cost compared to centralized storage providers. Enterprises can also utilize CESS for their data archival and backup.
-
-## 4. Decentralized Streaming and Social Media
-
-There is a genuine concern about articles and videos being subjected to censorship by large corporations and governments. By utilizing CESS and incorporating blockchain-written metadata, storing such content ensures its resistance to censorship, safeguarding data integrity and freedom of speech.
-
-## 5. Personal Network Drive
-
-CESS offers distributed network drive to end users, so individual can securely store personal data such as photos and documents in it. Compared to traditional network drives, CESS has significant advantages on security, ownership protection, cost, and capacity. CESS disks do not require cloud servers, effectively avoiding dependency on centralized servers. Instead, user data are stored in multiple peer-to-peer (p2p) storage nodes.
-
-By adopting blockchain-based cryptographic algorithms to encrypt stored data, CESS ensures the privacy of user data without worrying about data loss or central server outages.
