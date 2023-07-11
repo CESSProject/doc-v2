@@ -6,7 +6,7 @@
 
 [Transaction](transaction.md)
 
-[Consensus Mechanism](consensus.md)
+[Consensus](consensus.md)
 
 [Randomness](randomness.md)
 
