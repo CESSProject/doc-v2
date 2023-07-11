@@ -10,7 +10,7 @@ Among them, the blockchain layer provides blockchain service of the entire CESS 
 
 ## Blockchain Layer
 
-In addition to incentivize unused computing resources and storage resources to join the CESS storage network, it also provides efficient blockchain services. CESS proposes a novel Random Rotational Selection(R²S) consensus mechanism, together with asynchronous Byzantine consensus algorithm to provide 10,000 TPS capability, as well as Turing's complete smart contract and cross-chain interoperability capability.
+In addition to incentivize unused computing resources and storage resources to join the CESS storage network, it also provides efficient blockchain services. CESS proposes a novel Random Rotational Selection(R²S) consensus mechanism, together with asynchronous Byzantine consensus algorithm, as well as Turing's complete smart contract and cross-chain interoperability capability.
 
 In fact this blockchain layer is further [analysed here](blockchain-layer-architecture.md).
 

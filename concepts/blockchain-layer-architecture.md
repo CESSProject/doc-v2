@@ -4,7 +4,7 @@
 As shown in Figure 6, the blockchain layer is further divided into six layers: infrastructurelayer, data layer, network layer, consensus layer, incentive layer and application layer. The
 infrastructure layer consists of hardware equipment including servers, network hardware andstorage hardware for CESS blockchain. The data layer, which supports scalable data storage, provides various data processing algorithms; The network layer is for node connection, data
 transfer. It provides load balancing and P2P network protocols and algorithms; the consensus layer
-provides consensus mechanisms on transactions, with 10,000 TPS processing capacity; The
+provides consensus mechanisms on transactions; The
 incentive layer is to achieve fair income distribution through smart contracts and other incentive
 schemes. The application layer supports DAPPs or APPs developed by third-party developers
 
