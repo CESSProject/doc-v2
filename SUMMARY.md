@@ -43,4 +43,5 @@
   * [Reward Mechanism](consensus-node/reward-mechanism.md)
 * [📚 Reference](ref/README.md)
   * [Lifecycle of User Files](ref/lifecycle-user-files.md)
+  * [Reputation Rotational Consensus](ref/rrc.md)
 * [📖 Glossary](glossary.md)

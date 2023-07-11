@@ -38,12 +38,12 @@ The relationship among transaction weight and transaction fee is as follows: The
 
 Transaction fees provide economic incentives to limit execution time and the number of calls required to calculate and execute operations. Transaction fees are also used to make blockchain economically sustainable (some of them will be returned to the treasury pool and distributed as a new round of token), because they are usually applied to transactions initiated by users and deducted before executing transaction requests.
 
-The formula for calculating the final transaction fee:
-
 {% hint style="success" %}
+### Final Transaction Fee Formula
+
 **Inclusive fee** = basic fee + byte length fee + (target fee adjustment * weight)
 
-**Final fee** = inclusive fee + tip
+**Final Transaction fee** = inclusive fee + tip
 {% endhint %}
 
 **Basic fee**: the fee is the minimum amount that the user pays for the transaction.
@@ -53,3 +53,5 @@ The formula for calculating the final transaction fee:
 **Target fee adjustment**: a multiplier that can be adjusted according to network congestion.
 
 **Weight**: the transaction weight.
+
+**Tip**: discretionary amount from senders to speed up their transaction processing.
