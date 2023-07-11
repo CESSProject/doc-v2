@@ -1,2 +1,2 @@
-# 🛡 Role: Consensus Node Validator
+# 🔒 Role: Consensus Node Validator
 
