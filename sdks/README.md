@@ -1,3 +1,3 @@
 # SDKs
 
-- [Go SDK](go)
+- [Go SDK](go.md)
