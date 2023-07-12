@@ -2,7 +2,7 @@
 | ------------- | ------------- |
 | Block | - |
 | Blockchain | - |
-| Bucket <small>(in DeOSS context)</small> | - |
+| Bucket <sub><sup>(in DeOSS context)</sup></sub> | - |
 | Content IDentifier (CID) | - |
 | Continuous Availability Proof of Storage (CAPoS) | - |
 | Data Chunk | - |
