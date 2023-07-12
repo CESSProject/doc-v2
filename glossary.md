@@ -20,6 +20,7 @@
 | Proof of Data Reduplication and Recovery (PoDR²) | - |
 | Proxy Re-encryption Technology (PReT) | - |
 | Random Rotational Selection (R²S) | - |
+| Reputation Rotational Consensus (R²C) | - |
 | Slot | - |
 | Smart Contract | - |
 | Tag | - |
