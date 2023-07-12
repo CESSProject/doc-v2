@@ -15,7 +15,7 @@
 | Hash | - |
 | Merkle Root | - |
 | Multi-format Data Rights Confirmation (MDRC) | - |
-| Object <small>(in DeOSS context)</small> | - |
+| Object <sub>(in DeOSS context)</sub> | - |
 | Peer-to-peer Network | - |
 | Proof of Data Reduplication and Recovery (PoDR²) | - |
 | Proxy Re-encryption Technology (PReT) | - |
