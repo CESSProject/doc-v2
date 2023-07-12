@@ -6,6 +6,8 @@
 
 [Transaction](transaction.md)
 
+[Substrate Runtime](substrate-runtime.md)
+
 [Consensus](consensus.md)
 
 [Randomness](randomness.md)
@@ -14,8 +16,6 @@
 
 [Data Migration](data-migration.md)
 
-[Offchain Worker](offchain-worker.md)
+[Off-chain Worker](off-chain-worker.md)
 
 [Forkless Upgrade](forkless-upgrade.md)
-
-[Runtime](runtime.md)
