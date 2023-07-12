@@ -12,7 +12,7 @@ CESS is also compatible with both EVM and Wasm. The underlying blockchain framew
 
 ### HOW does CESS work?
 
-CESS consists of four layers: the **Blockchain Layer**, **Storage Resource Layer**, **Content Delivery Layer**, and **Application Layer**. CESS consensus mechanism coordinates the network resources and network load. It guarantees data security and integrity through proprietary technologies with data ownership protection, [Proof of Data Reduplication and Recovery (PoDR²), Multi-format Data Rights Confirmation (MDRC), and decentralized proxy re-encryption](#user-content-fn-1)[^1].
+CESS consists of four layers: the **Blockchain Layer**, **Storage Resource Layer**, **Content Delivery Layer**, and **Application Layer**. CESS consensus mechanism coordinates the network resources and network load. It guarantees data security and integrity through proprietary technologies with data ownership protection, Proof of Data Reduplication and Recovery (PoDR²), Multi-format Data Rights Confirmation (MDRC), and Proxy Re-encryption Technology (PReT).
 
 <figure><img src="../assets/introduction/high-level-architecture-01.png" alt="High Level Architecture"><figcaption><p>A high level overview of CESS architecture</p></figcaption></figure>
 
@@ -25,5 +25,3 @@ CESS leverages blockchain technology to ensure the integrity and security of the
 With the increasing concern around data privacy and security, CESS addresses a critical need in today's digital landscape. Traditional storage solutions expose users' data to vulnerabilities and the risk of unauthorized access. By using CESS, users can regain control over their data, knowing that it is encrypted and stored securely. Additionally, CESS promotes decentralization and empowers individuals by removing the reliance on centralized storage providers. The high performance and reliability can also satisfy the enterprise need on storage requirement.
 
 In conclusion, CESS provides a secure and private storage solution for individuals and organizations, enabling them to regain control over their data. By leveraging blockchain technology and advanced encryption, CESS ensures that data remains inaccessible to unauthorized parties. With its decentralized and trustless nature, CESS aligns with the core principles of blockchain and empowers users to protect their data in an increasingly digital world.
-
-[^1]: Each of these phrases need a special page (Technical Highlight) or footnote to further elaborate.
