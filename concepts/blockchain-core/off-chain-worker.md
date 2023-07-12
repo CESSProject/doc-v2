@@ -14,7 +14,7 @@ To make the off-chain data integration more secure and more efficient, Substrate
 
 However, it should be noted that the execution of Off-chain Workers requires additional computer resources. If multiple Off-chain Workers are running unreasonably, it may cause the computer to stop operation.
 
-# Off-chain Workers
+# Off-chain Worker
 
 Off-chain features run in their own Wasm execution environment outside of the Substrate runtime. This separation of concerns ensures that block production is not impacted by long-running off-chain tasks. However, as the off-chain features are declared in the same code as the runtime, they can easily access on-chain state for their computations.
 
