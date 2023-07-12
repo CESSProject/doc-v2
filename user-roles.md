@@ -14,10 +14,10 @@ There are five type of roles involved in the CESS ecosystem that keep the CESS n
 
     [👉 Documentation for dApp Developers](developer/README.md)
 
-4. **Storage Node Validator**: They run storage nodes in CESS network to provide storage space for users.
+4. **Storage Node Validators**: They run storage nodes in CESS network to provide storage space for users.
 
     [👉 Documentation for Storage Node Validators](storage-node/README.md)
 
-5. **Consensus Node validator**: They run the CESS blockchain nodes in CESS network to secure the network and participate in the blockchain consensus process.
+5. **Consensus Node validators**: They run the CESS blockchain nodes in CESS network to secure the network and participate in the blockchain consensus process.
 
     [👉 Documentation for Consensus Node Validators](consensus-node/README.md)
