@@ -42,4 +42,4 @@ Data indexing and Decentralized Content Delivery Network support (DCDN) are used
 Launch in future
 {% endhint %}
 
-Data ownership can be verified with **Multiformat Data Rights Confirmation technology (MDRC)**. This protocol extracts fingerprint from all data and permanently stores them on-chain, in smart contracts, for traceability.
+Data ownership can be verified with **Multi-format Data Rights Confirmation technology (MDRC)**. This protocol extracts fingerprint from all data and permanently stores them on-chain, in smart contracts, for traceability.

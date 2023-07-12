@@ -20,7 +20,6 @@
     * [Data Migration](concepts/blockchain-core/data-migration.md)
     * [Off-chain Worker](concepts/blockchain-core/off-chain-worker.md)
     * [Forkless Upgrade](concepts/blockchain-core/forkless-upgrade.md)
-  * [Protocol Terminology](concepts/protocol-terminology.md)
 * [👥 User Roles](user-roles.md)
 * [🌏 Role: Community Member](community/README.md)
   * [CESS Account Management](community/cess-account-management.md)
