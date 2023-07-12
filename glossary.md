@@ -2,7 +2,7 @@
 | ------------- | ------------- |
 | Block | - |
 | Blockchain | - |
-| Bucket <sub><sup>(in DeOSS context)</sup></sub> | - |
+| Bucket <p>_(in DeOSS context)_</p> | - |
 | Content IDentifier (CID) | - |
 | Continuous Availability Proof of Storage (CAPoS) | - |
 | Data Chunk | - |
@@ -15,7 +15,7 @@
 | Hash | - |
 | Merkle Root | - |
 | Multi-format Data Rights Confirmation (MDRC) | - |
-| Object <figure><p>(in DeOSS context)</p></figure> | - |
+| Object <p>_(in DeOSS context)_</p> | - |
 | Peer-to-peer Network | - |
 | Proof of Data Reduplication and Recovery (PoDR²) | - |
 | Proxy Re-encryption Technology (PReT) | - |
