@@ -22,7 +22,7 @@ There are a few tracks you can apply for in the ambassador program.
 
     * Educate new CESS miners and answer their basic inquiries.
 
-    * Contribute to CESS [platform documentation](#)
+    * Contribute to CESS [platform documentation](#).
 
 3. **Content Track**
 
