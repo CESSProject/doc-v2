@@ -1,8 +1,6 @@
-# CESS Account Management
+# CESS Account
 
-What is CESS Account?
-
-The CESS account hold the user’s assets in CESS Network. Please keep the account mnemonic seeds and backup files **private** and **securely**. Users may lose the assets in the account forever if this information is compromised.
+CESS account holds the user’s assets in CESS Network. Please keep the account mnemonic seeds and backup files **private** and **securely**. Users may lose the assets in the account forever if this information is compromised.
 
 The following illustrate two ways to create a CESS account.
 
