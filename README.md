@@ -1,6 +1,6 @@
 # 🗂 Introduction
 
-Welcome to **Cumulus Encrypted Storage System** (CESS) documentation portal. CESS is the first full-stack decentralized storage solution that support large-scale enterprises.&#x20;
+Welcome to **Cumulus Encrypted Storage System** (CESS) documentation portal. CESS is the first full-stack decentralized storage solution that support large-scale enterprises.
 
 Here, we provide a [high level overview on CESS](introduction/what-is-cess.md), its [technical highlight](introduction/technical-highlight.md), and [a few use cases](introduction/use-cases.md) on using CESS.
 
