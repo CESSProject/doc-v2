@@ -4,7 +4,7 @@
 
 The **Proof of Data Reduplication and Recovery (PoDR²)** protocol is designed to ensure the validity and availability of stored data by continuously challenging storage nodes. To prevent data loss and maintain data integrity in any situation, such as when storage nodes are offline or leaving the network, data fragments are stored redundantly.
 
-## 2. Smart Space Verification (on Storage Node)
+## 2. Smart Space Management (on Storage Node)
 
 **Continuous Availability Proof of Storage (CAPoS)** is implemented to utilize all available storage space scattered throughout the network. This cryptographic algorithm regularly verifies the authenticity and availability of data through interactively audit responses without retrieving the data. Our storage node client also performs regular check on disk status and storage space, cleaning up invalid data to maximize storage resources.
 
