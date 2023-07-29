@@ -26,10 +26,7 @@ As a decentralized cloud storage system with a tremendous amount of storage reso
 
 ## 5. Decentralized Data Marketplace
 
-CESS offers two types of smart contracts to users with different pricing models. When users
-upload data files, they get to choose its values. CESS generates data file attributes based on user inputs. The data attributes include pricing model type, access control list, etc... Data
-attributes are published together with user data. Whenever a data file is retrieved, based on data file
-attributes, the system checks if the accessors have permission to retrieve the files. If yes, the system will issue charges to buyers based on data file pricing models, and then start the data download.
+CESS offers two types of smart contracts to users with different pricing models. When users upload data files, they get to choose its values. CESS generates data file attributes based on user inputs. The data attributes include pricing model type, access control list, etc. Data attributes are published together with user data. Whenever a data file is retrieved, based on data file attributes, the system checks if the accessors have permission to retrieve the files. If yes, the system will issue charges to buyers based on data file pricing models, and then start the data download.
 
 On CESS platform, all data file retrieval records are recorded on blockchain and hence are backward traceable. The CESS data rights protection mechanism maintains a recording module to allow users to view their data file retrieval records, providing strong evidence for user data rights protection.
 
