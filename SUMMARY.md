@@ -26,7 +26,6 @@
   * [Token and Governance Models](community/governance.md)
   * [CESS Account](community/cess-account.md)
 * [🔥 Role: Storage (dApp) Users](user/README.md)
-  * [Basics](user/basics.md)
 * [💻 Role: dApp Developers](developer/README.md)
   * [Tutorials](developer/tutorials/README.md)
     * [Building a golang App](developer/tutorials/building-a-golang-app.md)
