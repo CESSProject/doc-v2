@@ -22,7 +22,7 @@ Please refer to the [official documentation](https://docs.docker.com/engine/inst
 ### Firewall Configuration
 
 {% hint style="info" %}
-**Info hints** The following commands are executed with root privileges. If error messages of `permission denied` appear, switch to root privilege or add `sudo` at the beginning of these commands.
+The following commands are executed with root privileges. If error messages of `permission denied` appear, switch to root privilege or add `sudo` at the beginning of these commands.
 {% endhint %}
 
 By default, cess-bucket uses port 4001 to listen for incoming connections, if your platform blocks the port by default, you may need to enable the access to the port.
@@ -33,7 +33,7 @@ ufw allow 4001
 
 ### Disk Mounting
 
-Check the hard disk status using the df -h command:
+Check the hard disk status using the `df -h` command:
 
 ```bash
 $ df -h
@@ -86,7 +86,7 @@ mkdir /cess
 echo "/dev/vdb /cess ext4 defaults 0 0" >> /etc/fstab
 ```
 
-Replace /dev/vdb with your own disk name. /cess has to remain the same as created in the previous step. If you are not under root privileges, try: `echo "/dev/vdb /cess ext4 defaults 0 0" | sudo tee -a /etc/fstab`
+Replace /dev/vdb with your own disk name. /cess has to remain the same as created in the previous step. If you are not under root privileges, try: <br/>`echo "/dev/vdb /cess ext4 defaults 0 0" | sudo tee -a /etc/fstab`
 
 Mount `/cess`:
 
@@ -121,14 +121,14 @@ cd cess-nodeadm-0.3.3/
 ```
 
 {% hint style="info" %}
-Check the [most updated version of `cess-nodeadm`](https://github.com/CESSProject/cess-nodeadm/tags). Currently it is **v0.3.3**.
+Check that you are using [the most updated version](https://github.com/CESSProject/cess-nodeadm/tags) of `cess-nodeadm`. Currently it is **v0.3.3**.
 {% endhint %}
 
 If a message `Install cess nodeadm success` shows up, the installation is successful.
 
 If the installation fails, please check the [troubleshoot procedures](./troubleshooting.md).
 
-## Config the Client
+## Configure CESS Client
 
 Run `cess config set`
 
@@ -175,7 +175,7 @@ Only when the chain synchronization is completed can you operate other functions
 docker logs bucket
 ```
 
-As shown in the figure below, seeing /kldr-testnet indicates that the network environment is a test network, and seeing Connected to the bootstrap node indicates that there is a connection to the bootstrap node.
+As shown in the figure below, seeing `/kldr-testnet` indicates that the network environment is a test network, and seeing `Connected to the bootstrap node...` indicates that there is a connection to the bootstrap node.
 
 ![Storage Node Log](../assets/storage-node/running/view-node-log.webp)
 
@@ -245,7 +245,7 @@ Please use this command carefully. Once you exit, you cannot resume.
 cess bucket exit
 ```
 
-## Upgrade Client
+## Upgrade CESS Client
 
 **Stop and remove all services**
 
