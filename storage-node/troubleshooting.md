@@ -2,6 +2,7 @@
 
 <details>
   <summary>Unable to download docker image</summary>
+
   During the installation process, docker is used to download cess image. If the following exception occurs when installing the <pre>cess-nodeadm</pre>:
 
   ![Docker Daemon Issue](../assets/storage-node/troubleshooting/docker-daemon-issue.png)
