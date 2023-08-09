@@ -86,8 +86,7 @@ mkdir /cess
 echo "/dev/vdb /cess ext4 defaults 0 0" >> /etc/fstab
 ```
 
-> replace /dev/vdb with your own disk name. /cess has to remain the same as created in the previous step. If you are not under root privileges, try:
-> `echo "/dev/vdb /cess ext4 defaults 0 0" | sudo tee -a /etc/fstab`
+Replace /dev/vdb with your own disk name. /cess has to remain the same as created in the previous step. If you are not under root privileges, try: `echo "/dev/vdb /cess ext4 defaults 0 0" | sudo tee -a /etc/fstab`
 
 Mount `/cess`:
 
@@ -107,8 +106,8 @@ If `/cess` appers, the disk has been successfully mounted.
 
 Miners need to create two wallet accounts.
 
-- Earning account: Used for receiving rewards from mining.
-- Staking account: Used for staking and signing blockchain transactions.
+- **Earning Account**: Used for receiving rewards from mining.
+- **Staking Account**: Used for staking and signing blockchain transactions.
 
 Please refer to the [CESS Account](../community/cess-account.md) for creating a CESS account, goto [CESS faucet](https://cess.cloud/faucet.html) to get TCESS, or [contact us](../introduction/contact.md) to get assistance.
 
@@ -156,9 +155,9 @@ $ cess start
  ✔ Container watchtower  Running                                                0.0s
 ```
 
-## Check CESS Chain Sync Status
+## Common Operations
 
-View the chain node log
+**Check CESS chain sync status**
 
 ```bash
 docker logs chain
@@ -169,8 +168,6 @@ As shown in the figure below, if we see that the height of the block correspondi
 ![CESS Blockchain Synchronization Completed](../assets/storage-node/running/sync-status.png)
 
 Only when the chain synchronization is completed can you operate other functions such as increase the staking, view the status of the node, etc.
-
-## Common Operations
 
 **View the storage node log**
 
@@ -192,7 +189,7 @@ An example of the returned results is shown below：
 
 ![CESS Bucket Stat](../assets/storage-node/running/bucket-stat.png)
 
-Refer to the [Glossary](../glossary.md) on the names above.
+Refer to the [Glossary](../glossary.md#storage-miner) on the names above.
 
 **Increase staking**
 
@@ -240,8 +237,8 @@ cess bucket update earnings [earnings account]
 
 **Exit CESS network**
 
-{% hint style="warning" %}
-**Warning hints** Please use this command carefully. Once you exit, you cannot resume.
+{% hint style="danger" %}
+Please use this command carefully. Once you exit, you cannot resume.
 {% endhint %}
 
 ```bash
