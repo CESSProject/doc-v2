@@ -1,5 +1,3 @@
-# Running a Storage Node
-
 ## Server Requirement
 
 The recommended requirement of a storage server:
@@ -257,7 +255,7 @@ cess down
 **Remove all chain data**
 
 {% hint style="warning" %}
-**Warning hints** Do not perform this operation unless the CESS network has been redeployed and it is confirmed that the data can be cleared.
+Do not perform this operation unless the CESS network has been redeployed and it is confirmed that the data can be cleared.
 {% endhint %}
 
 ```bash

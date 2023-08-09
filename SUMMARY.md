@@ -40,7 +40,7 @@
   * [⚙ APIs](developer/apis.md)
 * [🛡 Role: Storage Node Validators](storage-node/README.md)
   * [Running a Storage Node](storage-node/running.md)
-  * [Troubleshooting Client Installation](storage-node/troubleshooting.md)
+  * [Troubleshooting Client](storage-node/troubleshooting.md)
   * [Reward Mechanism](storage-node/reward.md)
 * [🔒 Role: Consensus Node Validators](consensus-node/README.md)
   * [Running a Consensus Node](consensus-node/running.md)
