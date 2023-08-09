@@ -1,4 +1,4 @@
-## Server Requirement
+# Server Requirement
 
 The recommended requirement of a storage server:
 
@@ -11,13 +11,13 @@ The recommended requirement of a storage server:
 | Public Network IP | required |
 | Linux Kernel Version | 5.11 or higher |
 
-## Server Preparation
+# Server Preparation
 
-### Install Docker
+## Install Docker
 
 Please refer to the [official documentation](https://docs.docker.com/engine/install/) for Docker installation.
 
-### Firewall Configuration
+## Firewall Configuration
 
 {% hint style="info" %}
 The following commands are executed with root privileges. If error messages of `permission denied` appear, switch to root privilege or add `sudo` at the beginning of these commands.
@@ -29,7 +29,7 @@ By default, cess-bucket uses port 4001 to listen for incoming connections, if yo
 ufw allow 4001
 ```
 
-### Disk Mounting
+## Disk Mounting
 
 Check the hard disk status using the `df -h` command:
 
@@ -100,7 +100,7 @@ df -h
 
 If `/cess` appers, the disk has been successfully mounted.
 
-### Prepare CESS Accounts
+## Prepare CESS Accounts
 
 Miners need to create two wallet accounts.
 
@@ -109,7 +109,7 @@ Miners need to create two wallet accounts.
 
 Please refer to the [CESS Account](../community/cess-account.md) for creating a CESS account, goto [CESS faucet](https://cess.cloud/faucet.html) to get TCESS, or [contact us](../introduction/contact.md) to get assistance.
 
-## Install `cess-nodeadm`
+# Install CESS Client
 
 ```bash
 wget https://github.com/CESSProject/cess-nodeadm/archive/v0.3.3.tar.gz
@@ -126,7 +126,7 @@ If a message `Install cess nodeadm success` shows up, the installation is succes
 
 If the installation fails, please check the [troubleshoot procedures](./troubleshooting.md).
 
-## Configure CESS Client
+# Configure CESS Client
 
 Run `cess config set`
 
@@ -153,7 +153,7 @@ $ cess start
  ✔ Container watchtower  Running                                                0.0s
 ```
 
-## Common Operations
+# Common Operations
 
 **Check CESS chain sync status**
 
@@ -243,7 +243,7 @@ Please use this command carefully. Once you exit, you cannot resume.
 cess bucket exit
 ```
 
-## Upgrade CESS Client
+# Upgrade CESS Client
 
 **Stop and remove all services**
 
