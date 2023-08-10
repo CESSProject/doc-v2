@@ -59,7 +59,8 @@
 
   <img alt="CESS Image Download Issue" src="../assets/storage-node/troubleshooting/cess-image-download-issue.png" width="100%" height="auto" decoding="async" style="max-width: 100%;" />
 
-  Make sure to run commands in the root privilege or with <pre>sudo</pre> command.
+  Make sure to run commands in the root privilege or with `sudo` command.
+
   Try `cess config set` command.
 </details>
 
@@ -74,7 +75,7 @@
   sudo rm /usr/bin/yq
   ```
 
-  Reinstall <pre>cess-nodeadm</pre> again:
+  Reinstall `cess-nodeadm` again:
 
   ```bash
   ./install.sh
