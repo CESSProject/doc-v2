@@ -46,6 +46,6 @@
   * [Running a Consensus Node](consensus-node/running.md)
   * [Reward Mechanism](consensus-node/reward.md)
 * [📚 Reference](ref/README.md)
-  * [Lifecycle of User Files](ref/lifecycle-user-files.md)
+  * [User File Life Cycle](ref/user-file-lifecycle.md)
   * [Reputation Rotational Consensus](ref/rrc.md)
 * [📖 Glossary](glossary.md)
