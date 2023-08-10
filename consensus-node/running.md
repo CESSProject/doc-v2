@@ -16,11 +16,11 @@ The recommended requirement of a consensus server:
 
 ### SGX Enabled
 
-The CPU must support SGX (Software Guard Extensions) technology and FLC (Flexible Launch Control). The BIOS must support Intel SGX, and must enable the Intel SGX option. Please refer to the server manufacturer's BIOS guide to enable SGX functionality. Check out [CPU models that support SGX](https://ark.intel.com/content/www/us/en/ark/search/featurefilter.html?productType=873&2_SoftwareGuardExtensions=Yes). They can be either Intel ME, Intel SPS, or both Intel SPS and Intel ME.
+The CPU must support SGX (Software Guard Extensions) technology and FLC (Flexible Launch Control). The BIOS must support Intel SGX, and must enable the Intel SGX option. Please refer to the server manufacturer's BIOS guide to enable SGX functionality. Check out [CPU models that support SGX](https://ark.intel.com/content/www/us/en/ark/search/featurefilter.html?productType=873&2_SoftwareGuardExtensions=Yes). They can be either *Intel ME*, *Intel SPS*, or *both Intel SPS and Intel ME*.
 
 ### Fixed Public IP
 
-The machine must use a fixed public network IP. The traffic exit must be in the same network segment as the fixed public network IP. Execute the following command to confirm they are in the same network segment.
+The machine must use a fixed public network IP. The traffic exit must be in the same network segment as the IP. Execute the following command to confirm they are in the same network segment.
 
 ```bash
 curl ifconfig.co
@@ -47,7 +47,7 @@ Choose **Network**, click **Staking** > **Accounts** > **Stash**
 
 Select both **Stash Account** and **Controller Account**.
 
-Value bonded: 300,000 TCESS is recommended to select the second option Stash Account as the reward receiving account (do not increase the amount at stake), which means that mining income will not automatically added to staking.
+Value bonded: 300,000 TCESS is recommended. In *payment destination*, select the second option **Stash Account as the reward receiving account (do not increase the amount at stake)**, which means that mining income will not automatically added to staking.
 
 ![Bond Fund](../assets/consensus-node/running/acct-prep-02.webp)
 
@@ -128,7 +128,7 @@ pull images finished
 
 If the configuration process fails, please refer to the [troubleshooting guideline](../storage-node/troubleshooting.md).
 
-# Validator Life Cycle
+# Manage Validator Life Cycle
 
 ## Becoming a Validator
 
@@ -185,7 +185,7 @@ If the configuration process fails, please refer to the [troubleshooting guideli
 
     You should see that the node has already appeared on the candidate node list.
 
-## Rewards Redemption
+## Redeeming Rewards
 
 Navigate to CESS Explorer: **Network** > **Staking** > **Payouts** > **Payout**.
 
@@ -199,17 +199,17 @@ In Payouts, click **Payout** to initiate a payment. Any account can initiate a p
 Please claim the reward within 84 era (each era of the test network is 6 hours), which is 21 days. Those who hasn't claimed the reward in this period will not be able to claim it.
 {% endhint %}
 
-## Consensus Validation Exit
+## Exiting Consensus Validation
 
 1. Stop the Consensus
 
-    Navigate to [CESS Explorer](https://testnet.cess.cloud): **Network > Staking > Account Actions > Stop**.
+    In [CESS Explorer](https://testnet.cess.cloud), navigate to: **Network > Staking > Account Actions > Stop**.
 
     ![Exiting-01](../assets/consensus-node/running/exiting-01.png)
 
 2. Clear Session Keys
 
-    In the [CESS Explorer](https://testnet.cess.cloud): **Developer -> Submission**
+    In [CESS Explorer](https://testnet.cess.cloud), navigate to: **Developer -> Submission**
 
     ![Exiting-02](../assets/consensus-node/running/exiting-02.png)
 
@@ -221,13 +221,13 @@ Please claim the reward within 84 era (each era of the test network is 6 hours),
 
     ![Exiting-04](../assets/consensus-node/running/exiting-04.png)
 
-## Stake Redemption
+## Redeeming the Stake
 
 1. Unbond fund
 
     After 28 Eras(each era of the test network is 6 hours), do the following:
 
-    Goto [CESS Explorer](https://testnet.cess.cloud/): **Network > Staking > Account Actions > Unbond Funds**.
+    In [CESS Explorer](https://testnet.cess.cloud/), navigate to: **Network > Staking > Account Actions > Unbond Funds**.
 
     ![Staking 01](../assets/consensus-node/running/staking-01.png)
 
