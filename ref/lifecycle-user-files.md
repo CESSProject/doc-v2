@@ -1,2 +1,0 @@
-# Lifecycle of User Files
-
