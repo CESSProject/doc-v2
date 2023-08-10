@@ -64,7 +64,7 @@
 </details>
 
 <details>
-  <summary>Invalid config file <pre>Config.yaml</pre></summary>
+  <summary>Invalid config file (config.yaml)</summary>
 
   <img alt="Invalid Config Issue" src="../assets/storage-node/troubleshooting/invalid-config-issue.webp" width="100%" height="auto" decoding="async" style="max-width: 100%;" />
 
