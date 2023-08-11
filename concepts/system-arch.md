@@ -6,17 +6,17 @@ As shown below, CESS adopts a layered and loosely coupled system architecture, w
 
 ![Layered-system architecture](../assets/concepts/system-architecture/layered-system-architecture.png)
 
-Among them, the blockchain layer provides blockchain service of the entire CESS network, including encouraging unused storage resources and computational resources to join the CESS network to provide data storage, data rights confirmation and other services for the application layer. The distributed storage resource layer uses virtualization technology to realize the integration and pooling of storage resources. The infrastructure here consists of storage capacity miners and storage scheduling miners. The distributed content delivery layer uses content caching technology to achieve fast delivery of stored data, which is composed of data index miners and data delivery miners. The application layer provides API/SDK tools for developer to access the underlying data storage service, blockchain service, network drive service, etc.
+Among them, the blockchain layer provides blockchain service of the entire CESS network, including encouraging unused storage resources and computational resources to join the CESS network to provide data storage, data rights confirmation and other services for the application layer. The distributed storage resource layer uses virtualization technology to realize the integration and pooling of storage resources. The infrastructure here consists of storage miners and consensus miners. The distributed content delivery layer uses content caching technology to achieve fast delivery of stored data, which is composed of cache miners and retrieval miners. The application layer provides API/SDK tools for developer to access the underlying data storage service, blockchain service, network drive service, etc.
 
 ## Blockchain Layer
 
 In addition to incentivize unused computing resources and storage resources to join the CESS storage network, it also provides efficient blockchain services. CESS proposes a novel Random Rotational Selection(R²S) consensus mechanism, together with asynchronous Byzantine consensus algorithm, as well as Turing's complete smart contract and cross-chain interoperability capability.
 
-In fact this blockchain layer is further [analysed here](blockchain-layer-architecture.md).
+In fact this blockchain layer is further [analysed here](blockchain-arch.md).
 
 ## Distributed Storage Resource Layer
 
-This is the most critical hardware infrastructure layer of the entire CESS network. It manages storage resources contributed by miners around the world, for example, unused or under-utilized servers/desktops/laptops, to build a massive-scale data storage network. This part is composed of storage scheduling nodes/miners and storage capacity nodes/miners. Storage scheduling nodes store meta-data and provide fast data indexing, while storage capacity nodes provide data storage space.
+This is the most critical hardware infrastructure layer of the entire CESS network. It manages storage resources contributed by miners around the world, for example, unused or under-utilized servers/desktops/laptops, to build a massive-scale data storage network. This part is composed of consensus miners and storage miners. Consensus nodes store meta-data and provide fast data indexing, while storage nodes provide data storage space.
 
 CESS is designed to build a blockchain-based distributed cloud storage system. The focus is on providing consistent and efficient distributed storage services to clients by effectively managing distributed resources using virtualization technology. CESS utilizes global resources and enables users to access the data network in undifferentiated manner through distributed identity information. In terms of implementation, CESS constructs two types of infrastructure nodes: distributed cloud storage nodes and distributed content delivery nodes. The distributed cloud storage network provides massive, reliable, and scalable cloud storage; while the distributed content delivery network delivers data according to user geographic locations for fast access.
 
