@@ -20,6 +20,7 @@
     * [Data Migration](concepts/blockchain-core/data-migration.md)
     * [Off-chain Worker](concepts/blockchain-core/off-chain-worker.md)
     * [Forkless Upgrade](concepts/blockchain-core/forkless-upgrade.md)
+  * [Node Roles](concepts/node-roles.md)
 * [👥 User Roles](user-roles.md)
 * [🌏 Role: Community Members](community/README.md)
   * [Ambassador Program](community/ambassador.md)
