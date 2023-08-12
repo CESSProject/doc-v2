@@ -4,7 +4,7 @@ CESS offers large-scale storage capacity, managing billions of data files with u
 
 As shown below, CESS adopts a layered and loosely coupled system architecture, divided into **Blockchain Layer**, **Distributed Storage Resource Layer**, **Distributed Content Delivery Layer**, and **Application Layer**.
 
-![Layered-system architecture](../assets/concepts/system-architecture/layered-system-architecture.png)
+![CESS Layered Architecture](../assets/concepts/system-architecture/layered-system-architecture.png)
 
 The **Blockchain Layer** serves as the distributed ledger for the entire CESS network, encouraging unused storage resources and computational resources to join the CESS network to provide data storage, data rights confirmation, and other services for the application layer. The **Distributed Storage Resource Layer** uses virtualization technology to realize the integration and pooling of storage resources. The infrastructure here consists of storage miners and consensus miners. The **Distributed Content Delivery Layer** uses content caching technology to achieve fast delivery of stored data, which is composed of cache miners and retrieval miners. The application layer provides API/SDK tools for developers to access the underlying data storage service, blockchain service, network drive service, etc.
 
@@ -55,4 +55,4 @@ As shown in the following diagram, the logical architecture consists of two main
 - **Blockchain Explorer**: An interface that displays block information, transaction details, computing power information, account information, etc.
 - **Applications**: This includes Decentralized Object Storage Service (DeOSS), object storage service developed by the CESS core team, and applications built by other ecosystem teams.
 
-![Logical structure](../assets/concepts/system-architecture/logical-structure.png)
+![Logical Architecture](../assets/concepts/system-architecture/logical-structure.png)
