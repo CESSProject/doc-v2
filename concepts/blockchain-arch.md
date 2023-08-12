@@ -44,6 +44,8 @@ The CESS network has two types of consensus nodes: **on-duty consensus nodes** a
 
 CESS's primary system resources are storage and network resources. Miners can provide these two types of resources when joining the CESS network. The network will reward the miners with CESS tokens according to their contributions to the network. CESS has an algorithm to calculate each miner's contribution to the network. The comprehensive algorithm considers the factors of miners' storage capacity, network bandwidth, and node configuration to calculate an overall node score and, thus, the rewards in the form of CESS tokens.
 
+# Distributed Nature of CESS
+
 CESS tokens are distributed in the following ways:
 
 **Storage**: Storage Miners with storage capacity join the network to earn tokens proportional to their bandwidth and storage capacity.
