@@ -48,7 +48,7 @@ Slash Computation:
 
 $$StorageSpace = IdleSpace + ServiceSpace$$
 
-$$SlashLimit = 1000 CESS/TB * StorageSpace \small(in TB, round up to integer)$$
+$$SlashLimit = 1000 \text{\small{CESS/TB}} * StorageSpace \text{\small{(in TB, round up to integer)}}$$
 
 That means the storage is counted as 1TB even if less than that. If the idle space fails to be verified twice consecutively, the slashing amount is **Slash Limit * 10%**. If both the idle and service spaces failed to be verified twice consecutively, slash for **Slash Limit * 25%**.
 
