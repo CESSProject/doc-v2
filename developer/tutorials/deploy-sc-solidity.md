@@ -18,9 +18,9 @@ On **Add a network manually** page, enter the following details:
 
 - Network Name: **CESS Testnet**
 - New RPC URL:
-   - https://testnet-rpc0.cess.cloud/ws/
-   - https://testnet-rpc1.cess.cloud/ws/
-   - https://testnet-rpc2.cess.cloud/ws/
+   - <https://testnet-rpc0.cess.cloud/ws/>
+   - <https://testnet-rpc1.cess.cloud/ws/>
+   - <https://testnet-rpc2.cess.cloud/ws/>
 - Chain ID: **11330**
 - Currency Symbol: **MTCESS**
 
@@ -94,8 +94,14 @@ Copy the Ethereum equivalent address and use MetaMask to transfer fund.
 
 <table>
   <tr>
-    <td><img src="../../assets/developer/tutorials/deploy-sc-solidity/14.png" alt="deploy-sc-solidity-14"/></td>
-    <td><img src="../../assets/developer/tutorials/deploy-sc-solidity/15.png" alt="deploy-sc-solidity-15"/></td>
+    <td>
+      <img src="../../assets/developer/tutorials/deploy-sc-solidity/14.png" alt="deploy-sc-solidity-14"/>
+      <br/>Transfer Fund in Metamask 1
+    </td>
+    <td>
+      <img src="../../assets/developer/tutorials/deploy-sc-solidity/15.png" alt="deploy-sc-solidity-15"/>
+      <br/>Transfer Fund in Metamask 2
+    </td>
   </tr>
 </table>
 
