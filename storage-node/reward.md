@@ -24,7 +24,7 @@ The reward of a storage miner in *k-th* round is determined based on:
 
 $$StoragePower_k = IdleSpace_k * 0.3 + ServiceSpace_k * 0.7$$
 
-$$RewardOrder_k = TotalReward_k * {StoragePower_k \over TotalStoragePower_k}$$
+$$RewardOrder_k = TotalReward_k * \cfrac{StoragePower_k}{TotalStoragePower_k}$$
 
 Reward order is the reward for the storage miner in that round. Once the reward is determined, 40% of the reward order is distributed right away and the rest is distributed in the subsequent sixty rounds, each time 1/60 of the remaining amount.
 
@@ -38,3 +38,20 @@ Once a miner's reward is computed, it is stored in an aggregated pool. Miners ne
 
 # Slashing
 
+Storage miners could be slashed if the following situations occurred, with their staked assets being deducted. The slashing amount depends on the slashing type and the storage miner's total idle and service spaces. There are two types of slashings: clearance slashing and proving slashing.
+
+## Proving Slashes
+
+The storage miner is being challenged twice. If the miner couldn't pass the verification of a TEE worker, it would receive a proving slash.
+
+Slash Computation:
+
+$$StorageSpace = IdleSpace + ServiceSpace$$
+
+$$SlashLimit = 1000 CESS/TB * StorageSpace \small(in TB, round up to integer)$$
+
+That means the storage is counted as 1TB even if less than that. If the idle space fails to be verified twice consecutively, the slashing amount is **Slash Limit * 10%**. If both the idle and service spaces failed to be verified twice consecutively, slash for **Slash Limit * 25%**.
+
+## Clearance Slashes
+
+If a miner cannot complete a storage challenge, it will be slashed. Failing the storage challenge once, **Slash Limit * 30%** will be deducted; failing twice consecutively, **Slash Limit * 50%**; failing the third time consecutively, **Slash Limit * 100%** will be deducted with the remaining staked amount returned, and ejected from the storage nodes set.
