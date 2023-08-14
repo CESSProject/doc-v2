@@ -32,7 +32,7 @@ The formula for calculating the penalty due to no response is as follows:
 
 **Let x = number of offenders, n = total no. of validators in the active set**
 
-$$min (\cfrac{(3 * ( x - (\frac{n}{10} + 1)))}{n}, 1) * 0.07$$
+$$\boxed{min (\cfrac{3 * (x - (\frac{n}{10} + 1))}{n}, 1) * 0.07}$$
 
 ## Ambiguity
 
@@ -43,8 +43,7 @@ Both GRANDPA and BABE ambiguities use the same formula to calculate the penaltie
 
 **Let x = number of offenders, n = total no. of validators in the active set**
 
-$$min((3 * \frac{x}{n})^2, 1)$$
-
+$$\boxed{min((\cfrac{3 * x}{n})^2, 1)}$$
 
 Miners can run nodes on multiple computers to ensure that they can continue their validation work even if one of the nodes fails. However, mining operators should exercise caution when setting up these nodes. If they do not coordinate well in managing the signing machines, ambiguities may occur, and the penalty rate for ambiguous violations is higher than that for similar offline violations.
 
