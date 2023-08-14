@@ -24,15 +24,15 @@ The reward of a storage miner in *k-th* round is determined based on:
 
 $$StoragePower_k = IdleSpace_k * 0.3 + ServiceSpace_k * 0.7$$
 
-$$RewardOrder_k = TotalReward_k * (StoragePower_k / TotalStoragePower_k)$$
+$$RewardOrder_k = TotalReward_k * {StoragePower_k \over TotalStoragePower_k}$$
 
 Reward order is the reward for the storage miner in that round. Once the reward is determined, 40% of the reward order is distributed right away and the rest is distributed in the subsequent sixty rounds, each time 1/60 of the remaining amount.
 
 The available reward for a storage miner in *k-th* round is computed below:
 
-$$AvailableReward_k = (RewardOrder_k * 40\%) + \sum_{t=k-59}^k \frac{RewardOrder_t}{60}$$
+$$AvailableReward_k = (RewardOrder_k * 40\%) + \sum_{t=k-60}^{k-1} \cfrac{RewardOrder_t}{60}$$
 
-A reward order will be removed after fully distributed. So a storage miner can receive rewards from at most 60 orders.
+A reward order will be removed after fully distributed. So a storage miner can receive rewards from at most 61 orders.
 
 Once a miner's reward is computed, it is stored in an aggregated pool. Miners need to send a transaction to retrieve the reward. They can choose to wait and retrieve the reward later in one go to save transaction fees.
 
