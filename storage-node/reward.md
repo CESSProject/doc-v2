@@ -17,10 +17,10 @@ Origin of the prize pool:
 
 The reward of a storage miner in *k-th* round is determined based on:
 
-- *total reward*: the total reward across the CESS network in *k-th* round.
-- *service space*: the utilized space of the storage miner in *k-th* round.
-- *idle space*: the idle space of the storage miner in *k-th* round.
-- *total storage power*: sum of all storage miner power in *k-th* round.
+- *TotalReward*: the total reward across the CESS network in *k-th* round.
+- *ServiceSpace*: the utilized space of the storage miner in *k-th* round.
+- *IdleSpace*: the idle space of the storage miner in *k-th* round.
+- *TotalStoragePower*: sum of all storage miner power in *k-th* round.
 
 $$StoragePower_k = IdleSpace_k * 0.3 + ServiceSpace_k * 0.7$$
 
@@ -48,10 +48,10 @@ Slash Computation:
 
 $$StorageSpace = IdleSpace + ServiceSpace$$
 
-$$SlashLimit = 1000 \text{\small{CESS/TB}} * StorageSpace \text{\small{(in TB, round up to integer)}}$$
+$$SlashLimit = 1000\text{ \small{CESS/TB}} * StorageSpace\text{ \small{(in TB, round up to integer)}}$$
 
 That means the storage is counted as 1TB even if less than that. If the idle space fails to be verified twice consecutively, the slashing amount is **Slash Limit * 10%**. If both the idle and service spaces failed to be verified twice consecutively, slash for **Slash Limit * 25%**.
 
 ## Clearance Slashes
 
-If a miner cannot complete a storage challenge, it will be slashed. Failing the storage challenge once, **Slash Limit * 30%** will be deducted; failing twice consecutively, **Slash Limit * 50%**; failing the third time consecutively, **Slash Limit * 100%** will be deducted with the remaining staked amount returned, and ejected from the storage nodes set.
+If a miner cannot complete a storage challenge, it will be slashed. Failing the storage challenge once, **Slash Limit * 30%** will be deducted; failing twice consecutively, **Slash Limit * 50%**; failing the third time consecutively, **Slash Limit * 100%** will be deducted with the remaining staked amount returned and the node ejected from the storage node set.
