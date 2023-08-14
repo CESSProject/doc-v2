@@ -29,7 +29,7 @@
 * [🔥 Role: Storage (dApp) Users](user/README.md)
 * [💻 Role: dApp Developers](developer/README.md)
   * [Tutorials](developer/tutorials/README.md)
-    * [Build a golang App](developer/tutorials/building-a-golang-app.md)
+    * [Build a golang App](developer/tutorials/build-golang-app.md)
     * [Deploy an ink! Smart Contract](developer/tutorials/deploy-sc-ink.md)
     * [Deploy a Solidity Smart Contract](developer/tutorials/deploy-sc-solidity.md)
   * [Guides](developer/guides/README.md)
