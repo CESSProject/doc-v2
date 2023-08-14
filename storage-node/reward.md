@@ -22,15 +22,15 @@ The reward of a storage miner in *k-th* round is determined based on:
 - *IdleSpace*: the idle space of the storage miner in *k-th* round.
 - *TotalStoragePower*: sum of all storage miner power in *k-th* round.
 
-$$StoragePower_k = IdleSpace_k * 0.3 + ServiceSpace_k * 0.7$$
+$$\boxed{StoragePower_k = IdleSpace_k * 0.3 + ServiceSpace_k * 0.7}$$
 
-$$RewardOrder_k = TotalReward_k * \cfrac{StoragePower_k}{TotalStoragePower_k}$$
+$$\boxed{RewardOrder_k = TotalReward_k * \cfrac{StoragePower_k}{TotalStoragePower_k}}$$
 
 Reward order is the reward for the storage miner in that round. Once the reward is determined, 40% of the reward order is distributed right away and the rest is distributed in the subsequent sixty rounds, each time 1/60 of the remaining amount.
 
 The available reward for a storage miner in *k-th* round is computed below:
 
-$$AvailableReward_k = (RewardOrder_k * 40\%) + \sum_{t=k-60}^{k-1} \cfrac{RewardOrder_t}{60}$$
+$$\boxed{AvailableReward_k = (RewardOrder_k * 40\%) + \sum_{t=k-60}^{k-1} \cfrac{RewardOrder_t}{60}}$$
 
 A reward order will be removed after fully distributed. So a storage miner can receive rewards from at most 61 orders.
 
@@ -46,9 +46,9 @@ The storage miner is being challenged twice. If the miner couldn't pass the veri
 
 Slash Computation:
 
-$$StorageSpace = IdleSpace + ServiceSpace$$
+$$\boxed{StorageSpace = IdleSpace + ServiceSpace}$$
 
-$$SlashLimit = 1000\text{ \small{CESS/TB}} * StorageSpace\text{ \small{(in TB, round up to integer)}}$$
+$$\boxed{SlashLimit = 1000\text{ \small{CESS/TB}} * StorageSpace\text{ \small{(in TB, round up to integer)}}}$$
 
 That means the storage is counted as 1TB even if less than that. If the idle space fails to be verified twice consecutively, the slashing amount is **Slash Limit * 10%**. If both the idle and service spaces failed to be verified twice consecutively, slash for **Slash Limit * 25%**.
 
