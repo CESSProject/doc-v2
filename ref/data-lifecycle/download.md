@@ -8,4 +8,4 @@ The data in the CESS network is free and open to all users. Once your data is up
 
 The following figure shows the detailed process of data download. The client only needs to download 2/3 fragments of each segment and concatenate all segments together to recover the original data.
 
-![Data Download Flow](../../assets/ref/data-lifecycle/data-download-flow.svg)
+![Data Download Flow](../../assets/ref/data-lifecycle/data-download-flow.png)

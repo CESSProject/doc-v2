@@ -8,7 +8,7 @@ When a user deletes their data, the data content will not be deleted from the CE
 
 The overall flow is depicted as follows:
 
-![Delete Active Data](../../assets/ref/data-lifecycle/delete-acive-data.png)
+![Delete Active Data](../../assets/ref/data-lifecycle/delete-active-data.png)
 
 # Delete Idle Data
 
