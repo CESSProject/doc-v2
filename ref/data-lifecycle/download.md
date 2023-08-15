@@ -1,3 +1,3 @@
 # Process Flow
 
-![File Download Process Flow](../../assets/ref/file-lifecycle/download-process.svg)
+![Data Download Process Flow](../../assets/ref/data-lifecycle/download-process.svg)

@@ -1,3 +1,3 @@
 # Process Flow
 
-![File Restore Process Flow](../../assets/ref/file-lifecycle/restore-process.svg)
+![Data Restore Process Flow](../../assets/ref/data-lifecycle/restore-process.svg)

@@ -1,3 +1,3 @@
 # Process Flow
 
-![File Audit Process Flow](../../assets/ref/file-lifecycle/audit-process.svg)
+![Data Audit Process Flow](../../assets/ref/data-lifecycle/audit-process.svg)
