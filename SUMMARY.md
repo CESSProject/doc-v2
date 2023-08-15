@@ -52,7 +52,7 @@
     * [Trusted Continuity Proof](ref/in-depth-feat/tcp.md)
     * [Flexible Data Restoration](ref/in-depth-feat/fr.md)
     * [Reputation Rotational Consensus](ref/in-depth-feat/rrc.md)
-    * [Idle Service Replacement](ref/in-depth-feat/isr.md)
+    * [Idle-active Replacement](ref/in-depth-feat/isr.md)
   * [File Lifecycle](ref/file-lifecycle/README.md)
     * [Upload](ref/file-lifecycle/upload.md)
     * [Download](ref/file-lifecycle/download.md)
