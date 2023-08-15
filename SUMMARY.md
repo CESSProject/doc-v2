@@ -50,7 +50,7 @@
   * [In-depth Technical Features](ref/in-depth-feat/README.md)
     * [Smart Space Management](ref/in-depth-feat/ssm.md)
     * [Trusted Continuity Proof](ref/in-depth-feat/tcp.md)
-    * [Flexible Restoration](ref/in-depth-feat/fr.md)
+    * [Flexible Data Restoration](ref/in-depth-feat/fr.md)
     * [Reputation Rotational Consensus](ref/in-depth-feat/rrc.md)
     * [Idle Service Replacement](ref/in-depth-feat/isr.md)
   * [File Lifecycle](ref/file-lifecycle/README.md)
