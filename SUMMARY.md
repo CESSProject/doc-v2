@@ -46,7 +46,7 @@
 * [🔒 Role: Consensus Miners](consensus-node/README.md)
   * [Running a Consensus Node](consensus-node/running.md)
   * [Reward Mechanism](consensus-node/reward.md)
-* [📚 Reference](ref/README.md)
+* [📚 References](ref/README.md)
   * [In-depth Technical Features](ref/in-depth-feat/README.md)
     * [Smart Space Management](ref/in-depth-feat/ssm.md)
     * [Trusted Continuity Proof](ref/in-depth-feat/tcp.md)
