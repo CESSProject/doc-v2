@@ -31,7 +31,7 @@
   * [Tutorials](developer/tutorials/README.md)
     * [Deploy an ink! Smart Contract](developer/tutorials/deploy-sc-ink.md)
     * [Deploy a Solidity Smart Contract](developer/tutorials/deploy-sc-solidity.md)
-    * [Build a golang App managing file to DeOSS](developer/tutorials/build-golang-app.md)
+    * [Build a golang app CRUD files from DeOSS](developer/tutorials/deoss-crud.md)
     * [Build a Proof of Existence dApp in solidity contract](developer/tutorials/poe-solidity.md)
     * [Build a Proof of Existence dApp in ink! contract](developer/tutorials/poe-ink.md)
   * [Guides](developer/guides/README.md)
