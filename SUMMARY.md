@@ -38,7 +38,7 @@
     * [Testnet Faucet](developer/guides/testnet-faucet.md)
     * [Commonly-used Toolchains/Libraries](developer/guides/common-libs.md)
     * [CESS Node Introduction](developer/guides/cess-node-intro.md)
-    * [DeOSS ↗️](https://docs.cess.cloud/deoss)
+    * [DeOSS](https://docs.cess.cloud/deoss)
 * [🛡 Role: Storage Miners](storage-node/README.md)
   * [Running a Storage Node](storage-node/running.md)
   * [Troubleshooting Client](storage-node/troubleshooting.md)
