@@ -36,7 +36,7 @@
     * [Build a Proof of Existence dApp in ink! contract](developer/tutorials/poe-ink.md)
   * [Guides](developer/guides/README.md)
     * [Testnet Faucet](developer/guides/testnet-faucet.md)
-    * [Commonly-used Toolchains/Libraries](developer/guides/common-libs.md)
+    * [Commonly Used Libs](developer/guides/commonly-used.md)
     * [CESS Node Introduction](developer/guides/cess-node-intro.md)
     * [DeOSS](https://docs.cess.cloud/deoss)
 * [🛡 Role: Storage Miners](storage-node/README.md)
