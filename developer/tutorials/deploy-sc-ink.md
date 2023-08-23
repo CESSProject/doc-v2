@@ -37,9 +37,9 @@ This commands generate the following directory with three files
 
 ```
 flipper
-  L⎣∟ .gitignore
-  L⎣∟ Cargo.toml
-  L⎣∟ lib.rs
+  ∟ .gitignore
+  ∟ Cargo.toml
+  ∟ lib.rs
 ```
 
 Take a peek into `Cargo.toml` and `lib.rs` files on the contract dependencies and source code.
