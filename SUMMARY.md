@@ -34,6 +34,7 @@
     * [Build a golang app CRUD files on DeOSS](developer/tutorials/deoss-crud.md)
     * [Build a Proof of Existence dApp (Solidity)](developer/tutorials/poe-solidity.md)
     * [Build a Proof of Existence dApp (ink!)](developer/tutorials/poe-ink.md)
+    * [Distribute your NFTs on CESS](developer/tutorials/nft.md)
   * [Guides](developer/guides/README.md)
     * [Testnet Faucet](developer/guides/testnet-faucet.md)
     * [Commonly Used Libs](developer/guides/commonly-used.md)

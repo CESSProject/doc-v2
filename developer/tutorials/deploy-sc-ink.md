@@ -1,28 +1,29 @@
 # Prerequisite
 
-To provides a command-line interface for working with smart contracts using the [**ink!** language](https://use.ink/), install the WebAssembly optimizer `binaryen`:
+- Install the **rust** language and **cargo**. You can also check the [official guide](https://www.rust-lang.org/tools/install).
 
-```bash
-sudo apt install binaryen
-```
+   ```bash
+   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+   ```
 
-To warn you about issues that might lead to security vulnerabilities, install `cargo-dylint` to check **ink!** contracts:
+- Next, install `cargo-contract`, a CLI tool for helping setting up and managing WebAssembly smart contracts written with ink!. Here is [its GitHub](https://github.com/paritytech/cargo-contract).
 
-```bash
-cargo install cargo-dylint dylint-link
-```
+   ```bash
+   # Install an additional component `rust-src`
+   rustup component add rust-src
+   # Install `cargo-contract`
+   cargo install cargo-contract --force --locked cargo-contract
+   # Install `dylint`, a linting tool
+   cargo install cargo-dylint dylink-link
+   ```
 
-Install `cargo-contract`:
+- Verify the installation is successful by running the command:
 
-```bash
-cargo install cargo-contract --force
-```
+   ```bash
+   cargo contract --help
+   ```
 
-Verify the installation and explore the commands:
-
-```bash
-cargo contract --help
-```
+   This should display the command help messages.
 
 # Create a Smart Contract
 
@@ -30,23 +31,23 @@ We will create new smart contract project using the `cargo-contract` package dow
 
 ```bash
 cargo contract new flipper
-cd flipper
-code .
 ```
 
-Open the `Cargo.toml` file and have version 3.3 for all ink crates.
+This commands generate the following directory with three files
 
-```toml
-ink_primitives = { version = "3.3", default-features = false }
-ink_metadata = { version = "3.3", default-features = false, features = ["derive"], optional = true }
-ink_env = { version = "3.3", default-features = false }
-ink_storage = { version = "3.3", default-features = false }
-ink_lang = { version = "3.3", default-features = false }
+```
+flipper
+  L .gitignore
+  L Cargo.toml
+  L lib.rs
 ```
 
-Run the test for the flipper contract:
+You can review the `Cargo.toml` and `lib.rs` on the contract source code.
+
+Next, we will compile the code and run the test cases inside `lib.rs` to check everything work accordingly.
 
 ```bash
+cd flipper
 cargo test
 ```
 
@@ -56,45 +57,76 @@ You should see the following output:
 running 2 tests
 test flipper::tests::it_works ... ok
 test flipper::tests::default_works ... ok
-test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests flipper
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
 ```
 
-To build and generate the WebAssembly binary for the contract project:
+Now we can build the contract code:
 
 ```bash
-cargo +nightly contract build
+cargo contract build
 ```
 
-After the build is complete, you can find the "flipper.contract" file under the `target/ink/` folder. This file will be used to deploy the contracts on the CESS network.
+After the build is complete, the output artifects are stored in `target/ink/`. There are two key output files:
+
+- `flipper.wasm` - the wasm binary
+- `flipper.json` - a metadata file containing the contract ABI
+- `flipper.contract` - the contract code that bundles the above two files
+
+You can also make a release build with `cargo contract build --release`. But the debug build is good enough for our case.
 
 # Deploy a Smart Contract
 
-Open [CESS Explorer](https://testnet.cess.cloud) and navigate to **Developers => Contracts** page.
+- Run a local [CESS node](https://github.com/CESSProject/cess) in development mode. You can do the following if you haven't clone CESS node.
 
-![Deploy ink! Smart Contract - 01](../../assets/developer/tutorials/deploy-sc-ink/deploy-sc-ink-01.webp)
+   ```bash
+   # Select the appropriate/latest tag in the repository
+   git clone https://github.com/CESSProject/cess.git --branch v0.6.0
+   cd cess
+   cargo build
+   target/debug/cess-node --dev
+   ```
 
-Click on **Upload & Deploy Code** button to open `Upload & Deploy Code` dialog box.
+   The node will start running and the console will display something as below.
 
-On the dialog box, select the account which will be used as the deployment account and upload the **flipper.contract** file.
+   ![CESS Node Console](../../assets/developer/tutorials/deploy-sc-ink/cess-node.png)
 
-![Deploy ink! Smart Contract - 02](../../assets/developer/tutorials/deploy-sc-ink/deploy-sc-ink-02.png)
+- Goto **Substrate Contracts UI**, connecting to your local CESS node: <https://contracts-ui.substrate.io/?rpc=ws://127.0.0.1:9944>.
 
-Give a discriptive name to the contract and click the next button to advance to the next dialog box.
+   ![Substrate Contract UI](../../assets/developer/tutorials/deploy-sc-ink/substrate-contract-ui.png)
 
-![Deploy ink! Smart Contract - 03](../../assets/developer/tutorials/deploy-sc-ink/deploy-sc-ink-03.png)
+- Click **Upload a new contract**.
 
-Depending on the Deployment Constructor, review and update the values if needed or accept the default values and click **Deploy**.
+- In the *Account* select box, select **alice** to deploy the contract from Alice. Give the *Contract Name* of **Flipper Contract**, and finally drag or open the file **target/ink/flipper.contract** in the *Upload Contract Bundle*.
 
-![Deploy ink! Smart Contract - 04](../../assets/developer/tutorials/deploy-sc-ink/deploy-sc-ink-04.png)
+   You should see the contract metadata after choosing the right contract file. Then click **Next**.
 
-Authorize and submit signed transaction and wait for the transaction to be included into the block.
+   ![Upload Contract Bundle](../../assets/developer/tutorials/deploy-sc-ink/upload-contract-bundle.png)
 
-Once the contract is deployed, you can view the contract in the *Contracts* page as shown in the following.
+- CESS chain (and Substrate-based chains, for that matter) handles contracts differently from the conventional approach of other EVM-compatible chains. The contract code upload and instantiation are separated into two steps. In CESS chain you can have only one copy of the ERC-20 smart contract code and instantiate multiple ERC-20 tokens with different initial configurations, thus saving the space on the blockchain.
 
-![Deploy ink! Smart Contract - 05](../../assets/developer/tutorials/deploy-sc-ink/deploy-sc-ink-05.png)
+   In this screen, we are putting code upload and contract instantiation in one step.
 
-To access the contract, you can open the contracts page and in contracts list, you can find the list of all the contracts diployed.
+   - *Deployment Constructor*: select **new(initValue: bool)**
+   - *initValue: bool*: select **false**
+   - Leave the remaining setting unchanged, and click **Next**
 
-![Deploy ink! Smart Contract - 06](../../assets/developer/tutorials/deploy-sc-ink/deploy-sc-ink-06.png)
+   ![Upload Instantiate 01](../../assets/developer/tutorials/deploy-sc-ink/upload-instantiate-01.png)
 
-As shown in the above, you can access smart contract functions using the [CESS Explorer](https://testnet.cess.cloud).
+- In the next screen, confirm everything looks good and click **Upload and Instantiate**.
+
+   ![Upload Instantiate 02](../../assets/developer/tutorials/deploy-sc-ink/upload-instantiate-02.png)
+
+- You have successfully instantiated a sample flipper contract and could interact with it in this screen.
+
+   ![Contract Instantiate Successfully](../../assets/developer/tutorials/deploy-sc-ink/instantiate-success.png)
+
+# References
+
+- [**ink!** official documentation](https://use.ink/)
