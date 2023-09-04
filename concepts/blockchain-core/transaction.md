@@ -22,11 +22,11 @@ In CESS network, only the validator of current rotation can be the initiator of 
 
 There is also a module using unsigned transactions in Substrate framework, namely [`pallet_im_online::pallet::Call::heartbeat`](https://paritytech.github.io/substrate/master/pallet_im_online/pallet/struct.Pallet.html#method.heartbeat) extrinsic. This transaction enables the validator node to send a message to the network to confirm that the node is online. For this transaction, Substrate has a strict verification process, and only accounts registered as validator nodes are allowed to send.
 
-# Intrinsic Transaction
+# Inherent Transaction
 
-Intrinsic transaction is a special type of unsigned transaction. Through this type of transaction, the block producing node can directly insert information to the block. Generally, this type of transaction will not be gossiped to other nodes or added to the transaction queue. We will consider it valid without specific verification.
+Inherent transaction is a special type of unsigned transaction. Through this type of transaction, the block producing node can directly insert information to the block. Generally, this type of transaction will not be gossiped to other nodes or added to the transaction queue. We will consider it valid without specific verification.
 
-In CESS network, intrinsic transaction is not used. But in Substrate framework, the [`pallet_timestamp::pallet::Call::set`](https://paritytech.github.io/substrate/master/pallet_timestamp/pallet/struct.Pallet.html#method.set) transaction uses the Intrinsic type to insert the current timestamp to the produced block. Although the other nodes cannot confirm whether the timestamp contained in the block information is correct, they can determine whether the timestamp is within an acceptable range. If this is not the case, they reject the block.
+In CESS network, inherent transaction is not used. But in Substrate framework, the [`pallet_timestamp::pallet::Call::set`](https://paritytech.github.io/substrate/master/pallet_timestamp/pallet/struct.Pallet.html#method.set) transaction uses the Intrinsic type to insert the current timestamp to the produced block. Although the other nodes cannot confirm whether the timestamp contained in the block information is correct, they can determine whether the timestamp is within an acceptable range. If this is not the case, they reject the block.
 
 # Transaction Fee and Weight
 
