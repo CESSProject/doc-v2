@@ -18,11 +18,11 @@ This blockchain layer is further [analyzed here](blockchain-arch.md).
 
 CESS is designed to build a blockchain-based distributed cloud storage system. The focus is on providing users with consistent and efficient distributed storage services by effectively managing distributed resources using virtualization technology. This part is composed of consensus miners and storage miners. Consensus nodes store meta-data and provide fast data indexing, while storage nodes provide data storage space.
 
-To meet different storage needs, we design and implement a polymorphic data storage access interface to provide storage services via APIs for various applications. As shown above, the polymorphic data access service provides object storage, block storage, and file system storage for upper applications in a standard API way, providing comprehensive and friendly data storage service support for the applications above. The object storage module developed automatically completes mapping the user object storage space to the lower unified distributed object storage space. User data is stored in the storage as object data. CESS will provide the block device storage service, supporting snapshot, clone, and other functions.
-
 ![Distributed Storage Resource Layer](../assets/concepts/system-architecture/distributed-cloud-storage.png)
 
 (todo: check if we need to update the image)
+
+To meet different storage needs, we design and implement a polymorphic data storage access interface to provide storage services via APIs for various applications. As shown above, the polymorphic data access service provides object storage, block storage, and file system storage for upper applications in a standard API way, providing comprehensive and friendly data storage service support for the applications above. The object storage module automatically completes mapping the user object storage space to the lower unified distributed object storage space. User data is stored in the storage as object data. CESS will provide the block device storage service, supporting snapshot, clone, and other functions.
 
 ## Distributed Content Delivery Layer
 
@@ -30,11 +30,11 @@ This layer combines the advantages of CDN and P2P technologies for efficient fil
 
 On the application side, the stored content will be published on the seed node first, and the download service will be continuously provided if the seed node is not offline. However, as the number of user downloads from the same seed node increases, the bandwidth of that node will be exhausted, and the download speed per user will be reduced. With the design of a content delivery network, numerous tenant nodes can begin to serve the content. As a result, users can download content from multiple nodes, significantly improving the user experience.
 
-The design of the CDN Layer is perfectly combined with blockchain technology. Storage miners form CDNs with cache miners in each region. Cache and retrieval miners create a relatively independent P2P network without public network IP. Node contribution awards are issued through smart contracts, forming an autonomous network for development, as shown in the following diagram.
-
 ![Distributed Content Delivery Layer](../assets/concepts/system-architecture/distributed-cdn.png)
 
 (todo: check if we need to update the image)
+
+The design of the CDN Layer is perfectly combined with blockchain technology. Storage miners form CDNs with cache miners in each region. Cache and retrieval miners create a relatively independent P2P network without public network IP. Node contribution awards are issued through smart contracts, forming an autonomous network for development, as shown in the following diagram.
 
 ## Application Layer
 
@@ -44,9 +44,7 @@ We welcome other teams to leverage the advantage of the CESS solution and integr
 
 # Logical Architecture
 
-On the other hand, CESS can be viewed to have the following logical structure.
-
-As shown in the following diagram, the logical architecture consists of two main components: one is the core functional system of the CESS network, composed mainly of consensus nodes and storage nodes; the other is the applications built in the CESS ecosystem, including the CESS blockchain explorer and decentralized object storage service, which includes applications such as client, cloud service, gateway, DeShare, and possibly many more.
+On the other hand, CESS can be viewed to have the following logical structure. As shown in the following diagram, the logical architecture consists of two main components: one is the core functional system of the CESS network, composed mainly of consensus nodes and storage nodes; the other is the applications built in the CESS ecosystem, including the CESS blockchain explorer and decentralized object storage service, which includes applications such as client, cloud service, gateway, DeShare, and possibly many more.
 
 ![Logical Architecture](../assets/concepts/system-architecture/logical-structure.png)
 
