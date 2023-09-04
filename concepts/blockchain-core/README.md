@@ -1,5 +1,3 @@
-# Blockchain Core
-
 [Block](block.md)
 
 [Storage](storage.md)
