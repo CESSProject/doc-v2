@@ -1,5 +1,3 @@
-# 🔥 Role: Storage (dApp) User
-
 Here we will highlight some community-built dApps for users to try out. In general, you should have a [CESS account](../community/cess-account.md) created.
 
 ## dApps Built On CESS

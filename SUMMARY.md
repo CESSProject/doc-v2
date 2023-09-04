@@ -26,7 +26,7 @@
   * [Ambassador Program](community/ambassador.md)
   * [Token and Governance Models](community/governance.md)
   * [CESS Account](community/cess-account.md)
-* [🔥 Role: Storage (dApp) Users](user/README.md)
+* [🔥 Role: dApp Users](user/README.md)
 * [💻 Role: dApp Developers](developer/README.md)
   * [Tutorials](developer/tutorials/README.md)
     * [Deploy an ink! Smart Contract](developer/tutorials/deploy-sc-ink.md)
