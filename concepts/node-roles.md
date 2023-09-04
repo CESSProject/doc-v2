@@ -21,7 +21,7 @@ If running TEE Worker simultaneously, a CESS node running in the full node mode 
 
 ## TEE Worker
 
-The main task of the TEE Worker is to mark data and generate files to verify storage on storage nodes. Every job completed in [TEE](https://en.wikipedia.org/wiki/Trusted_execution_environment) is tamper-proof and verifiable, which can effectively ensure the authenticity of data.
+The main task of the TEE Worker is to mark data (generate file tags) for user's files that are used for PoDR2 (Proof of Data Reduplication and Recovery) proofs and to generate space-holder files for the space provided by the storage miners for PoIS (Proof of Idle Space) proofs. Every job completed in [TEE](https://en.wikipedia.org/wiki/Trusted_execution_environment) is tamper-proof and verifiable, which can effectively ensure the authenticity of data.
 
 TEE Worker is developed based on the [Gramine library](https://gramineproject.io/) and currently only supports [Intel series chips](https://www.intel.com/content/www/us/en/developer/articles/tool/intel-trusted-execution-technology.html).
 
