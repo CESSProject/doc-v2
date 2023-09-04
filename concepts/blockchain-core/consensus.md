@@ -2,7 +2,7 @@ Consensus is a mechanism for coming to an agreement over a shared state. In orde
 
 # Validator Selection: Reputation Rotation Consensus
 
-CESS uses the R²S (reputation rotation consensus) as its mechanism to select the validator nodes. Participants interested in maintaining the network can run the validator node. The validator plays the role of producing new blocks, verifying blocks and ensuring finality. Refer to [Reputation Rotation Consensus](../../ref/rrc.md) for details.
+CESS uses the R²S (reputation rotation consensus) as its mechanism to select the validator nodes. Participants interested in maintaining the network can run the validator node. The validator plays the role of producing new blocks, verifying blocks and ensuring finality. Refer to [**Reputation Rotation Consensus**](../../ref/rrc.md) for details.
 
 # Block Production: BABE
 
@@ -28,6 +28,4 @@ Finality is obtained by consecutive rounds of voting by the validator nodes. Val
 
 It works in a partially synchronous network model as long as 2/3 of nodes are honest and can cope with 1/5 Byzantine nodes in an asynchronous setting.
 
-A notable distinction is that GRANDPA reaches agreements on chains rather than blocks, greatly speeding up the finalization process, even after long-term network partitioning or other networking failures.
-
-In other words, as soon as more than 2/3 of validators attest to a chain containing a certain block, all blocks leading up to that one are finalized at once.
+A notable distinction is that GRANDPA reaches agreements on chains rather than blocks, greatly speeding up the finalization process, even after long-term network partitioning or other networking failures. In other words, as soon as more than 2/3 of validators attest to a chain containing a certain block, all blocks leading up to that one are finalized at once.
