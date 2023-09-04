@@ -6,7 +6,7 @@ As shown below, CESS adopts a layered and loosely coupled system architecture, d
 
 ![CESS Layered Architecture](../assets/concepts/system-architecture/layered-system-architecture.png)
 
-The **Blockchain Layer** serves as the distributed ledger for the entire CESS network, encouraging unused storage resources and computational resources to join the CESS network to provide data storage, data rights confirmation, and other services for the application layer. The **Distributed Storage Resource Layer** uses virtualization technology to realize the integration and pooling of storage resources. The infrastructure here consists of storage miners and consensus miners. The **Distributed Content Delivery Layer** uses content caching technology to achieve fast delivery of stored data, which is composed of cache miners and retrieval miners. The application layer provides API/SDK tools for developers to access the underlying data storage service, blockchain service, network drive service, etc.
+The **Blockchain Layer** serves as the distributed ledger for the entire CESS network, encouraging unused storage resources and computational resources to join the CESS network to provide data storage, data rights confirmation, and other services for the application layer. The **Distributed Storage Resource Layer** uses virtualization technology to realize the integration and pooling of storage resources. The infrastructure here consists of storage miners and consensus miners. The **Distributed Content Delivery Layer** uses content caching technology to achieve fast delivery of stored data, which is composed of cache miners and retrieval miners. The **Application Layer** provides API/SDK tools for developers to access the underlying data storage service, blockchain service, network drive service, etc.
 
 ## Blockchain Layer
 
@@ -48,11 +48,11 @@ On the other hand, CESS can be viewed to have the following logical structure.
 
 As shown in the following diagram, the logical architecture consists of two main components: one is the core functional system of the CESS network, composed mainly of consensus nodes and storage nodes; the other is the applications built in the CESS ecosystem, including the CESS blockchain explorer and decentralized object storage service, which includes applications such as client, cloud service, gateway, DeShare, and possibly many more.
 
+![Logical Architecture](../assets/concepts/system-architecture/logical-structure.png)
+
 - **Storage Node**: Primarily responsible for providing space, storing data, and computing proofs.
 - **Consensus Node**: Primarily responsible for consensus mechanism, transaction execution, block generation, and validation in the CESS network.
 - **TEE Worker**: Primarily responsible for data tagging, generating verifiable and unique idle data for space verification.
 - **SDK**: Development tools and APIs for interacting with the CESS network.
 - **Blockchain Explorer**: An interface that displays block information, transaction details, computing power information, account information, etc.
 - **Applications**: This includes Decentralized Object Storage Service (DeOSS), object storage service developed by the CESS core team, and applications built by other ecosystem teams.
-
-![Logical Architecture](../assets/concepts/system-architecture/logical-structure.png)
