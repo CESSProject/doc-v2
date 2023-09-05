@@ -1,5 +1,3 @@
-# Ambassador Program
-
 The CESS ecosystem is built on openness and diversity, promoting inclusivity and welcoming individuals from all backgrounds. We welcome individuals with unique skills and talents to apply for our Ambassador Program to encourage the adoption of CESS network in your local communities.
 
 There are a few tracks you can apply for in the ambassador program.
