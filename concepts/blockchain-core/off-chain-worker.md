@@ -8,7 +8,7 @@ To make the off-chain data integration more secure and more efficient, Substrate
 
 - Off-chain worker allows to execute tasks that requires longer time than the block execution time. If the processing time of business logic may reach the upper limit, an off-chain worker would be a suitable candidate solution.
 
-**Off-chain Workers** have both read and write access to off-chain storage. The on-chain logic has write access via off-chain indexing but not read access. Off-chain storage allows different worker threads to communicate with each other, and stores user-/node- specific data that does not require consensus across the entire network. This is great for different worker threads to communicate to each others and for storing user-/ node-specific data that does not require consensus over the whole network.
+**Off-chain Workers** have both read and write access to off-chain storage. The on-chain logic has write access via off-chain indexing but not read access. Off-chain storage allows different worker threads to communicate with each other, and stores user-/node- specific data that does not require consensus across the entire network.
 
 **Off-chain Indexing** allows the runtime, if opted-in, to write directly to the off-chain storage independently from Off-chain Workers. This serves as a local/temporary storage for on-chain logic and complement to its on-chain state. This means that if Off-chain Workers want to change the on-chain status, they need to call the transaction to make the change. If they want to cancel the gas fee for this transaction, using an unsigned transaction will become the preferred option.
 
@@ -16,7 +16,7 @@ However, it should be noted that the execution of Off-chain Workers requires add
 
 # Off-chain Worker
 
-Off-chain features run in their own Wasm execution environment outside of the Substrate runtime. This separation of concerns ensures that block production is not impacted by long-running off-chain tasks. However, as the off-chain features are declared in the same code as the runtime, they can easily access on-chain state for their computations.
+Off-chain features run in their own wasm execution environment outside of the Substrate runtime. This separation of concerns ensures that block production is not impacted by long-running off-chain tasks. However, as the off-chain features are declared in the same code as the runtime, they can easily access on-chain state for their computations.
 
 ![Off-chain Worker](../../assets/concepts/blockchain-core/off-chain-worker.png)
 
@@ -33,6 +33,7 @@ Off-chain Workers have access to extended APIs for communicating with the extern
 Note that the results from off-chain workers are not subject to regular transaction verification. Therefore, you should ensure the off-chain operation includes a verification method to determine what information gets into the chain. For example, you might verify off-chain transactions by implementing a mechanism for voting, averaging, or checking sender signatures.
 
 Please also note that off-chain workers do not have any specific privileges or permissions by default and, therefore, represent a potential attack vector that a malicious user could exploit. In most cases, checking whether a transaction was submitted by an off-chain worker before writing to storage is not sufficient to protect the network. Instead of assuming that the Off-chain Worker can be trusted without safeguards, you should intentionally set restrictive permissions that limit access to the process and what it can do.
+
 Off-chain workers are spawned during each block import. However, they are not executed during initial blockchain synchronization.
 
 # Off-chain Storage
@@ -41,7 +42,7 @@ Off-chain Storage is always local to a Substrate node and is not shared on-chain
 
 # Usage
 
-In the CESS network, the process of generating random challenges is entrusted by the Off-chain Worker for execution. At each time, one of the current validators will be selected as the off-chain Worker. Meanwhile, to prevent duplicate operations during the off-chain working period, the Off-chain Storage provided by Substrate framework is used to lock itself during the working period. The locking example is as follows:
+In the CESS network, the process of generating random challenges is entrusted by the off-chain worker for execution. Each time one of the current validators will be selected as the off-chain worker. Meanwhile, to prevent duplicate operations during the off-chain working period, the Off-chain Storage provided by Substrate framework is used to lock itself during the working period. The locking example is as follows:
 
 ```rust
 fn check_working(now: &BlockNumberOf<T>, authority_id: &T::AuthorityId) -> bool {
