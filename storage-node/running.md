@@ -37,7 +37,7 @@ Check the hard disk status using the `df -h` command:
 $ df -h
 ```
 
-The disk is not mounted If the hard drive for storage mining cannot be found. Use the command below to view unmounted hard disks:
+If the disk is not mounted, the hard drive for storage mining cannot be used. Use the command below to view unmounted hard disks:
 
 ```bash
 $ fdisk -l
@@ -73,7 +73,7 @@ mkfs.ext4 /dev/vdb
 
 Enter "y" to continue if the system asks to proceed:
 
-```
+```bash
 Proceed anyway? (y,N) y
 ```
 
@@ -84,7 +84,7 @@ mkdir /cess
 echo "/dev/vdb /cess ext4 defaults 0 0" >> /etc/fstab
 ```
 
-Replace /dev/vdb with your own disk name. /cess has to remain the same as created in the previous step. If you are not under root privileges, try: <br/>`echo "/dev/vdb /cess ext4 defaults 0 0" | sudo tee -a /etc/fstab`
+Replace `/dev/vdb` with your own disk name. /cess has to remain the same as created in the previous step. If you are not under root privileges, try: <br/>`echo "/dev/vdb /cess ext4 defaults 0 0" | sudo tee -a /etc/fstab`
 
 Mount `/cess`:
 
@@ -98,7 +98,7 @@ Check the disk mounting status:
 df -h
 ```
 
-If `/cess` appers, the disk has been successfully mounted.
+If `/cess` appears, the disk has been successfully mounted.
 
 ## Prepare CESS Accounts
 
