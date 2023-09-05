@@ -20,11 +20,12 @@ In each slot, each validator 'throws the dice'. They execute the VRF function th
 
 - A "secret key" specifically used for rolling a dice.
 - An epoch random number, which is the hash value of the block VRF value in the past 2 epoch (N-2), thus the past randomness affects the current pending randomness (N).
-- The Slot number
+- The slot number
 
 ![VRF Illustration](../../assets/concepts/blockchain-core/vrf.png)
 
 There are two output values: **RESULT** (the random value) and **PROOF** (proof of random values generation authenticity).
 
 Then compare RESULT with the threshold defined in the protocol implementation (specifically, in the CESS Host). If the value is less than the threshold, the validator who throws the dice is a block production candidate for that time slot. The validator then attempts to produce a block and submit it to the network along with the previously obtained PROOF and RESULT. In VRF, each validator throws a dice and get a number for itself, compares it with a threshold, and produce a block when the random number falls below that threshold.
+
 With such working style, some slots may have no validators as candidates for block production, as all validator candidates have thrown the dice with too high numbers and missed the threshold. We clarified in the [consensus section](consensus.md) how to solve this problem and ensure that the block time remains approximately constant.
