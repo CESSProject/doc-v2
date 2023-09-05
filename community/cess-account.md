@@ -1,10 +1,8 @@
-# CESS Account
-
 CESS account holds the user’s assets in CESS Network. Please keep the account mnemonic seeds and backup files **private** and **securely**. Users may lose the assets in the account forever if this information is compromised.
 
 The following illustrate two ways to create a CESS account.
 
-## Method 1: Create an Account Using CESS Blockchain Explorer
+# Method 1: Create an Account Using CESS Blockchain Explorer
 
 - Navigate to [CESS Explorer](https://testnet.cess.cloud/).
 
@@ -28,7 +26,7 @@ The following illustrate two ways to create a CESS account.
 
     ![CESS Explorer account created](../assets/community/cess-account/cess-expl-acct-created.png)
 
-## Method 2: Create an Account Using Polkadot.js Wallet
+# Method 2: Create an Account Using Polkadot.js Wallet
 
 - Download [Polkadot.js extension](https://polkadot.js.org/extension/) to your browser. Currently the extension support either Chrome or Firefox.
 
