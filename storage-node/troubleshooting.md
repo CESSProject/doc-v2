@@ -30,7 +30,7 @@
 
   <img alt="Docker Package Issue" src="../assets/storage-node/troubleshooting/docker-package-issue.webp" width="100%" height="auto" decoding="async" style="max-width: 100%;" />
 
-  Try to delete docker with following commands:
+  Try to delete Docker with following commands:
 
   ```bash
   sudo systemctl stop docker
