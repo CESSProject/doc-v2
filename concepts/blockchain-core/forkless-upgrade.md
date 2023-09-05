@@ -8,11 +8,11 @@ In the runtime development framework [**FRAME**](https://docs.substrate.io/learn
 
 # Runtime Version
 
-During the process of runtime version control, compiling nodes will generate both platform native binaries and WebAssembly binaries. You can control which binaries to use at different points in the block production process with different command-line policy options. The components that choose the runtime execution environment to communicate with are called executors. Although you can override the default execution strategy for custom scenarios, in most cases, the execution program selects the appropriate binary to use by evaluating the following information for both native and WebAssembly runtime binaries:
+During the runtime compilation process, the node will generate both platform native binaries and WebAssembly binaries. You can control which binaries to use at different points in the block production process with different command-line policy options. The components that choose the runtime execution environment to communicate with are called executors. Although you can override the default execution strategy for custom scenarios, in most cases, the execution program selects the appropriate binary to use by evaluating the following information for both native and WebAssembly runtime binaries:
 
-- [`spec_name`]()
-- [`spec_version`]()
-- [`authoring_version`]()
+- [`spec_name`](https://paritytech.github.io/substrate/master/sc_cli/struct.RuntimeVersion.html#structfield.spec_name)
+- [`spec_version`](https://paritytech.github.io/substrate/master/sc_cli/struct.RuntimeVersion.html#structfield.spec_version)
+- [`authoring_version`](https://paritytech.github.io/substrate/master/sc_cli/struct.RuntimeVersion.html#structfield.authoring_version)
 
 To provide these information to the executor, the runtime has the following [`RuntimeVersion`](https://paritytech.github.io/substrate/master/sc_cli/struct.RuntimeVersion.html) struct:
 
