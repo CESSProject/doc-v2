@@ -38,7 +38,7 @@ Once a miner's reward is computed, it is stored in an aggregated pool. Miners ne
 
 # Slashing
 
-Storage miners could be slashed if the following situations occurred, with their staked assets being deducted. The slashing amount depends on the slashing type and the storage miner's total idle and service spaces. There are two types of slashings: clearance slashing and proving slashing.
+Storage miners could be slashed if the following situations occurred, with their staked assets being deducted. The slashing amount depends on the slashing type and the storage miner's total idle and service spaces. There are two types of slashings: Proving Slashes and Clearance Slashes.
 
 ## Proving Slashes
 
