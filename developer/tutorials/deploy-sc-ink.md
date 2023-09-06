@@ -6,7 +6,7 @@
    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
    ```
 
-- Next, install `cargo-contract`, a CLI tool to help setting up and managing WebAssembly smart contracts written with ink!. Here is [its GitHub](https://github.com/paritytech/cargo-contract).
+- Next, install `cargo-contract`, a CLI tool to help setting up and managing WebAssembly smart contracts written with ink!. Here is [its GitHub repo](https://github.com/paritytech/cargo-contract).
 
    ```bash
    # Install an additional component `rust-src`
@@ -115,7 +115,7 @@ You can also make a release build with `cargo contract build --release`, but the
 
    ![Upload Contract Bundle](../../assets/developer/tutorials/deploy-sc-ink/upload-contract-bundle.png)
 
-- CESS chain (and Substrate-based chains, for that matter) handles ink! contracts differently from the conventional approach of other EVM-compatible chains. The contract code upload and instantiation are separated into two steps. In CESS chain you can have only one copy of the smart contract code and multiple instances of that smart contract with different initial configurations, thus saving blockchain space and encouraging code reuse.
+- CESS chain (and Substrate-based chains, for that matter) handles ink! contracts differently from the conventional approach of other EVM-compatible chains. The contract code upload and instantiation are separated into two steps. In CESS chain you can have one copy of the smart contract code and multiple instances of that smart contract with different initial configurations, thus saving blockchain space and encouraging code reuse.
 
    In this screen, we are putting code upload and contract instantiation in one step.
 
