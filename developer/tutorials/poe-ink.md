@@ -40,9 +40,10 @@ This section has the same prerequisites as the tutorial [Deploy an Ink! Smart Co
     Inside the directory, there are three files.
 
     ```
-    - .gitignore: files to ignore when committing to git
-    - Cargo.toml: This is a Rust project, so there is a `Cargo.toml` file for the project specification.
-    - lib.rs: the actual contract code and unit test code.
+    poe-ink/contract/
+      ∟ .gitignore    # contains files to ignore when committing to git
+      ∟ Cargo.toml    # This is a Rust project, so there is a `Cargo.toml` file for the project specification.
+      ∟ lib.rs        # The actual smart contract and unit test code.
     ```
 
     The most interesting file is `lib.rs`. It is a simple contract that reads and flips a boolean value. Please skim through it to get an idea of how ink! contract code is structured.
@@ -70,7 +71,7 @@ This section has the same prerequisites as the tutorial [Deploy an Ink! Smart Co
 
     #[ink::contract]
     mod contract {
-      //We will fill up the code here next
+      // We will fill up the code here next
     }
     ```
 
