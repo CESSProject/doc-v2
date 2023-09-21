@@ -21,7 +21,7 @@ We will first code the smart contract (Ink!) side, and then the frontend side. L
 
 # Smart Contract (Ink!)
 
-## Prequisites
+## Prerequisites
 
 This section the same prerequsites as the tutorial [Deploy an Ink! Smart Contract](./deploy-sc-ink.md#prerequisite). Please follow that section and install all required components: Rust and `cargo-contract`.
 
@@ -294,20 +294,27 @@ This section the same prerequsites as the tutorial [Deploy an Ink! Smart Contrac
     }
     ```
 
-10. By this point, you have completed all the core logic of the smart contract. Compile the contract with `cargo contract build` to ensure it builds. You can always refer back to the [**full source code**](https://github.com/hkwtf/cess-course/blob/main/examples/poe-ink/contract/lib.rs). **Congratulation**!
+10. By this point, you have completed all the core logic of the smart contract. Compile the contract with `cargo contract build` to ensure it builds. You can always refer back to the [**full source code**](https://github.com/hkwtf/cess-course/blob/main/examples/poe-ink/contract/lib.rs).
 
-    Next step before heading to the frontend.
+11. After the compilation, try to [deploy the contract on your local cess dev chain](./deploy-sc-ink.md) and interact with the contract to test it out. You can connect to [Contracts UI](https://contracts-ui.substrate.io/) that connect to your local node and deploy the contract. See the screenshot below.
 
-    - The full source code contains also the unit test code, the code block inside `mod tests { ... }`. We won't go over them here, but they are pretty self-explanatory. Please take a look. You can run them by `cargo test`. [Check here](https://use.ink/basics/contract-testing) to learn more about contract testing.
-    - After the compilation, try to [deploy the contract on your local cess dev chain](./deploy-sc-ink.md) and interact with the contract to test it out.
+    ![Deploy PoE Ink! Contract](../../assets/developer/tutorials/poe-ink/deploy-poe-contract.png)
+
+    Ensure that:
+
+    - Contracts UI is connecting to the local CESS node.
+    - You see the expected metadata when uploading the `contract.contract` file.
+
+**Congratulation**! You have completed the smart contract development section. Before heading to the frontend, the full source code also contains the unit test code, the code block inside `mod tests { ... }`. We won't go over them here and they are pretty self-explanatory. Please take a look. You can run them by `cargo test`. [Check here](https://use.ink/basics/contract-testing) to learn more about contract testing.
 
 # Front End
 
-## Prequisites
+## Prerequisites
 
 - Install [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 - Install [Node v18](https://nodejs.org/en/download)
 - Install [pnpm](https://pnpm.io/installation)
+- Run a local development chain of the CESS node because the front end will connect to the local CESS chain. Refer here on [how to run a local CESS chain](./deploy-sc-ink.md#deploy-a-smart-contract).
 
 We will start from a modified version of [Substrate Front End Template](https://github.com/hkwtf/substrate-frontend-template). This is the Parity maintained [Substrate Front End Template](https://github.com/substrate-developer-hub/substrate-front-end-template) using the latest React, Polkadot.js API (as of 2023 Sep) library, and a much faster package manager [**pnpm**](https://pnpm.io/).
 
@@ -316,6 +323,10 @@ cd poe-ink    # this is the root directory created during the smart contract dev
 git clone https://github.com/hkwtf/substrate-frontend-template.git frontend
 cd frontend
 pnpm install  # pull all the project dependencies down
+
+# Before starting the front end below, open another terminal window and start your local CESS node.
+# Refer to ./deploy-sc-ink.md#deploy-a-smart-contract
+
 pnpm start    # start the project
 ```
 
@@ -323,9 +334,206 @@ If you see a screen similar to the following, you are good to go.
 
 <img src="../../assets/developer/tutorials/poe-ink/substrate-frontend-template.png" alt="Substrate Front End Template" style="max-height: 500px;">
 
+## Before We Start
+
+First of all, in case there is any doubt, you can always refer back to [**the full front end source code**](https://github.com/hkwtf/cess-course/tree/main/examples/poe-ink/frontend).on the
+
+To get a high level understand of the frontend template, let's refer to the second self section of `src/App.js`:
+
+```jsx
+function Main() {
+  // ...code snapped
+  return (
+    <div ref={contextRef}>
+      <Sticky context={contextRef}>
+        <AccountSelector />
+      </Sticky>
+      <Container>
+        <Grid stackable columns="equal">
+          <Grid.Row stretched>
+            <NodeInfo />
+            <Metadata />
+            <BlockNumber />
+            <BlockNumber finalized />
+          </Grid.Row>
+          <Grid.Row stretched>
+            <Balances />
+          </Grid.Row>
+          <Grid.Row>
+            <Transfer />
+            <Upgrade />
+          </Grid.Row>
+          <Grid.Row>
+            <Interactor />
+            <Events />
+          </Grid.Row>
+          <Grid.Row>
+            <TemplateModule />
+          </Grid.Row>
+        </Grid>
+      </Container>
+      <DeveloperConsole />
+    </div>
+  );
+}
+```
+Here you see how different components are laid out on the screen.
+
+<img src="../../assets/developer/tutorials/poe-ink/substrate-fe-tpl-sectioned.png" alt="Substrate Front End Template Components" style="max-height: 400px;">
+
+1. The `<AccountSelector/>` component, refering to `src/AccountSelector.js` file.
+2. The `<NodeInfo />` component, referring to `src/NodeInfo.js` file.
+3. The `<Metadata />` component, referring to `src/Metadata.js` file.
+4. The `<Balances />` component, referring to `src/Balances.js` file.
+
+We will add a new component and show case how to use [**useink**](https://www.npmjs.com/package/useink) library connecting the front end to the smart contract.
+
 ## Development
 
-First of all, in case there is any doubt, you can always refer back to [**the full front end source code**](https://github.com/hkwtf/cess-course/tree/main/examples/poe-ink/frontend).
+1. Add the **useink** dependencies by:
 
+    ```bash
+    pnpm install useink
+    ```
 
-# References
+2. In `src/App.js`, let's replace the `<TemplateModule />` component with `<PoEWithInkProvider />`. Remove the `TemplateModule` import line and add back `PoEWithInkProvider`. We also create a basic React skeleton of `src/ProofOfExistenceInk.js`.
+
+    So, `src/App.js` becomes:
+
+    ```jsx
+    // Remove/comment out this line
+    // import TemplateModule from "./TemplateModule";
+    // Add the following line
+    import PoEWithInkProvider from "./ProofOfExistenceInk";
+
+    //... code snapped
+    return (
+      <div ref={contextRef}>
+        { /* code snapped */ }
+        <Container>
+          <Grid stackable columns="equal">
+            {/* code snapped */}
+            <Grid.Row>
+              <PoEWithInkProvider />
+            </Grid.Row>
+          </Grid>
+        </Container>
+        {/* code snapped */}
+      </div>
+    )
+    ```
+
+    The file `src/ProofOfExistenceInk.js` looks like the following:
+
+    ```jsx
+    import { React, useState } from "react";
+
+    export default function PoEWithInkProvider(props) {
+      return (<>Proof of Existence Ink! dApp</>);
+    }
+    ```
+
+    At this point, the front end should work with the line "Proof of Existence Ink! dApp" shown.
+
+3. From now on, we will mainly focus on the file `src/ProofOfExistenceInk.js`. We will not adding code line by line here, but we will cover the APIs provided by **useink** library that facilitate ink! smart contract interaction.
+
+    Refer to the code [`src/ProofOfExistenceInk.js`](https://github.com/hkwtf/cess-course/blob/main/examples/poe-ink/frontend/src/ProofOfExistenceInk.js).
+
+4. Starting from [the bottom](https://github.com/hkwtf/cess-course/blob/main/examples/poe-ink/frontend/src/ProofOfExistenceInk.js#L186-L195), we have:
+
+    ```jsx
+    <UseInkProvider
+      config={{
+        dappName: "Proof of Existence (Ink)",
+        chains: [{ id: "custom", name: "CESS localhost", rpcs: [config.PROVIDER_SOCKET] }],
+      }}
+    >
+      <ProofOfExistenceInk />
+    </UseInkProvider>
+    ```
+
+    `UseInkProvider` context hook is used to provide !ink contract connection information to its children components. A config object is passed in with the name, and:
+
+    - `chains.id`: there are public chains with well-known IDs. As we are connecting to a local development chain, we set it to `custom`.
+    - `chain.name`: the name of the chain. It will be displayed when prompting for wallet connection.
+    - `chain.rpcs`: we get this value from the app config, which points to a local chain RPC endpoint, `wss://localhost:9944`.
+
+    We can call ink! API call inside `<ProofOfExistenceInk />` component.
+
+5. Looking at the code inside [`function ProofOfExistenceInk(props) {...}`](https://github.com/hkwtf/cess-course/blob/main/examples/poe-ink/frontend/src/ProofOfExistenceInk.js#L31-L100)
+
+    ```jsx
+    function ProofOfExistenceInk(props) {
+      const { account } = useWallet();
+
+      const balance = useBalance(account);
+
+      // Getting the contract API
+      const poeContract = useContract(CONTRACT_ADDR, metadata, "custom");
+      const ownedFiles = useCallSubscription(poeContract, "ownedFiles");
+      const ownedFilesRes = pickDecoded(ownedFiles.result);
+
+      //... code snapped
+    }
+    ```
+
+    - Use `useWallet()` to get the current smart-contract connecting account.
+    - Use `useBalance(account)` to get the current balance of the account.
+    - Use `useContract(CONTRACT_ADDR, metadata, "custom")` to get the contract ABI.
+        - The contract address `CONTRACT_ADDR` is specified above. So everytime when a new PoE contract is deployed, we need to update the address value assigned.
+        - `metadata` is specified above too, coming from the metadata json file when we `cargo contract build` our smart contract.
+        - `custom` is the chain ID where the contract is deployed.
+
+        At this point we have a contract instance `poeContract` that we can interact with.
+    - We then use `useCallSubscription()` to subscribe to the value returning from `ownedFiles()` function from the smart contract. Recall from the previous section that this function returns all the file hash digests the user account owned.
+    - Then we use `pickDecoded()` method to decode the result, converting from the chain data types to javascript data types.
+
+    All the functions mentioned here are provided by **useink**.
+
+6. Here we specify how the file hash digest is computed.
+
+    ```jsx
+    const computeFileHash = (file) => {
+      const fileReader = new FileReader();
+      fileReader.onloadend = (e) => {
+        // We extract only the first 64kB  of the file content
+        const typedArr = new Uint8Array(fileReader.result.slice(0, 65536));
+        setFileHash(blake2AsHex(typedArr));
+      };
+      fileReader.readAsArrayBuffer(file);
+    };
+    ```
+
+    We use [`FileReader`](https://developer.mozilla.org/en-US/docs/Web/API/FileReader) provided by modern day browser JS API to read the uploaded file, extract the first 64 kB, and use `blake2AsHex()` [Blake2 cryptographic hash function](https://en.wikipedia.org/wiki/BLAKE_(hash_function)#BLAKE2) to calculate its hash digest, provided by [**@polkadot/util-crypto**](https://polkadot.js.org/docs/util-crypto/examples/hash-data) library.
+
+7. We then also implement a few helper components **TxButton**, **ConnectWallet**, and **WalletSwitcher** to display the UI.
+
+    - **TxButton** component sends either `claim()` or `forfeit()` transaction to the chain depending on whether the user owned the file. It uses `useTx()` to construct the transaction and use `signAndSend()` method to send the transaction.
+
+    - **ConnectWallet** component allows user to switch from different wallet provider, including Enkrypt, Polkadot.js extension, SubWallet, and Talisman. A typical choice would be to use [Polkadot.js extension](https://polkadot.js.org/extension/).
+
+        ![Different wallet provider](../../assets/developer/tutorials/poe-ink/wallet-type.png)
+
+        It uses `useWallet()` to get the wallet connection function and `useAllWallets()` to get the information of all supported wallets.
+
+    - **WalletSwitcher** component retrieve all available accounts provided by the wallet chosen in **ConnectWallet**, using the `accounts` object. It also use `setAccount()` to set a particular account and `disconnect()` to disconnect from the chosen wallet.
+
+8. Finally we have a front end similar to the following:
+
+    ![PoE Front end](../../assets/developer/tutorials/poe-ink/full-frontend.png)
+
+# Tutorial Completion
+
+**Congratulation**! Let's recap what we have done:
+
+- You have successfully implemented a PoE logic in ink! smart contract and deploy it on a local CESS node.
+- You have successfully implemented the front end that interact with the smart contract, start with the foundation from Substrate Front End Template with **useink** React library.
+
+Now, you can build your own dApp and deploy it on CESS testnet to test it out. You may also want to learn about how to [develop a dApp with Solidity smart contract](./poe-solidity.md) as well.
+
+## References
+
+- [Ink! 4.0](https://use.ink/)
+- [CESS Node](https://github.com/CESSProject/cess)
+- [Substrate Front End Template](https://github.com/hkwtf/substrate-frontend-template)
+- [Substrate Contracts UI](https://contracts-ui.substrate.io/)
