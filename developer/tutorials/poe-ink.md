@@ -10,8 +10,10 @@ We will use a simple logic to do this. We extract the first 64kB of the file con
 
 {% hint style="success" %}
 
-The complete source code of this tutorial can be cloned/seen at:<br/>
-https://github.com/hkwtf/cess-course/tree/main/examples/poe-ink
+The complete source code of this tutorial can be cloned/seen at:<br/>https://github.com/hkwtf/cess-course/tree/main/examples/poe-ink
+
+It contains both the smart contract (inside `contract` directory) and front end (inside `frontend` directory) code.
+
 
 {% endhint %}
 
@@ -19,11 +21,11 @@ We will first code the smart contract (Ink!) side, and then the frontend side. L
 
 # Smart Contract (Ink!)
 
-## Prequisite
+## Prequisites
 
 This section the same prerequsites as the tutorial [Deploy an Ink! Smart Contract](./deploy-sc-ink.md#prerequisite). Please follow that section and install all required components: Rust and `cargo-contract`.
 
-## Start
+## Development
 
 1. Let's start by building the directory structure
 
@@ -299,10 +301,31 @@ This section the same prerequsites as the tutorial [Deploy an Ink! Smart Contrac
     - The full source code contains also the unit test code, the code block inside `mod tests { ... }`. We won't go over them here, but they are pretty self-explanatory. Please take a look. You can run them by `cargo test`. [Check here](https://use.ink/basics/contract-testing) to learn more about contract testing.
     - After the compilation, try to [deploy the contract on your local cess dev chain](./deploy-sc-ink.md) and interact with the contract to test it out.
 
-# Frontend
+# Front End
 
+## Prequisites
 
-# Deployment
+- Install [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+- Install [Node v18](https://nodejs.org/en/download)
+- Install [pnpm](https://pnpm.io/installation)
+
+We will start from a modified version of [Substrate Front End Template](https://github.com/hkwtf/substrate-frontend-template). This is the Parity maintained [Substrate Front End Template](https://github.com/substrate-developer-hub/substrate-front-end-template) using the latest React, Polkadot.js API (as of 2023 Sep) library, and a much faster package manager [**pnpm**](https://pnpm.io/).
+
+```bash
+cd poe-ink    # this is the root directory created during the smart contract development above.
+git clone https://github.com/hkwtf/substrate-frontend-template.git frontend
+cd frontend
+pnpm install  # pull all the project dependencies down
+pnpm start    # start the project
+```
+
+If you see a screen similar to the following, you are good to go.
+
+<img src="../../assets/developer/tutorials/poe-ink/substrate-frontend-template.png" alt="Substrate Front End Template" style="max-height: 500px;">
+
+## Development
+
+First of all, in case there is any doubt, you can always refer back to [**the full front end source code**](https://github.com/hkwtf/cess-course/tree/main/examples/poe-ink/frontend).
 
 
 # References
