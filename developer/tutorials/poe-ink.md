@@ -1,4 +1,4 @@
-<img src="../../assets/developer/tutorials/poe-ink/ink-4.0.svg" alt="Ink! 4.0" style="max-height: 300px;">
+![Ink! 4.0](../../assets/developer/tutorials/poe-ink/ink-4.0.svg)
 
 # Objective
 
@@ -10,7 +10,7 @@ We will use a simple logic to do this. We extract the first 64kB of the file con
 
 {% hint style="success" %}
 
-The complete source code of this tutorial can be cloned/seen at:<br/>https://github.com/hkwtf/cess-course/tree/main/examples/poe-ink
+The complete source code of this tutorial can be cloned/seen at:<br/><https://github.com/hkwtf/cess-course/tree/main/examples/poe-ink>
 
 It contains both the smart contract (inside `contract` directory) and front end (inside `frontend` directory) code.
 
@@ -332,7 +332,7 @@ pnpm start    # start the project
 
 If you see a screen similar to the following, you are good to go.
 
-<img src="../../assets/developer/tutorials/poe-ink/substrate-frontend-template.png" alt="Substrate Front End Template" style="max-height: 500px;">
+![Substrate Front End Template](../../assets/developer/tutorials/poe-ink/substrate-frontend-template.png)
 
 ## Before We Start
 
@@ -379,7 +379,7 @@ function Main() {
 ```
 Here you see how different components are laid out on the screen.
 
-<img src="../../assets/developer/tutorials/poe-ink/substrate-fe-tpl-sectioned.png" alt="Substrate Front End Template Components" style="max-height: 400px;">
+![Substrate Front End Template Components](../../assets/developer/tutorials/poe-ink/substrate-fe-tpl-sectioned.png)
 
 1. The `<AccountSelector/>` component, refering to `src/AccountSelector.js` file.
 2. The `<NodeInfo />` component, referring to `src/NodeInfo.js` file.
