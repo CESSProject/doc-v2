@@ -1,3 +1,5 @@
+<img src="../../assets/developer/tutorials/poe-ink/ink-4.0.svg" alt="Ink! 4.0" style="max-height: 300px;">
+
 # Objective
 
 In this tutorial, we will walk through a full dApp development experience, write out both the smart contract, based on [Ink!](https://use.ink/) and the frontend, based on [React](https://react.dev/). Then we will deploy the smart contract on the CESS development node/chain, and have the frontend interact with it.
