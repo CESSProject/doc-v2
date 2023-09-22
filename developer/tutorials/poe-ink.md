@@ -10,7 +10,7 @@ Instead of posting the whole file content on-chain, we will extract the first 64
 
 {% hint style="success" %}
 
-The complete source code of this tutorial can be seen at<br/><https://github.com/hkwtf/cess-course/tree/main/examples/poe-ink>
+The complete source code of this tutorial can be seen at<br/><https://github.com/CESSProject/cess-course/tree/main/examples/poe-ink>
 
 It contains the smart contract (inside `/contract` directory) and front end (inside `/frontend` directory) code.
 
@@ -295,7 +295,7 @@ This section has the same prerequisites as the tutorial [Deploy an Ink! Smart Co
     }
     ```
 
-10. By this point, you have completed all the core logic of the smart contract. Compile the contract with `cargo contract build` to ensure it builds. If there is any doubt about the final source code, you can always refer to the [**complete source code**](https://github.com/hkwtf/cess-course/blob/main/examples/poe-ink/contract/lib.rs).
+10. By this point, you have completed all the core logic of the smart contract. Compile the contract with `cargo contract build` to ensure it builds. If there is any doubt about the final source code, you can always refer to the [**complete source code**](https://github.com/CESSProject/cess-course/blob/main/examples/poe-ink/contract/lib.rs).
 
 11. After the compilation, [deploy the contract on your local cess dev chain](./deploy-sc-ink.md) and interact with the contract to test it. You can access [Contracts UI](https://contracts-ui.substrate.io/), connect it to your local node, and deploy the contract. Refer to the screenshot below.
 
@@ -317,11 +317,11 @@ This section has the same prerequisites as the tutorial [Deploy an Ink! Smart Co
 - Install [pnpm](https://pnpm.io/installation)
 - Run a local development chain of the CESS node because the front end will connect to the local CESS chain. Refer here on [how to run a local CESS chain](./deploy-sc-ink.md#deploy-a-smart-contract).
 
-We will start from a modified version of [Substrate Front End Template](https://github.com/hkwtf/substrate-frontend-template). This is the Parity maintained [Substrate Front End Template](https://github.com/substrate-developer-hub/substrate-front-end-template) using the latest React, Polkadot.js API (as of 2023 Sep) library and a much faster package manager [**pnpm**](https://pnpm.io/).
+We will start from a modified version of [Substrate Front End Template](https://github.com/CESSProject/substrate-frontend-template). This is the Parity maintained [Substrate Front End Template](https://github.com/substrate-developer-hub/substrate-front-end-template) using the latest React, Polkadot.js API (as of 2023 Sep) library and a much faster package manager [**pnpm**](https://pnpm.io/).
 
 ```bash
 cd poe-ink    # This is the root directory created during the smart contract development above.
-git clone https://github.com/hkwtf/substrate-frontend-template.git frontend
+git clone https://github.com/CESSProject/substrate-frontend-template.git frontend
 cd frontend
 pnpm install  # pull all the project dependencies down
 
@@ -337,7 +337,7 @@ If you see a screen similar to the following, you are good to go.
 
 ## Before We Start
 
-First of all, in case there is any doubt, you can always refer back to [**the entire front end source code**](https://github.com/hkwtf/cess-course/tree/main/examples/poe-ink/frontend).on the
+First of all, in case there is any doubt, you can always refer back to [**the entire front end source code**](https://github.com/CESSProject/cess-course/tree/main/examples/poe-ink/frontend).on the
 
 To get a high-level understand of the front end template, let's refer to the second self section of `src/App.js`:
 
@@ -438,9 +438,9 @@ We will add a new component and showcase how to use [**useink**](https://www.npm
 
 3. From now on, we will mainly focus on the file `src/ProofOfExistenceInk.js`. We will not be adding code line by line here, but we will cover the APIs provided by **useink** library that facilitate ink! smart contract interaction.
 
-    Refer to the code [`src/ProofOfExistenceInk.js`](https://github.com/hkwtf/cess-course/blob/main/examples/poe-ink/frontend/src/ProofOfExistenceInk.js).
+    Refer to the code [`src/ProofOfExistenceInk.js`](https://github.com/CESSProject/cess-course/blob/main/examples/poe-ink/frontend/src/ProofOfExistenceInk.js).
 
-4. Starting from [the bottom](https://github.com/hkwtf/cess-course/blob/main/examples/poe-ink/frontend/src/ProofOfExistenceInk.js#L186-L195), we have:
+4. Starting from [the bottom](https://github.com/CESSProject/cess-course/blob/main/examples/poe-ink/frontend/src/ProofOfExistenceInk.js#L186-L195), we have:
 
     ```jsx
     <UseInkProvider
@@ -461,7 +461,7 @@ We will add a new component and showcase how to use [**useink**](https://www.npm
 
     We can call ink! API call inside `<ProofOfExistenceInk />` component.
 
-5. Looking at the code inside [`function ProofOfExistenceInk(props) {...}`](https://github.com/hkwtf/cess-course/blob/main/examples/poe-ink/frontend/src/ProofOfExistenceInk.js#L31-L100)
+5. Looking at the code inside [`function ProofOfExistenceInk(props) {...}`](https://github.com/CESSProject/cess-course/blob/main/examples/poe-ink/frontend/src/ProofOfExistenceInk.js#L31-L100)
 
     ```jsx
     function ProofOfExistenceInk(props) {
@@ -536,5 +536,5 @@ Now, you can build your dApps and deploy them on the CESS testnet to test it out
 
 - [Ink! 4.0](https://use.ink/)
 - [CESS Node](https://github.com/CESSProject/cess)
-- [Substrate Front End Template](https://github.com/hkwtf/substrate-frontend-template)
+- [Substrate Front End Template](https://github.com/CESSProject/substrate-frontend-template)
 - [Substrate Contracts UI](https://contracts-ui.substrate.io/)
