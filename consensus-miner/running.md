@@ -43,21 +43,21 @@ After the wallet account is created, navigate to [CESS Explorer](https://testnet
 
 Choose **Network**, click **Staking** > **Accounts** > **Stash**
 
-![Add a Stash](../assets/consensus-node/running/acct-prep-01.webp)
+![Add a Stash](../assets/consensus-miner/running/acct-prep-01.webp)
 
 Select both **Stash Account** and **Controller Account**.
 
 Value bonded: 300,000 TCESS is recommended. In *payment destination*, select the second option **Stash Account as the reward receiving account (do not increase the amount at stake)**, which means that mining income will not automatically added to staking.
 
-![Bond Fund](../assets/consensus-node/running/acct-prep-02.webp)
+![Bond Fund](../assets/consensus-miner/running/acct-prep-02.webp)
 
 Click **Bond** -> **Sign and Submit** to link Stash Account and Controller Account
 
-![Sign and Submit](../assets/consensus-node/running/acct-prep-03.png)
+![Sign and Submit](../assets/consensus-miner/running/acct-prep-03.png)
 
 Fund is bonded successfully!
 
-![Bonded Fund Successfully](../assets/consensus-node/running/acct-prep-04.png)
+![Bonded Fund Successfully](../assets/consensus-miner/running/acct-prep-04.png)
 
 # Install CESS Client
 
@@ -126,7 +126,7 @@ docker.io/cesslab/kaleido-kafka:latest
 pull images finished
 ```
 
-If the configuration process fails, please refer to the [troubleshooting guideline](../storage-node/troubleshooting.md).
+If the configuration process fails, please refer to the [troubleshooting guideline](../storage-miner/troubleshooting.md).
 
 # Manage Validator Life Cycle
 
@@ -147,29 +147,29 @@ If the configuration process fails, please refer to the [troubleshooting guideli
     The field in the quotation marks after "result" is the Session Key, which will be used in subsequent operations. "localhost:9933" is the default port.
     Operation demonstration:
 
-    ![rotate-keys example](../assets/consensus-node/running/rotate-keys.png)
+    ![rotate-keys example](../assets/consensus-miner/running/rotate-keys.png)
 
 3. Setup a session key
 
     Navigate to [CESS Explorer](https://testnet.cess.cloud), choose **Network** > **Staking** > **Accounts** > **Session Key**
 
-    ![Session Key 01](../assets/consensus-node/running/session-key-01.png)
+    ![Session Key 01](../assets/consensus-miner/running/session-key-01.png)
 
     Fill in the **Session Key** in the red box
 
-    ![Session Key 02](../assets/consensus-node/running/session-key-02.png)
+    ![Session Key 02](../assets/consensus-miner/running/session-key-02.png)
 
     Click **Sign and Submit**
 
-    ![Session Key 03](../assets/consensus-node/running/session-key-03.png)
+    ![Session Key 03](../assets/consensus-miner/running/session-key-03.png)
 
 4. Becoming a validator
 
     Navigate to [CESS Explorer](https://testnet.cess.cloud), click **Network** > **Staking** > **Accounts** > **Validate**
 
-    ![Validator 01](../assets/consensus-node/running/validator-01.webp)
+    ![Validator 01](../assets/consensus-miner/running/validator-01.webp)
 
-    ![Validator 02](../assets/consensus-node/running/validator-02.png)
+    ![Validator 02](../assets/consensus-miner/running/validator-02.png)
 
     Enter **100** in *reward commission percentage*, indicating that the reward will not be distributed to others.
 
@@ -177,11 +177,11 @@ If the configuration process fails, please refer to the [troubleshooting guideli
 
     Again, click **Sign and Submit**.
 
-    ![Validator 03](../assets/consensus-node/running/validator-03.png)
+    ![Validator 03](../assets/consensus-miner/running/validator-03.png)
 
     After completing the steps above, open the [CESS Explorer](https://testnet.cess.cloud/) and click **Network** > **Staking** > **Waiting**.
 
-    ![Validator 04](../assets/consensus-node/running/validator-04.webp)
+    ![Validator 04](../assets/consensus-miner/running/validator-04.webp)
 
     You should see that the node has already appeared on the candidate node list.
 
@@ -189,11 +189,11 @@ If the configuration process fails, please refer to the [troubleshooting guideli
 
 Navigate to CESS Explorer: **Network** > **Staking** > **Payouts** > **Payout**.
 
-![Redemption-01](../assets/consensus-node/running/redemption-01.png)
+![Redemption-01](../assets/consensus-miner/running/redemption-01.png)
 
 In Payouts, click **Payout** to initiate a payment. Any account can initiate a payment.
 
-![Redemption-02](../assets/consensus-node/running/redemption-02.png)
+![Redemption-02](../assets/consensus-miner/running/redemption-02.png)
 
 {% hint style="info" %}
 Please claim the reward within 84 era (each era of the test network is 6 hours), which is 21 days. Those who hasn't claimed the reward in this period will not be able to claim it.
@@ -205,21 +205,21 @@ Please claim the reward within 84 era (each era of the test network is 6 hours),
 
     In [CESS Explorer](https://testnet.cess.cloud), navigate to: **Network > Staking > Account Actions > Stop**.
 
-    ![Exiting-01](../assets/consensus-node/running/exiting-01.png)
+    ![Exiting-01](../assets/consensus-miner/running/exiting-01.png)
 
 2. Clear Session Keys
 
     In [CESS Explorer](https://testnet.cess.cloud), navigate to: **Developer -> Submission**
 
-    ![Exiting-02](../assets/consensus-node/running/exiting-02.png)
+    ![Exiting-02](../assets/consensus-miner/running/exiting-02.png)
 
     Enter controller account in *using the selected account controller*. Then in *submit the following extrinsic*, enter **session** and choose **purgeKeys()** in the box next to it.
 
-    ![Exiting-03](../assets/consensus-node/running/exiting-03.png)
+    ![Exiting-03](../assets/consensus-miner/running/exiting-03.png)
 
     Click **Submit Transaction** button to clear session keys
 
-    ![Exiting-04](../assets/consensus-node/running/exiting-04.png)
+    ![Exiting-04](../assets/consensus-miner/running/exiting-04.png)
 
 ## Redeeming the Stake
 
@@ -229,7 +229,7 @@ Please claim the reward within 84 era (each era of the test network is 6 hours),
 
     In [CESS Explorer](https://testnet.cess.cloud/), navigate to: **Network > Staking > Account Actions > Unbond Funds**.
 
-    ![Staking 01](../assets/consensus-node/running/staking-01.png)
+    ![Staking 01](../assets/consensus-miner/running/staking-01.png)
 
 2. Stop the CESS client
 

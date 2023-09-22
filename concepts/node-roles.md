@@ -27,7 +27,7 @@ TEE Worker is developed based on the [Gramine library](https://gramineproject.io
 
 A TEE Worker is bound to a consensus node and can only work after registering transactions with the account signature of the consensus node. It requires high hardware performance, needs hardware support of TEE functions, and entails a powerful CPU to complete the marking task quickly. Thus this has a higher cost but also earns more rewards for a miner.
 
-If you are interested in running a consensus node, please refer to the section [**Role: Consensus Miners**](../consensus-node).
+If you are interested in running a consensus node, please refer to the section [**Role: Consensus Miners**](../consensus-miner).
 
 # Storage Nodes
 
@@ -49,4 +49,4 @@ The database component adopts a high-performance [LevelDB](https://en.wikipedia.
 
 The P2P communication component is based on [**libp2p**](https://libp2p.io/) development, which realizes the formation of a P2P network between storage nodes. For details, refer to the GitHub repository [CESSProject/p2p-go](https://github.com/CESSProject/p2p-go).
 
-If you are interested in running a storage node, please refer to the section [**Roles: Storage Miners**](../storage-node).
+If you are interested in running a storage node, please refer to the section [**Roles: Storage Miners**](../storage-miner).

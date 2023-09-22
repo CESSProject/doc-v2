@@ -14,8 +14,8 @@ There are five type of roles involved in the CESS ecosystem that keep the CESS n
 
 4. **Storage Miners**: They run storage nodes in CESS network to provide storage space for users.
 
-   [👉 Storage Miners](storage-node/README.md)
+   [👉 Storage Miners](storage-miner/README.md)
 
 5. **Consensus Miners**: They run the CESS blockchain nodes in CESS network to secure the network and participate in the blockchain consensus process.
 
-   [👉 Consensus Miners](consensus-node/README.md)
+   [👉 Consensus Miners](consensus-miner/README.md)

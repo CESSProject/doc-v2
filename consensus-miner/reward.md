@@ -1,6 +1,6 @@
 Referring back to CESS overall tokenomics as below:
 
-![CESS Tokenomics](../assets/storage-node/reward/tokenomics-v1.png)
+![CESS Tokenomics](../assets/storage-miner/reward/tokenomics-v1.png)
 
 # Reward
 
