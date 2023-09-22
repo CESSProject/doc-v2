@@ -11,5 +11,5 @@ There are mainly [five types of users](user-roles.md) in CESS ecosystem. If you 
 * [Community Member](community/)
 * [Storage (dApp) User](user/)
 * [dApp Developer](developer/)
-* [Storage Node Validator](storage-node/)
-* [Consensus Node Validator](consensus-node/)
+* [Storage Node Validator](storage-miner/)
+* [Consensus Node Validator](consensus-miner/)

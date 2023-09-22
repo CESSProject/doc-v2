@@ -163,7 +163,7 @@ docker logs chain
 
 As shown in the figure below, if we see that the height of the block corresponding to "best" is about the latest height in [CESS Explorer](https://testnet.cess.cloud/), it means the local chain node synchronization is completed.
 
-![CESS Blockchain Synchronization Completed](../assets/storage-node/running/sync-status.png)
+![CESS Blockchain Synchronization Completed](../assets/storage-miner/running/sync-status.png)
 
 Only when the chain synchronization is completed can you operate other functions such as increase the staking, view the status of the node, etc.
 
@@ -175,7 +175,7 @@ docker logs bucket
 
 As shown in the figure below, seeing `/kldr-testnet` indicates that the network environment is a test network, and seeing `Connected to the bootstrap node...` indicates that there is a connection to the bootstrap node.
 
-![Storage Node Log](../assets/storage-node/running/view-node-log.webp)
+![Storage Node Log](../assets/storage-miner/running/view-node-log.webp)
 
 **View bucket status**
 
@@ -185,7 +185,7 @@ cess bucket stat
 
 An example of the returned results is shown below：
 
-![CESS Bucket Stat](../assets/storage-node/running/bucket-stat.png)
+![CESS Bucket Stat](../assets/storage-miner/running/bucket-stat.png)
 
 Refer to the [Glossary](../glossary.md#storage-miner) on the names above.
 

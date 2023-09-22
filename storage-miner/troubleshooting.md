@@ -5,7 +5,7 @@
 
   During the installation process, docker is used to download cess image. If the following exception occurs when installing the `cess-nodeadm`:
 
-  <img alt="Docker Daemon Issue" src="../assets/storage-node/troubleshooting/docker-daemon-issue.png" width="100%" height="auto" decoding="async" style="max-width: 100%"/>
+  <img alt="Docker Daemon Issue" src="../assets/storage-miner/troubleshooting/docker-daemon-issue.png" width="100%" height="auto" decoding="async" style="max-width: 100%"/>
 
   Make sure cmds are in the root privilege or with sudo command.
   Start docker on your system:
@@ -28,7 +28,7 @@
 
   If the following error occurs when installing the `cess-nodeadm`:
 
-  <img alt="Docker Package Issue" src="../assets/storage-node/troubleshooting/docker-package-issue.webp" width="100%" height="auto" decoding="async" style="max-width: 100%;" />
+  <img alt="Docker Package Issue" src="../assets/storage-miner/troubleshooting/docker-package-issue.webp" width="100%" height="auto" decoding="async" style="max-width: 100%;" />
 
   Try to delete Docker with following commands:
 
@@ -57,7 +57,7 @@
 
   If the following error occurs when setting up the config:
 
-  <img alt="CESS Image Download Issue" src="../assets/storage-node/troubleshooting/cess-image-download-issue.png" width="100%" height="auto" decoding="async" style="max-width: 100%;" />
+  <img alt="CESS Image Download Issue" src="../assets/storage-miner/troubleshooting/cess-image-download-issue.png" width="100%" height="auto" decoding="async" style="max-width: 100%;" />
 
   Make sure to run commands in the root privilege or with `sudo` command.
 
@@ -67,7 +67,7 @@
 <details>
   <summary>Invalid config file (config.yaml)</summary>
 
-  <img alt="Invalid Config Issue" src="../assets/storage-node/troubleshooting/invalid-config-issue.webp" width="100%" height="auto" decoding="async" style="max-width: 100%;" />
+  <img alt="Invalid Config Issue" src="../assets/storage-miner/troubleshooting/invalid-config-issue.webp" width="100%" height="auto" decoding="async" style="max-width: 100%;" />
 
   Delete file `/usr/bin/yq`:
 
