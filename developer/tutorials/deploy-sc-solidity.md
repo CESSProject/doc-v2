@@ -10,8 +10,7 @@ For the current guide, we will be deploying the contract to the CESS test-chain.
 
 {% hint style="info" %}
 
-This tutorial involves working with the EVM in CESS test-chain. So ensure you understand the
-mechanism behind [Subtrate and EVM address conversion](../guides/substrate-evm.md).
+This tutorial involves working with the EVM in CESS test-chain. You will get a better understanding of this tutorial if you understand the mechanism behind [Subtrate and EVM address conversion](../guides/substrate-evm.md).
 
 {% endhint %}
 
