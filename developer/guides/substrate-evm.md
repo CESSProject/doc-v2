@@ -38,7 +38,7 @@ Notice the last cryptographic hash function used is different. So to support EVM
 
 Referring to the above diagram, starting with #1, **Substrate Signing Account**. We use this signing account to sign transactions on the CESS chain. This is also our main Substrate account holding our balances. This Substrate account has an equivalent EVM-mapping address. It is done by calculating the user's public key from its SS58 address and extracting the first 20 bytes of it.
 
-So with the well-known development account of `Alice`. It is an account generated from the mnemonic:
+So with the well-known development account of `Alice`. It is an account generated from the well-known development mnemonic (*don't use this in production*):
 
 ```
 bottom drive obey lake curtain smoke basket hold race lonely fit walk
@@ -124,7 +124,7 @@ Account Set 2:
 
     ![Issue `evm.withdraw()` Extrinsic](../../assets/developer/guides/substrate-evm/evm-withdraw-extrinsic.png)
 
-6. After the extrinsic is processed, we should see Alice's account updated from 90M to 92M units.
+6. After the extrinsic is processed, we should see Alice's account updated from 90M to 92.5M units.
 
     ![1-final](../../assets/developer/guides/substrate-evm/1-final.png)
 
