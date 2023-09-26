@@ -38,6 +38,7 @@
   * [Guides](developer/guides/README.md)
     * [Testnet Faucet](developer/guides/testnet-faucet.md)
     * [Commonly Used Libs](developer/guides/common-libs.md)
+    * [Substrate and EVM Address Conversion](developer/guides/substrate-evm.md)
     * [CESS Code Overview](developer/guides/src-overview.md)
     * [DeOSS](https://docs.cess.cloud/deoss)
 * [🛡 Role: Storage Miners](storage-miner/README.md)
