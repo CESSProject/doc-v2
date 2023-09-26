@@ -8,6 +8,13 @@ You will need the following to deploy a Solidity smart contract to CESS.
 
 For the current guide, we will be deploying the contract to the CESS test-chain. The following steps will guide you to deploy EVM-based contracts on the CESS chain.
 
+{% hint style="info" %}
+
+This tutorial involves working with the EVM in CESS test-chain. So ensure you understand the
+mechanism behind [Subtrate and EVM address conversion](../guides/substrate-evm.md).
+
+{% endhint %}
+
 # Add CESS Network to MetaMask
 
 Open the MetaMask setting tab, click on the **Networks** tab, click on **Add a network** and then **Add a network manually**.
@@ -27,7 +34,9 @@ On **Add a network manually** page, enter the following details:
 ![deploy-sc-solidity-02](../../assets/developer/tutorials/deploy-sc-solidity/02.png)
 
 {% hint style="info" %}
+
 In case MetaMask is not able to connect your RPC URL, make sure the CORS is allowed for MetaMask in the CESS node.
+
 {% endhint %}
 
 # Convert the Account Address to a CESS-supported Address
@@ -69,7 +78,9 @@ Go to **Deploy and run Transactions**, once the compilation is successful, you s
 ![deploy-sc-solidity-09](../../assets/developer/tutorials/deploy-sc-solidity/09.png)
 
 {% hint style="info" %}
+
 When you click **Deploy**, you may need to click confirm in MetaMask to allow Remix to access the account and submit the transaction.
+
 {% endhint %}
 
 Click **Confirm** to submit the transaction to deploy the smart contract.
