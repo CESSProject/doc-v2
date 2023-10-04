@@ -12,8 +12,7 @@ Instead of posting the whole file content on-chain, we will extract the first 64
 
 The complete source code of this tutorial can be seen at<br/><https://github.com/CESSProject/cess-course/tree/main/examples/poe-ink>
 
-It contains the smart contract (inside `/contract` directory) and front end (inside `/frontend` directory) code.
-
+It contains the smart contract (inside `examples/inks` directory) and front end (inside `examples/frontend` directory) code.
 
 {% endhint %}
 
