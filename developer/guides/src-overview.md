@@ -6,7 +6,7 @@ In this section we will give a mid-level description of the source code and arch
 
 CESS blockchain is built on top of Parity developed Substrate blockchain SDK. So we adopt a similar architecture of Substrate-based blockchain. It can be easily understood by the following diagram.
 
-![Substrate Architecture](../../assets/developer/guides/src-overview)
+![Substrate Architecture](../../assets/developer/guides/src-overview/substrate-architecture.png)
 
 In the outer layer there is a Node (a.k.a the Client). It contains all the low-level building blocks of a blockchain, such as the peer-to-peer network, JSON-RPC API that interface externally, and the storage and database system.
 
@@ -18,9 +18,7 @@ With this architecture, CESS blockchain, and extending to most Substrate-based b
 
 # High Level Understanding
 
-To understand what a CESS blockchain does, we can look at its Runtime and see what pallets is it composed of. The CESS blockchain version we are looking at is:
-
-CESSProject/cess [v0.7.3](https://github.com/CESSProject/cess/tree/0.7.3)
+To understand what a CESS blockchain does, we can look at its Runtime and see what pallets is it composed of. The CESS blockchain version we are looking at is: **[CESSProject/cess v0.7.3](https://github.com/CESSProject/cess/tree/0.7.3)**.
 
 Let's look at its runtime [`runtime/src/libs.rs`](https://github.com/CESSProject/cess/blob/0.7.3/runtime/src/lib.rs), and especially at the section of code in `construct_runtime!()`:
 
@@ -102,79 +100,79 @@ As seen from the above, there are over 40 pallets being integrated in the runtim
 
 6. CESS specific Pallets - These are pallets built by CESS core development team to implement CESS functionality. Most of the pallets on the first five categories are provided as-is in the Substrate framework. We have made further customization to make it suit CESS blockchain. But the pallets in this category is what make CESS blockchain unique and implement the core functionality of providing the decentralized storage and caching functionality.
 
-Next, let's go deeper in these CESS-specific pallets.
+Next, let's go deeper in these CESS specific pallets.
 
 # CESS Pallets
 
 ## FileBank Pallet
 
-This pallet contains operations related info of files on multi-direction. Provide storage space purchase, capacity expansion and lease renewal interfaces. Including actions in CRUD user storage buckets (similar to a directory), and user files. The actual files and buckets are created in the storage network, but the action and its metadata are all stored on the blockchain.
+This pallet consists of logics on managing storage space. It allows callers (users) to purchase storage space, expand the purchased space, renew the storage leases. This pallet also implement functions to CRUD (create, read, update, delete) user buckets, a concept similar to user directory. The actual files are segmented and stored in the underlying storage network, but its metadata are stored on-chain.
 
 Implementation: [`c-pallets/file-bank/src/lib.rs`](https://github.com/cessProject/cess/blob/main/c-pallets/file-bank/src/lib.rs)
 
 Extrinsics:
 
-- `upload_declaration()`: For users to declare a file is going to be upload before actual operation. It will check if the file is already on-chain and mark the corresponding metadata.
-- `deal_reassign_miner()`: The deal hash is reassigned to another storage miner.
-- `ownership_transfer()`: Transfer the ownership of a document. It will release the used space of the original owner and deduct the available space for the new owner.
-- `transfer_report()`: This upload the information of a stored file. The same file will only upload meta information once, which will be uploaded by consensus.
-- `calculate_end()`: For a deal with particular hash, we ends its deal, clean up the system storage, and finally remove the deal from `DealMap` storage.
-- `replace_idle_space()`: **todo**
-- `delete_file()`: Delete the file owned by the owner.
-- `cert_idle_space()`: Upload up to ten idel files to certify the storage miner space.
+- `upload_declaration()`: For users to declare, claiming the ownership, of a file before it is being uploaded. This will check if the file is already on-chain and mark the corresponding metadata.
+- `deal_reassign_miner()`: Reassign the storage task (storage deal) to another storage miner.
+- `ownership_transfer()`: Transfer the ownership of a document from one user to another user. There are a few states need to be updated in addition to the files, including the releasing the used storage of the previous owner and deducting the available space of the new owner.
+- `transfer_report()`: Upload the meta-data of a stored file on-chain. If the meta-data of the file existed before, it will be updated.
+- `calculate_end()`: End the storage task of the given hash. The used storage is released and the deal information is cleaned up.
+- `replace_idle_space()`: A particular idle space in a storage miner is replaced by user content.
+- `delete_file()`: Delete the file owned by the owner. The caller can be the owner himself or has granted right to manage files for the owner.
+- `cert_idle_space()`: Upload up to ten idle files to certify the storage miner space.
 - `create_bucket()`: Create a storage bucket.
 - `delete_bucket()`: Delete a storage bucket.
-- `generate_restoral_order()`: Generate a restoral order to be picked up by storage miner.
-- `claim_restoral_order()`: Storage miner come and claim to perform a restoral order.
-- `claim_restoral_noexist_order()`: **todo**
-- `restoral_order_complete()`: Claiming that the restoral order is complete by the storage miner who claim the order.
-- `root_clear_failed_count()`: Clear the failed count of all miners. Can only be called by `root`.
-- `miner_clear_failed_count()`: Clear the failed count of its own as a miner.
+- `generate_restoral_order()`: Generate an order to restore certain content. It is stored in a queue to be pick up by storage miners.
+- `claim_restoral_order()`: A storage miner come to pick up a restore order.
+- `claim_restoral_noexist_order()`: A storage miner come to generate a new restore order and pick it up. It is a combination of the above two functions.
+- `restoral_order_complete()`: A storage miner claims that a restore order has been completed.
+- `root_clear_failed_count()`: Clear the failed count of all storage miners. Only be called by `root` user.
+- `miner_clear_failed_count()`: Clear the failed count of the caller.
 
 ## TeeWorker Pallet
 
-This pallet provides functionality for managing the consensus miner. It includes registering a node to be a miner, updating the whitelist of the miner, and for miner to exit from the consensus mining queue.
+This pallet provides functionality mostly related to consensus miners, including registering nodes to be consensus miners, updating the internal record, and exiting to be consensus miners.
 
 Implementation: [`c-pallets/tee-worker/src/lib.rs`](https://github.com/cessProject/cess/blob/main/c-pallets/tee-worker/src/lib.rs)
 
 Extrinsics:
 
-- `register()`: Register for a consensus miner.
-- `update_whitelist()`: Adding a new Enclave ID into the whitelist storage.
-- `exit()`: Call when a consensus miner want to exit its role.
+- `register()`: The caller registers to be a consensus miner. It needs to provide a stash account for managing its stake, a Peer ID, a PoDR2 public key, and an SGX attestation report to prove the node is SGX-capable.
+- `update_whitelist()`: Updating the whitelist storage of the miner enclaves. Only be called by `root` user.
+- `exit()`: The caller exits from being a consensus miner.
 
 ## Audit Pallet
 
-This pallet manage the proof of PoDR2 adaptation. It processes the proof of miner's service file and filling file, and generate random challenges. Call some traits of Smith pallet to punish miners. It call the trait of file bank pallet to obtain random files or files with problems in handling challenges.
+This pallet manages the Proof of Data Reduplication and Recovery (PoDR²). It includes the logic to generate and validate proofs for miner's service file and idled file. It also generate random challenges to the storage miners. It works with other pallets to handle storage challenges and slash miners.
 
 Implementation: [`c-pallets/audit/src/lib.rs`](https://github.com/cessProject/cess/blob/main/c-pallets/audit/src/lib.rs)
 
 Extrinsics:
 
-- `save_challenge_info()`: Storing a new challenge proposal on-chain.
-- `submit_idle_proof()`: The storage miner submits an idle proof on-chain. This will also satisfy the challenger request who ask the miner for a proof.
-- `submit_service_proof()`: The storage miner submits a service proof on-chain. This will also satisfy the challenger request who ask the miner for a proof.
-- `submit_verify_idle_result()`:
-- `submit_verify_service_result()`:
+- `save_challenge_info()`: Generate a new challenge request and save it on-chain. It can be either a service space challange or an idle space challenge.
+- `submit_idle_proof()`: The storage miner submits an idle space proof on-chain based on a challege request previously generated.
+- `submit_service_proof()`: The storage miner submits a service space proof on-chain based on a challege request previously generated.
+- `submit_verify_idle_result()`: Given a challange request and an idle space proof, a verifier checks if the idle proof is valid and satisfy the challenge request.
+- `submit_verify_service_result()`: Given a challenge request and a service space proof, a verifier checks if the service proof is valid and satisfy the challenge request.
 
 ## Sminer Pallet
 
-This pallet contains operations related storage miners, allowing a storage miners to claim how much space it is providing for how long, staking its token for its claimed services, and withdrawing the service provision altogether.
+This pallet contains operations related to storage miners, allowing them to claim how much space it is providing for how long, staking its tokens for its claimed services, and withdrawing the service provision altogether.
 
 Implementation: [`c-pallets/sminer/src/lib.rs`](https://github.com/cessProject/cess/blob/main/c-pallets/sminer/src/lib.rs)
 
 Extrinsics:
 
-- `regnstk()`: extrinsic responsible for registering and staking of a new storage miner.
-- `increase_collateral()`: Increasing the storage miner collateral (aka stake).
+- `regnstk()`: Responsible for registering of a new storage miner and adding stakes to its service.
+- `increase_collateral()`: Increasing the storage miner stake (a.k.a collateral).
 - `update_beneficiary()`: Update the beneficiary account of the storage miner.
 - `update_peer_id()`: Update the storage miner peer ID.
-- `receive_reward()`: The storage miner requesting reward to be issued.
-- `miner_exit_prep()`: The storage miner request to exit in future.
-- `miner_exit()`: The storage miner is exiting.
-- `mine_withdraw()`: The stroage miner withdrawing. (what is the difference between exiting and withdrawing?)
-- `faucet_top_up()`: The caller returning some of his holding token to the faucet.
-- `faucet()`: The caller ask to receive from token from the faucet.
+- `receive_reward()`: The storage miner requests for its reward.
+- `miner_exit_prep()`: The storage miner requests to exit in future for its service.
+- `miner_exit()`: The storage miner exits from its service.
+- `mine_withdraw()`: The stroage miner requests to withdraw. Restore order are issued so the storage content of the miner is migrated to other miners.
+- `faucet_top_up()`: The caller returns some of his holding tokens back to the faucet.
+- `faucet()`: The caller asks to get some tokens from the faucet. There is a limit of calling this function only once per day.
 
 ## StorageHandler Pallet
 
