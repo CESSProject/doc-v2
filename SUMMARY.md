@@ -49,11 +49,7 @@
   * [Reward Mechanism](consensus-miner/reward.md)
 * [📚 References](ref/README.md)
   * [In-depth Technical Features](ref/in-depth-feat/README.md)
-    * [Smart Space Management](ref/in-depth-feat/ssm.md)
-    * [Trusted Continuity Proof](ref/in-depth-feat/tcp.md)
-    * [Flexible Data Restoration](ref/in-depth-feat/fr.md)
     * [Reputation Rotational Consensus](ref/in-depth-feat/rrc.md)
-    * [Idle-active Replacement](ref/in-depth-feat/isr.md)
   * [Data Lifecycle](ref/data-lifecycle/README.md)
     * [Data Upload](ref/data-lifecycle/upload.md)
     * [Data Download](ref/data-lifecycle/download.md)
@@ -66,3 +62,11 @@
     * [Message Protocol](ref/storage/message-protocol.md)
     * [Storage Method](ref/storage/storage-method.md)
 * [📖 Glossary](glossary.md)
+
+<!--
+  // Within [References: In-depth Technical Features]
+  * [Smart Space Management](ref/in-depth-feat/ssm.md)
+  * [Trusted Continuity Proof](ref/in-depth-feat/tcp.md)
+  * [Flexible Data Restoration](ref/in-depth-feat/fr.md)
+  * [Idle-active Replacement](ref/in-depth-feat/isr.md)
+-->

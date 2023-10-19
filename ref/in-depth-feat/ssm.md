@@ -1,3 +1,7 @@
+{% hint style="info" %}
+Work in Progress
+{% endhint %}
+
 This section describes how storage space in the CESS network is classified and managed.
 
 # Space Classification

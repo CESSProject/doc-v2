@@ -1,3 +1,7 @@
+{% hint style="info" %}
+Work in Progress
+{% endhint %}
+
 There are three strategies for flexible backup restoration:
 
 1. **Manual Restore Strategy**: Users start the restore function by executing the `bucket restore` command. The storage node only verifies the hash value of the data by default. It can also enable proof verification through the `--proof` command option. In `--proof` mode, the storage node will also generate proof for the data and conduct self-verification. For data with incorrect hash values, failed proof self-verification, or partial loss, the storage node will first download the data from the network and attempt to pass its self-verification. If the self-verification fails, the network data lost will be reported. Reporting data lost does not penalize the storage node.
