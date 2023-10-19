@@ -1,3 +1,7 @@
+{% hint style="info" %}
+Work in Progress
+{% endhint %}
+
 # Definition
 
 CESS has designed a trusted continuity proof mechanism based on cryptography that regularly verifies data availability through interactive audit responses without retrieving the stored data. It includes the following features:
