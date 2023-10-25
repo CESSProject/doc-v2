@@ -1,16 +1,18 @@
+# Reward Mechanism
+
 Referring back to CESS overall tokenomics as below:
 
-![CESS Tokenomics](../assets/storage-miner/reward/tokenomics-v1.png)
+<figure><img src="../.gitbook/assets/1698197704441_84BDBC74-D1C2-4323-A0EE-33C5DEAE165D.png" alt=""><figcaption><p>CESS Tokenomics</p></figcaption></figure>
 
-# Reward
+## Reward
 
-In the first year, a total of **238,500,000 tokens** are issued, and they are distributed evenly throughout the year in each era. The total rewards decrease in a stepwise manner each year, with an annual decay rate of 0.841 (0.5^(1/4)), resulting in a halving of rewards every four years.
+In the first year, a total of **187,500,000 tokens** are issued, and they are distributed evenly throughout the year in each era. The total rewards decrease in a stepwise manner each year, with an annual decay rate of 0.841 (0.5^(1/4)), resulting in a halving of rewards every four years.
 
 For each era (which lasts 24 hours in CESS), miners receive rewards in proportion to the era points they have collected. Era points are obtained through the following:
 
-- Authoring non-uncle blocks.
-- Authoring references to previously unreferenced uncle blocks.
-- Authoring referenced uncle blocks.
+* Authoring non-uncle blocks.
+* Authoring references to previously unreferenced uncle blocks.
+* Authoring referenced uncle blocks.
 
 {% hint style="info" %}
 Uncle blocks are relay chain blocks that are valid in all aspects but fail to become the main blocks. This occurs when two or more validators become block producers in the same slot, and one validator's block arrives at the next block producer before the other blocks. We refer to these lagging blocks as uncle blocks.
@@ -20,9 +22,9 @@ Rewards are distributed at the end of each era. Regardless of the amount staked 
 
 Miners can also receive "tips" from transaction senders as an incentive for including their transactions in the blocks they produce. Miners receive 100% of these tips directly.
 
-# Slashing
+## Slashing
 
-## No Response
+### No Response
 
 If a validator fails to produce any blocks and does not send a heartbeat signal during an era, it will be reported as "no response". Depending on the number of repeated violations and the no response or offline status of other validators during that era, reduction penalties may be imposed.
 
@@ -34,12 +36,12 @@ The formula for calculating the penalty due to no response is as follows:
 
 $$\boxed{min (\cfrac{3 * (x - (\frac{n}{10} + 1))}{n}, 1) * 0.07}$$
 
-## Ambiguity
+### Ambiguity
 
 Both GRANDPA and BABE ambiguities use the same formula to calculate the penalties:
 
-- **GRANDPA Ambiguity**: Validators signing two or more votes for different chains in the same round.
-- **BABE Ambiguity**: Validators producing two or more blocks in the same slot.
+* **GRANDPA Ambiguity**: Validators signing two or more votes for different chains in the same round.
+* **BABE Ambiguity**: Validators producing two or more blocks in the same slot.
 
 **Let x = number of offenders, n = total no. of validators in the active set**
 

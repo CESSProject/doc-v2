@@ -1,83 +1,92 @@
-# Possible Issues During Installation
+# Node Troubleshooting
+
+## Possible Issues During Installation
 
 <details>
-  <summary>Unable to download docker image</summary>
 
-  During the installation process, docker is used to download cess image. If the following exception occurs when installing the `cess-nodeadm`:
+<summary>Unable to download docker image</summary>
 
-  <img alt="Docker Daemon Issue" src="../assets/storage-miner/troubleshooting/docker-daemon-issue.png" width="100%" height="auto" decoding="async" style="max-width: 100%"/>
+During the installation process, docker is used to download cess image. If the following exception occurs when installing the `cess-nodeadm`:
 
-  Make sure cmds are in the root privilege or with sudo command.
-  Start docker on your system:
+![Docker Daemon Issue](../assets/storage-miner/troubleshooting/docker-daemon-issue.png)
 
-  ```bash
-  systemctl start docker
-  ```
+Make sure cmds are in the root privilege or with sudo command. Start docker on your system:
 
-  Reinstall the `cess-nodeadm`:
+```bash
+systemctl start docker
+```
 
-  ```bash
-  ./install.sh
-  ```
+Reinstall the `cess-nodeadm`:
 
-  ⚠️ Note that all CESS program commands must have sudo privileges.
+```bash
+./install.sh
+```
+
+⚠️ Note that all CESS program commands must have sudo privileges.
+
 </details>
 
 <details>
-  <summary>Failed to locate docker package</summary>
 
-  If the following error occurs when installing the `cess-nodeadm`:
+<summary>Failed to locate docker package</summary>
 
-  <img alt="Docker Package Issue" src="../assets/storage-miner/troubleshooting/docker-package-issue.webp" width="100%" height="auto" decoding="async" style="max-width: 100%;" />
+If the following error occurs when installing the `cess-nodeadm`:
 
-  Try to delete Docker with following commands:
+![Docker Package Issue](../assets/storage-miner/troubleshooting/docker-package-issue.webp)
 
-  ```bash
-  sudo systemctl stop docker
-  docker stop $(docker ps -aq)
-  docker rm -v $(docker ps -aq)
-  docker rmi $(docker images -aq)
-  docker volume rm $(docker volume ls -q)
-  brew uninstall docker
-  ```
+Try to delete Docker with following commands:
 
-  Reinstall Docker:
+```bash
+sudo systemctl stop docker
+docker stop $(docker ps -aq)
+docker rm -v $(docker ps -aq)
+docker rmi $(docker images -aq)
+docker volume rm $(docker volume ls -q)
+brew uninstall docker
+```
 
-  ```bash
-  sudo apt-get install docker-ce
-  sudo systemctl enable docker
-  sudo systemctl start docker
-  ```
+Reinstall Docker:
+
+```bash
+sudo apt-get install docker-ce
+sudo systemctl enable docker
+sudo systemctl start docker
+```
+
 </details>
 
-# Possible Issues During Configuration
+## Possible Issues During Configuration
 
 <details>
-  <summary>Failed to download CESS image</summary>
 
-  If the following error occurs when setting up the config:
+<summary>Failed to download CESS image</summary>
 
-  <img alt="CESS Image Download Issue" src="../assets/storage-miner/troubleshooting/cess-image-download-issue.png" width="100%" height="auto" decoding="async" style="max-width: 100%;" />
+If the following error occurs when setting up the config:
 
-  Make sure to run commands in the root privilege or with `sudo` command.
+![CESS Image Download Issue](../assets/storage-miner/troubleshooting/cess-image-download-issue.png)
 
-  Try `cess config set` command.
+Make sure to run commands in the root privilege or with `sudo` command.
+
+Try `cess config set` command.
+
 </details>
 
 <details>
-  <summary>Invalid config file (config.yaml)</summary>
 
-  <img alt="Invalid Config Issue" src="../assets/storage-miner/troubleshooting/invalid-config-issue.webp" width="100%" height="auto" decoding="async" style="max-width: 100%;" />
+<summary>Invalid config file (config.yaml)</summary>
 
-  Delete file `/usr/bin/yq`:
+![Invalid Config Issue](../assets/storage-miner/troubleshooting/invalid-config-issue.webp)
 
-  ```bash
-  sudo rm /usr/bin/yq
-  ```
+Delete file `/usr/bin/yq`:
 
-  Reinstall `cess-nodeadm` again:
+```bash
+sudo rm /usr/bin/yq
+```
 
-  ```bash
-  ./install.sh
-  ```
+Reinstall `cess-nodeadm` again:
+
+```bash
+./install.sh
+```
+
 </details>
