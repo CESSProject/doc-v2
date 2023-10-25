@@ -98,7 +98,7 @@ You can also make a release build with `cargo contract build --release`, but the
 
    ![CESS Node Console](../../assets/developer/tutorials/deploy-sc-ink/cess-node.png)
 
-- We will use [**Substrate Contracts UI**](https://github.com/paritytech/contracts-ui) to deploy and interact with an ink! smart contract, a UI tool developed by Parity. Let's connecting Substrate Contracts UI to our local CESS node by:
+- We will use [**Substrate Contracts UI**](https://github.com/paritytech/contracts-ui) to deploy and interact with an ink! smart contract, a UI tool developed by Parity. Let's connect Substrate Contracts UI to our local CESS node by:
 
    <https://contracts-ui.substrate.io/?rpc=ws://127.0.0.1:9944>.
 
