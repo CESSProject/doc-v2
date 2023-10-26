@@ -28,7 +28,7 @@
   * [CESS Account](community/cess-account.md)
 * [🔥 Role: dApp Users](user/README.md)
 * [💻 Role: dApp Developers](developer/README.md)
-  * [💻 Tutorials](developer/tutorials/README.md)
+  * [Tutorials](developer/tutorials/README.md)
     * [Deploy an ink! Smart Contract](developer/tutorials/deploy-sc-ink.md)
     * [Deploy a Solidity Smart Contract](developer/tutorials/deploy-sc-solidity.md)
     * [Development using CESS Javascript APIs](developer/tutorials/cess-js-sdk.md)
@@ -48,7 +48,7 @@
   * [Running a Consensus Node](consensus-miner/running.md)
   * [Reward Mechanism](consensus-miner/reward.md)
 * [📚 References](ref/README.md)
-  * [📚 In-depth Technical Features](ref/in-depth-feat/README.md)
+  * [In-depth Technical Features](ref/in-depth-feat/README.md)
     * [Reputation Rotational Consensus](ref/in-depth-feat/rrc.md)
   * [Data Lifecycle](ref/data-lifecycle/README.md)
     * [Data Upload](ref/data-lifecycle/upload.md)
@@ -62,3 +62,11 @@
     * [Message Protocol](ref/storage/message-protocol.md)
     * [Storage Method](ref/storage/storage-method.md)
 * [📖 Glossary](glossary.md)
+
+<!--
+  // Within [References: In-depth Technical Features]
+  * [Smart Space Management](ref/in-depth-feat/ssm.md)
+  * [Trusted Continuity Proof](ref/in-depth-feat/tcp.md)
+  * [Flexible Data Restoration](ref/in-depth-feat/fr.md)
+  * [Idle-active Replacement](ref/in-depth-feat/isr.md)
+-->

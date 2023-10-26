@@ -1,6 +1,4 @@
-# Running a Consensus Node
-
-## Server Requirement
+# Server Requirement
 
 The recommended requirement of a consensus server:
 
@@ -15,11 +13,11 @@ The recommended requirement of a consensus server:
 | Linux Kernel Version          | 5.11 or higher              |
 
 {% hint style="info" %}
-#### SGX Enabled
+### SGX Enabled
 
-The CPU must support SGX (Software Guard Extensions) technology and FLC (Flexible Launch Control). The BIOS must support Intel SGX, and must enable the Intel SGX option. Please refer to the server manufacturer's BIOS guide to enable SGX functionality. Check out [CPU models that support SGX](https://ark.intel.com/content/www/us/en/ark/search/featurefilter.html?productType=873&2\_SoftwareGuardExtensions=Yes). They can be either _Intel ME_, _Intel SPS_, or _both Intel SPS and Intel ME_.
+The CPU must support SGX (Software Guard Extensions) technology and FLC (Flexible Launch Control). The BIOS must support Intel SGX, and must enable the Intel SGX option. Please refer to the server manufacturer's BIOS guide to enable SGX functionality. Check out [CPU models that support SGX](https://ark.intel.com/content/www/us/en/ark/search/featurefilter.html?productType=873&2_SoftwareGuardExtensions=Yes). They can be either _Intel ME_, _Intel SPS_, or _both Intel SPS and Intel ME_.
 
-#### Fixed Public IP
+### Fixed Public IP
 
 The machine must use a fixed public network IP. The traffic exit must be in the same network segment as the IP. Execute the following command to confirm they are in the same network segment.
 
@@ -28,18 +26,18 @@ curl ifconfig.co
 ```
 {% endhint %}
 
-## Prepare CESS Account
+# Prepare CESS Account
 
 Running storage validator needs two accounts.
 
-* **Stash Account**: Requires at least staking 300,000 TCESS, either from the node owner or delegated by other users, to run a consensus validator.
-* **Controller Account**: Requires at least 100 TCESS for paying gas fee.
+- **Stash Account**: Requires at least staking 300,000 TCESS, either from the node owner or delegated by other users, to run a consensus validator.
+- **Controller Account**: Requires at least 100 TCESS for paying gas fee.
 
 Please refer to the [CESS Account](../community/cess-account.md) for creating a CESS account, goto [CESS faucet](https://cess.cloud/faucet.html) to get TCESS, or [contact us](../introduction/contact.md) to receive TCESS tokens for staking.
 
 After the wallet account is created, navigate to [CESS Explorer](https://testnet.cess.cloud/).
 
-### Bond Fund for Stash
+## Bond Fund for Stash
 
 Choose **Network**, click **Staking** > **Accounts** > **Stash**
 
@@ -59,7 +57,7 @@ Fund is bonded successfully!
 
 ![Bonded Fund Successfully](../assets/consensus-miner/running/acct-prep-04.png)
 
-## Install CESS Client
+# Install CESS Client
 
 The `cess-nodeadm` is a CESS node deployment and management program. It helps deploying and managing storage nodes, consensus nodes, and full nodes, simplifying the devOps for all CESS miners.
 
@@ -76,9 +74,9 @@ Check that you are using [the most updated version](https://github.com/CESSProje
 
 If a message `Install cess nodeadm success` shows up, the installation is successful.
 
-If the installation fails, please check the [troubleshoot procedures](troubleshooting.md).
+If the installation fails, please check the [troubleshoot procedures](../storage-miner/troubleshooting.md).
 
-## Config CESS Client
+# Config CESS Client
 
 Run `cess config set`
 
@@ -128,16 +126,16 @@ pull images finished
 
 If the configuration process fails, please refer to the [troubleshooting guideline](../storage-miner/troubleshooting.md).
 
-## Manage Validator Life Cycle
+# Manage Validator Life Cycle
 
-### Becoming a Validator
+## Becoming a Validator
 
-1.  Start the consensus node
+1. Start the consensus node
 
     ```bash
     cess start
     ```
-2.  Generate a session key
+2. Generate a session key
 
     ```bash
     cess tools rotate-keys
@@ -146,7 +144,8 @@ If the configuration process fails, please refer to the [troubleshooting guideli
     The field in the quotation marks after "result" is the Session Key, which will be used in subsequent operations. "localhost:9933" is the default port. Operation demonstration:
 
     ![rotate-keys example](../assets/consensus-miner/running/rotate-keys.png)
-3.  Setup a session key
+
+3. Setup a session key
 
     Navigate to [CESS Explorer](https://testnet.cess.cloud), choose **Network** > **Staking** > **Accounts** > **Session Key**
 
@@ -159,7 +158,8 @@ If the configuration process fails, please refer to the [troubleshooting guideli
     Click **Sign and Submit**
 
     ![Session Key 03](../assets/consensus-miner/running/session-key-03.png)
-4.  Becoming a validator
+
+4. Becoming a validator
 
     Navigate to [CESS Explorer](https://testnet.cess.cloud), click **Network** > **Staking** > **Accounts** > **Validate**
 
@@ -181,7 +181,7 @@ If the configuration process fails, please refer to the [troubleshooting guideli
 
     You should see that the node has already appeared on the candidate node list.
 
-### Redeeming Rewards
+## Redeeming Rewards
 
 Navigate to CESS Explorer: **Network** > **Staking** > **Payouts** > **Payout**.
 
@@ -195,14 +195,14 @@ In Payouts, click **Payout** to initiate a payment. Any account can initiate a p
 Please claim the reward within 84 era (each era of the test network is 6 hours), which is 21 days. Those who hasn't claimed the reward in this period will not be able to claim it.
 {% endhint %}
 
-### Exiting Consensus Validation
+## Exiting Consensus Validation
 
-1.  Stop the Consensus
+1. Stop the Consensus
 
     In [CESS Explorer](https://testnet.cess.cloud), navigate to: **Network > Staking > Account Actions > Stop**.
 
     ![Exiting-01](../assets/consensus-miner/running/exiting-01.png)
-2.  Clear Session Keys
+2. Clear Session Keys
 
     In [CESS Explorer](https://testnet.cess.cloud), navigate to: **Developer -> Submission**
 
@@ -216,22 +216,23 @@ Please claim the reward within 84 era (each era of the test network is 6 hours),
 
     ![Exiting-04](../assets/consensus-miner/running/exiting-04.png)
 
-### Redeeming the Stake
+## Redeeming the Stake
 
-1.  Unbond fund
+1. Unbond fund
 
     After 28 Eras(each era of the test network is 6 hours), do the following:
 
     In [CESS Explorer](https://testnet.cess.cloud/), navigate to: **Network > Staking > Account Actions > Unbond Funds**.
 
     ![Staking 01](../assets/consensus-miner/running/staking-01.png)
-2.  Stop the CESS client
+
+2. Stop the CESS client
 
     ```bash
     cess stop
     ```
 
-## Common Operations
+# Common Operations
 
 **Start consensus node**
 
@@ -266,7 +267,7 @@ cess config show
 cess down
 ```
 
-## Upgrade CESS Client
+# Upgrade CESS Client
 
 **Stop and remove all services**
 

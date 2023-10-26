@@ -1,6 +1,4 @@
-# 📖 Glossary
-
-## General
+# General
 
 | Term                                             | Definition |
 | ------------------------------------------------ | ---------- |
@@ -31,7 +29,7 @@
 | Trusted Execution Environment (TEE)              | -          |
 | WebAssembly (Wasm)                               | -          |
 
-## DeOSS
+# DeOSS
 
 | Term                                 | Definition |
 | ------------------------------------ | ---------- |
@@ -39,7 +37,7 @@
 | Decentralized Object Storage Service | -          |
 | Object                               | -          |
 
-## Storage Miner
+# Storage Miner
 
 | Term            | Definition                                                                                                                                                                                             |
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -52,7 +50,7 @@
 | Used Space      | The space used by storage users                                                                                                                                                                        |
 | Validated Space | The space validated to store user's data                                                                                                                                                               |
 
-## Reference
+# Reference
 
 * [https://app.gitbook.com/o/FsIgz09ubmGQUNERT1yp/s/VlV8XTe49VsbnMG4jMES/glossary](https://app.gitbook.com/o/FsIgz09ubmGQUNERT1yp/s/VlV8XTe49VsbnMG4jMES/glossary)
 * [https://docs.cess.cloud/deoss/introduction/terminologies](https://docs.cess.cloud/deoss/introduction/terminologies)

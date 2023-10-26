@@ -1,6 +1,4 @@
-# Node Troubleshooting
-
-## Possible Issues During Installation
+# Possible Issues During Installation
 
 <details>
 
@@ -55,7 +53,7 @@ sudo systemctl start docker
 
 </details>
 
-## Possible Issues During Configuration
+# Possible Issues During Configuration
 
 <details>
 
