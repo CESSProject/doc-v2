@@ -1,6 +1,6 @@
 The blockchain layer is further divided into five layers:
 
-![Blockchain Architecture](https://github.com/swowk/doc-v2/assets/15166250/0c579d99-d9f3-4761-b3b5-40cac641a6be)
+![Blockchain Architecture](../assets/concepts/blockchain-arch/blockchain-arch.png)
 
 **Infrastructure layer** - consists of hardware equipment, including servers, network hardware, and storage hardware for the CESS blockchain.
 
@@ -18,11 +18,11 @@ CESS invites three types of resources to join the network: DeOSS gateway, storag
 
 # Data Layer
 
-The data layer maintains the metadata on the CESS blockchain and user data stored dispersedly in various storage nodes. Users can choose to encrypt and store the data to protect privacy. Any data stored in CESS needs to go through redundancy and sharding, and then be randomly distributed to various storage nodes to prevent data loss due to single point of failure issues. CESS will also conduct regular integrity checks on data through a multi copy recoverable storage proof mechanism to ensure data security, integrity, and persistent storage.
+The data layer maintains the metadata on the CESS blockchain and user data stored dispersedly in various storage nodes. Users can choose to encrypt and store the data to protect privacy. Any data stored in CESS needs to go through redundancy and sharding, and then be randomly distributed to various storage nodes to prevent data loss due to single point of failure issues. CESS will also conduct regular integrity checks on data through a multi-copy recoverable storage proof mechanism to ensure data security, integrity, and persistent storage.
 
 # Network Layer
 
-CESS has a distributed layered network architecture that distributes tasks and workloads through a decentralized blockchain network. Each type of node is internally equivalent, serving as both requester and responder, providing resources and services to each other. CESS will also layer the network, establish a blockchain consensus network, a data transmission network between storage nodes, and a data caching and sharing network between DeOSS. Each network will not interfere with and cooperate with each other, providing stable and efficient data transmission services for CESS.
+CESS has a distributed layered network architecture that distributes tasks and workloads through a decentralized blockchain network. Nodes within each layer are internally equivalent, serving as both requester and responder, providing resources and services to each other. CESS will also layer the network, establishing a blockchain consensus network, a data transmission network between storage nodes, and a data caching and sharing network between DeOSS. Each network will cooperate with each others to provide stable and efficient data transmission services for CESS.
 
 # Consensus Layer
 

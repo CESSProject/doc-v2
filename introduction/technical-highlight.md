@@ -1,5 +1,3 @@
-# ✨ Technical Highlight
-
 ## 1. Data Recovery Guarantee
 
 The **Proof of Data Reduplication and Recovery (PoDR²)** protocol is designed to ensure the validity and availability of stored data by continuously challenging storage nodes. To prevent data loss and maintain data integrity in any situation, such as when storage nodes are offline or leaving the network, data fragments are stored redundantly.
