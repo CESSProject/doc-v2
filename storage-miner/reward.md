@@ -1,6 +1,6 @@
 This is CESS overall tokenomics:
 
-<figure><img src="../.gitbook/assets/1698197704441_84BDBC74-D1C2-4323-A0EE-33C5DEAE165D.png" alt=""><figcaption><p>CESS Tokenomics</p></figcaption></figure>
+<figure><img src="../assets/storage-miner/reward/tokenomics-v1.png" alt=""><figcaption><p>CESS Tokenomics</p></figcaption></figure>
 
 The CESS network issues a total of 10 billion tokens, **with 30% allocated as rewards for Storage Miners and 15% for Consensus Miners**.
 
