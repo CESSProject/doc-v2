@@ -1,5 +1,3 @@
-# 💬 Contact & Social Media
-
 If you have questions and feedback about CESS, you are welcome to contact us. We also invite you to join our vibrant community and build up the Web3 ecosystem.
 
 If you are interested in building the CESS protocol and contribute to the decentralized future together, don't hesitate and apply to join our team today!

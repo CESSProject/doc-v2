@@ -2,11 +2,9 @@ The blockchain layer is further divided into five layers:
 
 ![Blockchain Architecture](../assets/concepts/blockchain-arch/blockchain-arch.png)
 
-(todo: check to see if the image need to be updated)
-
 **Infrastructure layer** - consists of hardware equipment, including servers, network hardware, and storage hardware for the CESS blockchain.
 
-**Data layer** - supports scalable data storage and provides various data processing algorithms.
+**Data layer** - supports scalable data storage and provide a series of data processing and data security guarantee mechanisms such as redundant backup, privacy protection, integrity verification.
 
 **Network layer** - responsible for node connection and data transfer, providing load balancing and P2P network protocols and algorithms.
 
@@ -16,23 +14,15 @@ The blockchain layer is further divided into five layers:
 
 # Infrastructure Layer
 
-CESS invites three types of resources to join the network: server, network, and storage. Server resources focus on computing performance and will perform computing and consensus tasks. Network resources will provide network bandwidth support. Storage resources are the kernel part of the CESS system. With the suitable reward mechanism, we attract nodes with storage capacity to join the network to provide a stable and reliable data storage infrastructure.
+CESS invites three types of resources to join the network: DeOSS gateway, storage node, and consensus node. The DeOSS gateway is responsible for proxy upload, download, encryption, and preprocessing of user data, and supports the construction of a distributed content distribution network to provide users with simple, efficient, and fast data access services; Storage nodes accept consensus node scheduling to build a stable and reliable data persistence infrastructure for CESS. Consensus nodes focus on the scheduling of various resources and the consensus of storage network status, and verify the stored data and available capacity of the entire network through a trusted execution environment to ensure the stability of services and data security.
 
 # Data Layer
 
-The data layer stores the CESS blockchain and user data files. Encryption algorithms are used in data transmission, storage, and verification to ensure the security and integrity of the data.
+The data layer maintains the metadata on the CESS blockchain and user data stored dispersedly in various storage nodes. Users can choose to encrypt and store the data to protect privacy. Any data stored in CESS needs to go through redundancy and sharding, and then be randomly distributed to various storage nodes to prevent data loss due to single point of failure issues. CESS will also conduct regular integrity checks on data through a multi-copy recoverable storage proof mechanism to ensure data security, integrity, and persistent storage.
 
 # Network Layer
 
-The network layer consists of a P2P storage network and a distributed hash table (DHT) to ensure efficient access to data in the network.
-
-## P2P Storage Network
-
-The network has a distributed application architecture that distributes tasks and workloads among peers. The whole network does not depend on a dedicated centralized server, and each computer in the network acts as both a requestor and responder to requests from other computers to provide resources and services.
-
-## Distributed Hash Table (DHT)
-
-In DHT, each client is responsible for a small range of routing and storing a small portion of the data. They communicate with each other in real-time to enable the addressing and storage of the entire DHT network. As a client connects to any node in the network, it can discover other nodes. DHT technology enables any machine in the network to perform part of the server's functions.
+CESS has a distributed layered network architecture that distributes tasks and workloads through a decentralized blockchain network. Nodes within each layer are internally equivalent, serving as both requester and responder, providing resources and services to each other. CESS will also layer the network, establishing a blockchain consensus network, a data transmission network between storage nodes, and a data caching and sharing network between DeOSS. Each network will cooperate with each others to provide stable and efficient data transmission services for CESS.
 
 # Consensus Layer
 
@@ -42,7 +32,7 @@ The CESS network has two types of consensus nodes: **on-duty consensus nodes** a
 
 # Incentive Layer
 
-CESS's primary system resources are storage and network resources. Miners can provide these two types of resources when joining the CESS network. The network will reward the miners with CESS tokens according to their contributions to the network. CESS has an algorithm to calculate each miner's contribution to the network. The comprehensive algorithm considers the factors of miners' storage capacity, network bandwidth, and node configuration to calculate an overall node score and, thus, the rewards in the form of CESS tokens.
+CESS's primary system resources are storage and network resources. Miners can provide these two types of resources when joining the CESS network. The network will reward the miners with CESS tokens according to their contributions to the network.
 
 # Distributed Nature of CESS
 
