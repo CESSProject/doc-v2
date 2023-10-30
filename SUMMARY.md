@@ -1,11 +1,11 @@
 # Table of contents
 
 * [🗂 Introduction](README.md)
-  * [🧐 What is CESS](introduction/what-is-cess.md)
-  * [✨ Technical Highlight](introduction/technical-highlight.md)
-  * [🔨 Use Cases](introduction/use-cases.md)
-  * [📜 Whitepaper](introduction/whitepaper.md)
-  * [💬 Contact & Social Media](introduction/contact.md)
+  * [What is CESS](introduction/what-is-cess.md)
+  * [Technical Highlight](introduction/technical-highlight.md)
+  * [Use Cases](introduction/use-cases.md)
+  * [Whitepaper](introduction/whitepaper.md)
+  * [Contact & Social Media](introduction/contact.md)
 * [🌱 Concepts](concepts/README.md)
   * [System Architecture](concepts/system-arch.md)
   * [Blockchain Architecture](concepts/blockchain-arch.md)
