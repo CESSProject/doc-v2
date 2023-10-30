@@ -24,7 +24,6 @@
 * [👥 User Roles](user-roles.md)
 * [🌏 Role: Community Members](community/README.md)
   * [Ambassador Program](community/ambassador.md)
-  * [Token and Governance Models](community/governance.md)
   * [CESS Account](community/cess-account.md)
 * [🔥 Role: dApp Users](user/README.md)
 * [💻 Role: dApp Developers](developer/README.md)

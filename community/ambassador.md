@@ -4,7 +4,7 @@ There are a few tracks you can apply for in the ambassador program.
 
 1. **Community Track**
 
-    * Be active in the community by helping/replying to other users, sharing updates, and supporting users.
+    * Be active in the community by helping/replying to other user inquiries and sharing updates.
 
     * Organize online and in-person community events.
 
@@ -14,25 +14,25 @@ There are a few tracks you can apply for in the ambassador program.
 
 2. **Technical Track**
 
-    * Work with CESS's core dev team and contribute to testing and enhancing the codebase.
+    * Work with CESS's core dev team and contribute to testing and enhancing the platform quality and stability.
 
-    * Assist in answering basic technical questions across different platforms.
+    * Assist in answering basic technical questions across different social media / chat platforms.
 
     * Educate new CESS miners and answer their basic inquiries.
 
-    * Contribute to CESS [platform documentation](#).
+    * Contribute to CESS platform documentation (the document you are reading).
 
 3. **Content Track**
 
-    * For individuals with expertise in producing long-form articles and multimedia content.
+    * For individuals with expertise in producing long-form articles and multimedia contents.
 
-    * Create original content promoting CESS and share it on your social media.
+    * Create original contents promoting CESS and sharing them on your social media accounts.
 
-    * Multilingual ambassadors can translate and share CESS official documents and articles.
+    * Multilingual ambassadors can translate and share CESS official documents and articles to another languages.
 
 # Ambassador Benefits
 
-As a CESS ambassador, you will receive great perks and rewards and gain valuable experience to jumpstart your web3 career or enhance your expertise.
+As a CESS ambassador, you are eligible to receive great perks and rewards. You also gain valuable experience to jumpstart your web3 career and enhance your expertises.
 
 1. **Token Incentives and Gifts**
 
@@ -40,14 +40,14 @@ As a CESS ambassador, you will receive great perks and rewards and gain valuable
 
 2. **Personal Development**
 
-    Ambassadors have opportunities to attend industry summits covering various technological and related subjects. These events allow them to engage in meaningful conference activities and connect with influential thought leaders in the industry.
+    Ambassadors have opportunities to attend industry summits. These events allow them to engage in meaningful conference activities and connect with influential thought leaders in the industry.
 
 3. **Personal Branding Opportunities**
 
-    CESS offers exciting international exchange opportunities, enabling ambassadors to establish their brandings, including speaking at prominent global ecosystem events online and in person. Personal social media accounts may also gain greater attention and influence through participating in these events.
+    CESS offers exciting international exchange opportunities, enabling ambassadors to establish their own brand, including speaking at prominent global ecosystem events online and in-person. Personal social media accounts may also gain greater attention and influence through participation in these events.
 
 4. **Access to the Latest CESS Information**
 
     Ambassadors will work closely with CESS core team and be the first ones to learn about CESS's progress and news, including technology, products, market, and industry information.
 
-If interested, please visit our [Ambassador Program page](https://www.cess.cloud/ambassador.html).
+If you are interested, please visit our [Ambassador Program page](https://www.cess.cloud/ambassador.html) to apply.

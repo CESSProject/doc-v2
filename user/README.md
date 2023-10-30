@@ -1,4 +1,4 @@
-Here we will highlight some community-built dApps for users to try out. In general, you should have a [CESS account](../community/cess-account.md) created.
+Here we will highlight some community-built dApps for users. In general, you should have a [CESS account](../community/cess-account.md) created first.
 
 # dApps Built On CESS
 
