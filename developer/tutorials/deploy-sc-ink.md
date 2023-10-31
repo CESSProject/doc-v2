@@ -144,7 +144,9 @@ You can also make a release build with `cargo contract build --release`. The rel
 
    ![Upload Instantiate 02](../../assets/developer/tutorials/deploy-sc-ink/upload-instantiate-02.png)
 
-- You have successfully instantiated a sample flipper contract and could interact with it in this screen.<br/>
+- You have successfully instantiated a sample flipper contract in this screen.
+
+   Try interact with the flipper contract by reading the value from the smart contract and issue a transaction to it!<br/>
 
    ![Contract Instantiate Successfully](../../assets/developer/tutorials/deploy-sc-ink/instantiate-success.png)
 
