@@ -30,7 +30,7 @@
   * [Tutorials](developer/tutorials/README.md)
     * [Deploy an ink! Smart Contract](developer/tutorials/deploy-sc-ink.md)
     * [Deploy a Solidity Smart Contract](developer/tutorials/deploy-sc-solidity.md)
-    * [Development using CESS Javascript APIs](developer/tutorials/cess-js-sdk.md)
+    * [Develop with CESS Javascript APIs](developer/tutorials/cess-js-sdk.md)
     * [Build a Proof of Existence dApp (ink!)](developer/tutorials/poe-ink.md)
     * [Build a Proof of Existence dApp (Solidity)](developer/tutorials/poe-solidity.md)
   * [Guides](developer/guides/README.md)

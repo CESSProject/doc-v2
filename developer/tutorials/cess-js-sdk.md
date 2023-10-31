@@ -1,22 +1,22 @@
-# Objective
+# Overall
 
-In this tutorial, we will interact with the CESS testnet via [`cess-js-sdk`](https://www.npmjs.com/package/cess-js-sdk), so this is particularly useful for Node.js or frontend developers that want to incorporate CESS into their products/systems.
+In this tutorial, we will interact with the CESS testnet via [**cess-js-sdk**](https://www.npmjs.com/package/cess-js-sdk), so this is particularly useful for Node.js or frontend developers that want to incorporate CESS into their products/systems.
 
 # Prerequisite
 
-- [Node.js](https://nodejs.org/en) v18 or above
+- [Node.js](https://nodejs.org/en) v18 or above.
 
 # Code
 
-The tutorial code exists in [**cess-course** github repo](https://github.com/CESSProject/cess-course/tree/main/examples/tut-ts-sdk/src/index.ts). We will walk through the code together.
+The code used in this tutorial is in [**cess-course** Github repo](https://github.com/CESSProject/cess-course/tree/main/examples/js). We will walk through the code together.
 
 The tutorial code performs the following:
 
-1. Check the amount of my rented space and its expiration time (read op.)
-2. Rent space on CESS testnet (write op.)
-3. Create a bucket (write op.)
-4. Query my existing files in the CESS Cloud (read op.)
-5. Upload a file to the bucket (write op.)
+1. Check the amount of my rented space and its expiration time on CESS (read operations on the blockchain).
+2. Rent space on CESS testnet (write operations on the blockchain)
+3. Create a bucket (write operations on the blockchain)
+4. Query my existing files in the CESS Cloud (read operations on the blockchain)
+5. Upload a file to the bucket (write operations on the blockchain)
 6. Download the file back.
 
 {% hint style="info" %}
@@ -62,10 +62,10 @@ The `InitAPI()` function receives a `CESSConfig` object that has the following s
 ```ts
 interface CESSConfig {
   nodeURL: string;    // This is the RPC endpoint connecting to
-  gatewayURL: string;
+  gatewayURL: string; // This is the DeOSS gateway URL. Please use the above provided one for testnet
   keyringOption: {
-    type: string;
-    ss58Format: number;
+    type: string;     // By default it is SR25519 (ref: https://wiki.polkadot.network/docs/learn-cryptography#keypairs-and-signing)
+    ss58Format: number; // Prefix for CESS. For CESS Testnet, it is `42`
   };
 }
 ```
@@ -78,9 +78,9 @@ Each of these services requires both the `api` and `keyring` to be passed in as 
 
 Let's take a deeper look at using **Space** service.
 
-## Using Space Service
+## Using the Space Service
 
-Let's look at the function `checkNRentSpace()`.
+Let's look at the [function `checkNRentSpace()`](https://github.com/CESSProject/cess-course/blob/308ec7fe053e92c08e4c2d634579f84b359072ac/examples/js/src/index.ts#L57).
 
 ```ts
 async function checkNRentSpace(space: Space, common: Common) {
@@ -144,7 +144,7 @@ It returns the following object:
 }
 ```
 
-You notice a `blockHeight` is passed in as a parameter in `formatSpaceInfo()` to calculate the `deadlineTime`.
+You may notice a `blockHeight` is passed in as a parameter in `formatSpaceInfo()` to calculate the `deadlineTime`.
 
 If this is the first time you rent spaces from CESS, use the API:
 
@@ -157,11 +157,11 @@ Otherwise, you can use `expandSpace()` to expand the amount of capacity and `ren
 - `expansionSpace(mnemonicOrAccountId32: string, gibCount: number): Promise<any>`
 - `renewalSpace(mnemonic: string, days: number): Promise<any>`
 
-## Using Bucket Service
+## Using the Bucket Service
 
 We use the **Bucket** service to query information about buckets created by users (a concept similar to directories in our local hard drive), create buckets, and delete buckets.
 
-Let's look at the code in `checkNCreateBucket()`.
+Let's look at the code in [`checkNCreateBucket()`](https://github.com/CESSProject/cess-course/blob/308ec7fe053e92c08e4c2d634579f84b359072ac/examples/js/src/index.ts#L73).
 
 ```ts
 async function checkNCreateBucket(bucket: Bucket) {
@@ -201,9 +201,9 @@ async function checkNCreateBucket(bucket: Bucket) {
 ]
 ```
 
-Each item is a bucket with the `key` as its bucket name. So this user has three buckets, named `xhftBucket`, `test`, and `test2`.
+Each item is a bucket with the `key` as its bucket name. So this user has three buckets, named `xhftBucket`, `test`, and `test2`. `xhftBucket` bucket has one item inside, with `test` and `test2` being two empty buckets.
 
-We can query more details about the particular bucket with `queryBucketInfo()`. It returns an object with the following shape.
+We can query more details about a particular bucket with `queryBucketInfo()`. It returns an object with the following shape.
 
 ```ts
 {
@@ -216,9 +216,9 @@ It contains information about what files inside the bucket and users who have wr
 
 You can create a bucket with `createBucket()` call and delete a bucket with `deleteBucket()`. Both functions require you to pass in the mnemonic as you will send a signed transaction (requiring your private key) to the CESS blockchain.
 
-## Using `File` Service
+## Using the File Service
 
-Let's look at how to query our uploaded files and manage them by looking into `uploadNDownloadFile()` function.
+Let's look at how to query our uploaded files and manage them by looking into [`uploadNDownloadFile()` function](https://github.com/CESSProject/cess-course/blob/308ec7fe053e92c08e4c2d634579f84b359072ac/examples/js/src/index.ts#L93).
 
 ```ts
 async function uploadNDownloadFile(fileService: File) {
@@ -237,7 +237,7 @@ async function uploadNDownloadFile(fileService: File) {
 }
 ```
 
-We use `queryFileListFull()` to query the files that the user account is accessible to. It returns an object similar to the following.
+We use `queryFileListFull()` to query the files that the user is accessible to. It returns an object similar to the following.
 
 ```ts
 [
@@ -280,7 +280,7 @@ This service is for managing user space. You can query, renew, and expand spaces
 
 **Bucket**
 
-For managing user buckets, similar to the directory concept in a local hard drive.
+This service is for managing user buckets, a concept similar to directory in a local hard drive.
 
 - `queryBucketNames(accountId32: string): Promise<APIReturnedData>`
 - `queryBucketList(accountId32: string): Promise<APIReturnedData>`
@@ -309,4 +309,4 @@ This service is for managing delegated rights to other users.
 
 # Conclusion
 
-With `cess-js-sdk` APIs, you can incorporate CESS cloud into your products. If you have any feedback about this tutorial, feel free to [contact us](../../introduction/contact.md).
+With **cess-js-sdk** APIs, you can incorporate CESS cloud into your products. If you have any feedback about this tutorial, feel free to [contact us](../../introduction/contact.md).
