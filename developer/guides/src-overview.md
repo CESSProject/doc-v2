@@ -4,23 +4,23 @@ In this section, we will give a mid-level description of the source code and arc
 
 # Overview
 
-CESS blockchain is built on top of Substrate blockchain SDK developed by Parity. So, we adopt a similar architecture to a Substrate-based blockchain, as depicted in the following diagram.
+CESS blockchain is built on top of Substrate framework developed by Parity. So, we adopt a similar architecture as a Substrate-based blockchain, depicted as the following.
 
 ![Substrate Architecture](../../assets/developer/guides/src-overview/substrate-architecture.png)
 
-In the outer layer, there is a Node (a.k.a the Client). It contains all the low-level building blocks of a blockchain, such as the peer-to-peer network, JSON-RPC API that interfaces externally, and the storage and database system.
+In the outer layer, there is a Node (a.k.a the Client). It contains all the low-level building blocks of a blockchain, such as the peer-to-peer network component, JSON-RPC API component that interfaces externally, and the storage and database system component.
 
-Then, inside the node, there is a **Runtime**, where the chain logic happens. This is where user accounts are recognized, and their balances are stored. Substrate-based blockchains also have a comprehensive governance mechanism of raising proposals and passing them through a referendum or a council. These functionalities are specified in the chain runtime.
+Then, inside the node, there is a **Runtime**, where the chain logic happens. This is where user accounts are recognized and their balances are stored. Substrate-based blockchains also have a comprehensive governance mechanism of raising proposals and passing them through a referendum or a council. These functionalities are specified in the chain runtime.
 
-As complicated as it sounds, the features provided in the runtime are further broken down into pallets. One and sometimes a few pallets work together to implement one set of functionality. As these pallets are independent and modular, once they are implemented, it is up to the runtime engineer to decide what pallets to compose together within the runtime and, thus, what functionality the blockchain ultimately offers.
+As complicated as it sounds, the features provided in the runtime are further broken down into pallets. One and sometimes a few pallets work together to implement one set of functionality. As these pallets are independent and modular, once they are implemented, it is up to the developer to decide what pallets to compose together in the runtime and, thus, what functionality the blockchain ultimately offers.
 
-This architecture makes the CESS blockchain modular, composible, and scalable.
+This architecture makes CESS blockchain modular, composible, and scalable.
 
 # High-level Understanding
 
-To understand what a CESS blockchain does, we can look at its runtime and see what pallets it is composed of. The CESS blockchain we look at here is: **[CESSProject/cess v0.7.3](https://github.com/CESSProject/cess/tree/0.7.3)**.
+To understand what a CESS blockchain does, we can look at its runtime and see what pallets it is composed of. The CESS blockchain we look at here is: **[CESSProject/cess v0.7.4](https://github.com/CESSProject/cess/tree/v0.7.4)**.
 
-Let's look at its runtime [`runtime/src/libs.rs`](https://github.com/CESSProject/cess/blob/0.7.3/runtime/src/lib.rs), and especially at the section of code in `construct_runtime!()`:
+Let's look at its runtime `runtime/src/libs.rs`, and particularly this section of code in [`construct_runtime!()`](https://github.com/CESSProject/cess/blob/fbb64d37fab2b1de90e96a8cac7e95d95737096d/runtime/src/lib.rs#L1506-L1570):
 
 ```rs
 construct_runtime!(
@@ -29,7 +29,7 @@ construct_runtime!(
     NodeBlock = opaque::Block,
     UncheckedExtrinsic = UncheckedExtrinsic
   {
-    // First section - foundational pallets
+    // First group - foundational pallets
     System: frame_system = 0,
     RandomnessCollectiveFlip: pallet_randomness_collective_flip = 1,
     Timestamp: pallet_timestamp = 2,
@@ -38,14 +38,14 @@ construct_runtime!(
     Preimage: pallet_preimage = 5,
     Mmr: pallet_mmr = 6,
 
-    // Second section - Account, balances, and transaction fees
+    // Second group - Account, balances, and transaction fees
     Indices: pallet_indices = 7,
     Balances: pallet_balances = 10,
     TransactionPayment: pallet_transaction_payment = 11,
     Assets: pallet_assets = 12,
     AssetTxPayment: pallet_asset_tx_payment = 13,
 
-    // Third section - Managing Session, Validators, Block Production, and Block Finalization
+    // Third group - Managing Session, Validators, Block Production, and Block Finalization
     Authorship: pallet_authorship = 20,
     Babe: pallet_rrsc = 21,  // retain Babe alias for Polka-dot official browser
     Grandpa: pallet_grandpa = 22,
@@ -58,7 +58,7 @@ construct_runtime!(
     VoterList: pallet_bags_list = 29,
     ElectionProviderMultiPhase: pallet_election_provider_multi_phase = 30,
 
-    // Forth section - Chain Governance
+    // Forth group - Chain Governance
     Council: pallet_collective::<Instance1> = 40,
     TechnicalCommittee: pallet_collective::<Instance2> = 41,
     TechnicalMembership: pallet_membership::<Instance1> = 42,
@@ -66,14 +66,14 @@ construct_runtime!(
     Bounties: pallet_bounties = 44,
     ChildBounties: pallet_child_bounties = 45,
 
-    // Fifth section - Smart contracts capability
+    // Fifth group - Smart contracts capability
     Contracts: pallet_contracts = 50,
     Ethereum: pallet_ethereum = 51,
     EVM: pallet_evm = 52,
     DynamicFee: pallet_dynamic_fee = 53,
     BaseFee: pallet_base_fee = 54,
 
-    // Sixth section - CESS specific pallets
+    // Sixth group - CESS specific pallets
     FileBank: pallet_file_bank = 60,
     TeeWorker: pallet_tee_worker = 61,
     Audit: pallet_audit = 62,
@@ -82,35 +82,36 @@ construct_runtime!(
     SchedulerCredit: pallet_scheduler_credit = 65,
     Oss: pallet_oss = 66,
     Cacher: pallet_cacher = 67,
+    CessTreasury: pallet_cess_treasury = 68,
   }
 );
 ```
 
 As seen above, over 40 pallets are being integrated into the runtime. They can be broadly split into six groups.
 
-1. **Foundation Pallets**: These pallets provide low-level access to core types and cross-cutting utilities. They act as the base layer for other pallets interacting with the Substrate framework components. This includes keeping track of the chain block number, getting the parent hash of the current block, etc. These pallets have System, RandomnessCollectiveFlip, Timestamp, Sudo, Scheduler, Preimage, and MMR pallets.
+1. **Foundational Pallets**: These pallets provide low-level access to core types and cross-cutting utilities. They act as the base layer for other pallets interacting with the Substrate framework components. This includes keeping track of the chain block number, getting the parent hash of the current block, etc. These pallets have System, RandomnessCollectiveFlip, Timestamp, Sudo, Scheduler, Preimage, and MMR pallets.
 
-2. **Account, Balance, and Fee Pallets**: These pallets keep track of the existing accounts and their respective balances in the blockchain. User balances are further divided into free and locked balances. It also keeps track of users' other tokens and NFTs, which are counted as assets in CESS. There are also pallets for handling transaction fees. These pallets include Indices, Balances, TransactionPayment, Assets, and AssetTxPayment pallets.
+2. **Account, Balance, and Fee Pallets**: These pallets keep track of the existing user accounts and their respective balances in the blockchain. User balances are further divided into [free and locked balances](https://support.polkadot.network/support/solutions/articles/65000182717-account-balances-and-locks). It also keeps track of users' other tokens and NFTs, which are counted as assets in CESS. There are also pallets for handling transaction fees. These pallets include Indices, Balances, TransactionPayment, Assets, and AssetTxPayment pallets.
 
 3. **Consensus Pallets**: These pallets work together to keep track of sessions in the blockchain and the corresponding validators and block producers within each session. It also keeps track of the votes by these validators to finalize blocks. These pallets work together to ensure the block data is valid and include Authorship, Babe, Grandpa, Staking, Session, Historical, Offences, ImOnline, AuthorityDiscovery, VoterList, and ElectionProviderMultiPhase pallets.
 
-4. **Governance Pallets**: These pallets provide functions that work with the treasury, and raise proposals to be voted by council and committees on how the treasury fund should be allocated. Some treasury allocations could be one-off bounty (and sub-boundy) asking for solutions to be submitted. The committee members also vet for these solutions through these sets of pallets. These pallets include Council, TechnicalCommittee, TechnicalMembership, Treasury, Bounties, and ChildBounties pallets.
+4. **Governance Pallets**: These pallets provide functions that work with the treasury and keep track of proposals raised to be voted by council and the public, which in turn decides how the treasury fund will be allocated. Some treasury allocations could be one-off, such as bounty and sub-boundy asking for solutions to be submitted. These pallets include Council, TechnicalCommittee, TechnicalMembership, Treasury, Bounties, and ChildBounties pallets.
 
-5. **Smart Contract Pallets**: These pallets grant the chain functionality of running smart contracts. CESS chain supports two types of smart contracts - ink! contracts, granted by Contracts pallets; and EVM-compatible contracts, granted by Ethereum, EVM, DynamicFee pallets. Some EVM precompiles are also provided to allow Substrate chains to recognize some EVM built-in functions.
+5. **Smart Contract Pallets**: These pallets grant the chain functionality of running smart contracts. CESS chain supports two types of smart contracts - ink! contracts, empowered by Contracts pallets; and EVM-compatible contracts, empowered by Ethereum, EVM, and DynamicFee pallets. EVM precompiles are also implemented to allow Substrate chains to recognize some EVM built-in functions.
 
-6. **CESS-specific Pallets**: These are pallets built by the CESS core development team to implement CESS functionality. Most pallets on the first five categories are provided in the Substrate framework. We have made further customization to make them suitable for the CESS blockchain. However, pallets in this category make the CESS blockchain unique and implement the core decentralized storage and caching functionality.
+6. **CESS-specific Pallets**: These are pallets built by the CESS core development team to implement CESS functionality. Most pallets on the first five categories are already provided in the Substrate framework. We have made further customization on Substrate to make them suitable for the CESS blockchain. These pallets are what make CESS blockchain unique and implement the core decentralized storage and caching functionalities.
 
-Next, let's go deeper into these CESS-specific pallets.
+Let's go deeper into these CESS-specific pallets.
 
 # CESS Pallets
 
 ## FileBank Pallet
 
-This pallet consists of logics on managing storage space. It allows callers (users) to purchase storage space, expand the purchased space, renew the storage leases. This pallet also implement functions to CRUD (create, read, update, delete) user buckets, a concept similar to user directory. The actual files are segmented and stored in the underlying storage network, but its metadata are stored on-chain.
+This pallet consists of logics on managing storage space. It allows callers (users) to purchase storage space, expand the purchased space, renew the storage leases. This pallet also implement functions to CRUD (**c**reate, **r**ead, **u**pdate, **d**elete) user buckets, a concept similar to user directory. The actual files are segmented and stored in the underlying storage network, but its metadata are stored on-chain.
 
-Implementation: [`c-pallets/file-bank/src/lib.rs`](https://github.com/cessProject/cess/blob/main/c-pallets/file-bank/src/lib.rs)
+Implementation: [`c-pallets/file-bank/src/lib.rs`](https://github.com/CESSProject/cess/blob/v0.7.4/c-pallets/file-bank/src/lib.rs)
 
-Extrinsics:
+Available transactions:
 
 - `upload_declaration()`: For users to declare, claiming the ownership, of a file before it is being uploaded. This will check if the file is on-chain and mark the corresponding metadata.
 - `deal_reassign_miner()`: Reassign the storage task (storage deal) to another storage miner.
@@ -133,9 +134,9 @@ Extrinsics:
 
 This pallet provides functionality mostly related to consensus miners, including registering nodes to be consensus miners, updating the internal record, and exiting to be consensus miners.
 
-Implementation: [`c-pallets/tee-worker/src/lib.rs`](https://github.com/cessProject/cess/blob/main/c-pallets/tee-worker/src/lib.rs)
+Implementation: [`c-pallets/tee-worker/src/lib.rs`](https://github.com/CESSProject/cess/blob/v0.7.4/c-pallets/tee-worker/src/lib.rs)
 
-Extrinsics:
+Available transactions:
 
 - `register()`: The caller registers to be a consensus miner. It can optionally provide a stash account for managing its stake, a Peer ID, a PoDR2 public key, and an SGX attestation report to prove the node is SGX-capable.
 - `update_whitelist()`: Updating the whitelist storage of the miner enclaves. Only be called by `root` user.
@@ -145,11 +146,10 @@ Extrinsics:
 
 This pallet manages the Proof of Data Reduplication and Recovery (PoDR²). It includes the logic to generate and validate proofs for the miner's service file and idled file. It also generates random challenges for the storage miners. It works with other pallets to handle storage challenges and slash miners.
 
-Implementation: [`c-pallets/audit/src/lib.rs`](https://github.com/cessProject/cess/blob/main/c-pallets/audit/src/lib.rs)
+Implementation: [`c-pallets/audit/src/lib.rs`](https://github.com/CESSProject/cess/blob/v0.7.4/c-pallets/audit/src/lib.rs)
 
-Extrinsics:
+Available transactions:
 
-- `save_challenge_info()`: Generate a new challenge request and save it on-chain. It can be either a service space challenge or an idle space challenge.
 - `submit_idle_proof()`: The storage miner submits an idle space proof on-chain based on a challenge request previously generated.
 - `submit_service_proof()`: The storage miner submits a service space proof on-chain based on a challenge request previously generated.
 - `submit_verify_idle_result()`: Given a challenge request and an idle space proof, a verifier checks if the idle proof is valid and satisfies the challenge request.
@@ -159,9 +159,9 @@ Extrinsics:
 
 This pallet contains operations related to storage miners, allowing them to claim how much space it provides for how long, staking its tokens for its claimed services, and withdrawing the service provision altogether.
 
-Implementation: [`c-pallets/sminer/src/lib.rs`](https://github.com/cessProject/cess/blob/main/c-pallets/sminer/src/lib.rs)
+Implementation: [`c-pallets/sminer/src/lib.rs`](https://github.com/cessProject/cess/blob/v0.7.4/c-pallets/sminer/src/lib.rs)
 
-Extrinsics:
+Available transactions:
 
 - `regnstk()`: Responsible for registering a new storage miner and adding stakes to its service.
 - `increase_collateral()`: Increasing the storage miner stake (a.k.a collateral).
@@ -178,9 +178,9 @@ Extrinsics:
 
 This pallet manages and performs the bookkeeping of the total storage space provided by the underlying storage miners. It allows users to rent, expand the space, and update the pricing.
 
-Implementation: [`c-pallets/storage-handler/src/lib.rs`](https://github.com/cessProject/cess/blob/main/c-pallets/storage-handler/src/lib.rs)
+Implementation: [`c-pallets/storage-handler/src/lib.rs`](https://github.com/cessProject/cess/blob/v0.7.4/c-pallets/storage-handler/src/lib.rs)
 
-Extrinsics:
+Available transactions:
 
 - `buy_space()`: The caller requests to purchase space.
 - `expansion_space()`: The caller requests to purchase additional space. He has to have called `buy_space()` previously. The requested space must be larger than his existing purchased space.
@@ -190,19 +190,19 @@ Extrinsics:
 
 ## SchedulerCredit Pallet
 
-This pallet manages the reputation of consensus miners (a.k.a. schedulers) to maintain the chain state. This includes records of processing files and records of penalties for failing to achieve scheduling goals. At the end, it gives a score to the scheduler according to the set algorithm. This score will be used to decide validators as part of the R2S consensus.
+This pallet manages the reputation of consensus miners (a.k.a. schedulers) to maintain the chain state, including records of processing files and records of penalties for failing to achieve scheduling goals. Then, it gives a score to each schedulers according to a set algorithm. This score will be used to decide validators as part of the R2S consensus.
 
-Implementation: [`c-pallets/scheduler-credit/src/lib.rs`](https://github.com/cessProject/cess/blob/main/c-pallets/scheduler-credit/src/lib.rs)
+Implementation: [`c-pallets/scheduler-credit/src/lib.rs`](https://github.com/cessProject/cess/blob/v0.7.4/c-pallets/scheduler-credit/src/lib.rs)
 
-Extrinsics: No callable extrinsics.
+No callable transactions.
 
 ## Object Storage Service (OSS) Pallet
 
 This pallet records the information about the CESS Object Storage Service. It allows registering, updating, and destroying object storage services.
 
-Implementation: [`c-pallets/oss/src/lib.rs`](https://github.com/cessProject/cess/blob/main/c-pallets/oss/src/lib.rs)
+Implementation: [`c-pallets/oss/src/lib.rs`](https://github.com/cessProject/cess/blob/v0.7.4/c-pallets/oss/src/lib.rs)
 
-Extrinsics:
+Available transactions:
 
 - `authorize()`: Setting a specified operator for the caller. This can be understood as the caller delegates some of his rights to the operator.
 - `cancel_authorize()`: Cancel the authorization of the operator, removing the right of the operator specified above to act on behalf of the caller.
@@ -214,9 +214,9 @@ Extrinsics:
 
 This pallet provides functionality for cache miners. Cache miner can retrieve bills in transaction records and provides file downloading service.
 
-Implementation: [`c-pallets/cacher/src/lib.rs`](https://github.com/cessProject/cess/blob/main/c-pallets/cacher/src/lib.rs)
+Implementation: [`c-pallets/cacher/src/lib.rs`](https://github.com/cessProject/cess/blob/v0.7.4/c-pallets/cacher/src/lib.rs)
 
-Extrinsics:
+Available transactions:
 
 - `register()`: Register the caller node as a cache provider.
 - `update()`: Update the cache information about the caller. The caller must have previously registered as a cache provider.
