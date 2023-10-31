@@ -96,6 +96,10 @@ After the build is complete, the output artifacts are stored in `target/ink/` di
 
 You can also make a release build with `cargo contract build --release`. The release build has optimization settings to make the code run more efficient in the Wasm VM, but the debug build is good enough for now.
 
+{% hint style="info" %}
+You can also use one of the [sample ink! smart contract codes here](https://github.com/CESSProject/cess-course/tree/main/examples/ink).
+{% endhint %}
+
 # Deploy a Smart Contract
 
 - Run a local [CESS node](https://github.com/CESSProject/cess) in development mode. Perform the following commands to clone CESS node source code, compile it, and run a local node.
