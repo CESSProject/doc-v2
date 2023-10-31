@@ -1,4 +1,4 @@
-![ethereum-logo](../../assets/developer/tutorials/poe-solidity/eth-logo.png)
+![Solidity](../../assets/developer/tutorials/poe-solidity/solidity.png)
 
 # Objective
 
