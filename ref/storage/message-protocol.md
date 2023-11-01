@@ -2,7 +2,7 @@ This section describes the message design between nodes, including message excha
 
 # Message Exchange Format
 
-[**protobuf**](https://protobuf.dev/) is the message exchange format between nodes. protobuf is a flexible and efficient data serialization method for structured data. It has the advantage of high-speed efficiency and spatial efficiency, e.g., small encode volume, fast encoding and decoding speed.
+[**protobuf**](https://protobuf.dev/) is the message exchange format between nodes. protobuf is a flexible and efficient data serialization method for structured data. It has the advantage of high-speed efficiency and space efficiency, e.g., small encode volume, fast encoding and decoding speed.
 
 # Message Protocol
 
@@ -11,7 +11,7 @@ A general message is the information that must be carried in all node communicat
 ```protobuf
 message MessageData {
   string clientVersion = 1; // client version
-  int64 timestamp = 2;      // unix time
+  int64 timestamp = 2;      // unix timestamp
   string id = 3;            // allows requesters to use request data when processing a response
   bool gossip = 4;          // true to have receiver peer gossip the message to neighbors
   string nodeId = 5;        // id of node that created the message (not the peer that may have sent it). =base58(multihash(nodePubKey))
@@ -27,24 +27,17 @@ The write data message protocol describes how a node writes its data to another 
 ```protobuf
 message WritefileRequest {
   MessageData messageData = 1;
-  // Roothash uniquely identifies a user data
-  string Roothash =2;
-  // Datahash is the currently written data hash value
-  string Datahash = 3;
-  // Length is the length of the data written this time
-  uint32 Length = 4;
-  // Offset is the offset of this write
-  uint32 Offset = 5;
-  // Data is the data written this time
-  bytes Data = 6;
+  string Roothash =2;  // Roothash uniquely identifies a user data
+  string Datahash = 3; // Datahash is the currently written data hash value
+  uint32 Length = 4;   // Length is the length of the data written this time
+  uint32 Offset = 5;   // Offset is the offset of this write
+  bytes Data = 6;      // Data is the data written this time
 }
 
 message WritefileResponse {
   MessageData messageData = 1;
-  // Code indicates the result of this transfer
-  uint32 Code = 2;
-  // Offset is the write offset the receiver wants
-  uint32 Offset =3;
+  uint32 Code = 2;  // Code indicates the result of this transfer
+  uint32 Offset =3; // Offset is the write offset the receiver wants
 }
 ```
 
@@ -57,24 +50,17 @@ The read data message protocol describes how a node reads the desired data from 
 ```protobuf
 message ReadfileRequest {
   MessageData messageData = 1;
-  // Roothash uniquely identifies a user data
-  string Roothash =2;
-  // Datahash is the currently written data hash value
-  string Datahash = 3;
-  // Offset is the offset that the reader wants to read
-  uint32 Offset = 4;
+  string Roothash =2;   // Roothash uniquely identifies a user data
+  string Datahash = 3;  // Datahash is the currently written data hash value
+  uint32 Offset = 4;    // Offset is the offset that the reader wants to read
 }
 
 message ReadfileResponse {
   MessageData messageData = 1;
-  // Code indicates the result of this transfer
-  uint32 Code = 2;
-  // Offset is the data offset returned by the peer
-  uint32 Offset =3;
-  // Length is the returned data length
-  uint32 Length = 4;
-  // Data is the returned data
-  bytes Data = 5;
+  uint32 Code = 2;   // Code indicates the result of this transfer
+  uint32 Offset =3;  // Offset is the data offset returned by the peer
+  uint32 Length = 4; // Length is the returned data length
+  bytes Data = 5;    // Data is the returned data
 }
 ```
 

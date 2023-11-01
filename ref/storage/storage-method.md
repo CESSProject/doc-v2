@@ -4,7 +4,7 @@ This section describes the data classification, attributes, and storage methods.
 
 CESS is an object-based storage service where all data includes two types of attributes: metadata and data content.
 
-- **Metadata**: It is a description of data content, including data length, data unique identifier, data owner, data location index, etc. The structure of the metadata is defined below:
+- **Metadata**: It is a description of data content, including data length, data unique identifier, data owner, data location index, etc. The structure of the metadata is defined below:<br/>
 
     ```rust
     pub struct FileInfo<T: Config> {
