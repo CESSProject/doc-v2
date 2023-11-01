@@ -12,7 +12,7 @@ The CESS network periodically (with random intervals) picks some proportion of s
 
 # Storage Proof Generation
 
-After receiving the storage challenge, the storage node must submit proof within the specified time; otherwise, it will be punished. The storage node must provide proof for two types of data: proof of spatial data, which is used to prove the storage space it offers as declared, and proof of active data, which is used to prove that it has correctly stored user data.
+After receiving the storage challenge, the storage node must submit proof within the specified time. Otherwise, it will be punished. The storage node must provide proof for two types of data: proof of idle data, which is used to prove the storage space it offers as declared, and proof of active data, which is used to prove that it has correctly stored user data.
 
 ![Proof Flow](../../assets/ref/data-lifecycle/proof-flow.svg)
 
