@@ -2,7 +2,7 @@ This section briefly describes CESS distributed storage system.
 
 CESS, as an object-based storage service, contains a distributed storage system composed of storage nodes from around the world. Each node is equal and communicates with each other through P2P technology. The communication content is encrypted and verifiable. User data uploaded will ultimately be stored in this distributed storage system. Its storage is guaranteed through redundant encoding and recovery mechanisms. The unique PoDR² algorithm ensures data authenticity and effectiveness.
 
-In this section, we will cover:
+In this section, we will cover how the peer-to-peer network used in CESS Network works and how nodes discover each others within the network.
 
 - [Identification](identification.md)
 - [Node Discovery](node-discovery.md)
