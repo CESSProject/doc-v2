@@ -22,13 +22,13 @@ After all the active data in the restore target have been transferred to other s
 
 # Restore Order
 
-Restore orders are all restore tasks currently being executed on the network with two statuses: **claimed** and **unclaimed**. Only miners can issue restore orders, and the issuance conditions are as follows:
+Restore orders are all restore tasks currently being executed on the network with two statuses: **Claimed** and **Unclaimed**. Only miners can issue restore orders, and the issuance conditions are as follows:
 
 - Must be for active file fragments.
 - The order currently does not exist on the network.
 - The issued target must be one of the current restore targets or the node itself.
 
-When the issued order is the node itself, it will be changed to an `unclaimed` state after generation, waiting for other miners to pick it up. When the issued order is another restoral target, the order will be updated to a `claimed` state.
+When the issued order is the node itself, it will be changed to an `unclaimed` state after generation, waiting for other miners to pick it up. When the issued order is another restore target, the order will be updated to a `claimed` state.
 
 If a miner fails to complete the restore order, its `claimed` status will be changed back to an `unclaimed` state within a validity period and wait for other miners to claim it again.
 
@@ -36,7 +36,7 @@ Meanwhile, only one miner can claim an order and perform the restore task. Durin
 
 # Restore Report
 
-After completing the restore task, the miner must call a transaction within the validity period to report the restore results on-chain before the restore task is considered complete. Then the miners' computing power will be increased, and the corresponding meta information of the file will be updated.
+After completing the restore task, the miner must call a transaction within the validity period to report the restore results on-chain before the restore task is considered complete. Then the miners' storage power will be increased, and the corresponding meta information of the file will be updated.
 
 # File Loss
 

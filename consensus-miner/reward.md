@@ -1,19 +1,19 @@
-Referring back to CESS overall tokenomics as below:
+Referring to CESS overall tokenomics as below:
 
 <figure><img src="../assets/storage-miner/reward/tokenomics-v1.png" alt=""><figcaption><p>CESS Tokenomics</p></figcaption></figure>
 
 # Reward
 
-In the first year, a total of **187,500,000 tokens** are issued, and they are distributed evenly throughout the year in each era. The total rewards decrease in a stepwise manner each year, with an annual decay rate of 0.841 (0.5^(1/4)), resulting in a halving of rewards every four years.
+In the first year, a total of **187,500,000 tokens** are issued, and they are distributed evenly throughout the year in each era. The total rewards decrease in a stepwise manner each year, with an annual decay rate of 0.841 (0.5<sup>0.25</sup>), resulting in a halving of rewards every four years.
 
 For each era (which lasts 24 hours in CESS), miners receive rewards in proportion to the era points they have collected. Era points are obtained through the following:
 
-- Authoring non-uncle blocks.
+- Authoring canonical blocks.
 - Authoring references to previously unreferenced uncle blocks.
 - Authoring referenced uncle blocks.
 
 {% hint style="info" %}
-Uncle blocks are relay chain blocks that are valid in all aspects but fail to become the main blocks. This occurs when two or more validators become block producers in the same slot, and one validator's block arrives at the next block producer before the other blocks. We refer to these lagging blocks as uncle blocks.
+Uncle blocks are relay chain blocks that are valid in all aspects but fail to become the canonical blocks. This occurs when two or more validators become block producers in the same slot, and one validator's block arrives at the next block producer before the other blocks. We refer to these lagging blocks as uncle blocks.
 {% endhint %}
 
 Rewards are distributed at the end of each era. Regardless of the amount staked by miners, block production rewards are generally distributed evenly among all miners. However, the rewards for specific miners may differ based on era points, as mentioned above. While earning era points has a probabilistic component and may be slightly influenced by factors such as network connectivity, well-performing miners should typically have a similar total sum of era points over a large number of eras.

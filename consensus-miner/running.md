@@ -196,7 +196,7 @@ In Payouts, click **Payout** to initiate a payment. Any account can initiate a p
 ![Redemption: Second Step](../assets/consensus-miner/running/redemption-02.png)
 
 {% hint style="info" %}
-Please claim the reward within 84 era (each era of the test network is 6 hours), which is 21 days. Those who hasn't claimed the reward in this period will not be able to claim it.
+Please claim the reward within 84 era (each era of the test network is 24 hours), which is 84 days. Those who hasn't claimed the reward in this period will not be able to claim it.
 {% endhint %}
 
 ## Exiting Consensus Validation
@@ -225,7 +225,7 @@ Please claim the reward within 84 era (each era of the test network is 6 hours),
 
 1. Unbond fund<br/>
 
-    After 28 eras (each era of the test network is 6 hours), goto [CESS Explorer](https://testnet.cess.cloud/), navigate to: **Network > Staking > Account Actions > Unbond Funds**.<br/>
+    After 28 eras (each era of the test network is 24 hours), goto [CESS Explorer](https://testnet.cess.cloud/), navigate to: **Network > Staking > Account Actions > Unbond Funds**.<br/>
 
     ![Staking 01](../assets/consensus-miner/running/staking-01.png)
 

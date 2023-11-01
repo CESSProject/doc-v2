@@ -2,7 +2,7 @@ Reputation rotational consensus is an important component of CESS protocol. Diff
 
 1. A node stakes 1 million tokens to register as a consensus node.
 
-2. Each era validation node will rotate, and the rotation rule is credit ranking. Select the top 11 nodes with the highest credits (4 nodes in the CESS test network) from all consensus nodes as the validation nodes for this era.
+2. At the beginning of each era validation nodes will rotate, and the rotation rule is credit ranking: Selecting the top 11 nodes with the highest credits (4 nodes in the CESS test network) from all consensus nodes as the validation nodes for this era.
 
 3. The final credit is determined by the reputation credits and the random credits:
 
@@ -10,13 +10,11 @@ Reputation rotational consensus is an important component of CESS protocol. Diff
     **Final Credits** = (reputation credits * 80%) + (random credits * 20%).
     {% endhint %}
 
-4. Please refer to the next chapter for reputation credits calculation, where random credits are generated through VRF.
+4. Block producer selection mechanism is the same as [BABE](https://wiki.polkadot.network/docs/learn-consensus#block-production-babe), where each block producer is randomly selected from 11 validation nodes through VRF.
 
-5. Block producer selection mechanism is the same as BABE, where each block producer is randomly selected from 11 validation nodes through VRF.
+5. The method of confirming blocks is the same as [GRANDPA](https://wiki.polkadot.network/docs/learn-consensus#finality-gadget-grandpa).
 
-6. The method of confirming blocks is the same as GRANDPA.
-
-7. At the 5th epoch of each era, the validator node of the next era will be selected.
+6. At the 5th epoch of each era, the validator node of the next era will be selected.
 
 # Reputation Model
 
