@@ -1,14 +1,14 @@
-# Possible Issues During Installation
+# Issues During Installation
 
 <details>
 
 <summary>Unable to download docker image</summary>
 
-During the installation process, docker is used to download cess image. If the following exception occurs when installing the `cess-nodeadm`:
+During the installation process, docker is used to download cess image. If the following error occurs when installing the `cess-nodeadm`:
 
 ![Docker Daemon Issue](../assets/storage-miner/troubleshooting/docker-daemon-issue.png)
 
-Make sure cmds are in the root privilege or with sudo command. Start docker on your system:
+Make sure commands are in the root privilege or prefixed with `sudo` command. Start docker on your system:
 
 ```bash
 systemctl start docker
@@ -20,7 +20,7 @@ Reinstall the `cess-nodeadm`:
 ./install.sh
 ```
 
-⚠️ Note that all CESS program commands must have sudo privileges.
+⚠️ Note that most CESS program commands must have root privileges.
 
 </details>
 
@@ -53,7 +53,7 @@ sudo systemctl start docker
 
 </details>
 
-# Possible Issues During Configuration
+# Issues During Configuration
 
 <details>
 
@@ -63,7 +63,7 @@ If the following error occurs when setting up the config:
 
 ![CESS Image Download Issue](../assets/storage-miner/troubleshooting/cess-image-download-issue.png)
 
-Make sure to run commands in the root privilege or with `sudo` command.
+Ensure the commands are run in the root privilege or prefixed with `sudo` command.
 
 Try `cess config set` command.
 
