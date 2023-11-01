@@ -23,7 +23,7 @@ Please refer to the [official documentation](https://docs.docker.com/engine/inst
 The following commands are executed with root privileges. If error messages of `permission denied` appear, switch to root privilege or add `sudo` at the beginning of these commands.
 {% endhint %}
 
-By default, cess-bucket uses port 4001 to listen for incoming connections, if your platform blocks the port by default, you may need to enable the access to the port.
+By default, the node client program, **cess-bucket**, uses port 4001 to listen for incoming connections, if your OS firewalled the port by default, you may need to enable the access to the port.
 
 ```bash
 ufw allow 4001
@@ -37,7 +37,7 @@ Check the hard disk status using the `df -h` command:
 $ df -h
 ```
 
-If the disk is not mounted, the hard drive for storage mining cannot be used. Use the command below to view unmounted hard disks:
+If the disk is not mounted, the hard drive for storage mining cannot be used. Use the commands below to view unmounted hard disks:
 
 ```bash
 $ fdisk -l
@@ -50,7 +50,7 @@ Disklabel type: dos
 Disk identifier: 0x331195d1
 ```
 
-From the above, the unmounted disk is `/dev/vdb`. We will be using `/dev/vdb` to demonstrate the mounting operation.
+From the above, we can see that the unmounted disk is `/dev/vdb`. We will be using `/dev/vdb` to demonstrate the mounting operation.
 
 Allocate the `/dev/vdb` disk:
 
@@ -84,7 +84,11 @@ mkdir /cess
 echo "/dev/vdb /cess ext4 defaults 0 0" >> /etc/fstab
 ```
 
-Replace `/dev/vdb` with your own disk name. /cess has to remain the same as created in the previous step. If you are not under root privileges, try: <br/>`echo "/dev/vdb /cess ext4 defaults 0 0" | sudo tee -a /etc/fstab`
+Replace `/dev/vdb` with your own disk name. /cess has to remain the same as created in the previous step. If you are not under root privileges, try:
+
+```bash
+echo "/dev/vdb /cess ext4 defaults 0 0" | sudo tee -a /etc/fstab
+```
 
 Mount `/cess`:
 
@@ -107,19 +111,19 @@ Miners need to create two wallet accounts.
 - **Earning Account**: Used for receiving rewards from mining.
 - **Staking Account**: Used for staking and signing blockchain transactions.
 
-Please refer to the [CESS Account](../community/cess-account.md) for creating a CESS account, goto [CESS faucet](https://cess.cloud/faucet.html) to get TCESS, or [contact us](../introduction/contact.md) to get assistance.
+Please refer to [Creating CESS Accounts](../community/cess-account.md) for creating a CESS account, goto [CESS faucet](https://cess.cloud/faucet.html) to get our testnet tokens, TCESS, or [contact us](../introduction/contact.md) to get assistance.
 
 # Install CESS Client
 
 ```bash
-wget https://github.com/CESSProject/cess-nodeadm/archive/v0.3.3.tar.gz
-tar -xvf v0.3.3.tar.gz
-cd cess-nodeadm-0.3.3/
+wget https://github.com/CESSProject/cess-nodeadm/archive/v0.4.4.tar.gz
+tar -xvf v0.4.4.tar.gz
+cd cess-nodeadm-0.4.4/
 ./install.sh
 ```
 
 {% hint style="info" %}
-Check that you are using [the most updated version](https://github.com/CESSProject/cess-nodeadm/tags) of `cess-nodeadm`. Currently it is **v0.3.3**.
+Check that you are using [the most updated version](https://github.com/CESSProject/cess-nodeadm/tags) of `cess-nodeadm`. Currently it is **v0.4.4**.
 {% endhint %}
 
 If a message `Install cess nodeadm success` shows up, the installation is successful.
@@ -155,29 +159,29 @@ $ cess start
 
 # Common Operations
 
-**Check CESS chain sync status**
+## Check CESS Chain Sync Status
 
 ```bash
 docker logs chain
 ```
 
-As shown in the figure below, if we see that the height of the block corresponding to "best" is about the latest height in [CESS Explorer](https://testnet.cess.cloud/), it means the local chain node synchronization is completed.
+As shown below, if we see that the height of the block corresponding to "best" is about the latest height in [CESS Explorer](https://testnet.cess.cloud/), it means the local chain node synchronization is completed.
 
 ![CESS Blockchain Synchronization Completed](../assets/storage-miner/running/sync-status.png)
 
 Only when the chain synchronization is completed can you operate other functions such as increase the staking, view the status of the node, etc.
 
-**View the storage node log**
+## View the Storage Node Log
 
 ```bash
 docker logs bucket
 ```
 
-As shown in the figure below, seeing `/kldr-testnet` indicates that the network environment is a test network, and seeing `Connected to the bootstrap node...` indicates that there is a connection to the bootstrap node.
+As shown below, seeing `/kldr-testnet` indicates that the network environment is a test network, and seeing `Connected to the bootstrap node...` indicates that there is a connection to the bootstrap node.
 
 ![Storage Node Log](../assets/storage-miner/running/view-node-log.webp)
 
-**View bucket status**
+## View Bucket Status
 
 ```bash
 cess bucket stat
@@ -189,13 +193,13 @@ An example of the returned results is shown below：
 
 Refer to the [Glossary](../glossary.md#storage-miner) on the names above.
 
-**Increase staking**
+## Increase Miner Staking
 
 ```bash
 cess bucket increase <deposit amount>
 ```
 
-**Withdraw staking**
+## Withdraw Miner Staking
 
 After your node **has exited CESS Network** (see below), run
 
@@ -203,41 +207,37 @@ After your node **has exited CESS Network** (see below), run
 cess bucket withdraw
 ```
 
-**Query reward information**
+## Query Reward Information
 
 ```bash
 cess bucket reward
 ```
 
-**Claim reward**
+## Claim Reward
 
 ```bash
 cess bucket claim
 ```
 
-**Update all service images**
+## Update All Service Images
 
 ```bash
 cess pullimg
 ```
 
-**Stop and remove all service**
+## Stop and Remove All Services
 
 ```bash
 cess down
 ```
 
-**Update earnings account**
+## Update Earnings Account
 
 ```bash
 cess bucket update earnings [earnings account]
 ```
 
-**Exit CESS network**
-
-{% hint style="danger" %}
-Please use this command carefully. Once you exit, you cannot resume.
-{% endhint %}
+## Exit CESS Network
 
 ```bash
 cess bucket exit
@@ -245,14 +245,14 @@ cess bucket exit
 
 # Upgrade CESS Client
 
-**Stop and remove all services**
+## Stop and Remove All Services
 
 ```bash
 cess stop
 cess down
 ```
 
-**Remove all chain data**
+## Remove All Chain Data
 
 {% hint style="warning" %}
 Do not perform this operation unless the CESS network has been redeployed and it is confirmed that the data can be cleared.
@@ -262,7 +262,7 @@ Do not perform this operation unless the CESS network has been redeployed and it
 cess purge
 ```
 
-**Update `cess-nodeadm`**
+## Update `cess-nodeadm`
 
 ```bash
 wget https://github.com/CESSProject/cess-nodeadm/archive/<new-version>.tar.gz
@@ -271,9 +271,9 @@ cd cess-nodeadm-<new-version>
 ./install.sh --skip-dep
 ```
 
-Currently [the most updated version](https://github.com/CESSProject/cess-nodeadm/tags) is **v0.3.3**.
+Currently [the most updated version](https://github.com/CESSProject/cess-nodeadm/tags) is **v0.4.4**.
 
-**Pull images**
+## Pull images
 
 ```bash
 cess pullimg
