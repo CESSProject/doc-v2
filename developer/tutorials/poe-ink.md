@@ -339,7 +339,7 @@ If you see a screen similar to the following, you are good to go.
 
 First of all, in case there is any doubt, you can always refer back to [**the entire front end source code**](https://github.com/CESSProject/cess-course/tree/main/examples/frontend).
 
-To get a high-level understand of the front end template, let's refer to the second self section of [`src/App.js`](https://github.com/CESSProject/cess-course/blob/308ec7fe053e92c08e4c2d634579f84b359072ac/examples/frontend/src/App.js#L51):
+To get a high-level understand of the front end template, let's refer to the second half section of [`src/App.js`](https://github.com/CESSProject/cess-course/blob/308ec7fe053e92c08e4c2d634579f84b359072ac/examples/frontend/src/App.js#L51):
 
 ```jsx
 function Main() {
@@ -397,7 +397,7 @@ Let's see how different components are laid out on the screen.
 
 ![Substrate Front End Template Components](../../assets/developer/tutorials/poe-ink/substrate-fe-tpl-sectioned.png)
 
-1. The `<AccountSelector/>` component, refering to `src/AccountSelector.js`.
+1. The `<AccountSelector/>` component, referring to `src/AccountSelector.js`.
 2. The `<NodeInfo />` component, referring to `src/NodeInfo.js`.
 3. The `<Metadata />` component, referring to `src/Metadata.js`.
 4. The `<Balances />` component, referring to `src/Balances.js`.
@@ -449,7 +449,7 @@ We will add a new component and showcase how to use [**useink** javascript libra
     }
     ```
 
-    At this point, the front end should work with the line "Proof of Existence Ink! dApp" shown.
+    At this point, the front end should show the line "Proof of Existence Ink! dApp".
 
 3. From now on, we will mainly focus on the file `src/ProofOfExistenceInk.js`. We will not be adding code line by line here, but focus on the APIs provided by **useink** library that facilitate ink! smart contract interaction.
 
