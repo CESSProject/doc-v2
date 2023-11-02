@@ -9,7 +9,7 @@ You will need the following to deploy a Solidity smart contract to CESS.
 - **MetaMask**: Required to get an Ethereum address and to connect to the CESS chain
 - **CESS Acount**: Refer to [this article](../../community/cess-account.md) on how to create a CESS account and [this article](../guides/testnet-faucet.md) on getting testnet tokens from our faucet.
 - **Remix IDE**: Access to [Remix IDE](https://remix.ethereum.org/) to develop, compile, and deploy smart contracts to the chain
-- **Access to CESS Node**: Make sure the node allows access to MetaMask
+- **Access to CESS Node**: Make sure the node allows access from MetaMask.
 
 The following steps will guide you to deploy a Solidity contract on the CESS testnet.
 
@@ -51,7 +51,7 @@ Input the following:
 - Change Address Prefix: **11330*
 - Intput address: *your metamask account*
 
-Get the Substrate address output.
+Get the EVM address output.
 
 # Fund the Account
 

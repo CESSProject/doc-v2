@@ -14,3 +14,4 @@ To explore what you can do with CESS SDKs or APIs, please check our tutorials. T
 - [Commonly Used Libraries and Toolchains in Development](guides/common-libs.md)
 - [Substrate and EVM Address Conversion](guides/substrate-evm.md)
 - [CESS Code Overview](guides/src-overview.md)
+- [DeOSS](https://docs.cess.cloud/deoss)
