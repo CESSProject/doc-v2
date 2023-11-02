@@ -116,7 +116,7 @@ You can query your used space with `space.userOwnedSpace()`. It returns an objec
 
 There is a utility class **Common** that formats the above data to be more readable with
 
-```
+```ts
 common.formatSpaceInfo(initSpace.data, blockHeight)`
 ```
 
