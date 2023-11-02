@@ -10,7 +10,7 @@ In this tutorial, we will learn how to deploy an [**ink!** Smart Contract](https
    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
    ```
 
-- Next, install `cargo-contract`, a CLI tool to help setting up and managing WebAssembly smart contracts written in ink! ([GitHub repo](https://github.com/paritytech/cargo-contract).
+- Next, install `cargo-contract`, a CLI tool to help setting up and managing WebAssembly smart contracts written in ink! ([GitHub repo](https://github.com/paritytech/cargo-contract)).
 
    ```bash
    # Install an additional component `rust-src`
@@ -113,7 +113,7 @@ You can also use one of the [sample ink! smart contract codes here](https://gith
    target/debug/cess-node --dev
    ```
 
-   The node will start running and the console will display something as below.
+   The node will start running and the console will display something as below.<br/>
 
    ![CESS Node Console](../../assets/developer/tutorials/deploy-sc-ink/cess-node.png)
 
