@@ -55,7 +55,7 @@ async function main() {
   const bucket = new Bucket(api, keyring);
   const file = new File(api, keyring, testnetConfig.gatewayURL);
 }
-````
+```
 
 The `InitAPI()` function receives a `CESSConfig` object that has the following shape:
 
