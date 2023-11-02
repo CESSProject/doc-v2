@@ -552,7 +552,7 @@ We will add a new component and showcase how to use [**useink** javascript libra
 **Congratulation**! Let's recap what we have done in this tutorial:
 
 - We have successfully implemented a PoE logic in ink! smart contract and deploy it on a local CESS node.
-- We have successfully implemented the front end that interacts with the smart contract, starting with the Substrate Front End Template and **useink** React library.
+- Starting with the Substrate Front End Template and **useink** React library, we have successfully implemented the front end that interacts with the smart contract.
 
 Now, you can build your dApps and deploy them on the CESS testnet to test it out. For the next step, you can also learn how to [develop a dApp with Solidity smart contract](./poe-solidity.md) as well.
 

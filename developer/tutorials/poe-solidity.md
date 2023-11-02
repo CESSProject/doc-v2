@@ -285,7 +285,7 @@ We won't go over the front-end code line by line, but there are a few features I
 **Congratulation**! Let's recap what we have done in this tutorial:
 
 - We have successfully implemented a PoE logic in the Solidity smart contract and deployed it on a local CESS node.
-- We have successfully implemented the front end that interacts with the smart contract, starting with the Substrate Front End Template and adding **wagmi** React hook library.
+- Starting with the Substrate Front End Template and adding **wagmi** React hook library, we have successfully implemented the front end that interacts with the smart contract.
 
 Now, you can build your dApps and deploy them on the CESS testnet to test it out. If you haven't done so, try also to [develop a dApp with Ink! smart contract](./poe-ink.md) as well.
 
