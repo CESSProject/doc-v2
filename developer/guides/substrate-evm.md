@@ -101,13 +101,13 @@ Account Set 2:
 
     ![Initial EVM Account (#3)](../../assets/developer/guides/substrate-evm/3-initial-status.png)
 
-3. We will transfer 10M token unit from `Alice` (#1) to the Substrate-mapped address `cXgEvnbJfHsaN8HfoiEWfAi4QBENYbLKitRfG1CDYZpKTRRuw` (#2)
+4. We will transfer 10M token unit from `Alice` (#1) to the Substrate-mapped address `cXgEvnbJfHsaN8HfoiEWfAi4QBENYbLKitRfG1CDYZpKTRRuw` (#2)
 
 ![Balance Transfer (#1 -> #2)](../../assets/developer/guides/substrate-evm/1-to-2-transfer.png)
 
-3. Once we complete the transfer and wait a few seconds, open our EVM wallet, and we should see the balance of the EVM account is updated to reflect the transfer.
+5. Once we complete the transfer and wait a few seconds, open our EVM wallet, and we should see the balance of the EVM account is updated to reflect the transfer.
 
-    On the native account (#1):<br/>
+    On the Substrate signing account (#1):<br/>
 
     ![After transfer (#1)](../../assets/developer/guides/substrate-evm/after-1st-transfer-native.png)
 
