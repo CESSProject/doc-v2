@@ -40,7 +40,7 @@ $$\boxed{min (\cfrac{3 * (x - (\frac{n}{10} + 1))}{n}, 1) * 0.07}$$
 
 Both GRANDPA and BABE ambiguities use the same formula to calculate the penalties:
 
-- **GRANDPA Ambiguity**: Validators signing two or more votes for different chains in the same round.
+- **GRANDPA Ambiguity**: Validators signing two or more votes for different blocks in the same round.
 - **BABE Ambiguity**: Validators producing two or more blocks in the same slot.
 
 **Let x = number of offenders, n = total no. of validators in the active set**
