@@ -145,9 +145,10 @@ If the configuration process fails, please refer to the [troubleshooting guideli
     cess tools rotate-keys
     ```
 
-    The field in the quotation marks after "result" is the Session Key, which will be used in subsequent operations. "localhost:9933" is the default port. Operation demonstration as below.<br/>
+    ![rotate-keys Output Example](../assets/consensus-miner/running/rotate-keys.png)
 
-    ![rotate-keys Example](../assets/consensus-miner/running/rotate-keys.png)
+    The field in the quotation marks after "result" is the Session Key, which will be used in subsequent operations. "localhost:9933" is the default port.<br/>
+
 
 3. Setup a session key<br/>
 
