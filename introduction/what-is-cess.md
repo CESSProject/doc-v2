@@ -1,4 +1,4 @@
-Cumulus Encrypted Storage System (**CESS**) is a blockchain-powered decentralized storage and CDN infrastructure for web3, designed to support large-scale commercial enterprises. Offering the most optimal Web3 solution for storing and retrieving high-frequency dynamic data, CESS reshapes the value distribution and circulation of data assets whilst ensuring data sovereignty and complete user privacy.
+Cumulus Encrypted Storage System (**CESS**) is a blockchain-powered decentralized storage and CDN infrastructure for Web3, designed to support large-scale commercial enterprises. CESS reshapes the value distribution and circulation of data assets whilst ensuring data sovereignty and user privacy, offering the most optimal Web3 solution for storing and retrieving high-frequency dynamic data.
 
 Our vision is to create a secure, transparent, and high-throughput decentralized value network.
 
