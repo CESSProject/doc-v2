@@ -4,13 +4,13 @@ There are five type of user roles involved in the CESS ecosystem that keep the C
 
     👉 [Community Members](community/README.md)
 
-2. **dApp Users**: They use the dApps built on top of CESS. For instance, they stores their personal data on DeOSS to avoid relying on any single centralized storage provier.
+2. **Users**: They use the dApps built on top of CESS. For instance, they stores their personal data on DeOSS to avoid relying on any single centralized storage provier.
 
-    👉 [dApp Users](user/README.md)
+    👉 [Users](user/README.md)
 
-3.  **dApp Developers**: They use CESS SDKs and APIs to build dApps on top of CESS. For instance, they want to issue new set of NFTs and decide to put their NFT assets on CESS.
+3.  **Developers**: They use CESS SDKs and APIs to build dApps on top of CESS. For instance, they want to issue new set of NFTs and decide to put their NFT assets on CESS.
 
-    👉 [dApp Developers](developer/README.md)
+    👉 [Developers](developer/README.md)
 
 4. **Storage Miners**: They run storage nodes in CESS network to provide storage space for users.
 
