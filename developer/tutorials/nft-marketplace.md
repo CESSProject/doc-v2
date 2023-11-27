@@ -140,3 +140,555 @@ To purchase space, first, navigate to [CESS Explorer](https://testnet.cess.cloud
 
 Once we have tokens in our account and enough storage space allocated to our account, we are ready to upload our files to the CESS network. Since we will be using the CESS DeOSS gateway to upload our files, we will have to authenticate the DeOSS gateway so that the gateway can send some storage-related transactions on our behalf and generate an authorization token. For testnet DeOSS we have
 
+{% hint style="info" %}
+DeOSS URL: <http://deoss-pub-gateway.cess.cloud/>
+
+DeOSS Gateway Account Address: `cXhwBytXqrZLr1qM5NHJhCzEMckSTzNKw17ci2aHft6ETSQm9`
+{% endhint %}
+
+1. To authenticate the DeOSS from the testnet explorer extrinsic section execute `oss` > `authorize(operator)` with the gateway account address given above.
+
+    ![Sending `authorize` extrinsic](../../assets/developer/tutorials/nft-marketplace/authorize.png)
+
+2. Generate authorization token: To generate an authorization token, please follow this Guide. It will take approximately 5 minutes.
+
+Now we are ready to upload our files to CESS. We can either use REST API or SDK to upload our files.
+
+### A. Upload using SDK
+
+Once again, we will use the Javascript SDK to upload our files. The initialization phase will be the same as the previous section. Once initialized, we can add the following code snippet.
+
+```js
+import { InitAPI, Space, File } from "cess-js-sdk";
+const MNEMONIC = "YOUR MNEMONIC SEED";
+const ACCOUNT_ID = "YOUR ACCOUNT ID";
+const FILE_PATH = resolvePath(joinPath(__dirname, "/home/image.png"));
+let BUCKET_NAME = "bucket1";
+
+async function main() {
+  const { api, keyring } = await InitAPI(testnetConfig);
+  const oss = new File(api, keyring, gatewayURL, true);
+  const result = await oss.uploadFile(MNEMONIC, ACCOUNT_ID, FILE_PATH, BUCKET_NAME);
+  console.log(getDataIfOk(result), "\n");
+}
+```
+
+### B. Upload with REST API
+
+Now, we can use REST API to upload our files to the CESS network.
+
+To upload a file execute the following command
+
+```bash
+curl -X PUT http://deoss-pub-gateway.cess.cloud/ \
+  -F 'file=@cryptopunk.png;type=image/png' \
+  -H "Authorization: eyJh...IL1g" \
+  -H "BucketName: my_nfts"
+```
+
+Here, `-F` is used to specify the file location and the type of file, `-H` to set your `Authorization` token and `BucketName` where this file will be stored.
+
+Executing this function will return us with an FID that we can use to access our file.
+
+# Marketplace Smart Contract
+
+![ink!](../../assets/developer/tutorials/nft-marketplace/use-ink.png)
+
+We will use [ink!](https://use.ink/) to write our smart contract. As I mentioned above, our smart contract will be responsible for creating NFTs based on the [PSP34](https://github.com/w3f/PSPs/blob/master/PSPs/psp-34.md) standard. Before we get started, there are some prerequisites. Please follow [Deploy an Ink! Smart Contract](https://docs.cess.cloud/core/developer/tutorials/deploy-sc-ink) tutorial and install Rust and `cargo-contract`.
+
+## Development
+
+1. Let's start by creating a new contract
+
+    ```bash
+    cargo contract new nft_market
+    cd nft_market
+    ```
+
+    The last command will create an ink! contract project skeleton.
+
+    Inside the directory, there are three files.
+
+    ```
+    nft_market/
+      ∟ .gitignore    # contains files to ignore when committing to git
+      ∟ Cargo.toml    # This is a Rust project, so there is a Cargo.toml file for the project specification.
+      ∟ lib.rs        # The actual smart contract and unit test code.
+    ```
+
+2. Let's build and test the contract.
+
+    ```bash
+    cargo contract build # This command builds the contract project.
+    cargo test           # This command runs the unit test code starting at the `mod tests` line in the code.
+    ```
+
+    Running the `cargo contract build` yields three files:
+
+    - `contract.wasm`: the contract code
+    - `contract.json`: the contract metadata
+    - `contract.contract`: the contract code and metadata
+
+    The front end (see next section) will need to read `contract.json` to know the API of the contract. We will use `contract.contract` to instantiate the contract on-chain.
+
+3. We will use the [openbrush library](https://github.com/Brushfam/openbrush-contracts) that implements the PSP34 token standard and many other useful features that make ink! development faster, safer, and easier. To add openbrush library to your project add the below dependency in your `Cargo.toml`. Also, update your `ink` dependency from `4.2.0` to `~4.2.1`.
+
+    ```toml
+    [dependencies]
+    ink = { version = "~4.2.1", default-features = false }
+    #...
+    openbrush = { tag = "4.0.0-beta", git = "https://github.com/Brushfam/openbrush-contracts", default-features = false, features = ["psp34", "ownable", "reentrancy_guard"] }
+    #...
+    ```
+
+    Now, add `openbrush/std` to the `[features]`:
+
+    ```toml
+    [features]
+    default = ["std"]
+    std = [
+        # ...,
+        "openbrush/std",
+    ]
+    ```
+
+4. Open `lib.rs` and remove everything except the top-level structure. You should have:
+
+    ```rs
+    #![cfg_attr(not(feature = "std"), no_std, no_main)]
+
+    #[ink::contract]
+    mod nft_market {
+      // We will fill up the code here next
+    }
+    ```
+
+5. Let's start with adding the required implementations from Openbrush. We will be using PSP34 token standard, `Ownable` for tokens that can be owned, `PSP34Mintable` to enable users to mint new tokens, `PSP34Metadata` to store our meta data on blockchain, and `PSP34Enumerable` to enumerate through our tokes. We will also need to change `ink::contract` to `openbrush::contract`.
+
+    ```rs
+    #![cfg_attr(not(feature = "std"), no_std, no_main)]
+
+    mod impls;
+
+    #[openbrush::implementation(PSP34, PSP34Mintable, PSP34Metadata, PSP34Enumerable, Ownable)]
+    #[openbrush::contract]
+    mod nft_market {
+      // We will fill up the code here next
+    }
+    ```
+
+6. Ink! contract requires exactly one storage `struct` to store our data on blockchain, at least one constructor, and a message function. With that in mind, let's first add our storage `struct` within our `nft_market` module.
+
+    ```rs
+    //...
+    mod nft_market {
+        // We will add our dependencies here
+        #[ink(storage)]
+        #[derive(Default, Storage)]
+        pub struct NftMarket {
+            #[storage_field]
+            psp34: psp34::Data,
+            #[storage_field]
+            guard: reentrancy_guard::Data,
+            #[storage_field]
+            ownable: ownable::Data,
+            #[storage_field]
+            metadata: metadata::Data,
+            #[storage_field]
+            nftdata: impls::types::NftData,
+            #[storage_field]
+            enumerable: enumerable::Data,
+        }
+    }
+    ```
+
+    Each data type that we wish to store on blockchain needs to be specified with `#[storage_field]` macro.
+
+    - `psp34`: stores PSP34 token standard related data
+    - `guard`: is used to prevent reentrancy attacks
+    - `ownable`: allows us to create ownable data that can also be transferred,
+    - `metadata`: to store custom attribute
+    - `nftdata`: we will store our NFT related data here, like the maximum supply, price per mint etc.
+    - `enumerable`: to query the number of NFTs issued or to query NFT tokens.
+
+7. Now we need to implement the NftMarket structure and add a constructor to it.
+
+    ```rs
+    //...
+    mod nft_market {
+        ...
+        pub struct NftMarket {
+           ...
+        }
+
+        impl NftMarket {
+        #[ink(constructor)]
+            pub fn new() -> Self {
+                // We will add our code here
+            }
+        }
+    }
+    ```
+
+8. Since we have our constructor now, we can add our dependencies in the "We will add our dependencies here" section.
+
+    ```rs
+    //...
+    mod nft_market {
+        use crate::impls;
+        use ink::codegen::{EmitEvent, Env};
+        use openbrush::{
+            contracts::{
+                psp34::{extensions::metadata, PSP34Impl},
+                reentrancy_guard,
+            },
+            traits::Storage,
+        };
+        //...
+    }
+    ```
+
+    Note here, we haven't created impls module that we have added here as a dependency. Don't worry, we will be creating it soon.
+
+9. To keep our smart contract flexible we will take some inputs from the user while deploying our smart contract, giving them the ability to set
+
+    1. name: The name of the smart contract
+    2. symbol: Token symbol
+    3. base_uri: Where we can access our NFT file and
+    4. price_per_mint: Amount of CESS Tokens users will have to pay to mint a token
+
+    With that said, let's define the constructor body that we wrote in step 7.
+
+    ```rs
+    //...
+    impl NftMarket {
+        #[ink(constructor)]
+        pub fn new(
+            name: String,
+            symbol: String,
+            base_uri: String,
+            max_supply: u64,
+            price_per_mint: Balance,
+        ) -> Self {
+            let mut instance = Self::default();
+            let caller = instance.env().caller();
+            ownable::InternalImpl::_init_with_owner(&mut instance, caller);
+            let col_id = PSP34Impl::collection_id(&instance);
+            metadata::InternalImpl::_set_attribute(
+                &mut instance,
+                col_id.clone(),
+                String::from("name"),
+                name,
+            );
+            metadata::InternalImpl::_set_attribute(
+                &mut instance,
+                col_id.clone(),
+                String::from("symbol"),
+                symbol,
+            );
+            metadata::InternalImpl::_set_attribute(
+                &mut instance,
+                col_id,
+                String::from("baseUri"),
+                base_uri,
+            );
+            instance.nftdata.max_supply = max_supply;
+            instance.nftdata.price_per_mint = price_per_mint;
+            instance
+        }
+    }
+    ```
+
+10. Events: To emit events when a certain event occurs in our smart contract, we can define it with `#[ink(event)]`. We will add `Transfer` and `Approval` events and override the `psp34::Internal` event.
+
+    ```rs
+    mod nft_market {
+    //...
+        /// Event emitted when a token transfer occurs.
+        #[ink(event)]
+        pub struct Transfer {
+            #[ink(topic)]
+            from: Option<AccountId>,
+            #[ink(topic)]
+            to: Option<AccountId>,
+            #[ink(topic)]
+            id: Id,
+        }
+
+        /// Event emitted when a token approve occurs.
+        #[ink(event)]
+        pub struct Approval {
+            #[ink(topic)]
+            from: AccountId,
+            #[ink(topic)]
+            to: AccountId,
+            #[ink(topic)]
+            id: Option<Id>,
+            approved: bool,
+        }
+
+        // Override event emission methods
+        #[overrider(psp34::Internal)]
+        fn _emit_transfer_event(&self, from: Option<AccountId>, to: Option<AccountId>, id: Id) {
+            self.env().emit_event(Transfer { from, to, id });
+        }
+
+        #[overrider(psp34::Internal)]
+        fn _emit_approval_event(&self, from: AccountId, to: AccountId, id: Option<Id>, approved: bool) {
+            self.env().emit_event(Approval {
+                from,
+                to,
+                id,
+                approved,
+            });
+        }
+    //...
+    }
+    ```
+
+11. Now let's create our custom storage item `NftData`. For that create a new directory `impls` and create `mod.rs`, `types.rs` and `market.rs`.  Your directory structure should look like:
+
+    ```
+    .
+    ├── Cargo.lock
+    ├── Cargo.toml
+    ├── impls
+    │   ├── market.rs
+    │   ├── mod.rs
+    │   └── types.rs
+    └── lib.rs
+    ```
+
+12. Open your mod.rs file and add
+
+    ```rs
+    pub mod market;
+    pub mod types;
+    ```
+
+13. Now, open `types.rs` to create our custom `NftData` structure.
+
+    ```rs
+    use openbrush::{traits::{Balance, String}, storage::Mapping, contracts::psp34::Id};
+
+    #[derive(Default, Debug)]
+    #[openbrush::storage_item]
+    pub struct NftData {
+        pub last_token_id: u64,
+        pub collection_id: u32,
+        pub max_supply: u64,
+        pub price_per_mint: Balance,
+        pub fid_list: Mapping<Id, String>,
+        pub sale_list: Mapping<Id, Balance>,
+    }
+    ```
+
+    Here,
+
+    - `last_token_id` holds the id of the latest minted token ID. This is so that every new token generated will increment `last_token_id` to give the tokens a unique ID.
+    - `collection_id` is a unique ID of our collection.
+    - `max_supply` is the maximum number of NFTs that we can mint.
+    - `price_per_mint` is the price that users will have to pay to mint their NFTs.
+    - `fid_list` is a map of Token ID and the File ID that we mint as our NFT.
+    - `sale_list` contains the list of NFTs that are listed for sale.
+
+    Any custom data structure that we create that needs to be stored on the blockchain needs to be marked with `#[openbrush::storage_item]` macro. We will also add an `enum` that will contain our error messages.
+
+    ```rs
+    //...
+    #[derive(Debug, PartialEq, Eq, scale::Encode, scale::Decode)]
+    #[cfg_attr(feature = "std", derive(scale_info::TypeInfo))]
+    pub enum NftError {
+        BadMintValue,
+        CollectionIsFull,
+        WithdrawalFailed,
+        NotTokenOwner,
+        NotForSale,
+        OwnToken,
+        PriceNotMatch,
+        TransferNativeTokenFailed,
+    }
+
+    impl NftError {
+        pub fn as_str(&self) -> String {
+            match self {
+                NftError::BadMintValue => String::from("BadMintValue"),
+                NftError::CollectionIsFull => String::from("CollectionIsFull"),
+                NftError::WithdrawalFailed => String::from("WithdrawalFailed"),
+                NftError::NotTokenOwner => String::from("NotTokenOwner"),
+                NftError::NotForSale => String::from("NotForSale"),
+                NftError::OwnToken => String::from("OwnToken"),
+                NftError::PriceNotMatch => String::from("PriceNotMatch"),
+                NftError::TransferNativeTokenFailed => String::from("TransferNativeTokenFailed"),
+            }
+        }
+    }
+    ```
+
+14. Now comes the exciting part where we will write our actual contract functionality. You guessed it right! In our `market.rs` file. In our `market.rs` file, we will add our custom trait that inherits openbrush traits to add our methods to the contract.
+
+    ```rs
+    use ink::prelude::string::ToString;
+
+    use openbrush::{
+        contracts::{
+            ownable::{self, only_owner},
+            psp34::{
+                self,
+                extensions::metadata::{self, PSP34MetadataImpl},
+                Id, PSP34Error, PSP34Impl,
+            },
+            reentrancy_guard,
+            reentrancy_guard::non_reentrant,
+        },
+        modifiers,
+        traits::{AccountId, Balance, Storage, String},
+    };
+
+    use super::types::{NftData, NftError};
+
+    #[openbrush::trait_definition]
+    pub trait MarketImpl:
+        Storage<NftData>
+        + Storage<psp34::Data>
+        + Storage<reentrancy_guard::Data>
+        + Storage<ownable::Data>
+        + Storage<metadata::Data>
+        + PSP34Impl
+        + PSP34MetadataImpl
+        + psp34::extensions::metadata::Internal
+        + Internal
+    {
+        // We will write our functions here
+    }
+    ```
+
+15.  Let's add our first function to the `MarketImpl`. The `mint` function! That will mint our NFT.
+
+    ```rs
+    //...
+         /// Mint token to
+        #[ink(message, payable)]
+        #[modifiers(non_reentrant)]
+        fn mint(&mut self, fid: String) -> Result<Id, PSP34Error> {
+            self.check_fid(fid.clone())?;
+            self.check_value(Self::env().transferred_value())?;
+
+            let caller = Self::env().caller();
+            let id = Id::U64(self.data::<NftData>().last_token_id + 1); // first mint id is 1
+            self._mint_to(caller, id.clone())?;
+            self.data::<NftData>().fid_list.insert(&id, &fid);
+            self.data::<NftData>().last_token_id += 1;
+            Ok(id)
+        }
+    //...
+    ```
+
+    Since users will have to pay tokens to mint an NFT, we will add `payable` macro to this function. Also, adding `message` macro makes the function available to the API for calling the contract. More about the `message` can be found [here](https://use.ink/macros-attributes/message).
+
+    Don't worry about the check_fid and check_value functions here we will define them in the later section. The mint function accepts `fid` as input from the users. This `fid` is the file ID that we will obtain when we upload a file to the CESS network. In our `mint` function, we first extract the `caller` by calling `Self::env()::caller()`, then we generate a new token `id`, and mint the NFT token to the caller. We also store our file ID in the `fid_list` map which maps our token `id` to the `fid`. And lastly, we increment the `last_token_id`.
+
+16. If you would like to enable users to mint tokens for other users you can add the following function
+
+    ```rs
+    //...
+    /// Mint token to
+    #[ink(message, payable)]
+    #[modifiers(non_reentrant)]
+    fn mint_to(&mut self, to: AccountId, fid: String) -> Result<Id, PSP34Error> {
+        self.check_fid(fid.clone())?;
+        self.check_value(Self::env().transferred_value())?;
+
+        let id = Id::U64(self.data::<NftData>().last_token_id + 1); // first mint id is 1
+        self._mint_to(to, id.clone())?;
+        self.data::<NftData>().fid_list.insert(&id, &fid);
+        self.data::<NftData>().last_token_id += 1;
+        Ok(id)
+    }
+    //...
+    ```
+
+17. To enable contract owner to set or update `base_uri` and `max_supply` add the following function
+
+    ```rs
+    /// Set new value for the baseUri
+    #[ink(message)]
+    #[modifiers(only_owner)]
+    fn set_base_uri(&mut self, uri: String) -> Result<(), PSP34Error> {
+        let id = PSP34Impl::collection_id(self);
+        metadata::Internal::_set_attribute(self, id, String::from("baseUri"), uri);
+        Ok(())
+    }
+
+    /// Set max supply of tokens
+    #[ink(message)]
+    #[modifiers(only_owner)]
+    fn set_max_supply(&mut self, value: u64) -> Result<(), PSP34Error> {
+        self.data::<NftData>().max_supply = value;
+        Ok(())
+    }
+    ```
+
+    > Note: The `#[modifiers(only_owner)]` macro as the name suggests, makes a function to be called only by the owner of the contract.
+
+18. Let's add some functions that users can call to get some information stored in our contract.
+
+    <details>
+      <summary>src</summary>
+
+      ```rs
+      /// Get URI from token ID
+      #[ink(message)]
+      fn token_uri(&self, id: u64) -> Result<String, PSP34Error> {
+          let id = Id::U64(id);
+          self.token_exists(id.clone())?;
+          let base_uri = PSP34MetadataImpl::get_attribute(
+              self,
+              PSP34Impl::collection_id(self),
+              String::from("baseUri"),
+          );
+          let fid = self
+              .data::<NftData>()
+              .fid_list
+              .get(&id)
+              .ok_or(PSP34Error::TokenNotExists)?;
+
+          let token_uri = base_uri.unwrap() + &fid;
+          Ok(token_uri)
+      }
+
+      /// Get token price
+      #[ink(message)]
+      fn price(&self, id: u64) -> Result<Balance, PSP34Error> {
+          let id = Id::U64(id);
+          let price = self
+              .data::<NftData>()
+              .sale_list
+              .get(&id)
+              .ok_or(PSP34Error::Custom(NftError::NotForSale.as_str()));
+          price
+      }
+
+      /// Get price per mint
+      #[ink(message)]
+      fn price_per_mint(&self) -> Balance {
+          self.data::<NftData>().price_per_mint
+      }
+
+      /// Get max supply of tokens
+      #[ink(message)]
+      fn max_supply(&self) -> u64 {
+          self.data::<NftData>().max_supply
+      }
+
+       /// Get Contract Balance
+      #[ink(message)]
+      fn balance(&mut self) -> Balance {
+          let balance = Self::env().balance();
+          let current_balance = balance
+              .checked_sub(Self::env().minimum_balance())
+              .unwrap_or_default();
+          current_balance
+      }
+      ```
+    </details>
