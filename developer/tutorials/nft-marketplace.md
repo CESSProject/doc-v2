@@ -629,9 +629,6 @@ We will use [ink!](https://use.ink/) to write our smart contract. As I mentioned
 
 18. Let's add some functions that users can call to get some information stored in our contract.
 
-    <details>
-    <summary>src</summary>
-
     ```rust
     // Get URI from token ID
     #[ink(message)]
@@ -687,12 +684,8 @@ We will use [ink!](https://use.ink/) to write our smart contract. As I mentioned
         current_balance
     }
     ```
-    </details>
 
 19. Finally lets add the functions that will allow users to list and sell our NFTs
-
-    <details>
-    <summary>src</summary>
 
     ```rust
     /// Lists NFT for Sale
@@ -783,10 +776,84 @@ We will use [ink!](https://use.ink/) to write our smart contract. As I mentioned
     }
     ```
 
-    </details>
-
     The `list` function lists our NFT for sale, whereas `delist` removes our NFT from sale. Once a user has listed his NFT for sale, the NFT becomes available for other users to purchase. They can call the `purchase` function with the NFT id that they would like to purchase. Since purchase is a payable function, users will also have to transfer the desired amount of tokens in order for a successful transfer.
 
     > Note: In the `market.rs` file you will notice some TODOs. To keep the tutorial simple, we haven't implemented those functions.
 
     Finally, the `withdraw` function withdraws all the collected tokens while minting NFT to the contract owner's address.
+
+20. Now, let's create a custom trait that inherits `internal` trait for our NftData. The functions defined within the Internal trait will not be exposed to the users, hence called internal. We will add some functions for verification of owner, transfered funds etc.
+
+    ```rust
+    pub trait Internal: Storage<NftData> + psp34::Internal {
+        /// Check if the caller is owner of the token
+        fn check_owner(&self, id: Id) -> Result<(), PSP34Error> {
+            let owner = self._check_token_exists(&id.clone())?;
+            let caller = Self::env().caller();
+            if owner != caller {
+                return Err(PSP34Error::Custom(NftError::NotTokenOwner.as_str()));
+            }
+            Ok(())
+        }
+
+        /// Check if the transferred mint value is as expected
+        fn check_value(&self, transferred_value: u128) -> Result<(), PSP34Error> {
+            if transferred_value != self.data::<NftData>().price_per_mint {
+                return Err(PSP34Error::Custom(
+                    NftError::BadMintValue.as_str()
+                        + "Required:"
+                        + &self.data::<NftData>().price_per_mint.to_string()
+                        + ", Supplied:"
+                        + &transferred_value.to_string(),
+                ));
+            }
+
+            if self.data::<NftData>().last_token_id >= self.data::<NftData>().max_supply {
+                return Err(PSP34Error::Custom(NftError::CollectionIsFull.as_str()))
+            }
+
+            Ok(())
+        }
+
+        fn check_fid(&self, _fid: String) -> Result<(), PSP34Error> {
+            // TODO: Check if fid exists in CESS Chain.
+            Ok(())
+        }
+
+        fn token_exists(&self, id: Id) -> Result<(), PSP34Error> {
+            self._owner_of(&id).ok_or(PSP34Error::TokenNotExists)?;
+            Ok(())
+        }
+    }
+    ```
+
+21. Lastly, let's add our trait implementation for our NftMarket. Open lib.rs and add the follwing code.
+
+    ```rust
+    impl impls::market::Internal for NftMarket {}
+    impl impls::market::MarketImpl for NftMarket {}
+
+    impl NftMarket {
+      //...
+    }
+    ```
+
+    With this, our smart contract is now ready to be compiled and deployed. Please follow our Deploying smart contract with Ink! To deploy the smart contract and interact with it.
+
+
+{% hint style="success" %}
+A full code of this tutorial can be found at <https://github.com/CESSProject/cess-examples/tree/main/ink/nft_marketplace>
+{% endhint %}
+
+# Conclusion
+
+In this tutorial, we have learned what NFT is, and how we can use CESS to store our NFT file. We also learned how to use openbrush to implement PSP34 token standards and the way ink contracts are structured and fully implemented in an NFT marketplace with the most basic functionality that enables users to mint and sell their NFTs.
+
+# What's Next?
+
+In the next session, we will learn to build a front-end that will interact with our smart contract and enable users to upload, sell and purchase NFTs.
+
+# References
+
+- <https://use.ink/smart-contracts-polkadot/>
+- <https://spin.atomicobject.com/2021/08/16/reentrancy-guard-smart-contracts/>
