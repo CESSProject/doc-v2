@@ -32,6 +32,7 @@
     * [Deploy a Solidity Smart Contract](developer/tutorials/deploy-sc-solidity.md)
     * [Develop with CESS Javascript APIs](developer/tutorials/cess-js-sdk.md)
     * [Build a Proof of Existence dApp (ink!)](developer/tutorials/poe-ink.md)
+    * [Build a NFT Marketplace (ink!)](developer/tutorials/nft-marketplace.md)
     * [Build a Proof of Existence dApp (Solidity)](developer/tutorials/poe-solidity.md)
   * [Guides](developer/guides/README.md)
     * [Testnet Faucet](developer/guides/testnet-faucet.md)
