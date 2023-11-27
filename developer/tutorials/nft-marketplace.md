@@ -565,28 +565,11 @@ We will use [ink!](https://use.ink/) to write our smart contract. As I mentioned
 
 15.  Let's add our first function to the `MarketImpl`. The `mint` function! That will mint our NFT.
 
-    ```rust
-    // Mint token to
-    #[ink(message, payable)]
-    #[modifiers(non_reentrant)]
-    fn mint(&mut self, fid: String) -> Result<Id, PSP34Error> {
-        self.check_fid(fid.clone())?;
-        self.check_value(Self::env().transferred_value())?;
-
-        let caller = Self::env().caller();
-        let id = Id::U64(self.data::<NftData>().last_token_id + 1); // first mint id is 1
-        self._mint_to(caller, id.clone())?;
-        self.data::<NftData>().fid_list.insert(&id, &fid);
-        self.data::<NftData>().last_token_id += 1;
-        Ok(id)
-    }
-    ```
-
     Since users will have to pay tokens to mint an NFT, we will add `payable` macro to this function. Also, adding `message` macro makes the function available to the API for calling the contract. More about the `message` can be found [here](https://use.ink/macros-attributes/message).
 
     Don't worry about the check_fid and check_value functions here we will define them in the later section. The mint function accepts `fid` as input from the users. This `fid` is the file ID that we will obtain when we upload a file to the CESS network. In our `mint` function, we first extract the `caller` by calling `Self::env()::caller()`, then we generate a new token `id`, and mint the NFT token to the caller. We also store our file ID in the `fid_list` map which maps our token `id` to the `fid`. And lastly, we increment the `last_token_id`.
 
-16. If you would like to enable users to mint tokens for other users you can add the following function
+16. If you would like to enable users to mint tokens for other users you can add the following function.
 
     ```rust
     // Mint token to
