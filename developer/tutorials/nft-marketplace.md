@@ -566,7 +566,7 @@ We will use [ink!](https://use.ink/) to write our smart contract. As I mentioned
 15.  Let's add our first function to the `MarketImpl`. The `mint` function! That will mint our NFT.
 
     ```rust
-     /// Mint token to
+    /// Mint token to
     #[ink(message, payable)]
     #[modifiers(non_reentrant)]
     fn mint(&mut self, fid: String) -> Result<Id, PSP34Error> {
