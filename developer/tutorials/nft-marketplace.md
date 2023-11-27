@@ -102,7 +102,7 @@ Depending on the SDK you choose for your application, the steps below will be so
     yarn add cess-js-sdk -S
     # pnpm
     pnpm add cess-js-sdk
-      ```
+    ```
 
 2. Import SDK
 
@@ -254,7 +254,7 @@ We will use [ink!](https://use.ink/) to write our smart contract. As I mentioned
 
 4. Open `lib.rs` and remove everything except the top-level structure. You should have:
 
-    ```rs
+    ```rust
     #![cfg_attr(not(feature = "std"), no_std, no_main)]
 
     #[ink::contract]
@@ -265,7 +265,7 @@ We will use [ink!](https://use.ink/) to write our smart contract. As I mentioned
 
 5. Let's start with adding the required implementations from Openbrush. We will be using PSP34 token standard, `Ownable` for tokens that can be owned, `PSP34Mintable` to enable users to mint new tokens, `PSP34Metadata` to store our meta data on blockchain, and `PSP34Enumerable` to enumerate through our tokes. We will also need to change `ink::contract` to `openbrush::contract`.
 
-    ```rs
+    ```rust
     #![cfg_attr(not(feature = "std"), no_std, no_main)]
 
     mod impls;
@@ -279,7 +279,7 @@ We will use [ink!](https://use.ink/) to write our smart contract. As I mentioned
 
 6. Ink! contract requires exactly one storage `struct` to store our data on blockchain, at least one constructor, and a message function. With that in mind, let's first add our storage `struct` within our `nft_market` module.
 
-    ```rs
+    ```rust
     //...
     mod nft_market {
         // We will add our dependencies here
@@ -313,7 +313,7 @@ We will use [ink!](https://use.ink/) to write our smart contract. As I mentioned
 
 7. Now we need to implement the NftMarket structure and add a constructor to it.
 
-    ```rs
+    ```rust
     //...
     mod nft_market {
         ...
@@ -332,7 +332,7 @@ We will use [ink!](https://use.ink/) to write our smart contract. As I mentioned
 
 8. Since we have our constructor now, we can add our dependencies in the "We will add our dependencies here" section.
 
-    ```rs
+    ```rust
     //...
     mod nft_market {
         use crate::impls;
@@ -359,7 +359,7 @@ We will use [ink!](https://use.ink/) to write our smart contract. As I mentioned
 
     With that said, let's define the constructor body that we wrote in step 7.
 
-    ```rs
+    ```rust
     //...
     impl NftMarket {
         #[ink(constructor)]
@@ -401,7 +401,7 @@ We will use [ink!](https://use.ink/) to write our smart contract. As I mentioned
 
 10. Events: To emit events when a certain event occurs in our smart contract, we can define it with `#[ink(event)]`. We will add `Transfer` and `Approval` events and override the `psp34::Internal` event.
 
-    ```rs
+    ```rust
     mod nft_market {
     //...
         /// Event emitted when a token transfer occurs.
@@ -461,14 +461,14 @@ We will use [ink!](https://use.ink/) to write our smart contract. As I mentioned
 
 12. Open your mod.rs file and add
 
-    ```rs
+    ```rust
     pub mod market;
     pub mod types;
     ```
 
 13. Now, open `types.rs` to create our custom `NftData` structure.
 
-    ```rs
+    ```rust
     use openbrush::{traits::{Balance, String}, storage::Mapping, contracts::psp34::Id};
 
     #[derive(Default, Debug)]
@@ -494,7 +494,7 @@ We will use [ink!](https://use.ink/) to write our smart contract. As I mentioned
 
     Any custom data structure that we create that needs to be stored on the blockchain needs to be marked with `#[openbrush::storage_item]` macro. We will also add an `enum` that will contain our error messages.
 
-    ```rs
+    ```rust
     //...
     #[derive(Debug, PartialEq, Eq, scale::Encode, scale::Decode)]
     #[cfg_attr(feature = "std", derive(scale_info::TypeInfo))]
@@ -527,7 +527,7 @@ We will use [ink!](https://use.ink/) to write our smart contract. As I mentioned
 
 14. Now comes the exciting part where we will write our actual contract functionality. You guessed it right! In our `market.rs` file. In our `market.rs` file, we will add our custom trait that inherits openbrush traits to add our methods to the contract.
 
-    ```rs
+    ```rust
     use ink::prelude::string::ToString;
 
     use openbrush::{
@@ -565,7 +565,7 @@ We will use [ink!](https://use.ink/) to write our smart contract. As I mentioned
 
 15.  Let's add our first function to the `MarketImpl`. The `mint` function! That will mint our NFT.
 
-    ```rs
+    ```rust
     //...
          /// Mint token to
         #[ink(message, payable)]
@@ -590,7 +590,7 @@ We will use [ink!](https://use.ink/) to write our smart contract. As I mentioned
 
 16. If you would like to enable users to mint tokens for other users you can add the following function
 
-    ```rs
+    ```rust
     //...
     /// Mint token to
     #[ink(message, payable)]
@@ -610,7 +610,7 @@ We will use [ink!](https://use.ink/) to write our smart contract. As I mentioned
 
 17. To enable contract owner to set or update `base_uri` and `max_supply` add the following function
 
-    ```rs
+    ```rust
     /// Set new value for the baseUri
     #[ink(message)]
     #[modifiers(only_owner)]
@@ -634,61 +634,61 @@ We will use [ink!](https://use.ink/) to write our smart contract. As I mentioned
 18. Let's add some functions that users can call to get some information stored in our contract.
 
     <details>
-      <summary>src</summary>
+    <summary>src</summary>
 
-      ```rs
-      /// Get URI from token ID
-      #[ink(message)]
-      fn token_uri(&self, id: u64) -> Result<String, PSP34Error> {
-          let id = Id::U64(id);
-          self.token_exists(id.clone())?;
-          let base_uri = PSP34MetadataImpl::get_attribute(
-              self,
-              PSP34Impl::collection_id(self),
-              String::from("baseUri"),
-          );
-          let fid = self
-              .data::<NftData>()
-              .fid_list
-              .get(&id)
-              .ok_or(PSP34Error::TokenNotExists)?;
+    ```rust
+    /// Get URI from token ID
+    #[ink(message)]
+    fn token_uri(&self, id: u64) -> Result<String, PSP34Error> {
+        let id = Id::U64(id);
+        self.token_exists(id.clone())?;
+        let base_uri = PSP34MetadataImpl::get_attribute(
+            self,
+            PSP34Impl::collection_id(self),
+            String::from("baseUri"),
+        );
+        let fid = self
+            .data::<NftData>()
+            .fid_list
+            .get(&id)
+            .ok_or(PSP34Error::TokenNotExists)?;
 
-          let token_uri = base_uri.unwrap() + &fid;
-          Ok(token_uri)
-      }
+        let token_uri = base_uri.unwrap() + &fid;
+        Ok(token_uri)
+    }
 
-      /// Get token price
-      #[ink(message)]
-      fn price(&self, id: u64) -> Result<Balance, PSP34Error> {
-          let id = Id::U64(id);
-          let price = self
-              .data::<NftData>()
-              .sale_list
-              .get(&id)
-              .ok_or(PSP34Error::Custom(NftError::NotForSale.as_str()));
-          price
-      }
+    /// Get token price
+    #[ink(message)]
+    fn price(&self, id: u64) -> Result<Balance, PSP34Error> {
+        let id = Id::U64(id);
+        let price = self
+            .data::<NftData>()
+            .sale_list
+            .get(&id)
+            .ok_or(PSP34Error::Custom(NftError::NotForSale.as_str()));
+        price
+    }
 
-      /// Get price per mint
-      #[ink(message)]
-      fn price_per_mint(&self) -> Balance {
-          self.data::<NftData>().price_per_mint
-      }
+    /// Get price per mint
+    #[ink(message)]
+    fn price_per_mint(&self) -> Balance {
+        self.data::<NftData>().price_per_mint
+    }
 
-      /// Get max supply of tokens
-      #[ink(message)]
-      fn max_supply(&self) -> u64 {
-          self.data::<NftData>().max_supply
-      }
+    /// Get max supply of tokens
+    #[ink(message)]
+    fn max_supply(&self) -> u64 {
+        self.data::<NftData>().max_supply
+    }
 
-       /// Get Contract Balance
-      #[ink(message)]
-      fn balance(&mut self) -> Balance {
-          let balance = Self::env().balance();
-          let current_balance = balance
-              .checked_sub(Self::env().minimum_balance())
-              .unwrap_or_default();
-          current_balance
-      }
-      ```
+     /// Get Contract Balance
+    #[ink(message)]
+    fn balance(&mut self) -> Balance {
+        let balance = Self::env().balance();
+        let current_balance = balance
+            .checked_sub(Self::env().minimum_balance())
+            .unwrap_or_default();
+        current_balance
+    }
+    ```
     </details>
