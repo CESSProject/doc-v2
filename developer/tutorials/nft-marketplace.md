@@ -688,3 +688,105 @@ We will use [ink!](https://use.ink/) to write our smart contract. As I mentioned
     }
     ```
     </details>
+
+19. Finally lets add the functions that will allow users to list and sell our NFTs
+
+    <details>
+    <summary>src</summary>
+
+    ```rust
+    /// Lists NFT for Sale
+    #[ink(message)]
+    fn list(&mut self, id: u64, price: Balance) -> Result<(), PSP34Error> {
+        let id = Id::U64(id);
+        self.check_owner(id.clone())?;
+        self.data::<NftData>()
+            .sale_list
+            .insert(&id, &(price * 1_000_000_000_000));
+        Ok(())
+    }
+
+    /// Delist NFT from Sale
+    #[ink(message)]
+    fn delist(&mut self, id: u64) -> Result<(), PSP34Error> {
+        let id = Id::U64(id);
+        self.check_owner(id.clone())?;
+        if self.data::<NftData>().sale_list.get(&id).is_none() {
+            return Err(PSP34Error::Custom(NftError::NotForSale.as_str()));
+        }
+        self.data::<NftData>().sale_list.remove(&id);
+        Ok(())
+    }
+
+    /// Purchase NFT that is listed for Sale
+    #[ink(message, payable)]
+    fn purchase(&mut self, id: u64) -> Result<(), PSP34Error> {
+        let id = Id::U64(id);
+        let owner = self._check_token_exists(&id.clone())?;
+        let caller = Self::env().caller();
+        if owner == caller {
+            return Err(PSP34Error::Custom(NftError::OwnToken.as_str()));
+        };
+
+        let price = self
+            .data::<NftData>()
+            .sale_list
+            .get(&id)
+            .ok_or(PSP34Error::Custom(NftError::NotForSale.as_str()))?;
+        let transferred = Self::env().transferred_value();
+
+        if price != transferred {
+            return Err(PSP34Error::Custom(
+                NftError::PriceNotMatch.as_str()
+                    + "Required:"
+                    + &price.to_string()
+                    + ", Supplied:"
+                    + &transferred.to_string(),
+            ));
+        }
+
+        // Transfer native tokes
+        if Self::env().transfer(owner, price).is_err() {
+            return Err(PSP34Error::Custom(
+                NftError::TransferNativeTokenFailed.as_str(),
+            ));
+        }
+
+        self.data::<NftData>().sale_list.remove(&id);
+
+        // Transfer NFT Token
+        self._before_token_transfer(Some(&owner), Some(&caller), &id)?;
+        self._remove_operator_approvals(&owner, &caller, &Some(&id));
+        self._remove_token_owner(&id);
+        self._insert_token_owner(&id, &caller);
+        self._after_token_transfer(Some(&owner), Some(&caller), &id)?;
+        self._emit_transfer_event(Some(owner), Some(caller), id.clone());
+
+        // TODO: Move CESS File metadata from owner to caller
+
+        Ok(())
+    }
+
+    /// Withdraws funds to contract owner
+    #[ink(message)]
+    #[modifiers(only_owner)]
+    fn withdraw(&mut self) -> Result<(), PSP34Error> {
+        let balance = Self::env().balance();
+        let current_balance = balance
+            .checked_sub(Self::env().minimum_balance())
+            .unwrap_or_default();
+        let owner = self.data::<ownable::Data>().owner.get().unwrap().unwrap();
+        Self::env()
+            .transfer(owner, current_balance)
+            .map_err(|_| PSP34Error::Custom(NftError::WithdrawalFailed.as_str()))?;
+        Ok(())
+    }
+    ```
+
+    </details>
+
+    The `list` function lists our NFT for sale, whereas `delist` removes our NFT from sale. Once a user has listed his NFT for sale, the NFT becomes available for other users to purchase. They can call the `purchase` function with the NFT id that they would like to purchase. Since purchase is a payable function, users will also have to transfer the desired amount of tokens in order for a successful transfer.
+
+    > Note: In the `market.rs` file you will notice some TODOs. To keep the tutorial simple, we haven't implemented those functions.
+
+    Finally, the `withdraw` function withdraws all the collected tokens while minting NFT to the contract owner's address.
