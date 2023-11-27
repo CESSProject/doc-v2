@@ -8,6 +8,10 @@ Offering the most optimal Web3 solution for storing and retrieving high-frequenc
 
 By utilizing a decentralized physical infrastructure network (DePIN) model, CESS drives mass deployment of network nodes globally through incentives.
 
+{% hint style="success" %}
+**CESS: Blockchain Powered Decentralized Storage and Content Delivery Network Infrastructure for Web3.**
+{% endhint %}
+
 # WHY CESS?
 
 CESS is the first large-scale, enterprise-level decentralized storage, enabling users to securely store their data in an encrypted format. It utilizes advanced encryption techniques to ensure that only the authorized users can access the data and provide end-to-end privacy and security. CESS is also an open-source and public blockchain intended to be the underlying infrastructure for decentralized storage needs. By leveraging blockchain and peer-to-peer technology, CESS eliminates the need for a centralized authority, making it resistant to censorship and tampering.
