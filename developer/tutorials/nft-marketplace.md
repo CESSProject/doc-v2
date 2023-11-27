@@ -842,7 +842,9 @@ We will use [ink!](https://use.ink/) to write our smart contract. As I mentioned
 
 
 {% hint style="success" %}
-A full code of this tutorial can be found at <https://github.com/CESSProject/cess-examples/tree/main/ink/nft_marketplace>
+A full code of this tutorial can be found at:
+
+<https://github.com/CESSProject/cess-examples/tree/main/ink/nft_market>
 {% endhint %}
 
 # Conclusion
