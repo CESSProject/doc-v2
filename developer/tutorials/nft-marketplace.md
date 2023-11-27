@@ -566,7 +566,7 @@ We will use [ink!](https://use.ink/) to write our smart contract. As I mentioned
 15.  Let's add our first function to the `MarketImpl`. The `mint` function! That will mint our NFT.
 
     ```rust
-    /// Mint token to
+    // Mint token to
     #[ink(message, payable)]
     #[modifiers(non_reentrant)]
     fn mint(&mut self, fid: String) -> Result<Id, PSP34Error> {
@@ -589,7 +589,7 @@ We will use [ink!](https://use.ink/) to write our smart contract. As I mentioned
 16. If you would like to enable users to mint tokens for other users you can add the following function
 
     ```rust
-    /// Mint token to
+    // Mint token to
     #[ink(message, payable)]
     #[modifiers(non_reentrant)]
     fn mint_to(&mut self, to: AccountId, fid: String) -> Result<Id, PSP34Error> {
@@ -607,7 +607,7 @@ We will use [ink!](https://use.ink/) to write our smart contract. As I mentioned
 17. To enable contract owner to set or update `base_uri` and `max_supply` add the following function
 
     ```rust
-    /// Set new value for the baseUri
+    // Set new value for the baseUri
     #[ink(message)]
     #[modifiers(only_owner)]
     fn set_base_uri(&mut self, uri: String) -> Result<(), PSP34Error> {
@@ -616,7 +616,7 @@ We will use [ink!](https://use.ink/) to write our smart contract. As I mentioned
         Ok(())
     }
 
-    /// Set max supply of tokens
+    // Set max supply of tokens
     #[ink(message)]
     #[modifiers(only_owner)]
     fn set_max_supply(&mut self, value: u64) -> Result<(), PSP34Error> {
@@ -633,7 +633,7 @@ We will use [ink!](https://use.ink/) to write our smart contract. As I mentioned
     <summary>src</summary>
 
     ```rust
-    /// Get URI from token ID
+    // Get URI from token ID
     #[ink(message)]
     fn token_uri(&self, id: u64) -> Result<String, PSP34Error> {
         let id = Id::U64(id);
@@ -653,7 +653,7 @@ We will use [ink!](https://use.ink/) to write our smart contract. As I mentioned
         Ok(token_uri)
     }
 
-    /// Get token price
+    // Get token price
     #[ink(message)]
     fn price(&self, id: u64) -> Result<Balance, PSP34Error> {
         let id = Id::U64(id);
@@ -665,19 +665,19 @@ We will use [ink!](https://use.ink/) to write our smart contract. As I mentioned
         price
     }
 
-    /// Get price per mint
+    // Get price per mint
     #[ink(message)]
     fn price_per_mint(&self) -> Balance {
         self.data::<NftData>().price_per_mint
     }
 
-    /// Get max supply of tokens
+    // Get max supply of tokens
     #[ink(message)]
     fn max_supply(&self) -> u64 {
         self.data::<NftData>().max_supply
     }
 
-     /// Get Contract Balance
+     // Get Contract Balance
     #[ink(message)]
     fn balance(&mut self) -> Balance {
         let balance = Self::env().balance();
