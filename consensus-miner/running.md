@@ -62,14 +62,14 @@ Fund is bonded successfully!
 The `cess-nodeadm` is a CESS node deployment and management program. It helps deploying and managing storage nodes, consensus nodes, and full nodes, simplifying the devOps for all CESS miners.
 
 ```bash
-wget https://github.com/CESSProject/cess-nodeadm/archive/v0.4.4.tar.gz
-tar -xvf v0.4.4.tar.gz
-cd cess-nodeadm-0.4.4
+wget https://github.com/CESSProject/cess-nodeadm/archive/v0.5.1.tar.gz
+tar -xvf v0.5.1.tar.gz
+cd cess-nodeadm-0.5.1
 sudo ./install.sh
 ```
 
 {% hint style="info" %}
-Check that you are using [the most updated version](https://github.com/CESSProject/cess-nodeadm/tags) of `cess-nodeadm`. Currently it is **v0.4.4**.
+Check that you are using [the most updated version](https://github.com/CESSProject/cess-nodeadm/tags) of `cess-nodeadm`. Currently it is **v0.5.1**.
 {% endhint %}
 
 If a message `Install cess nodeadm success` shows up, the installation is successful.
@@ -127,6 +127,7 @@ Status: Image is up to date for cesslab/kaleido-kafka:latest
 docker.io/cesslab/kaleido-kafka:latest
 pull images finished
 ```
+Please fill in your TEE Worker server address while you configure the endpoint. The default is the address from the local server. If you do not know TEE Worker yet, please refer to the [node role introduction](../concepts/node-roles.md).
 
 If the configuration process fails, please refer to the [troubleshooting guideline](../storage-miner/troubleshooting.md).
 
@@ -299,7 +300,7 @@ cd cess-nodeadm-<new-version>
 ./install.sh --skip-dep
 ```
 
-Currently [the most updated version](https://github.com/CESSProject/cess-nodeadm/tags) is **v0.4.4**.
+Currently [the most updated version](https://github.com/CESSProject/cess-nodeadm/tags) is **v0.5.1**.
 
 ## Pull Images
 
