@@ -116,14 +116,14 @@ Please refer to [Creating CESS Accounts](../community/cess-account.md) for creat
 # Install CESS Client
 
 ```bash
-wget https://github.com/CESSProject/cess-nodeadm/archive/v0.4.4.tar.gz
-tar -xvf v0.4.4.tar.gz
-cd cess-nodeadm-0.4.4/
+wget https://github.com/CESSProject/cess-nodeadm/archive/v0.5.1.tar.gz
+tar -xvf v0.5.1.tar.gz
+cd cess-nodeadm-0.5.1/
 ./install.sh
 ```
 
 {% hint style="info" %}
-Check that you are using [the most updated version](https://github.com/CESSProject/cess-nodeadm/tags) of `cess-nodeadm`. Currently it is **v0.4.4**.
+Check that you are using [the most updated version](https://github.com/CESSProject/cess-nodeadm/tags) of `cess-nodeadm`. Currently it is **v0.5.1**.
 {% endhint %}
 
 If a message `Install cess nodeadm success` shows up, the installation is successful.
@@ -143,6 +143,8 @@ Enter cess bucket income account: cXiHsw32kT3Fzw6YeXDTECCfFNKjDVg85eg......
 Enter cess bucket signature phrase: shoe ...... creek metal avoid
 Enter cess bucket disk path (default: /opt/cess/storage/disk): /cess
 Enter cess bucket space, by GB unit (current: 300, press enter to skip): 1000
+Enter the number of CPU cores used for mining; Your CPU cores are 4
+  (current: 3, 0 means all cores are used; press enter to skip): 2
 Set configurations successfully
 ```
 
@@ -271,7 +273,7 @@ cd cess-nodeadm-<new-version>
 ./install.sh --skip-dep
 ```
 
-Currently [the most updated version](https://github.com/CESSProject/cess-nodeadm/tags) is **v0.4.4**.
+Currently [the most updated version](https://github.com/CESSProject/cess-nodeadm/tags) is **v0.5.1**.
 
 ## Pull images
 
