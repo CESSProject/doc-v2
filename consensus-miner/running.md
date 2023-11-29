@@ -93,6 +93,9 @@ Enter external ip for the machine (current: xxx.., press enter to skip):
 Enter cess chain ws url (current:ws://172.18.0.9:9944, press enter to skip):
 Enter cess scheduler stash account (current: xxx.., press enter to skip):
 Enter cess scheduler controller phrase (current: xxx.., press enter to skip):
+Start configuring the endpoint to access kaleido from the Internet
+  Try to get your external IP ...
+Enter the kaleido endpoint (current: http://221.122.79.3:10010, press enter to skip): 
 Set configurations successfully
 
 Intel SGX is already enabled on this system
