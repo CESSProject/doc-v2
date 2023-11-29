@@ -116,14 +116,14 @@ Please refer to [Creating CESS Accounts](../community/cess-account.md) for creat
 # Install CESS Client
 
 ```bash
-wget https://github.com/CESSProject/cess-nodeadm/archive/v0.5.0.tar.gz
-tar -xvf v0.5.0.tar.gz
-cd cess-nodeadm-0.5.0/
+wget https://github.com/CESSProject/cess-nodeadm/archive/v0.5.1.tar.gz
+tar -xvf v0.5.1.tar.gz
+cd cess-nodeadm-0.5.1/
 ./install.sh
 ```
 
 {% hint style="info" %}
-Check that you are using [the most updated version](https://github.com/CESSProject/cess-nodeadm/tags) of `cess-nodeadm`. Currently it is **v0.4.4**.
+Check that you are using [the most updated version](https://github.com/CESSProject/cess-nodeadm/tags) of `cess-nodeadm`. Currently it is **v0.5.1**.
 {% endhint %}
 
 If a message `Install cess nodeadm success` shows up, the installation is successful.
@@ -273,7 +273,7 @@ cd cess-nodeadm-<new-version>
 ./install.sh --skip-dep
 ```
 
-Currently [the most updated version](https://github.com/CESSProject/cess-nodeadm/tags) is **v0.5.0**.
+Currently [the most updated version](https://github.com/CESSProject/cess-nodeadm/tags) is **v0.5.1**.
 
 ## Pull images
 
