@@ -137,14 +137,14 @@ Run `cess config set`
 ```bash
 $ cess config set
 
-Enter cess node mode from 'authority/storage/watcher' (current: authority, press enter to skip): storage
-Enter external ip for the machine: 173.....213.58
-Enter cess bucket income account: cXiHsw32kT3Fzw6YeXDTECCfFNKjDVg85eg......
-Enter cess bucket signature phrase: shoe ...... creek metal avoid
-Enter cess bucket disk path (default: /opt/cess/storage/disk): /cess
-Enter cess bucket space, by GB unit (current: 300, press enter to skip): 1000
+Enter cess node mode from 'authority/storage/watcher' (current: watcher, press enter to skip): storage
+Enter cess storage listener port (current: 15001, press enter to skip): 
+Enter cess storage earnings account (current: cXiqKzVVamJ2d5cMKomh1ED4prAnKevr2v3nZgNH87HRuY4Xy, press enter to skip): 
+Enter cess storage staking signature phrase (current: situate double coral cycle ritual country rebuild ridge slush smoke verb acquire, press enter to skip): 
+Enter cess storage disk path (current: /mnt/storage-disk, press enter to skip): 
+Enter cess storage space, by GB unit (current: 300, press enter to skip): 
 Enter the number of CPU cores used for mining; Your CPU cores are 4
-  (current: 3, 0 means all cores are used; press enter to skip): 2
+  (current: 3, 0 means all cores are used; press enter to skip): 
 Set configurations successfully
 ```
 
