@@ -349,10 +349,10 @@ We will use [ink!](https://use.ink/) to write our smart contract. As I mentioned
 
 9. To keep our smart contract flexible we will take some inputs from the user while deploying our smart contract, giving them the ability to set
 
-    1. name: The name of the smart contract
-    2. symbol: Token symbol
-    3. base_uri: Where we can access our NFT file and
-    4. price_per_mint: Amount of CESS Tokens users will have to pay to mint a token
+    1. `name`: The name of the smart contract
+    2. `symbol`: Token symbol
+    3. `base_uri`: Where we can access our NFT file and
+    4. `price_per_mint`: Amount of CESS Tokens users will have to pay to mint a token
 
     With that said, let's define the constructor body that we wrote in step 7.
 
