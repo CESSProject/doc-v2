@@ -1,7 +1,7 @@
 In this tutorial, you will learn the basic idea of how you can build an NTF marketplace on CESS using Ink! You will write a smart contract that will mint NFT tokens for the files that are uploaded to the CESS network. After minting the tokens users will also be able to list and delist their NFT tokens from sale. So, before we get started, let's understand NTF and CESS. If you already know about NFT and CESS, you can skip to NFT Marketplace Architecture. section.
 
 {% hint style="warning" %}
-Warning! TLTD;
+Warning! tl;dr
 
 NOTE: This is going to be a long tutorial. However, it's worth giving time if you really want to understand how to create your own NFT Marketplace.
 {% endhint %}
