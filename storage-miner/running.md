@@ -108,31 +108,56 @@ If `/cess` appears, the disk has been successfully mounted.
 
 Miners need to create two wallet accounts.
 
-- **Earning Account**: Used for receiving rewards from mining.
-- **Staking Account**: Used for staking and signing blockchain transactions.
+- **Earning Account**: Used to receive mining rewards.
+- **Staking account**: Used to pay for staking fees.
+- **Signature Account**: Used to sign blockchain transactions. If no staking account is specified, this account will also be used to pay staking fees.
 
 Please refer to [Creating CESS Accounts](../community/cess-account.md) for creating a CESS account, goto [CESS faucet](https://cess.cloud/faucet.html) to get our testnet tokens, TCESS, or [contact us](../introduction/contact.md) to get assistance.
 
 # Install CESS Client
 
+1. Check for the latest version at：https://github.com/CESSProject/cess-nodeadm/tags
+```
+⚠️ According to the latest version number, replace the following x.x.x
+```
+2. Download and install
 ```bash
-wget https://github.com/CESSProject/cess-nodeadm/archive/v0.5.1.tar.gz
-tar -xvf v0.5.1.tar.gz
-cd cess-nodeadm-0.5.1/
+wget https://github.com/CESSProject/cess-nodeadm/archive/vx.x.x.tar.gz
+tar -xvf vx.x.x.tar.gz
+cd cess-nodeadm-x.x.x/
 ./install.sh
 ```
-
-{% hint style="info" %}
-Check that you are using [the most updated version](https://github.com/CESSProject/cess-nodeadm/tags) of `cess-nodeadm`. Currently it is **v0.5.1**.
-{% endhint %}
 
 If a message `Install cess nodeadm success` shows up, the installation is successful.
 
 If the installation fails, please check the [troubleshoot procedures](./troubleshooting.md).
 
-# Configure CESS Client
+# Stop and remove old services
+stop old services：
+```
+cess stop
+```
+or
+```
+cess down
+```
+remove old services：
+```
+cess purge
+```
 
-Run `cess config set`
+# Configure CESS Client
+## Set up a running network
+switch to development network：
+```
+cess profile devtnet
+```
+switch to test network：
+```
+cess profile testnet
+```
+
+## Set up configuration
 
 ```bash
 $ cess config set
@@ -267,13 +292,11 @@ cess purge
 ## Update `cess-nodeadm`
 
 ```bash
-wget https://github.com/CESSProject/cess-nodeadm/archive/<new-version>.tar.gz
-tar -xvf <new-version>.tar.gz
-cd cess-nodeadm-<new-version>
+wget https://github.com/CESSProject/cess-nodeadm/archive/vx.x.x.tar.gz
+tar -xvf vx.x.x.tar.gz
+cd cess-nodeadm-x.x.x
 ./install.sh --skip-dep
 ```
-
-Currently [the most updated version](https://github.com/CESSProject/cess-nodeadm/tags) is **v0.5.1**.
 
 ## Pull images
 
