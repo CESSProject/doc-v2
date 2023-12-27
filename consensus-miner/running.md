@@ -15,7 +15,10 @@ The recommended requirement of a consensus server:
 {% hint style="info" %}
 ### SGX Enabled
 
-The CPU must support [Intel Software Guard Extensions](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html) (Intel SGX) technology and Flexible Launch Control (FLC). The BIOS must support Intel SGX, and must enable the Intel SGX option. Please refer to the server manufacturer's BIOS guide to enable SGX functionality. Check out [CPU models that support SGX](https://ark.intel.com/content/www/us/en/ark/search/featurefilter.html?productType=873&2_SoftwareGuardExtensions=Yes). They can be either _Intel ME_, _Intel SPS_, or _both Intel SPS and Intel ME_.
+The CPU must support [Intel Software Guard Extensions](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html) (Intel SGX) technology and Flexible Launch Control (FLC). The BIOS must support Intel SGX, and must enable the Intel SGX option. Please refer to the server manufacturer's BIOS guide to enable SGX functionality. Check out [CPU models that support SGX](https://ark.intel.com/content/www/us/en/ark/search/featurefilter.html?productType=873&2_SoftwareGuardExtensions=Yes). They can be either _Intel ME_, _Intel SPS_, or _both Intel SPS and Intel ME_.</br>
+*`CPU Recommended Models: Intel E, E3, Celeron (some models), Core series CPUs, with Intel Core i5-10500 being the optimal choice.`*
+
+*`Recommended Motherboard BIOS: Preferred options include mainstream manufacturers such as Supermicro.`*
 
 ### Fixed Public IP
 
@@ -28,16 +31,25 @@ curl ifconfig.co
 
 # Prepare CESS Account
 
-Running storage validator needs two accounts.
+## Decide in Which Capacity to Run the Consensus Miner
+Starting from CESS v0.7.6, users can choose to run the consensus miner in the following capacities:
+- **Full**：Full nodes possess all the functionalities, designed to be compatible with existing TEE Worker types. Registration requires `binding to consensus nodes`;
+- **Verifier**：Verification nodes primarily handle idle and servicing random challenges. This type also needs to be `bound to consensus nodes` for registration;
+- **Marker**：Authentication nodes are used to calculate tags for user-serviced files, process idle key generation, idle authentication, and idle replacement tasks. This type can be registered independently and serves a designated storage node cluster. ***Running the consensus node in this capacity does not increase reputation points***；
+
+Running the consensus miner in `Full` and `Verifier` capacities requires two separate accounts.
 
 - **Stash Account**: Requires at least staking 300,000 TCESS, either from the node owner or delegated by other users, to run a consensus validator.
 - **Controller Account**: Requires at least 100 TCESS for paying gas fee.
+
+Running the consensus miner in the `Marker` capacity requires only one account.
+- **Controller Account**: Only one account is needed, and it is used for the gas fee of the registration transaction.
 
 Please refer to the artcle [Creating CESS Accounts](../community/cess-account.md) for creating a CESS account, goto [CESS testnet faucet](https://cess.cloud/faucet.html) to get TCESS, or [contact us](../introduction/contact.md) to receive TCESS tokens for staking.
 
 After the wallet account is created, navigate to [CESS Explorer](https://testnet.cess.cloud/).
 
-## Bond Fund for Stash
+## Bond Fund for Stash(binding to the consensus node)
 
 Choose **Network**, click **Staking** > **Accounts** > **Stash**
 
@@ -84,50 +96,59 @@ Run:
 cess config set
 ```
 
-You should see output similar to the following:
+The following is an operational example of running the miner in the `Full` capacity:</br>
+*`Tips: You can press Enter to skip when the default value of 'current' is suitable`*
 
 ```bash
-Enter cess node mode from 'authority/storage/watcher' (current: authority, press enter to skip):
-Enter cess node name (current: cess, press enter to skip):
-Enter external ip for the machine (current: xxx.., press enter to skip):
-Enter cess chain ws url (current:ws://172.18.0.9:9944, press enter to skip):
-Enter cess scheduler stash account (current: xxx.., press enter to skip):
-Enter cess scheduler controller phrase (current: xxx.., press enter to skip):
+Enter cess node mode from 'authority/storage/watcher' (current: authority, press enter to skip): authority
+Begin install sgx_enable ...
+Intel SGX is already enabled on this system
+Enter cess node name (current: cess, press enter to skip): cess
+Enter cess chain ws url (default: ws://cess-chain:9944):
+Enter listener port for kaleido (current: 10010, press enter to skip):
 Start configuring the endpoint to access kaleido from the Internet
   Try to get your external IP ...
-Enter the kaleido endpoint (current: http://221.122.79.3:10010, press enter to skip): 
+##This step will automatically detect your machine's IP. If the automatic detection is incorrect, please manually enter the correct http://ip:port, where the port is the value you set in the previous step. Of course, you can also set the endpoint as a domain name.
+Enter the kaleido endpoint (current: http://221.122.79.3:10010, press enter to skip):
+##When current is set to null, it means it is empty. You can simply press Enter to skip if you want to become a Marker.
+Enter cess validator stash account (current: null, press enter to skip): cXic3WhctsJ9cExmjE9vog49xaLuVbDLcFi2odeEnvV5Sbq4f
+Enter what kind of tee worker would you want to be [Full/Verifier]: Full
+Enter cess validator controller phrase: xxxxxxxxxxxxxx
+❤️  Help us improve TEE Worker with anonymous crash reports & basic usage data? (y/n) : y
 Set configurations successfully
-
-Intel SGX is already enabled on this system
 Start generate configurations and docker compose file
 debug: Loading config file: config.yaml
 info: Generating configurations done
 info: Generating docker compose file done
-57ea8c914461c3184ddb......
+e1f4b19325de7526801573bc31e04e3aa54cbac7af1971c2be83f8da0c16e85c
 Configurations generated at: /opt/cess/nodeadm/build
 try pull images, node mode: authority
-download image: cesslab/cess-chain:latest
-latest: Pulling from cesslab/cess-chain
-3b65ec22a9e9: Already exists
-6e4a9a61f489: Pull complete
-Digest: sha256:5652dce2bd28796......
-Status: Downloaded newer image for cesslab/cess-chain:latest
-docker.io/cesslab/cess-chain:latest
-download image: cesslab/kaleido:latest
-latest: Pulling from cesslab/kaleido
-Digest: sha256:49899acaafd11982......
-Status: Image is up to date for cesslab/kaleido:latest
-docker.io/cesslab/kaleido:latest
-download image: cesslab/kaleido-rotator:latest
-latest: Pulling from cesslab/kaleido-rotator
-Digest: sha256:42535077af6bf......
-Status: Image is up to date for cesslab/kaleido-rotator:latest
-docker.io/cesslab/kaleido-rotator:latest
-download image: cesslab/kaleido-kafka:latest
-latest: Pulling from cesslab/kaleido-kafka
-Digest: sha256:29ed986ea......
-Status: Image is up to date for cesslab/kaleido-kafka:latest
-docker.io/cesslab/kaleido-kafka:latest
+download image: cesslab/cess-chain:testnet
+testnet: Pulling from cesslab/cess-chain
+96d54c3075c9: Already exists
+224698f4f3fe: Already exists
+fe59e467d907: Pull complete
+4f4fb700ef54: Pull complete
+Digest: sha256:39821a9755ecc0c8901809e8a29454ec618ac73592818d3829abdf73ded4e89e
+Status: Downloaded newer image for cesslab/cess-chain:testnet
+docker.io/cesslab/cess-chain:testnet
+download image: cesslab/kaleido:testnet
+testnet: Pulling from cesslab/kaleido
+01085d60b3a6: Already exists
+75b070fa4d64: Already exists
+e0b98820ba1b: Pull complete
+28557caa1da0: Pull complete
+Digest: sha256:6d5c7b74a98208acc8a10ab833eef6c9a6977ed9b82e98aa08cdba732dd5ac05
+Status: Downloaded newer image for cesslab/kaleido:testnet
+docker.io/cesslab/kaleido:testnet
+download image: cesslab/kaleido-rotator:testnet
+testnet: Pulling from cesslab/kaleido-rotator
+96526aa774ef: Already exists
+5c097a021ba1: Already exists
+ff32bfaa56d6: Pull complete
+Digest: sha256:7b0b1c04942d92cd69cac2a01f29ea7a889f9c5784c6af847152b8818fc946e5
+Status: Downloaded newer image for cesslab/kaleido-rotator:testnet
+docker.io/cesslab/kaleido-rotator:testnet
 pull images finished
 ```
 Please fill in your TEE Worker server address while you configure the endpoint. The default is the address from the local server. If you do not know TEE Worker yet, please refer to the [node role introduction](../concepts/node-roles.md).
@@ -257,7 +278,6 @@ $ cess status
  NAMES           STATUS
 kld-agent       Up 2 minutes
 kld-sgx         Up 2 minutes
-kaleido-kafka   Up 2 minutes
 chain           Up 2 minutes
 watchtower      Up 2 minutes
 -----------------------------------------
@@ -303,10 +323,39 @@ cd cess-nodeadm-<new-version>
 ./install.sh --skip-dep
 ```
 
-Currently [the most updated version](https://github.com/CESSProject/cess-nodeadm/tags) is **v0.5.1**.
+Currently [the most updated version](https://github.com/CESSProject/cess-nodeadm/tags) is **v0.5.3**,compatible with CESS version v0.7.6.
 
 ## Pull Images
 
 ```bash
 cess pullimg
 ```
+
+# Questions & Answers
+**Q**: I don't want to expose my IP address on the chain. What should I do?</br>
+**A**: During the cess config set process, you can set your endpoint with a domain name. For example, if your registered domain is tee-xxx.cess.cloud, you can enter http://tee-xxx.cess.cloud when setting the endpoint. The script will then ask you if you want to enable one-click domain proxy. You can enter y to enable it, as shown below:
+
+```bash
+.....
+Enter the kaleido endpoint (current: http://tee-xxx.cess.cloud, press enter to skip): http://tee-xxx.cess.cloud
+Do you need to configure a domain name proxy with one click? (y/n): y
+.....
+```
+
+Alternatively, you can manually configure an nginx proxy. Please avoid using the intermediate proxy provided by the domain service provider.
+
+**Q**: How do I know if the program is working properly?</br>
+**A**: You can select Chain State in the block explorer. Through this method, you can check whether the registration was successful.
+![check-register](../assets/consensus-miner/qa/check-register.png)
+
+**Q**: I don't want the program to update automatically. What should I do?</br>
+**A**: After the program has started successfully, a watchtower service will manage local services on behalf of the user. When the CESS official updates a component, the watchtower will pull the latest program for automatic upgrading. If you don't want to use the automatic upgrade feature, you can disable it with the following command before the cess config set.
+
+```bash
+## Disable the update of the kld-sgx service. When you choose to disable the automatic update of kld-sgx and choose manual update, please delete the files in /opt/cess/authority/kaleido/key/encrypted/podr2_key during the update process.
+cess tools no_watchs kld-sgx
+
+## Disable the update of the kld-agent service.
+cess tools no_watchs kld-agent
+```
+Every automatic upgrade from you means a bug fix for the consensus miner program by the official, and we **strongly discourage** you from turning off the automatic upgrade feature, as this may render your service **unavailable**!
