@@ -343,7 +343,7 @@ cess pullimg
 
 # Questions & Answers
 
-1. I don't want to expose my IP address on the chain. What should I do?
+1. I don't want to expose my IP address on the chain. What should I do?</br>
 
    During the cess config set process, you can set your endpoint with a domain name. For example, if your registered domain is tee-xxx.cess.cloud, you can enter http://tee-xxx.cess.cloud when setting the endpoint. The script will then ask you if you want to enable one-click domain proxy. You can enter y to enable it, as shown below:
 
@@ -356,7 +356,7 @@ cess pullimg
 
    Alternatively, you can manually configure an nginx proxy. Please avoid using the intermediate proxy provided by the domain service provider.
 
-2. How do I know if the program is working properly?
+2. How do I know if the program is working properly?</br>
 
    You can select Chain State in the block explorer. Through this method, you can check whether the registration was successful.
 
@@ -368,7 +368,7 @@ cess pullimg
 
    ```bash
    ## Disable the update of the kld-sgx service. When you choose to disable the automatic update of kld-sgx and choose manual update, please delete the files in /opt/cess/authority/kaleido/key/encrypted/podr2_key during the update process.
-    cess tools no_watchs kld-sgx
+   cess tools no_watchs kld-sgx
 
    ## Disable the update of the kld-agent service.
    cess tools no_watchs kld-agent
