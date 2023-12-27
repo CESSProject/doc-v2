@@ -333,7 +333,7 @@ cd cess-nodeadm-<new-version>
 ./install.sh --skip-dep
 ```
 
-Currently [the most updated version](https://github.com/CESSProject/cess-nodeadm/tags) is **v0.5.3**,compatible with CESS version v0.7.6.
+Currently [the most updated version](https://github.com/CESSProject/cess-nodeadm/tags) is **v0.7.6**.
 
 ## Pull Images
 
