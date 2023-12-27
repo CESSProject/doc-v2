@@ -16,9 +16,9 @@ The recommended requirement of a consensus server:
 ### SGX Enabled
 
 The CPU must support [Intel Software Guard Extensions](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html) (Intel SGX) technology and Flexible Launch Control (FLC). The BIOS must support Intel SGX, and must enable the Intel SGX option. Please refer to the server manufacturer's BIOS guide to enable SGX functionality. Check out [CPU models that support SGX](https://ark.intel.com/content/www/us/en/ark/search/featurefilter.html?productType=873&2_SoftwareGuardExtensions=Yes). They can be either _Intel ME_, _Intel SPS_, or _both Intel SPS and Intel ME_.</br>
-*`CPU Recommended Models: Intel E, E3, Celeron (some models), Core series CPUs, with Intel Core i5-10500 being the optimal choice.`*
 
-*`Recommended Motherboard BIOS: Preferred options include mainstream manufacturers such as Supermicro.`*
+- CPU Recommended Models: Intel E, E3, Celeron (some models), Core series CPUs, with Intel Core i5-10500 being the optimal choice.
+- Recommended Motherboard BIOS: Preferred options include mainstream manufacturers such as Supermicro.
 
 ### Fixed Public IP
 
@@ -32,24 +32,30 @@ curl ifconfig.co
 # Prepare CESS Account
 
 ## Decide in Which Capacity to Run the Consensus Miner
+
 Starting from CESS v0.7.6, users can choose to run the consensus miner in the following capacities:
+
 - **Full**：Full nodes possess all the functionalities, designed to be compatible with existing TEE Worker types. Registration requires `binding to consensus nodes`;
+
 - **Verifier**：Verification nodes primarily handle idle and servicing random challenges. This type also needs to be `bound to consensus nodes` for registration;
+
 - **Marker**：Authentication nodes are used to calculate tags for user-serviced files, process idle key generation, idle authentication, and idle replacement tasks. This type can be registered independently and serves a designated storage node cluster. ***Running the consensus node in this capacity does not increase reputation points***；
 
 Running the consensus miner in `Full` and `Verifier` capacities requires two separate accounts.
 
 - **Stash Account**: Requires at least staking 300,000 TCESS, either from the node owner or delegated by other users, to run a consensus validator.
+
 - **Controller Account**: Requires at least 100 TCESS for paying gas fee.
 
 Running the consensus miner in the `Marker` capacity requires only one account.
+
 - **Controller Account**: Only one account is needed, and it is used for the gas fee of the registration transaction.
 
 Please refer to the artcle [Creating CESS Accounts](../community/cess-account.md) for creating a CESS account, goto [CESS testnet faucet](https://cess.cloud/faucet.html) to get TCESS, or [contact us](../introduction/contact.md) to receive TCESS tokens for staking.
 
 After the wallet account is created, navigate to [CESS Explorer](https://testnet.cess.cloud/).
 
-## Bond Fund for Stash(binding to the consensus node)
+## Bond Fund for Stash (Binding to the Consensus Node)
 
 Choose **Network**, click **Staking** > **Accounts** > **Stash**
 
@@ -96,8 +102,9 @@ Run:
 cess config set
 ```
 
-The following is an operational example of running the miner in the `Full` capacity:</br>
-*`Tips: You can press Enter to skip when the default value of 'current' is suitable`*
+The following is an operational example of running the miner in the `Full` capacity:
+
+*Tips: You can press Enter to skip when the default value of 'current' is suitable*
 
 ```bash
 Enter cess node mode from 'authority/storage/watcher' (current: authority, press enter to skip): authority
@@ -108,10 +115,13 @@ Enter cess chain ws url (default: ws://cess-chain:9944):
 Enter listener port for kaleido (current: 10010, press enter to skip):
 Start configuring the endpoint to access kaleido from the Internet
   Try to get your external IP ...
-##This step will automatically detect your machine's IP. If the automatic detection is incorrect, please manually enter the correct http://ip:port, where the port is the value you set in the previous step. Of course, you can also set the endpoint as a domain name.
+
+## This step will automatically detect your machine's IP. If the automatic detection is incorrect, please manually enter the correct http://ip:port, where the port is the value you set in the previous step. Of course, you can also set the endpoint as a domain name.
 Enter the kaleido endpoint (current: http://221.122.79.3:10010, press enter to skip):
-##When current is set to null, it means it is empty. You can simply press Enter to skip if you want to become a Marker.
+
+## When current is set to null, it means it is empty. You can simply press Enter to skip if you want to become a Marker.
 Enter cess validator stash account (current: null, press enter to skip): cXic3WhctsJ9cExmjE9vog49xaLuVbDLcFi2odeEnvV5Sbq4f
+
 Enter what kind of tee worker would you want to be [Full/Verifier]: Full
 Enter cess validator controller phrase: xxxxxxxxxxxxxx
 ❤️  Help us improve TEE Worker with anonymous crash reports & basic usage data? (y/n) : y
@@ -332,30 +342,36 @@ cess pullimg
 ```
 
 # Questions & Answers
-**Q**: I don't want to expose my IP address on the chain. What should I do?</br>
-**A**: During the cess config set process, you can set your endpoint with a domain name. For example, if your registered domain is tee-xxx.cess.cloud, you can enter http://tee-xxx.cess.cloud when setting the endpoint. The script will then ask you if you want to enable one-click domain proxy. You can enter y to enable it, as shown below:
 
-```bash
-.....
-Enter the kaleido endpoint (current: http://tee-xxx.cess.cloud, press enter to skip): http://tee-xxx.cess.cloud
-Do you need to configure a domain name proxy with one click? (y/n): y
-.....
-```
+1. I don't want to expose my IP address on the chain. What should I do?
 
-Alternatively, you can manually configure an nginx proxy. Please avoid using the intermediate proxy provided by the domain service provider.
+   During the cess config set process, you can set your endpoint with a domain name. For example, if your registered domain is tee-xxx.cess.cloud, you can enter http://tee-xxx.cess.cloud when setting the endpoint. The script will then ask you if you want to enable one-click domain proxy. You can enter y to enable it, as shown below:
 
-**Q**: How do I know if the program is working properly?</br>
-**A**: You can select Chain State in the block explorer. Through this method, you can check whether the registration was successful.
-![check-register](../assets/consensus-miner/qa/check-register.png)
+   ```bash
+   .....
+   Enter the kaleido endpoint (current: http://tee-xxx.cess.cloud, press enter to skip): http://tee-xxx.cess.cloud
+   Do you need to configure a domain name proxy with one click? (y/n): y
+   .....
+   ```
 
-**Q**: I don't want the program to update automatically. What should I do?</br>
-**A**: After the program has started successfully, a watchtower service will manage local services on behalf of the user. When the CESS official updates a component, the watchtower will pull the latest program for automatic upgrading. If you don't want to use the automatic upgrade feature, you can disable it with the following command before the cess config set.
+   Alternatively, you can manually configure an nginx proxy. Please avoid using the intermediate proxy provided by the domain service provider.
 
-```bash
-## Disable the update of the kld-sgx service. When you choose to disable the automatic update of kld-sgx and choose manual update, please delete the files in /opt/cess/authority/kaleido/key/encrypted/podr2_key during the update process.
-cess tools no_watchs kld-sgx
+2. How do I know if the program is working properly?
 
-## Disable the update of the kld-agent service.
-cess tools no_watchs kld-agent
-```
-Every automatic upgrade from you means a bug fix for the consensus miner program by the official, and we **strongly discourage** you from turning off the automatic upgrade feature, as this may render your service **unavailable**!
+   You can select Chain State in the block explorer. Through this method, you can check whether the registration was successful.
+
+   ![check-register](../assets/consensus-miner/qa/check-register.png)
+
+3. I don't want the program to update automatically. What should I do?</br>
+
+   After the program has started successfully, a watchtower service will manage local services on behalf of the user. When the CESS official updates a component, the watchtower will pull the latest program for automatic upgrading. If you don't want to use the automatic upgrade feature, you can disable it with the following command before the cess config set.
+
+   ```bash
+   ## Disable the update of the kld-sgx service. When you choose to disable the automatic update of kld-sgx and choose manual update, please delete the files in /opt/cess/authority/kaleido/key/encrypted/podr2_key during the update process.
+    cess tools no_watchs kld-sgx
+
+   ## Disable the update of the kld-agent service.
+   cess tools no_watchs kld-agent
+   ```
+
+   Every automatic upgrade from you means a bug fix for the consensus miner program by the official, and we **strongly discourage** you from turning off the automatic upgrade feature, as this may render your service **unavailable**!
