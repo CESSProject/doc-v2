@@ -109,69 +109,84 @@ If `/cess` appears, the disk has been successfully mounted.
 Miners need to create two wallet accounts.
 
 - **Earning Account**: Used to receive mining rewards.
-- **Staking account**: Used to pay for staking fees.
+- **Staking Account**: Used to pay for staking fees.
 - **Signature Account**: Used to sign blockchain transactions. If no staking account is specified, this account will also be used to pay staking fees.
+- **Storage Deposit**: To keep the storage node miner in honoring its service commitment, the miner account will have its native tokens locked for the storage amount he pledges to offer. Currently in testnet, it is 4,000 TCESS per TB. The pledged space is **round up** to the closest TB unit and locked for that amount multiply with 4,000 TCESS.
 
 Please refer to [Creating CESS Accounts](../community/cess-account.md) for creating a CESS account, goto [CESS faucet](https://cess.cloud/faucet.html) to get our testnet tokens, TCESS, or [contact us](../introduction/contact.md) to get assistance.
 
 # Install CESS Client
 
 1. Check for the latest version at：https://github.com/CESSProject/cess-nodeadm/tags
-```
-⚠️ According to the latest version number, replace the following x.x.x
-```
+
 2. Download and install
+
 ```bash
 wget https://github.com/CESSProject/cess-nodeadm/archive/vx.x.x.tar.gz
-tar -xvf vx.x.x.tar.gz
+tar -xvzf vx.x.x.tar.gz
 cd cess-nodeadm-x.x.x/
 ./install.sh
 ```
+
+⚠️ Replace the above `x.x.x` with the latest version (as of writing, it is **0.5.3**).
 
 If a message `Install cess nodeadm success` shows up, the installation is successful.
 
 If the installation fails, please check the [troubleshoot procedures](./troubleshooting.md).
 
 # Stop and remove old services
+
 stop old services：
 ```
-cess stop
+sudo cess stop
 ```
+
 or
 ```
-cess down
+sudo cess down
 ```
+
 remove old services：
 ```
-cess purge
+sudo cess purge
 ```
 
-# Configure CESS Client
-## Set up a running network
-switch to development network：
-```
-cess profile devtnet
-```
-switch to test network：
-```
-cess profile testnet
-```
+# Configure CESS client
 
-## Set up configuration
+## Setup a Running Network
+
+Running the storage node on development network:
 
 ```bash
-$ cess config set
+sudo cess profile devtnet
+```
+Running the storage node on test network:
 
-Enter cess node mode from 'authority/storage/watcher' (current: watcher, press enter to skip): storage
+```bash
+sudo cess profile testnet
+```
+
+## Setup Configuration
+
+```bash
+sudo cess config set
+
+Enter cess node mode from 'authority/storage/watcher': storage
 Enter cess storage listener port (current: 15001, press enter to skip): 
-Enter cess storage earnings account (current: cXiqKzVVamJ2d5cMKomh1ED4prAnKevr2v3nZgNH87HRuY4Xy, press enter to skip): 
-Enter cess storage staking signature phrase (current: situate double coral cycle ritual country rebuild ridge slush smoke verb acquire, press enter to skip): 
-Enter cess storage disk path (current: /mnt/storage-disk, press enter to skip): 
+Enter cess storage earnings account: # enter the account to earn reward, should start from "c..."
+Enter cess storage staking signature phrase: # enter your staking account mnemonic
+Enter cess storage disk path: # the disk path
 Enter cess storage space, by GB unit (current: 300, press enter to skip): 
 Enter the number of CPU cores used for mining; Your CPU cores are 4
   (current: 3, 0 means all cores are used; press enter to skip): 
+Enter the staker\'s payment account if you have one (press enter to skip): # your staking account.
+Enter the reserved TEE worker endpoints (separate multiple values with commas, press enter to skip):
 Set configurations successfully
 ```
+
+- Notice if a staker payment account is provided, for testnet, the pledged space (answer to the **Enter cess storage space**) is **round up** to the closest TB unit and that amount multiply with 4,000 amount of TCESS will be locked as a deposit.
+- If a staker payment account is not provided, another account, the signature account, will be asked and will  have the tokens locked from that account.
+- Default TEE worker endpoints for the chain will be used if you don't provide any TEE worker endpoints. This doesn't affect your reward as a storage miner.
 
 Start CESS bucket
 
@@ -211,19 +226,38 @@ As shown below, seeing `/kldr-testnet` indicates that the network environment is
 ## View Bucket Status
 
 ```bash
-cess bucket stat
+sudo cess bucket stat
 ```
 
-An example of the returned results is shown below：
+An example of the returned result is shown below：
 
 ![CESS Bucket Stat](../assets/storage-miner/running/bucket-stat.png)
 
 Refer to the [Glossary](../glossary.md#storage-miner) on the names above.
 
+At the beginning of the storage node synchronization, all your **validated space**, **used space**, and **locked space** are 0. It is only when the validated space has been incremented that the storage miner start earning rewards. For testnet, it take about an hour **after** the storage node chain synchronization completed.
+
+## Check Your Storage Miner Status On-chain
+
+You can also check your miner status on-chain.
+
+1. Goto [**Polkadot-js Apps**: Developer > Chain state](https://polkadot.js.org/apps/#/chainstate)
+2. On *selected state query*: select **sminer** pallet and **allMiner()** storage item
+3. Click the button on the left to query the state
+4. At the bottom of the returned list, you should find the miner address that your mnemonic (with root path) generated from your answer to `sudo cess config set`. See below for an example.
+
+   ![CESS query on all miners](../assets/storage-miner/running/query-allminer.png)
+
+5. You can also check your detail miner info with selecting **sminer** pallet and **minerItems(AccountId32)** storage item. In the *Option\<AccountId32\>*, choosing/inputing the miner address. It will return your detail information on-chain. See below for an example.
+
+   ![CESS query on my miner item](../assets/storage-miner/running/query-miner-item.png)
+
+
+
 ## Increase Miner Staking
 
 ```bash
-cess bucket increase <deposit amount>
+sudo cess bucket increase <deposit amount>
 ```
 
 ## Withdraw Miner Staking
@@ -231,43 +265,43 @@ cess bucket increase <deposit amount>
 After your node **has exited CESS Network** (see below), run
 
 ```bash
-cess bucket withdraw
+sudo cess bucket withdraw
 ```
 
 ## Query Reward Information
 
 ```bash
-cess bucket reward
+sudo cess bucket reward
 ```
 
 ## Claim Reward
 
 ```bash
-cess bucket claim
+sudo cess bucket claim
 ```
 
 ## Update All Service Images
 
 ```bash
-cess pullimg
+sudo cess pullimg
 ```
 
 ## Stop and Remove All Services
 
 ```bash
-cess down
+sudo cess down
 ```
 
 ## Update Earnings Account
 
 ```bash
-cess bucket update earnings [earnings account]
+sudo cess bucket update earnings [earnings account]
 ```
 
 ## Exit CESS Network
 
 ```bash
-cess bucket exit
+sudo cess bucket exit
 ```
 
 # Upgrade CESS Client
@@ -275,8 +309,8 @@ cess bucket exit
 ## Stop and Remove All Services
 
 ```bash
-cess stop
-cess down
+sudo cess stop
+sudo cess down
 ```
 
 ## Remove All Chain Data
@@ -286,7 +320,7 @@ Do not perform this operation unless the CESS network has been redeployed and it
 {% endhint %}
 
 ```bash
-cess purge
+sudo cess purge
 ```
 
 ## Update `cess-nodeadm`
@@ -298,8 +332,8 @@ cd cess-nodeadm-x.x.x
 ./install.sh --skip-dep
 ```
 
-## Pull images
+## Update All Service Images
 
 ```bash
-cess pullimg
+sudo cess pullimg
 ```
