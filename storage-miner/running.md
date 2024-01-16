@@ -197,6 +197,8 @@ $ cess start
  ✔ Container watchtower  Running                                                0.0s
 ```
 
+If you want to speed up your earnings, you can choose to deploy a Marker-type TEE Worker to help miners certify space and mark user service files. Please refer to the [TEE Worker User Guide](./TEE-Worker-Guide-EN.md).
+
 # Common Operations
 
 ## Check CESS Chain Sync Status
