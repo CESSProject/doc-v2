@@ -106,7 +106,7 @@ If `/cess` appears, the disk has been successfully mounted.
 
 # Prepare CESS Accounts
 
-Miners need to create two wallet accounts.
+Miners need to create at least two wallet accounts.
 
 - **Earning Account**: Used to receive mining rewards.
 - **Staking Account**: Used to pay for staking fees.
@@ -121,20 +121,20 @@ Please refer to [Creating CESS Accounts](../community/cess-account.md) for creat
 
 2. Download and install
 
-```bash
-wget https://github.com/CESSProject/cess-nodeadm/archive/vx.x.x.tar.gz
-tar -xvzf vx.x.x.tar.gz
-cd cess-nodeadm-x.x.x/
-./install.sh
-```
+   ```bash
+   wget https://github.com/CESSProject/cess-nodeadm/archive/vx.x.x.tar.gz
+   tar -xvzf vx.x.x.tar.gz
+   cd cess-nodeadm-x.x.x/
+   ./install.sh
+   ```
 
-{% hint style="info" %}
-⚠️ Replace the above `x.x.x` with the latest version (as of writing, it is **0.5.3**).
-{% endhint %}
+   {% hint style="info" %}
+   ⚠️ Replace the above `x.x.x` with the latest version (as of writing, it is **0.5.3**).
+   {% endhint %}
 
-If a message `Install cess nodeadm success` shows up at the end, it means the installation is completed.
+   If a message `Install cess nodeadm success` shows up at the end, it means the installation is completed.
 
-If the installation fails, please check the [troubleshoot procedures](./troubleshooting.md).
+   If the installation fails, please check the [troubleshoot procedures](./troubleshooting.md).
 
 # Stop and Remove Existing Services
 
@@ -228,7 +228,7 @@ You can check your miner status on-chain.
 
 6. Go to [the **Accounts** page](https://polkadot.js.org/apps/#/accounts) and check your account details, you would see a certain amount of TCESS has been reserved as the storage deposit.
 
-   ![Token is reserved for storage miner](../assets/storage-miner/running/storage-miner-deposit.png)
+   ![Token is reserved as a storage miner](../assets/storage-miner/running/storage-miner-deposit.png)
 
 ## View the Storage Node Log
 
