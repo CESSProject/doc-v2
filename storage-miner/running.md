@@ -104,20 +104,20 @@ df -h
 
 If `/cess` appears, the disk has been successfully mounted.
 
-## Prepare CESS Accounts
+# Prepare CESS Accounts
 
 Miners need to create two wallet accounts.
 
 - **Earning Account**: Used to receive mining rewards.
 - **Staking Account**: Used to pay for staking fees.
 - **Signature Account**: Used to sign blockchain transactions. If no staking account is specified, this account will also be used to pay staking fees.
-- **Storage Deposit**: To keep the storage node miner in honoring its service commitment, the miner account will have its native tokens locked for the storage amount he pledges to offer. Currently in testnet, it is 4,000 TCESS per TB. The pledged space is **round up** to the closest TB unit and locked for that amount multiply with 4,000 TCESS.
+- **Storage Deposit**: To keep the storage node miner in honoring its service commitment, the miner account will have its native tokens locked for the storage amount pledged to offer. Currently in testnet, it is 4,000 TCESS per TB. The pledged space is **round up** to the closest TB unit and locked for that amount multiply with 4,000 TCESS. The minimum locked token is also 4,000 TCESS.
 
 Please refer to [Creating CESS Accounts](../community/cess-account.md) for creating a CESS account, goto [CESS faucet](https://cess.cloud/faucet.html) to get our testnet tokens, TCESS, or [contact us](../introduction/contact.md) to get assistance.
 
 # Install CESS Client
 
-1. Check for the latest version at：https://github.com/CESSProject/cess-nodeadm/tags
+1. Check for the latest version at: <https://github.com/CESSProject/cess-nodeadm/tags>
 
 2. Download and install
 
@@ -128,41 +128,40 @@ cd cess-nodeadm-x.x.x/
 ./install.sh
 ```
 
+{% hint style="info" %}
 ⚠️ Replace the above `x.x.x` with the latest version (as of writing, it is **0.5.3**).
+{% endhint %}
 
-If a message `Install cess nodeadm success` shows up, the installation is successful.
+If a message `Install cess nodeadm success` shows up at the end, it means the installation is completed.
 
 If the installation fails, please check the [troubleshoot procedures](./troubleshooting.md).
 
-# Stop and remove old services
+# Stop and Remove Existing Services
 
-stop old services：
-```
+Stop existing services:
+
+```bash
 sudo cess stop
-```
-
-or
-```
+# or
 sudo cess down
 ```
 
-remove old services：
-```
+Remove existing services：
+
+```bash
 sudo cess purge
 ```
 
-# Configure CESS client
+# Configure CESS Client
 
 ## Setup a Running Network
 
-Running the storage node on development network:
 
 ```bash
+# Running the storage node on development network:
 sudo cess profile devtnet
-```
-Running the storage node on test network:
 
-```bash
+# or running the storage node on test network:
 sudo cess profile testnet
 ```
 
@@ -184,8 +183,8 @@ Enter the reserved TEE worker endpoints (separate multiple values with commas, p
 Set configurations successfully
 ```
 
-- Notice if a staker payment account is provided, for testnet, the pledged space (answer to the **Enter cess storage space**) is **round up** to the closest TB unit and that amount multiply with 4,000 amount of TCESS will be locked as a deposit.
-- If a staker payment account is not provided, another account, the signature account, will be asked and will  have the tokens locked from that account.
+- If a staker payment account is provided, for testnet, the pledged space (answer to the **Enter cess storage space**) is **round up** to the closest TB unit and that amount multiply with 4,000 amount of TCESS will be locked as a miner deposit.
+- If a staker payment account is not provided, then another account, the signature account, will be asked and will have the tokens locked from that account.
 - Default TEE worker endpoints for the chain will be used if you don't provide any TEE worker endpoints. This doesn't affect your reward as a storage miner.
 
 Start CESS bucket
@@ -248,11 +247,9 @@ You can also check your miner status on-chain.
 
    ![CESS query on all miners](../assets/storage-miner/running/query-allminer.png)
 
-5. You can also check your detail miner info with selecting **sminer** pallet and **minerItems(AccountId32)** storage item. In the *Option\<AccountId32\>*, choosing/inputing the miner address. It will return your detail information on-chain. See below for an example.
+5. You can also check your detail miner info with selecting **sminer** pallet and **minerItems(AccountId32)** storage item. In the *Option\<AccountId32\>*, choose/input the miner address. It will return your detail information on-chain. See below for an example.
 
    ![CESS query on my miner item](../assets/storage-miner/running/query-miner-item.png)
-
-
 
 ## Increase Miner Staking
 
