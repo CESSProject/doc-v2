@@ -70,7 +70,7 @@ When setting up the validator stash account, fill in null and automatically conf
 ## Working Principle
 
 The working principle of Marker type TEE Worker is shown in the figure below:
-![TEE Worker Marker](https://github.com/CESSProject/doc-v2-cn/assets/121914086/d1ed3e61-621c-4164-8353-5fca1f630e06)
+![TEE Worker Marker](https://github.com/CESSProject/doc-v2/assets/121914086/7dab3d20-1ae7-4c1f-8572-563ecf734555)
 
 TEE Worker protects the Podr2 key through the SGX Trusted Execution Environment, which is used to mark user service file fragments, and to verify and sign the results of idle space certification or replacement certification. The Podr2 key is generated in a trusted environment and transferred to the trusted environment of other TEE Workers through a secure key exchange channel without being leaked to the outside, thus ensuring the security of the algorithm; the trusted environment also encapsulates the internal code , and needs to pass Intel remote authentication. The remote authentication report also needs to be verified when TEE Worker is registered to ensure that the code running in SGX is officially disclosed by CESS and has not been maliciously tampered with, thereby ensuring the correctness of the service.
 
