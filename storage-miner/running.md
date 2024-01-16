@@ -156,7 +156,6 @@ sudo cess purge
 
 ## Setup a Running Network
 
-
 ```bash
 # Running the storage node on development network:
 sudo cess profile devtnet
@@ -212,6 +211,25 @@ As shown below, if we see that the height of the block corresponding to "best" i
 
 Only when the chain synchronization is completed can you operate other functions such as increase the staking, view the status of the node, etc.
 
+## Check Your Storage Miner Status On-chain
+
+You can check your miner status on-chain.
+
+1. Goto [**Polkadot-js Apps**: Developer > Chain state](https://polkadot.js.org/apps/#/chainstate)
+2. On *selected state query*: select **sminer** pallet and **allMiner()** storage item
+3. Click the button on the left to query the state
+4. At the bottom of the returned list, you should find the miner address that your mnemonic (with root path) generated from your answer to `sudo cess config set`. See below for an example.
+
+   ![CESS query on all miners](../assets/storage-miner/running/query-allminer.png)
+
+5. You can also check your detail miner info with selecting **sminer** pallet and **minerItems(AccountId32)** storage item. In the *Option\<AccountId32\>*, choose/input the miner address. It will return your detail information on-chain. See below for an example.
+
+   ![CESS query on my miner item](../assets/storage-miner/running/query-miner-item.png)
+
+6. Go to [the **Accounts** page](https://polkadot.js.org/apps/#/accounts) and check your account details, you would see a certain amount of TCESS has been reserved as the storage deposit.
+
+   ![Token is reserved for storage miner](../assets/storage-miner/running/storage-miner-deposit.png)
+
 ## View the Storage Node Log
 
 ```bash
@@ -234,22 +252,9 @@ An example of the returned result is shown below：
 
 Refer to the [Glossary](../glossary.md#storage-miner) on the names above.
 
-At the beginning of the storage node synchronization, all your **validated space**, **used space**, and **locked space** are 0. It is only when the validated space has been incremented that the storage miner start earning rewards. For testnet, it take about an hour **after** the storage node chain synchronization completed.
+At the beginning of the storage node synchronization, all your **validated space**, **used space**, and **locked space** are 0. It is only when the validated space been incremented above 0 that the storage miner start earning rewards. For testnet, it take about an hour **after** the storage node chain synchronization completed, as shown below.
 
-## Check Your Storage Miner Status On-chain
-
-You can also check your miner status on-chain.
-
-1. Goto [**Polkadot-js Apps**: Developer > Chain state](https://polkadot.js.org/apps/#/chainstate)
-2. On *selected state query*: select **sminer** pallet and **allMiner()** storage item
-3. Click the button on the left to query the state
-4. At the bottom of the returned list, you should find the miner address that your mnemonic (with root path) generated from your answer to `sudo cess config set`. See below for an example.
-
-   ![CESS query on all miners](../assets/storage-miner/running/query-allminer.png)
-
-5. You can also check your detail miner info with selecting **sminer** pallet and **minerItems(AccountId32)** storage item. In the *Option\<AccountId32\>*, choose/input the miner address. It will return your detail information on-chain. See below for an example.
-
-   ![CESS query on my miner item](../assets/storage-miner/running/query-miner-item.png)
+![CESS Bucket Stat with Validated Space](../assets/storage-miner/running/bucket-stat-validated-space.png)
 
 ## Increase Miner Staking
 
