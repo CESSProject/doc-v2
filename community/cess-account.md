@@ -66,6 +66,8 @@ If the link fails or you want to connect to the CESS network through another RPC
 
     {% hint style="info" %}
     wss://testnet-rpc0.cess.cloud/ws/
+
     wss://testnet-rpc1.cess.cloud/ws/
+
     wss://testnet-rpc2.cess.cloud/ws/
     {% endhint %}
