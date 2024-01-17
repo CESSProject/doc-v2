@@ -48,17 +48,17 @@ The following illustrate two ways to create a CESS account.
 
 You can navigate directly to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc0.cess.cloud%2Fws%2F#/explorer).
 
-If the link fails or you want to connect to the CESS network through another RPC address, you can configure it as follows：
+If the link fails or you want to connect to the CESS network through another RPC address, you can configure it as follows:
 
 - Navigate to [Polkadot.js Apps](https://polkadot.js.org/apps).
   
 - Click the blue square area in the picture below to open the configuration panel：
 
-    ![Polkadot Explorer](https://github.com/CESSProject/doc-v2/assets/121914086/b553d9f1-fe94-4187-acac-e88ebea7de5c)
+    ![Polkadot.js Apps](../assets/community/cess-account/navigate-to-pkjs-apps.png)
 
 - Scroll down the page and find the DEVELOPMENT option, click on it：
 
-    ![Set RPC endpoint](https://github.com/CESSProject/doc-v2/assets/121914086/6dabe3cb-1a86-4a08-b2a8-d7366f4cd8ec)
+    ![Set RPC endpoint](../assets/community/cess-account/set-rpc-endpoint.png)
 
 - Fill in the RPC address you want to use in the input box and click the Switch button above to save.
 
