@@ -6,7 +6,7 @@ The following illustrate two ways to create a CESS account.
 
 - Navigate to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc0.cess.cloud%2Fws%2F#/explorer).
 
-- Click **Settings**, under *in-browser account creation*, choose **Allow local in-browser account storage**.<br/>
+- Click **Settings**, under *in-browser account creation*, choose **Allow local in-browser account storage**, and click the save button at the bottom right.<br/>
 
     ![Polkadot.js Apps settings](../assets/community/cess-account/cess-expl-settings.png)
 
