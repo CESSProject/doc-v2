@@ -45,7 +45,7 @@ $$\boxed{AvailableReward_k = (RewardOrder_k * 20\%) + \sum_{t=k-180}^{k-1} \cfra
 A reward order will be removed after fully distributed. So a storage miner can receive rewards from at most 181 orders.
 
 {% hint style="info" %}
-The number of 180 round is subject to change in the mainnet.
+The number of 180 rounds are subject to change in the mainnet.
 {% endhint %}
 
 Once a miner's reward is computed, it is stored in an aggregated pool. Miners need to send a transaction to retrieve the reward. They can choose to wait and retrieve the reward later in one go to save transaction fees.
