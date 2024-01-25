@@ -3,7 +3,7 @@ RPC nodes do not directly participate in block production like consensus nodes. 
 1. Start it through the [**cess-nodeadm**](https://github.com/CESSProject/cess-nodeadm)
 2. Run [**cess-node**](https://github.com/CESSProject/cess) directly.
 
-## Running an RPC Node through cess-nodeadm
+## Through cess-nodeadm
 
 1. Check the latest version of cess-nodeadm
    Latest version of cess-nodeadm: <https://github.com/CESSProject/cess-nodeadm/tags><br/>
@@ -41,7 +41,7 @@ RPC nodes do not directly participate in block production like consensus nodes. 
   docker logs chain
   ```
 
-## Running an RPC Node Directly
+## Running Directly
 
 1. Install the Rust environment
    Refer to [the official Substrate tutorial](https://docs.substrate.io/install/)
