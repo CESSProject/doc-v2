@@ -43,7 +43,7 @@ Starting from CESS v0.7.6, users can choose to run the consensus miner in the fo
 
 Running the consensus miner in `Full` and `Verifier` capacities requires two separate accounts.
 
-- **Stash Account**: Requires at least staking 300,000 TCESS, either from the node owner or delegated by other users, to run a consensus validator.
+- **Stash Account**: Requires at least staking 3,000,000 TCESS, either from the node owner or delegated by other users, to run a consensus validator.
 
 - **Controller Account**: Requires at least 100 TCESS for paying gas fee.
 
@@ -63,7 +63,7 @@ Choose **Network**, click **Staking** > **Accounts** > **Stash**
 
 Select both **Stash Account** and **Controller Account**.
 
-Value bonded: 300,000 TCESS is recommended. In _payment destination_, select the second option **Stash Account as the reward receiving account (do not increase the amount at stake)**, which means that mining income will not automatically added to staking.
+Value bonded: 3,000,000 TCESS is recommended (one could first stake 300,000 TCESS, and then the rest coming from node nominators). In _payment destination_, select the second option **Stash Account as the reward receiving account (do not increase the amount at stake)**, which means that mining income will not automatically added to staking.
 
 ![Bond Fund](../assets/consensus-miner/running/acct-prep-02.webp)
 
