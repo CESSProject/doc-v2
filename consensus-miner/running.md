@@ -63,7 +63,7 @@ Choose **Network**, click **Staking** > **Accounts** > **Stash**
 
 Select both **Stash Account** and **Controller Account**.
 
-Value bonded: 3,000,000 TCESS is recommended. In _payment destination_, select the second option **Stash Account as the reward receiving account (do not increase the amount at stake)**, which means that mining income will not automatically added to staking.
+Value bonded: 3,000,000 TCESS is recommended (one could first stake 300,000 TCESS, and then the rest coming from node nominators). In _payment destination_, select the second option **Stash Account as the reward receiving account (do not increase the amount at stake)**, which means that mining income will not automatically added to staking.
 
 ![Bond Fund](../assets/consensus-miner/running/acct-prep-02.webp)
 
