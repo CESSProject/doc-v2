@@ -41,13 +41,13 @@ Starting from CESS v0.7.6, users can choose to run the consensus miner in the fo
 
 - **Marker**：Authentication nodes are used to calculate tags for user-serviced files, process idle key generation, idle authentication, and idle replacement tasks. This type can be registered independently and serves a designated storage node cluster. ***Running the consensus node in this capacity does not increase reputation points***；
 
-Running the consensus miner in `Full` and `Verifier` capacities requires two separate accounts.
+Running the consensus miner in `Full` and `Verifier` capacities requires two separate accounts. If you already have your own Stash account or want to designate someone else's Stash account, you do not need to perform the **Bond Fund** operation below.
 
 - **Stash Account**: Requires at least staking 3,000,000 TCESS, either from the node owner or delegated by other users, to run a consensus validator.
 
-- **Controller Account**: Requires at least 100 TCESS for paying gas fee.
+- **Controller Account**: Only one account is needed, and it is used for the gas fee of the registration transaction.
 
-Running the consensus miner in the `Marker` capacity requires only one account.
+Running the consensus miner in the `Marker` capacity requires only one account. There is no need to perform the **Bond Fund** operation below.
 
 - **Controller Account**: Only one account is needed, and it is used for the gas fee of the registration transaction.
 
@@ -59,21 +59,22 @@ After the wallet account is created, navigate to [CESS Explorer](https://testnet
 
 Choose **Network**, click **Staking** > **Accounts** > **Stash**
 
-![Add a Stash](../assets/consensus-miner/running/acct-prep-01.webp)
+![Add a Stash](../assets/consensus-miner/running/consensus-pic1.png)
 
-Select both **Stash Account** and **Controller Account**.
+Select both **Stash Account**. _CESS
+After version v0.7.6, the controller account has been removed from the binding fund operation._
 
-Value bonded: 3,000,000 TCESS is recommended (one could first stake 300,000 TCESS, and then the rest coming from node nominators). In _payment destination_, select the second option **Stash Account as the reward receiving account (do not increase the amount at stake)**, which means that mining income will not automatically added to staking.
+Value bonded: At least 3,000,000 TCESS. In _payment destination_, select the second option **Stash Account as the reward receiving account (do not increase the amount at stake)**, which means that mining income will not automatically added to staking.
 
-![Bond Fund](../assets/consensus-miner/running/acct-prep-02.webp)
+![Bond Fund](../assets/consensus-miner/running/consensus-pic2.png)
 
 Click **Bond** -> **Sign and Submit** to link Stash Account and Controller Account
 
-![Sign and Submit](../assets/consensus-miner/running/acct-prep-03.png)
+![Sign and Submit](../assets/consensus-miner/running/consensus-pic3.png)
 
 Fund is bonded successfully!
 
-![Bonded Fund Successfully](../assets/consensus-miner/running/acct-prep-04.png)
+![Bonded Fund Successfully](../assets/consensus-miner/running/consensus-pic4.png)
 
 # Install CESS Client
 
