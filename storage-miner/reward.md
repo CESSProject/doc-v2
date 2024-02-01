@@ -2,9 +2,22 @@ Referring to CESS overall tokenomics as below:
 
 <figure><img src="../assets/storage-miner/reward/tokenomics-v1.png" alt=""><figcaption><p>CESS Tokenomics</p></figcaption></figure>
 
-The CESS network will issue a total of **10 billion tokens**, with **30% allocated as rewards for Storage Miners** and **15% for Consensus Miners**.
+The CESS network will issue a total of **10 billion** tokens, with **30% allocated as rewards for Storage Miners** and **15% for Consensus Miners**.
 
-In the first year, a total of **187.5 million tokens** are issued, and they are distributed evenly throughout the year in each era. The total rewards decrease in a stepwise manner each year, with an annual decay rate of 0.841 (0.5<sup>0.25</sup>), resulting in a halving of rewards every four years.
+In the first year, a total of **1.59 billion** tokens are issued, and they are distributed evenly throughout the year in each era. The total rewards decrease in a stepwise manner each year, with an annual decay rate of 0.841 (0.5<sup>0.25</sup>), resulting in a halving of rewards every four years.
+
+{% hint style="info" %}
+## Key Figure on CESS Tokenomics
+
+- Total Issuance: **10 billion** tokens
+- First Year Issuance: **1.59 billion** tokens
+- Annual Growth Decay Rate: 0.841
+- Block Time: 6s
+- First Year Storage Miner Reward: **477 million** tokens
+- First Year Storage Miner Reward per block: **~90.75** tokens
+- First Year Consensus Miner Reward: **238.5 million** tokens
+- First Year Consensus Miner Reward per block: **~45.38** tokens
+{% endhint %}
 
 # Reward
 
@@ -30,6 +43,10 @@ The available reward for a storage miner in _k-th_ round is computed below:
 $$\boxed{AvailableReward_k = (RewardOrder_k * 20\%) + \sum_{t=k-180}^{k-1} \cfrac{RewardOrder_t}{180}}$$
 
 A reward order will be removed after fully distributed. So a storage miner can receive rewards from at most 181 orders.
+
+{% hint style="info" %}
+The number of 180 rounds are subject to change in the mainnet.
+{% endhint %}
 
 Once a miner's reward is computed, it is stored in an aggregated pool. Miners need to send a transaction to retrieve the reward. They can choose to wait and retrieve the reward later in one go to save transaction fees.
 

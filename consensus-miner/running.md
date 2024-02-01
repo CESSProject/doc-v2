@@ -109,6 +109,7 @@ The following is an operational example of running the miner in the `Full` capac
 
 ```bash
 Enter cess node mode from 'authority/storage/watcher' (current: authority, press enter to skip): authority
+##When you choose "authority," the Intel SGX driver on your machine will be started in software mode. You may see the prompt: "Software enable has been set. Please reboot your system to finish enabling Intel SGX." Please restart your machine after completing the configuration before proceeding to the next steps!
 Begin install sgx_enable ...
 Intel SGX is already enabled on this system
 Enter cess node name (current: cess, press enter to skip): cess
