@@ -2,12 +2,6 @@
 
 You have the option to run your own RPC node on your machine, or use the RPC node officially provided by CESS.
 
-To utilize the official RPC node provided by CESS, please choose from the options below:
-
-- `wss://testnet-rpc0.cess.cloud/ws/`
-- `wss://testnet-rpc1.cess.cloud/ws/`
-- `wss://testnet-rpc2.cess.cloud/ws/`
-
 To run your own RPC node, there are two ways: First is to start through the cess-nodeadm program, The second is to directly run the cess-node program. Below, we introduce both operating methods.
 
 ## Run RPC nodes through the cess-nodeadm program
@@ -160,9 +154,6 @@ Also refer to the Docker [installation documentation](https://docs.docker.com/en
    # The rpc endpoint of the chain node
    Rpc:
      - "ws://127.0.0.1:9944/"
-     - "wss://testnet-rpc0.cess.cloud/ws/"
-     - "wss://testnet-rpc1.cess.cloud/ws/"
-     - "wss://testnet-rpc2.cess.cloud/ws/"
    # Bootstrap Nodes
    Boot:
      - "_dnsaddr.boot-bucket-testnet.cess.cloud"
@@ -190,7 +181,7 @@ Also refer to the Docker [installation documentation](https://docs.docker.com/en
 
    It should be noted that each storage node should be set up with different working accounts, working paths and ports, etc.
 
-   Please note that when configuring RPC, the first one is the local RPC node address. If you use the third type, you only need to configure the external RPC address; the second to fourth RPC addresses displayed in the configuration file are the official CESS recommended addresses. The address displayed in `Boot` is the storage node, boot node, and node address officially provided by CESS.
+   Please note that when configuring RPC, the first one is the local RPC node address. If you use the third type, you only need to configure the external RPC address. The address displayed in `Boot` is the storage node, boot node, and node address officially provided by CESS.
 
 3. The storage node directory where the configuration file is configured should be as shown in the figure below：
 
