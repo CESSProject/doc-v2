@@ -109,9 +109,11 @@ If `/cess` appears, the disk has been successfully mounted.
 Miners need to create at least two wallet accounts.
 
 - **Earning Account**: Used to receive mining rewards.
-- **Staking Account**: Used to pay for staking fees.
-- **Signature Account**: Used to sign blockchain transactions. If no staking account is specified, this account will also be used to pay staking fees.
+- **Staking Account**: Used to pay for staking TCESS.
+- **Signature Account**: Used to sign blockchain transactions. If no staking account is specified, this account will also be used to pay staking TCESS.
 - **Storage Deposit**: To keep the storage node miner in honoring its service commitment, the miner account will have its native tokens locked for the storage amount pledged to offer. Currently in testnet, it is 4,000 TCESS per TB. The pledged space is **round up** to the closest TB unit and locked for that amount multiply with 4,000 TCESS. The minimum locked token is also 4,000 TCESS.
+
+**Note：Each signature account can only be used by one storage miner, otherwise an exception will occur.**
 
 Please refer to [Creating CESS Accounts](../community/cess-account.md) for creating a CESS account, goto [CESS faucet](https://cess.cloud/faucet.html) to get our testnet tokens, TCESS, or [contact us](../introduction/contact.md) to get assistance.
 
@@ -172,18 +174,18 @@ sudo cess config set
 Enter cess node mode from 'authority/storage/watcher': storage
 Enter cess storage listener port (current: 15001, press enter to skip): 
 Enter cess storage earnings account: # enter the account to earn reward, should start from "c..."
-Enter cess storage staking signature phrase: # enter your staking account mnemonic
+Enter cess storage signature account phrase: # enter your signature account mnemonic, it can only be used by one storage miner!
 Enter cess storage disk path: # the disk path
 Enter cess storage space, by GB unit (current: 300, press enter to skip): 
 Enter the number of CPU cores used for mining; Your CPU cores are 4
   (current: 3, 0 means all cores are used; press enter to skip): 
-Enter the staker\'s payment account if you have one (press enter to skip): # your staking account.
+Enter the staker\'s payment account if you have another (if it is the same as the signature account, press enter to skip): # your another staking account.
 Enter the reserved TEE worker endpoints (separate multiple values with commas, press enter to skip):
 Set configurations successfully
 ```
 
 - If a staker payment account is provided, for testnet, the pledged space (answer to the **Enter cess storage space**) is **round up** to the closest TB unit and that amount multiply with 4,000 amount of TCESS will be locked as a miner deposit.
-- If a staker payment account is not provided, then another account, the signature account, will be asked and will have the tokens locked from that account.
+- If a staker payment account is not provided, then another account, the signature account, as the staking account.
 - Default TEE worker endpoints for the chain will be used if you don't provide any TEE worker endpoints. This doesn't affect your reward as a storage miner.
 
 Start CESS bucket
