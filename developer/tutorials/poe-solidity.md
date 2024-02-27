@@ -269,7 +269,7 @@ We won't go over the front-end code line by line, but there are a few features I
 
 - To connect to our Ethereum wallet, we use [`useConnect()`](https://wagmi.sh/react/hooks/useConnect) hook, which is being called in the [**ConnectWallet** component](https://github.com/CESSProject/cess-examples/blob/main/frontend/src/ProofOfExistenceSolidity.js#L180).
 
-- We get the information of the currently selected account and its balance by [`useAccount()`](https://wagmi.sh/react/hooks/useAccount) and [`useBalance()`](https://wagmi.sh/react/hooks/useBalance) hooks. These hooks are being used in the [**PoESolidity** component](https://github.com/CESSProject/cess-examples/blob/main/frontend/src/ProofOfExistenceSolidity.js#L180#L65).
+- We get the information of the currently selected account and its balance by [`useAccount()`](https://wagmi.sh/react/hooks/useAccount) and [`useBalance()`](https://wagmi.sh/react/hooks/useBalance) hooks. These hooks are being used in the [**PoESolidity** component](https://github.com/CESSProject/cess-examples/blob/main/frontend/src/ProofOfExistenceSolidity.js#L65).
 
 - We read the contract data using [`useContractRead()`](https://wagmi.sh/react/hooks/useContractRead). One point to note here is we need to specify the `account` argument so the `msg.sender` value is set on the smart contract side.
 
