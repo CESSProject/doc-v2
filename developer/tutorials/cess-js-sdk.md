@@ -8,7 +8,7 @@ In this tutorial, we will interact with the CESS testnet via [**cess-js-sdk**](h
 
 # Code
 
-The code used in this tutorial is in [**cess-course** Github repo](https://github.com/CESSProject/cess-course/tree/main/examples/js). We will walk through the code together.
+The code used in this tutorial is in [**cess-examples** Github repo](https://github.com/CESSProject/cess-examples/tree/main/js). We will walk through the code together.
 
 The tutorial code performs the following:
 
@@ -80,7 +80,7 @@ Let's take a deeper look at using **Space** service.
 
 ## Using the Space Service
 
-Let's look at the [function `checkNRentSpace()`](https://github.com/CESSProject/cess-course/blob/308ec7fe053e92c08e4c2d634579f84b359072ac/examples/js/src/index.ts#L57).
+Let's look at the [function `checkNRentSpace()`](https://github.com/CESSProject/cess-examples/tree/main/js/src/index.ts#L57).
 
 ```ts
 async function checkNRentSpace(space: Space, common: Common) {
@@ -161,7 +161,7 @@ Otherwise, you can use `expandSpace()` to expand the amount of capacity and `ren
 
 We use the **Bucket** service to query information about buckets created by users (a concept similar to directories in our local hard drive), create buckets, and delete buckets.
 
-Let's look at the code in [`checkNCreateBucket()`](https://github.com/CESSProject/cess-course/blob/308ec7fe053e92c08e4c2d634579f84b359072ac/examples/js/src/index.ts#L73).
+Let's look at the code in [`checkNCreateBucket()`](https://github.com/CESSProject/cess-examples/tree/main/js/src/index.ts#L73).
 
 ```ts
 async function checkNCreateBucket(bucket: Bucket) {
@@ -218,7 +218,7 @@ You can create a bucket with `createBucket()` call and delete a bucket with `del
 
 ## Using the File Service
 
-Let's look at how to query our uploaded files and manage them by looking into [`uploadNDownloadFile()` function](https://github.com/CESSProject/cess-course/blob/308ec7fe053e92c08e4c2d634579f84b359072ac/examples/js/src/index.ts#L93).
+Let's look at how to query our uploaded files and manage them by looking into [`uploadNDownloadFile()` function](https://github.com/CESSProject/cess-examples/tree/main/js/src/index.ts#L93).
 
 ```ts
 async function uploadNDownloadFile(fileService: File) {

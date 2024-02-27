@@ -6,10 +6,10 @@ In this tutorial, we will walk through the whole process of building a full dApp
 
 {% hint style="success" %}
 
-The complete source code of this tutorial can be seen at our [`cess-course` repository](https://github.com/CESSProject/cess-course/tree/main/examples).
+The complete source code of this tutorial can be seen at our [`cess-examples` repository](https://github.com/CESSProject/cess-examples/tree/main).
 
-- [Smart Contract](https://github.com/CESSProject/cess-course/blob/main/examples/hardhat/contracts/ProofOfExistence.sol)
-- [Front end](https://github.com/CESSProject/cess-course/blob/main/examples/frontend/src/ProofOfExistenceSolidity.js)
+- [Smart Contract](https://github.com/CESSProject/cess-examples/blob/main/hardhat/contracts/ProofOfExistence.sol)
+- [Front end](https://github.com/CESSProject/cess-examples/blob/main/frontend/src/ProofOfExistenceSolidity.js)
 
 {% endhint %}
 
@@ -48,7 +48,7 @@ pnpm install -D hardhat-deploy
 
 By default, Hardhat places a **Lock.sol** smart contract inside `hardhat/contracts` directory. Check that everything works by running `pnpm hardhat test` and see all test cases pass.
 
-If you have any issues, refer back to the [`hardhat` directory](https://github.com/CESSProject/cess-course/tree/main/examples/hardhat), its [`package.json`](https://github.com/CESSProject/cess-course/blob/main/examples/hardhat/package.json), and [`hardhat.config.ts`](https://github.com/CESSProject/cess-course/blob/main/examples/hardhat/hardhat.config.ts).
+If you have any issues, refer back to the [`hardhat` directory](https://github.com/CESSProject/cess-examples/tree/main/hardhat), its [`package.json`](https://github.com/CESSProject/cess-examples/blob/main/hardhat/package.json), and [`hardhat.config.ts`](https://github.com/CESSProject/cess-examples/blob/main/hardhat/hardhat.config.ts).
 
 ## Development
 
@@ -203,7 +203,7 @@ If you have any issues, refer back to the [`hardhat` directory](https://github.c
 - Install [pnpm](https://pnpm.io/installation)
 - Run a local development chain of the CESS node because the front end will connect to the local CESS chain. Refer here on [how to run a local CESS chain](./deploy-sc-ink.md#deploy-a-smart-contract).
 
-The complete front-end source code can be seen [here](https://github.com/CESSProject/cess-course/tree/main/examples/frontend).
+The complete front-end source code can be seen [here](https://github.com/CESSProject/cess-examples/tree/main/frontend).
 
 If you run it, you will see the **Proof of Existence (Solidity)** widget in the bottom right corner:
 
@@ -211,13 +211,13 @@ If you run it, you will see the **Proof of Existence (Solidity)** widget in the 
 
 ## Development
 
-The major development of the frontend is at `frontend/src/ProofOfExistenceSolidity.js`, as shown [here](https://github.com/CESSProject/cess-course/blob/main/examples/frontend/src/ProofOfExistenceSolidity.js).
+The major development of the frontend is at `frontend/src/ProofOfExistenceSolidity.js`, as shown [here](https://github.com/CESSProject/cess-examples/blob/main/frontend/src/ProofOfExistenceSolidity.js).
 
 We won't go over the front-end code line by line, but there are a few features I will point out here.
 
 - We are using [**wagmi**](https://wagmi.sh/) library for the React Hooks to work with Ethereum smart contracts.
 
-- To use wagmi, we define our CESS local chain [at here](https://github.com/CESSProject/cess-course/blob/308ec7fe053e92c08e4c2d634579f84b359072ac/examples/frontend/src/ProofOfExistenceSolidity.js#L22-L38):
+- To use wagmi, we define our CESS local chain [at here](https://github.com/CESSProject/cess-examples/blob/main/frontend/src/ProofOfExistenceSolidity.js#L22-L38):
 
     ```js
     const RPC_ENDPOINT = "http://localhost:9944";
@@ -267,9 +267,9 @@ We won't go over the front-end code line by line, but there are a few features I
     }
     ```
 
-- To connect to our Ethereum wallet, we use [`useConnect()`](https://wagmi.sh/react/hooks/useConnect) hook, which is being called in the [**ConnectWallet** component](https://github.com/CESSProject/cess-course/blob/308ec7fe053e92c08e4c2d634579f84b359072ac/examples/frontend/src/ProofOfExistenceSolidity.js#L180).
+- To connect to our Ethereum wallet, we use [`useConnect()`](https://wagmi.sh/react/hooks/useConnect) hook, which is being called in the [**ConnectWallet** component](https://github.com/CESSProject/cess-examples/blob/main/frontend/src/ProofOfExistenceSolidity.js#L180).
 
-- We get the information of the currently selected account and its balance by [`useAccount()`](https://wagmi.sh/react/hooks/useAccount) and [`useBalance()`](https://wagmi.sh/react/hooks/useBalance) hooks. These hooks are being used in the [**PoESolidity** component](https://github.com/CESSProject/cess-course/blob/308ec7fe053e92c08e4c2d634579f84b359072ac/examples/frontend/src/ProofOfExistenceSolidity.js#L65).
+- We get the information of the currently selected account and its balance by [`useAccount()`](https://wagmi.sh/react/hooks/useAccount) and [`useBalance()`](https://wagmi.sh/react/hooks/useBalance) hooks. These hooks are being used in the [**PoESolidity** component](https://github.com/CESSProject/cess-examples/blob/main/frontend/src/ProofOfExistenceSolidity.js#L180#L65).
 
 - We read the contract data using [`useContractRead()`](https://wagmi.sh/react/hooks/useContractRead). One point to note here is we need to specify the `account` argument so the `msg.sender` value is set on the smart contract side.
 

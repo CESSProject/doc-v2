@@ -68,7 +68,7 @@ To validate the funds are in the Ethereum account, open MetaMask and check that 
 # Deploy a Contract Using Remix IDE
 
 {% hint style="info" %}
-You can use one of the [sample Solidity smart contract codes here](https://github.com/CESSProject/cess-course/tree/main/examples/hardhat).
+You can use one of the [sample Solidity smart contract codes here](https://github.com/CESSProject/cess-examples/tree/main/hardhat).
 {% endhint %}
 
 Open [Remix IDE](https://remix.ethereum.org/) and go to **File explorer**.
