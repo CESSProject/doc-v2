@@ -10,10 +10,10 @@ Instead of posting the whole file content on-chain, we will extract the first 64
 
 {% hint style="success" %}
 
-The complete source code of this tutorial can be seen at [the github repository](https://github.com/CESSProject/cess-course/tree/main/examples).
+The complete source code of this tutorial can be seen at [the github repository](https://github.com/CESSProject/cess-examples/tree/main).
 
-- For the smart contract, refer to [`examples/ink/poe` directory](https://github.com/CESSProject/cess-course/tree/main/examples/ink/poe).
-- For front end, refer to [the `src/ProofOfExistenceInk.js`](https://github.com/CESSProject/cess-course/blob/main/examples/frontend/src/ProofOfExistenceInk.js).
+- For the smart contract, refer to [`ink/poe` directory](https://github.com/CESSProject/cess-examples/tree/main/ink/poe).
+- For front end, refer to [the `src/ProofOfExistenceInk.js`](https://github.com/CESSProject/cess-examples/blob/main/frontend/src/ProofOfExistenceInk.js).
 
 {% endhint %}
 
@@ -295,7 +295,7 @@ This section has the same prerequisites as the tutorial [Deploy an ink! Smart Co
     }
     ```
 
-10. By this point, you have completed all the core logic of the smart contract. Compile the contract with `cargo contract build` to ensure it builds. If there is any doubt about the final source code, you can always refer to the [source code here](https://github.com/CESSProject/cess-course/blob/main/examples/ink/poe/lib.rs).
+10. By this point, you have completed all the core logic of the smart contract. Compile the contract with `cargo contract build` to ensure it builds. If there is any doubt about the final source code, you can always refer to the [source code here](https://github.com/CESSProject/cess-examples/blob/main/ink/poe/lib.rs).
 
 11. After the compilation, [deploy the contract on your local cess dev chain](./deploy-sc-ink.md) and interact with the contract to test it. You can access [Contracts UI](https://contracts-ui.substrate.io/), connect it to your local node, and deploy the contract. Refer to the screenshot below.<br/>
 
@@ -337,9 +337,9 @@ If you see a screen similar to the following, you are good to go.
 
 ## Before We Start
 
-First of all, in case there is any doubt, you can always refer back to [**the entire front end source code**](https://github.com/CESSProject/cess-course/tree/main/examples/frontend).
+First of all, in case there is any doubt, you can always refer back to [**the entire front end source code**](https://github.com/CESSProject/cess-examples/tree/main/frontend).
 
-To get a high-level understand of the front end template, let's refer to the second half section of [`src/App.js`](https://github.com/CESSProject/cess-course/blob/308ec7fe053e92c08e4c2d634579f84b359072ac/examples/frontend/src/App.js#L51):
+To get a high-level understand of the front end template, let's refer to the second half section of [`src/App.js`](https://github.com/CESSProject/cess-examples/blob/main/frontend/src/App.js#L51):
 
 ```jsx
 function Main() {
@@ -439,7 +439,7 @@ We will add a new component and showcase how to use [**useink** javascript libra
     )
     ```
 
-    The file [`src/ProofOfExistenceInk.js`](https://github.com/CESSProject/cess-course/blob/main/examples/frontend/src/ProofOfExistenceInk.js) looks like the following:
+    The file [`src/ProofOfExistenceInk.js`](https://github.com/CESSProject/cess-examples/blob/main/frontend/src/ProofOfExistenceInk.js) looks like the following:
 
     ```jsx
     import { React, useState } from "react";
@@ -453,9 +453,9 @@ We will add a new component and showcase how to use [**useink** javascript libra
 
 3. From now on, we will mainly focus on the file `src/ProofOfExistenceInk.js`. We will not be adding code line by line here, but focus on the APIs provided by **useink** library that facilitate ink! smart contract interaction.
 
-    Refer to the code [`src/ProofOfExistenceInk.js`](https://github.com/CESSProject/cess-course/blob/main/examples/frontend/src/ProofOfExistenceInk.js).
+    Refer to the code [`src/ProofOfExistenceInk.js`](https://github.com/CESSProject/cess-examples/blob/main/frontend/src/ProofOfExistenceInk.js).
 
-4. Starting from [the bottom](https://github.com/CESSProject/cess-course/blob/308ec7fe053e92c08e4c2d634579f84b359072ac/examples/frontend/src/ProofOfExistenceInk.js#L194-L201), we have:
+4. Starting from [the bottom](https://github.com/CESSProject/cess-examples/blob/main/frontend/src/ProofOfExistenceInk.js#L194-L201), we have:
 
     ```jsx
     <UseInkProvider
@@ -476,7 +476,7 @@ We will add a new component and showcase how to use [**useink** javascript libra
 
     With `UseInkProvider`, we can make ink! API calls inside `<ProofOfExistenceInk />` component.
 
-5. Looking at the code inside [`function ProofOfExistenceInk(props) {...}`](https://github.com/CESSProject/cess-course/blob/308ec7fe053e92c08e4c2d634579f84b359072ac/examples/frontend/src/ProofOfExistenceInk.js#L31)
+5. Looking at the code inside [`function ProofOfExistenceInk(props) {...}`](https://github.com/CESSProject/cess-examples/blob/main/frontend/src/ProofOfExistenceInk.js#L31)
 
     ```jsx
     // NOTE: In `examples/poe-ink/contract` directory, compile your contract with
