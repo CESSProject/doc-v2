@@ -221,7 +221,7 @@ You can check your miner status on-chain.
 
 1. Goto [**Polkadot-js Apps**: Developer > Chain state](https://polkadot.js.org/apps/#/chainstate)
 2. On *selected state query*: select **sminer** pallet and **allMiner()** storage item
-3. Click the button on the left to query the state
+3. Click the button on the right to query the state
 4. At the bottom of the returned list, you should find the miner address that your mnemonic (with root path) generated from your answer to `sudo cess config set`. See below for an example.
 
    ![CESS query on all miners](../assets/storage-miner/running/query-allminer.png)
