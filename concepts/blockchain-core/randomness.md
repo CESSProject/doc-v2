@@ -14,7 +14,7 @@ The VRF used by CESS is similar to the one used in [*Ouroboros Praos*](https://e
 
 # Working mechanism
 
-Slot is a discrete time unit of 6 seconds length. Each slot can contain a block, but it may not. Slots make up an epoch - on CESS, 2400 slots make up an epoch, which results in an epoch of 4 hours length.
+Slot is a discrete time unit of 6 seconds length. Each slot can contain a block, but it may not. Slots make up an epoch - on CESS, 600 slots make up an epoch, which results in an epoch of 1 hours length.
 
 In each slot, each validator 'throws the dice'. They execute the VRF function that takes the following as input:
 
