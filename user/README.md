@@ -4,7 +4,7 @@ Here we will highlight some community-built dApps for users. In general, you sho
 
 | Project                                            | Team / Maintainer           | Description                                                 |
 | -------------------------------------------------- | --------------------------- | ----------------------------------------------------------- |
-| [VideOwn](http://www.videown.net/)                 | [CESS](https://cess.cloud/) | Decentralized video-sharing platform                        |
+| [VideOwn](https://videown.io/)                 | [CESS](https://cess.cloud/) | Decentralized video-sharing platform                        |
 | [DeShare](https://cess.cloud/deshare.html)         | [CESS](https://cess.cloud/) | dApp to quickly upload documents to CESS and share them out |
 | [Faucet (testnet)](https://cess.cloud/faucet.html) | [CESS](https://cess.cloud/) | CESS token faucet for testnet                               |
 | [Substats (testnet)](https://substats.cess.cloud/) | [CESS](https://cess.cloud/) | CESS blockchain explorer for testnet                        |
