@@ -29,7 +29,11 @@ By default, the node client program, **cess-bucket**, uses port 4001 to listen f
 ufw allow 4001
 ```
 
-## Disk Mounting
+## Optional: Mount Additional Drive
+
+{% hint style="info" %}
+This step is required only if you are mounting another disk / storage device to your server.
+{% endhint %}
 
 Check the hard disk status using the `df -h` command:
 
@@ -138,21 +142,21 @@ Please refer to [Creating CESS Accounts](../community/cess-account.md) for creat
 
    If the installation fails, please check the [troubleshoot procedures](./troubleshooting.md).
 
-# Stop and Remove Existing Services
+3. Stop and removing existing services
 
-Stop existing services:
+   Stop existing services:
 
-```bash
-sudo cess stop
-# or
-sudo cess down
-```
+   ```bash
+   sudo cess stop
+   # or
+   sudo cess down
+   ```
 
-Remove existing services：
+   Remove existing services：
 
-```bash
-sudo cess purge
-```
+   ```bash
+   sudo cess purge
+   ```
 
 # Configure CESS Client
 
