@@ -197,7 +197,7 @@ Set configurations successfully
 Start CESS bucket
 
 ```bash
-$ cess start
+sudo cess start
 
 [+] Running 3/0
  ✔ Container chain       Running                                                0.0s
@@ -265,6 +265,8 @@ Refer to the [Glossary](../glossary.md#storage-miner) on the names above.
 At the beginning of the storage node synchronization, all your **validated space**, **used space**, and **locked space** are 0. It is only when the validated space been incremented above 0 that the storage miner start earning rewards. For testnet, it take about an hour **after** the storage node chain synchronization completed, as shown below.
 
 ![CESS Bucket Stat with Validated Space](../assets/storage-miner/running/bucket-stat-validated-space.png)
+
+If you get the result of `You are not a storage node` , please wait for the chain synchronization to complete.
 
 ## Increase Miner Staking
 
@@ -341,7 +343,7 @@ sudo cess purge
 wget https://github.com/CESSProject/cess-nodeadm/archive/vx.x.x.tar.gz
 tar -xvf vx.x.x.tar.gz
 cd cess-nodeadm-x.x.x
-./install.sh --skip-dep
+sudo ./install.sh --skip-dep
 ```
 
 ## Update All Service Images
