@@ -38,14 +38,15 @@ This step is required only if you are mounting another disk / storage device to 
 Check the hard disk status using the `df -h` command:
 
 ```bash
-$ df -h
+df -h
 ```
 
 If the disk is not mounted, the hard drive for storage mining cannot be used. Use the commands below to view unmounted hard disks:
 
 ```bash
-$ fdisk -l
+fdisk -l
 
+# Output result
 Disk /dev/vdb: 200 GiB, 214748364800 bytes, 419430400 sectors
 Units: sectors of 1 * 512 = 512 bytes
 Sector size (logical/physical): 512 bytes / 512 bytes
@@ -60,6 +61,7 @@ Allocate the `/dev/vdb` disk:
 
 ```bash
 fdisk /dev/vdb
+
 Enter and press Enter:
 n
 p
@@ -84,8 +86,8 @@ Proceed anyway? (y,N) y
 Create `/cess` directory to mount the disk. Using `/cess` as an example:
 
 ```bash
-mkdir /cess
-echo "/dev/vdb /cess ext4 defaults 0 0" >> /etc/fstab
+sudo mkdir /cess
+sudo echo "/dev/vdb /cess ext4 defaults 0 0" >> /etc/fstab
 ```
 
 Replace `/dev/vdb` with your own disk name. /cess has to remain the same as created in the previous step. If you are not under root privileges, try:
