@@ -45,7 +45,6 @@
   * [Running Multi-buckets Container](storage-miner/multi-buckets.md)
   * [Node Troubleshooting](storage-miner/troubleshooting.md)
   * [TEE Worker Guide](storage-miner/teeworker.md)
-  * [Reward Mechanism](storage-miner/reward.md)
 * [🔒 Role: Consensus Miners](consensus-miner/README.md)
   * [Running a Consensus Node](consensus-miner/running.md)
   * [Reward Mechanism](consensus-miner/reward.md)
