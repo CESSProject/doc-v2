@@ -37,9 +37,9 @@ Starting from CESS v0.7.6, users can choose to run the consensus miner in the fo
 
 - **Full**：Full nodes possess all the functionalities, designed to be compatible with existing TEE Worker types. Registration requires `binding to consensus nodes`;
 
-- **Verifier**：Verification nodes primarily handle idle and servicing random challenges. This type also needs to be `bound to consensus nodes` for registration;
+- **Verifier**：Verification nodes primarily handle idle and servicing random challenges. This type also needs to be `binding to consensus nodes` for registration;
 
-- **Marker**：Authentication nodes are used to calculate tags for user-serviced files, process idle key generation, idle authentication, and idle replacement tasks. This type can be registered independently and serves a designated storage node cluster. ***Running the consensus node in this capacity does not increase reputation points***；
+- **Marker**：Authentication nodes are used to calculate tags for user-serviced files, process idle key generation, idle authentication, and idle replacement tasks. This type can be registered independently and serves a designated storage node cluster. **Running the consensus node in this capacity does not increase reputation points**；
 
 Running the consensus miner in `Full` and `Verifier` capacities requires two separate accounts. If you already have your own Stash account or want to designate someone else's Stash account, you do not need to perform the **Bond Fund** operation below.
 
@@ -47,7 +47,7 @@ Running the consensus miner in `Full` and `Verifier` capacities requires two sep
 
 - **Controller Account**: Only one account is needed, and it is used for the gas fee of the registration transaction.
 
-Running the consensus miner in the `Marker` capacity requires only one account. There is no need to perform the **Bond Fund** operation below.
+   Running the consensus miner in the `Marker` capacity requires only one account. There is no need to perform the **Bond Fund** operation below.
 
 - **Controller Account**: Only one account is needed, and it is used for the gas fee of the registration transaction.
 
@@ -109,7 +109,9 @@ The following is an operational example of running the miner in the `Full` capac
 
 ```bash
 Enter cess node mode from 'authority/storage/watcher' (current: authority, press enter to skip): authority
-##When you choose "authority," the Intel SGX driver on your machine will be started in software mode. You may see the prompt: "Software enable has been set. Please reboot your system to finish enabling Intel SGX." Please restart your machine after completing the configuration before proceeding to the next steps!
+
+## When you choose "authority," the Intel SGX driver on your machine will be started in software mode. You may see the prompt: "Software enable has been set. Please reboot your system to finish enabling Intel SGX." Please restart your machine after completing the configuration before proceeding to the next steps!
+
 Begin install sgx_enable ...
 Intel SGX is already enabled on this system
 Enter cess node name (current: cess, press enter to skip): cess
@@ -119,9 +121,11 @@ Start configuring the endpoint to access TEE worker from the Internet
   Try to get your external IP ...
 
 ## This step will automatically detect your machine's IP. If the automatic detection is incorrect, please manually enter the correct http://ip:port, where the port is the value you set in the previous step. Of course, you can also set the endpoint as a domain name.
+
 Enter the TEE worker endpoint (current: http://xx.xxx.xx.xx:19999, press enter to skip)
 
 ## When current is set to null, it means it is empty. You can simply press Enter to skip if you want to become a Marker.
+
 Enter cess validator stash account (current: null, press enter to skip): cXic3WhctsJ9cExmjE9vog49xaLuVbDLcFi2odeEnvV5Sbq4f
 Enter what kind of tee worker would you want to be [Full/Verifier]: Full
 Enter cess validator controller phrase: xxxxxxxxxxxxxx
@@ -183,7 +187,6 @@ If the configuration process fails, please refer to the [troubleshooting guideli
     ![rotate-keys Output Example](../assets/consensus-miner/running/rotate-keys.png)
 
     The field in the quotation marks after "result" is the Session Key, which will be used in subsequent operations. "localhost:9933" is the default port.<br/>
-
 
 3. Setup a session key<br/>
 
@@ -374,4 +377,4 @@ cess pullimg
    cess tools no_watchs cifrost
    ```
 
-   Every automatic upgrade from you means a bug fix for the consensus miner program by the official, and we **strongly discourage** you from turning off the automatic upgrade feature, as this may render your service **unavailable**!
+   Every automatic upgrade from you means a bug fix for the consensus miner program by the official, and we **strongly discourage** you from turning off the automatic upgrade feature, as this may render your service **unusable**.
