@@ -271,7 +271,7 @@ If you get the result of `You are not a storage node` , please wait for the chai
 ## Increase Miner Staking
 
 ```bash
-sudo cess bucket increase <deposit amount>
+sudo cess bucket increase staking <deposit amount>
 ```
 
 ## Withdraw Miner Staking
