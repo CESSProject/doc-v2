@@ -2,29 +2,29 @@ CESS account holds the user’s assets in CESS Network. Please keep the account 
 
 The following illustrate two ways to create a CESS account.
 
-# Method 1: Create an Account Using CESS Blockchain Explorer
+# Method 1: Create an Account Using Polkadot.js Apps
 
-- Navigate to [CESS Explorer](https://testnet.cess.cloud/).
+- Navigate to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc0.cess.cloud%2Fws%2F#/explorer).
 
-- Click **Settings**, under *in-browser account creation*, choose **Allow local in-browser account storage**.<br/>
+- Click **Settings**, under *in-browser account creation*, choose **Allow local in-browser account storage**, and click the save button at the bottom right.<br/>
 
-    ![CESS Explorer settings](../assets/community/cess-account/cess-expl-settings.png)
+    ![Polkadot.js Apps settings](../assets/community/cess-account/cess-expl-settings.png)
 
 - Click **Accounts** under the drop-down menu and then click **Add account** to create a new account.<br/>
 
-    ![CESS Explorer adding account](../assets/community/cess-account/cess-expl-add-acct.png)
+    ![Polkadot.js Apps adding account](../assets/community/cess-account/cess-expl-add-acct.png)
 
 - Keep the twelve words mnemonic phrase secure and safe. Then proceed to the next step.<br/>
 
-    ![CESS Explorer showing mnemonic](../assets/community/cess-account/cess-expl-showing-mnemonic.png)
+    ![Polkadot.js Apps showing mnemonic](../assets/community/cess-account/cess-expl-showing-mnemonic.png)
 
 - Create an account nickname and password, click **Next**, and then click **Save** to save the account raw seed.<br/>
 
-    ![CESS Explorer entering password](../assets/community/cess-account/cess-expl-entering-pwd.png)
+    ![Polkadot.js Apps entering password](../assets/community/cess-account/cess-expl-entering-pwd.png)
 
 - Congratulations! You have successfully created a CESS account.<br/>
 
-    ![CESS Explorer account created](../assets/community/cess-account/cess-expl-acct-created.png)
+    ![Polkadot.js Apps account created](../assets/community/cess-account/cess-expl-acct-created.png)
 
 # Method 2: Create an Account Using Polkadot.js Wallet
 
@@ -40,6 +40,34 @@ The following illustrate two ways to create a CESS account.
 
     ![Create a CESS account](../assets/community/cess-account/create-acct.png)
 
-- You can view the account in [CESS Explorer](https://testnet.cess.cloud/).<br/>
+- You can view the account in [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc0.cess.cloud%2Fws%2F#/explorer).<br/>
 
-    ![View account in CESS Explorer](../assets/community/cess-account/view-acct-cess-explorer.png)
+    ![View account in Polkadot.js Apps](../assets/community/cess-account/view-acct-cess-explorer.png)
+
+# How to Configure Polkadot.js Apps?
+
+You can navigate directly to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc0.cess.cloud%2Fws%2F#/explorer).
+
+If the link fails or you want to connect to the CESS network through another RPC address, you can configure it as follows:
+
+- Navigate to [Polkadot.js Apps](https://polkadot.js.org/apps).
+  
+- Click the blue square area in the picture below to open the configuration panel：
+
+    ![Polkadot.js Apps](../assets/community/cess-account/navigate-to-pkjs-apps.png)
+
+- Scroll down the page and find the DEVELOPMENT option, click on it：
+
+    ![Set RPC endpoint](../assets/community/cess-account/set-rpc-endpoint.png)
+
+- Fill in the RPC address you want to use in the input box and click the Switch button above to save.
+
+- The following are the available RPC addresses in CESS testnet:
+
+    {% hint style="info" %}
+    wss://testnet-rpc0.cess.cloud/ws/
+
+    wss://testnet-rpc1.cess.cloud/ws/
+
+    wss://testnet-rpc2.cess.cloud/ws/
+    {% endhint %}
