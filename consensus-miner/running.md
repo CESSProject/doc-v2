@@ -47,11 +47,7 @@ Running the consensus miner in `Full` and `Verifier` capacities requires two sep
 
 - **Controller Account**: Only one account is needed, and it is used for the gas fee of the registration transaction.
 
-<<<<<<< HEAD
 Running the consensus miner in the `Marker` capacity requires only one account. There is no need to perform the **Bond Fund** operation below.
-=======
-   Running the consensus miner in the `Marker` capacity requires only one account. There is no need to perform the **Bond Fund** operation below.
->>>>>>> e238c98f07d8ef462638ca713a8f8c310732d19e
 
 - **Controller Account**: Only one account is needed, and it is used for the gas fee of the registration transaction.
 
