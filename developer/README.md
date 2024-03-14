@@ -15,3 +15,4 @@ To explore what you can do with CESS SDKs or APIs, please check our tutorials. T
 - [Substrate and EVM Address Conversion](guides/substrate-evm.md)
 - [CESS Code Overview](guides/src-overview.md)
 - [DeOSS](https://docs.cess.cloud/deoss)
+- [User Space Operations Guide](guides/user-space.md)
