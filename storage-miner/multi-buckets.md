@@ -6,7 +6,7 @@ Install multi-buckets container can be illustrated as below:
 
 # Run multi-buckets containers by one-click installation
 
-## Download and install cess-multibucket-admin client
+## 1. Download and install cess-multibucket-admin client
 
 ```bash
 sudo wget https://github.com/CESSProject/cess-multibucket-admin/archive/v0.0.1.tar.gz
@@ -15,8 +15,7 @@ cd cess-multibucket-admin-0.0.1
 sudo bash ./install.sh
 ```
 
-
-## Custom your own configuration
+## 2. Custom your own configuration
 
 After execute command `sudo bash ./install.sh` successfully, custom your own config file at: `/opt/cess/multibucket-admin/config.yaml`
 
@@ -104,8 +103,7 @@ After execute command `sudo bash ./install.sh` successfully, custom your own con
         Boot: "_dnsaddr.boot-bucket-testnet.cess.cloud"
    ```
 
-
-## Generate configuration and install multi-buckets
+## 3. Generate configuration and install multi-buckets
    
 - Generate each bucket configuration at `$diskPath/bucket/config.yaml`
 - Generate docker-compose.yaml at `/opt/cess/multibucket-admin/build/docker-compose.yaml`
@@ -113,8 +111,8 @@ After execute command `sudo bash ./install.sh` successfully, custom your own con
   ```bash
   sudo cess-multibucket-admin config generate && sudo cess-multibucket-admin install
   ```
-  
-## Uninstall
+
+## 4. Uninstall
 
 Stop one container
 ```bash
