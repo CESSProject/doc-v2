@@ -137,7 +137,7 @@ Please refer to [Creating CESS Accounts](../community/cess-account.md) for creat
    ```
 
    {% hint style="info" %}
-   ⚠️ Replace the above `x.x.x` with the latest version (as of writing, it is **0.5.3**).
+   ⚠️ Replace the above `x.x.x` with the latest version (as of writing, it is **0.5.5**).
    {% endhint %}
 
    If a message `Install cess nodeadm success` shows up at the end, it means the installation is completed.

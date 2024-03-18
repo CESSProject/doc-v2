@@ -7,7 +7,7 @@ RPC nodes do not directly participate in block production like consensus nodes. 
 
 1. Check the latest version of cess-nodeadm
    Latest version of cess-nodeadm: <https://github.com/CESSProject/cess-nodeadm/tags><br/>
-   ⚠️ Replace all occurrences of `x.x.x` in the following text with the latest version number. For example, if the latest version is `v0.5.3`, then replace `x.x.x` with `0.5.3`.
+   ⚠️ Replace all occurrences of `x.x.x` in the following text with the latest version number. For example, if the latest version is `v0.5.5`, then replace `x.x.x` with `0.5.5`.
 
 2. Check the installed version of cess-nodeadm
    Enter `cess version` in the console to check if the `nodeadm version` is the latest.

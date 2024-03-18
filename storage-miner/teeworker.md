@@ -39,7 +39,7 @@ cd cess-nodeadm-0.5.x
 sudo ./install.sh
 ```
 
-Please check that you are using the latest version of cess-nodeadm. Currently it is version v0.5.3.
+Please check that you are using the latest version of cess-nodeadm. Currently it is version v0.5.5.
 If the `Install cess nodeadm success` message appears, the installation was successful.
 If the installation fails, review the troubleshooting steps.
 
