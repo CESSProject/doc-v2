@@ -1,16 +1,151 @@
-# 1. Prepare RPC node
+# Architecture
+
+Install multi-buckets container can be illustrated as below:
+
+![folder structure](../assets/storage-miner/multi-buckets/multibucket.png)
+
+# Run multi-buckets containers by one-click installation
+
+## Download and install cess-multibucket-admin client
+
+```bash
+sudo wget https://github.com/CESSProject/cess-multibucket-admin/archive/v0.0.1.tar.gz
+sudo tar -xvf v0.0.1.tar.gz
+cd cess-multibucket-admin-0.0.1
+sudo bash ./install.sh
+```
+
+
+## Custom your own configuration
+
+After execute command `sudo bash ./install.sh` successfully, custom your own config file at: `/opt/cess/multibucket-admin/config.yaml`
+
+   ```yaml
+   ## node configurations template
+   node:
+      ## the mode of node: multibucket
+      mode: "multibucket"
+      ## the profile of node: devnet/testnet/mainnet
+      profile: "testnet"
+      # default chain/rpcnode url for bucket, this config will be overwritten in buckets[] as below
+      chainWsUrl: "ws://127.0.0.1:9944/"
+      # default backup chain/rpcnode urls for bucket, this config will be overwritten in buckets[] as below
+      backupChainWsUrls: ["wss://testnet-rpc0.cess.cloud/ws/", "wss://testnet-rpc1.cess.cloud/ws/", "wss://testnet-rpc2.cess.cloud/ws/"]
+
+   ## chain/rpcnode configurations
+   ## set option: '--skip-rpcnode' or '-s' to skip installing rpcnode
+   ## if set option: --skip-rpcnode, please set official rpcnode in bucket[].rpcNodeWsUrl
+   rpcnode:
+      ## the name of chain/rpcnode node
+      name: "cess"
+      ## the port of chain/rpcnode node
+      port: 30336
+      ## listen rpc service at port 9944
+      rpcPort: 9944
+
+   ## bucket configurations  (multi storage miner mode)
+   buckets:
+      - name: "bucket_1"
+        # P2P communication port
+        port: 15001
+        # Maximum space used, the unit is GiB
+        UseSpace: 1000
+        # Number of cpu's used, 0 means use all
+        UseCpu: 2
+        # earnings account
+        earningsAcc: "cXxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+        # Staking account
+        # If you fill in the staking account, the staking will be paid by the staking account,
+        # otherwise the staking will be paid by the signature account.
+        stakingAcc: "cXxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+        # Signature account mnemonic
+        # each bucket's mnemonic should be different
+        mnemonic: "aaaaa bbbbb ccccc ddddd eeeee fffff ggggg hhhhh iiiii jjjjj kkkkk lllll"
+        # a directory mount with filesystem
+        diskPath: "/mnt/cess_storage1"
+        # The rpc endpoint of the rpcnode
+        # `official rpcnode: wss://testnet-rpc0.cess.cloud/ws/ wss://testnet-rpc1.cess.cloud/ws/ wss://testnet-rpc2.cess.cloud/ws/`
+        rpcNodeWsUrl: "ws://127.0.0.1:9944/"
+        backupRpcNodeWsUrls: []
+        # Priority tee list address
+        TeeList:
+           - "127.0.0.1:8080"
+           - "127.0.0.1:8081"
+        # Bootstrap Nodes
+        Boot: "_dnsaddr.boot-bucket-testnet.cess.cloud"
+        
+      - name: "bucket_2"
+        # P2P communication port
+        port: 15002
+        # Maximum space used, the unit is GiB
+        UseSpace: 1000
+        # Number of cpu's used
+        UseCpu: 2
+        # earnings account
+        earningsAcc: "cXxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+        # Staking account
+        # If you fill in the staking account, the staking will be paid by the staking account,
+        # otherwise the staking will be paid by the signature account.
+        stakingAcc: "cXxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+        # Signature account mnemonic
+        # each bucket's mnemonic should be different
+        mnemonic: "lllll kkkkk jjjjj iiiii hhhhh ggggg fffff eeeee ddddd ccccc bbbbb aaaaa"
+        # a directory mount with filesystem
+        diskPath: "/mnt/cess_storage2"
+        # The rpc endpoint of the rpcnode
+        # `official rpcnode: wss://testnet-rpc0.cess.cloud/ws/ wss://testnet-rpc1.cess.cloud/ws/ wss://testnet-rpc2.cess.cloud/ws/`
+        rpcNodeWsUrl: "ws://127.0.0.1:9944/"
+        backupRpcNodeWsUrls: [ ]
+        # Priority tee list address
+        TeeList:
+           - "127.0.0.1:8080"
+           - "127.0.0.1:8081"
+        # Bootstrap Nodes
+        Boot: "_dnsaddr.boot-bucket-testnet.cess.cloud"
+   ```
+
+
+## Generate configuration and install multi-buckets
+   
+- Generate each bucket configuration at `$diskPath/bucket/config.yaml`
+- Generate docker-compose.yaml at `/opt/cess/multibucket-admin/build/docker-compose.yaml`
+
+  ```bash
+  sudo cess-multibucket-admin config generate && sudo cess-multibucket-admin install
+  ```
+  
+## Uninstall
+
+Stop one container
+```bash
+  sudo cess-multibucket-admin stop $1
+```
+
+Stop all containers
+```bash
+  sudo cess-multibucket-admin stop
+```
+
+Stop and remove all containers
+```bash
+  sudo cess-multibucket-admin down
+```
+
+# Run multi-buckets containers step by step
+
+## 1. Prepare RPC node
 
 You have the option to run your own RPC node on your machine, or use the RPC node officially provided by CESS.
 
 To run your own RPC node, there are two ways: First is to start through the cess-nodeadm program, The second is to directly run the cess-node program. Below, we introduce both operating methods.
 
-## Run RPC nodes through the cess-nodeadm program
+### Run RPC nodes through the cess-nodeadm program
 
 1. Check the latest version of cess-nodeadm.
 
    The latest cess-nodeadm can be found here：<https://github.com/CESSProject/cess-nodeadm/tags>
 
-   ⚠️In the rest of this section, all occurrences of x.x.x will be replaced with the latest version number. For instance, if the latest version is v0.5.3, then x.x.x shall be replaced by 0.5.3.
+   ⚠️In the rest of this section, all occurrences of x.x.x will be replaced with the latest version number. For instance, if the latest version is v0.5.5, then x.x.x shall be replaced by 0.5.4.
 
 2. Check installed cess-nodeadm version.
 
@@ -23,10 +158,10 @@ To run your own RPC node, there are two ways: First is to start through the cess
 3. Download and install the cess-nodeadm program
 
    ```bash
-   wget https://github.com/CESSProject/cess-nodeadm/archive/vx.x.x.tar.gz
-   tar -xvf vx.x.x.tar.gz
+   sudo wget https://github.com/CESSProject/cess-nodeadm/archive/vx.x.x.tar.gz
+   sudo tar -xvf vx.x.x.tar.gz
    cd cess-nodeadm-x.x.x/
-   ./install.sh
+   sudo bash ./install.sh
    ```
 
 4. Stop the cess-node service
@@ -52,7 +187,7 @@ To run your own RPC node, there are two ways: First is to start through the cess
    docker logs chain
    ```
 
-## Run the cess-node program directly
+### Run RPC nodes through source code
 
 1. Install rust environment.
 
@@ -92,7 +227,7 @@ To run your own RPC node, there are two ways: First is to start through the cess
 
    ⚠️You need to keep the cess-node program running all the time. It is recommended to run cess-node command on a separate window [**screen**](https://linuxize.com/post/how-to-use-linux-screen/) or [**tmux**](https://linuxize.com/post/getting-started-with-tmux/).
 
-# 2. Install Docker and Docker Compose
+## 2. Install Docker and Docker Compose
 
 Using ubuntu (officially recommended storage node operating system) as an example to install docker.
 
@@ -135,15 +270,15 @@ Also refer to the Docker [installation documentation](https://docs.docker.com/en
    sudo usermod -aG docker $USER
    ```
 
-# 3. Configure Storage Node Information
+## 3. Configure Storage Node Information
 
 1. Create a working directory for each storage node (for example: when running two storage nodes, the data directories of the two stored programs are located at `/mnt/disk0` and `/mnt/disk1` respectively. You can modify them to your own directories.)：
 
    ```bash
    cd /mnt/disk0/
-   mkdir bucket storage
+   sudo mkdir bucket storage
    cd /mnt/disk1/
-   mkdir bucket storage
+   sudo mkdir bucket storage
    ```
 
    The bucket directory is used to store storage node configuration files, and the storage directory is used as the working directory for storage node operation;
@@ -187,7 +322,7 @@ Also refer to the Docker [installation documentation](https://docs.docker.com/en
 
    ![folder structure](../assets/storage-miner/multi-buckets/folder.png)
 
-# 4. Configure and start the storage node container
+## 4. Configure and start the storage node container
 
 Please create the `docker-compose.yaml` file according to the following content to start storage node containers in batches：
 
