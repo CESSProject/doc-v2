@@ -2,7 +2,7 @@
 
 Install multi-buckets container can be illustrated as below:
 
-![folder structure](../assets/storage-miner/multi-buckets/multibucket.png)
+![Multi-bucket Architecture](../assets/storage-miner/multi-buckets/multibucket.png)
 
 # Run multi-buckets containers with admin client
 
@@ -26,14 +26,14 @@ After executing the above installation command, customize your own config file a
       mode: "multibucket"
       ## the profile of node: devnet/testnet/mainnet
       profile: "testnet"
-      # default chain url for bucket, this config will be overwritten in buckets[] as below
+      # default chain url for bucket, can be overwritten in buckets[] as below
       chainWsUrl: "ws://127.0.0.1:9944/"
-      # default backup chain urls for bucket, this config will be overwritten in buckets[] as below
+      # default backup chain urls for bucket, can be overwritten in buckets[] as below
       backupChainWsUrls: ["wss://testnet-rpc0.cess.cloud/ws/", "wss://testnet-rpc1.cess.cloud/ws/", "wss://testnet-rpc2.cess.cloud/ws/"]
 
    ## chain configurations
-   ## set option: '--skip-chain' or '-s' to skip installing chain
-   ## if set option: --skip-chain, please set official chain in bucket[].chainWsUrl
+   ## set option: '--skip-chain' or '-s' to skip installing chain (cess-multibucket-admin install --skip-chain)
+   ## if set option: --skip-chain, please set official chain in buckets[].chainWsUrl or others chains you know
    chain:
       ## the name of chain node
       name: "cess"
@@ -55,7 +55,7 @@ After executing the above installation command, customize your own config file a
         earningsAcc: "cXxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
         # Staking account
         # If you fill in the staking account, the staking will be paid by the staking account,
-        # otherwise the staking will be paid by the signature account.
+        # otherwise the staking will be paid by the earningsAcc.
         stakingAcc: "cXxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
         # Signature account mnemonic
         # each bucket's mnemonic should be different
@@ -84,7 +84,7 @@ After executing the above installation command, customize your own config file a
         earningsAcc: "cXxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
         # Staking account
         # If you fill in the staking account, the staking will be paid by the staking account,
-        # otherwise the staking will be paid by the signature account.
+        # otherwise the staking will be paid by the earningsAcc.
         stakingAcc: "cXxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
         # Signature account mnemonic
         # each bucket's mnemonic should be different
