@@ -8,7 +8,7 @@ In the first year, a total of **187.5 million tokens** are issued, and they are 
 
 # Reward
 
-For each era (which lasts 24 hours in CESS), miners receive rewards in proportion to the era points they have collected. Era points are obtained through the following:
+For each era (which lasts 6 hours in CESS), miners receive rewards in proportion to the era points they have collected. Era points are obtained through the following:
 
 - Authoring canonical blocks.
 - Authoring references to previously unreferenced uncle blocks.
