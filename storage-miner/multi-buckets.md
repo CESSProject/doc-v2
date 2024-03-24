@@ -4,7 +4,7 @@ Install multi-buckets container can be illustrated as below:
 
 ![Multi-bucket Architecture](../assets/storage-miner/multi-buckets/multibucket.png)
 
-# Run multi-buckets containers with admin client
+# Method 1: Run multi-buckets containers with admin client
 
 ## 1. Download and install cess-multibucket-admin client
 
@@ -17,7 +17,19 @@ sudo bash ./install.sh
 
 ## 2. Customize your own configuration
 
-After executing the above installation command, customize your own config file at: `/opt/cess/multibucket-admin/config.yaml`
+{% hint style="info" %}
+After executing the above installation command, customize your own config file at: `/opt/cess/multibucket-admin/config.yaml`.
+{% endhint %}
+
+- UseSpace: Storage capacity of the storage node, measured in GB.
+- UseCpu: Number of logical cores used by the storage node.
+- earningsAcc: Income account. [Get earningsAcc and mnemonic](https://docs.cess.cloud/core/storage-miner/running#prepare-cess-accounts)
+- stakingAcc: Payment account for staking TCESS, where staking 4000 TCESS is required for providing 1T of storage space.
+- mnemonic: Account mnemonic, consisting of 12 words, with each storage node requiring a different mnemonic.
+- diskPath: Absolute system path where the storage node run, requiring a file system to be mounted at this path.
+- chainWsUrl: By default, the local RPC node will be used for  data synchronization. The priority of `buckets[].chainWsUrl` is higher than `node.chainWsUrl`.
+- backupChainWsUrls: Backup RPC nodes that can be official RPC nodes or other RPC nodes you know. The priority of `buckets[].backupChainWsUrls` is higher than `node.backupChainWsUrls`.
+
 
    ```yaml
    ## node configurations template
@@ -29,7 +41,7 @@ After executing the above installation command, customize your own config file a
       # default chain url for bucket, can be overwritten in buckets[] as below
       chainWsUrl: "ws://127.0.0.1:9944/"
       # default backup chain urls for bucket, can be overwritten in buckets[] as below
-      backupChainWsUrls: ["wss://testnet-rpc0.cess.cloud/ws/", "wss://testnet-rpc1.cess.cloud/ws/", "wss://testnet-rpc2.cess.cloud/ws/"]
+      backupChainWsUrls: ["wss://testnet-rpc0.cess.cloud/ws/", "wss://testnet-rpc1.cess.cloud/ws/", "wss://testnet-rpc2.cess.cloud/ws/", "wss://testnet-rpc3.cess.cloud/ws/"]
 
    ## chain configurations
    ## set option: '--skip-chain' or '-s' to skip installing chain (cess-multibucket-admin install --skip-chain)
@@ -63,7 +75,7 @@ After executing the above installation command, customize your own config file a
         # a directory mount with filesystem
         diskPath: "/mnt/cess_storage1"
         # The rpc endpoint of the chain
-        # `official chain: wss://testnet-rpc0.cess.cloud/ws/ wss://testnet-rpc1.cess.cloud/ws/ wss://testnet-rpc2.cess.cloud/ws/`
+        # `official chain: wss://testnet-rpc0.cess.cloud/ws/ wss://testnet-rpc1.cess.cloud/ws/ wss://testnet-rpc2.cess.cloud/ws/` "wss://testnet-rpc2.cess.cloud/ws/"
         chainWsUrl: "ws://127.0.0.1:9944/"
         backupChainWsUrls: []
         # Priority tee list address
@@ -92,7 +104,7 @@ After executing the above installation command, customize your own config file a
         # a directory mount with filesystem
         diskPath: "/mnt/cess_storage2"
         # The rpc endpoint of the chain
-        # `official chain: wss://testnet-rpc0.cess.cloud/ws/ wss://testnet-rpc1.cess.cloud/ws/ wss://testnet-rpc2.cess.cloud/ws/`
+        # `official chain: wss://testnet-rpc0.cess.cloud/ws/ wss://testnet-rpc1.cess.cloud/ws/ wss://testnet-rpc2.cess.cloud/ws/` "wss://testnet-rpc2.cess.cloud/ws/"
         chainWsUrl: "ws://127.0.0.1:9944/"
         backupChainWsUrls: [ ]
         # Priority tee list address
@@ -103,18 +115,41 @@ After executing the above installation command, customize your own config file a
         Boot: "_dnsaddr.boot-bucket-testnet.cess.cloud"
    ```
 
-## 3. Generate configuration and install multi-buckets
+## 3. Generate configuration
    
-- Generate each bucket configuration at `$diskPath/bucket/config.yaml`
-- Generate docker-compose.yaml at `/opt/cess/multibucket-admin/build/docker-compose.yaml`
+
+The following command will generate `config.yaml` for each storage node and `docker-compose.yaml` based on the file located at: `/opt/cess/multibucket-admin/config.yaml`.
 
    ```bash
-   sudo cess-multibucket-admin config generate && sudo cess-multibucket-admin install
+   sudo cess-multibucket-admin config generate
    ```
 
-## 4. Uninstall
+- Generate each bucket configuration at `$diskPath/bucket/config.yaml`. For example, bucket_1's configuration generate at: `/mnt/cess_storage1/bucket/config.yaml`
+- Generate docker-compose.yaml at `/opt/cess/multibucket-admin/build/docker-compose.yaml`
 
-Stop one container
+{% hint style="warning" %}
+Unless the path to the configuration file has been customized, `/opt/cess/multibucket-admin/config.yaml` will be used.
+{% endhint %}
+
+## 4. Installation
+
+### Install all services
+Install watchTower, rpc, and multi-buckets services
+
+  ```bash
+  sudo cess-multibucket-admin install
+  ```
+
+### Skip install rpcnode
+If an official RPC node or other known RPC node is configured in the configuration file, you can skip starting a local RPC node with `-skip-chain`.
+
+  ```bash
+  sudo cess-multibucket-admin install --skip-chain
+  ```
+
+## 5. Uninstallation
+
+Stop one container, such as execute `sudo cess-multibucket-admin stop bucket_1` to stop `bucket_1`
 ```bash
   sudo cess-multibucket-admin stop $1
 ```
@@ -130,7 +165,7 @@ Stop and remove all containers
 ```
 
 
-# Run multi-buckets containers manually
+# Method 2: Run multi-buckets containers manually
 
 ## 1. Prerequisites
 
