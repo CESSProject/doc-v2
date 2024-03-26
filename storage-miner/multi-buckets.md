@@ -1,6 +1,9 @@
 # Architecture
 
 Install multi-buckets container can be illustrated as below:
+- watchTower: When there is a difference between the local bucket image and the official bucket image, watchtower will automatically pull the new official image, create a new storage node, and then delete the old storage node.
+- bucket: A storage node. Multiple storage nodes communicate with each other via P2P. The ports configured in the example config.yaml are: 15001, 15002.
+- chain: A chain node. Storage nodes query block information through the chain node's 9944 port by default; chain nodes synchronize data among themselves through the default port: 30336.
 
 ![Multi-bucket Architecture](../assets/storage-miner/multi-buckets/multibucket.png)
 
@@ -9,9 +12,9 @@ Install multi-buckets container can be illustrated as below:
 ## 1. Download and install cess-multibucket-admin client
 
 ```bash
-sudo wget https://github.com/CESSProject/cess-multibucket-admin/archive/v0.0.1.tar.gz
-sudo tar -xvf v0.0.1.tar.gz
-cd cess-multibucket-admin-0.0.1
+sudo wget https://github.com/CESSProject/cess-multibucket-admin/archive/latest.tar.gz
+sudo tar -xvf latest.tar.gz
+cd cess-multibucket-admin-latest
 sudo bash ./install.sh
 ```
 
@@ -23,12 +26,17 @@ After executing the above installation command, customize your own config file a
 
 - UseSpace: Storage capacity of the storage node, measured in GB.
 - UseCpu: Number of logical cores used by the storage node.
-- earningsAcc: Income account. [Get earningsAcc and mnemonic](https://docs.cess.cloud/core/storage-miner/running#prepare-cess-accounts)
-- stakingAcc: Payment account for staking TCESS, where staking 4000 TCESS is required for providing 1T of storage space.
+- port: Storage node use that port to communicat with each other，the port of each storage node must be different and not occupied by other process
+- diskPath: Absolute system path where the storage node run, requiring a file system to be mounted at this path.  
+- earningsAcc: Used to receive mining rewards. [Get earningsAcc and mnemonic](https://docs.cess.cloud/core/storage-miner/running#prepare-cess-accounts)
+- stakingAcc: Used to pay for staking TCESS. 4000 TCESS is required for providing 1T of storage space.
 - mnemonic: Account mnemonic, consisting of 12 words, with each storage node requiring a different mnemonic.
-- diskPath: Absolute system path where the storage node run, requiring a file system to be mounted at this path.
 - chainWsUrl: By default, the local RPC node will be used for  data synchronization. The priority of `buckets[].chainWsUrl` is higher than `node.chainWsUrl`.
 - backupChainWsUrls: Backup RPC nodes that can be official RPC nodes or other RPC nodes you know. The priority of `buckets[].backupChainWsUrls` is higher than `node.backupChainWsUrls`.
+
+{% hint style="warning" %}
+Your can run multibucket in a single disk by lvm, then mount each lv in different diskPath, but when your single disk can not work, all storage nodes depends on this single disk will be down !
+{% endhint %}
 
 
    ```yaml
@@ -75,7 +83,7 @@ After executing the above installation command, customize your own config file a
         # a directory mount with filesystem
         diskPath: "/mnt/cess_storage1"
         # The rpc endpoint of the chain
-        # `official chain: wss://testnet-rpc0.cess.cloud/ws/ wss://testnet-rpc1.cess.cloud/ws/ wss://testnet-rpc2.cess.cloud/ws/` "wss://testnet-rpc2.cess.cloud/ws/"
+        # `official chain: wss://testnet-rpc0.cess.cloud/ws/ wss://testnet-rpc1.cess.cloud/ws/ wss://testnet-rpc2.cess.cloud/ws/` "wss://testnet-rpc3.cess.cloud/ws/"
         chainWsUrl: "ws://127.0.0.1:9944/"
         backupChainWsUrls: []
         # Priority tee list address
@@ -104,7 +112,7 @@ After executing the above installation command, customize your own config file a
         # a directory mount with filesystem
         diskPath: "/mnt/cess_storage2"
         # The rpc endpoint of the chain
-        # `official chain: wss://testnet-rpc0.cess.cloud/ws/ wss://testnet-rpc1.cess.cloud/ws/ wss://testnet-rpc2.cess.cloud/ws/` "wss://testnet-rpc2.cess.cloud/ws/"
+        # `official chain: wss://testnet-rpc0.cess.cloud/ws/ wss://testnet-rpc1.cess.cloud/ws/ wss://testnet-rpc2.cess.cloud/ws/` "wss://testnet-rpc3.cess.cloud/ws/"
         chainWsUrl: "ws://127.0.0.1:9944/"
         backupChainWsUrls: [ ]
         # Priority tee list address
@@ -147,23 +155,100 @@ If an official RPC node or other known RPC node is configured in the configurati
   sudo cess-multibucket-admin install --skip-chain
   ```
 
-## 5. Uninstallation
+## 5. Common Operations
 
-Stop one container, such as execute `sudo cess-multibucket-admin stop bucket_1` to stop `bucket_1`
+**Stop one container**, such as execute `sudo cess-multibucket-admin stop bucket_1` to stop `bucket_1`
 ```bash
   sudo cess-multibucket-admin stop $1
 ```
 
-Stop all containers
+**Stop all containers**
 ```bash
   sudo cess-multibucket-admin stop
 ```
 
-Stop and remove all containers
+**Stop and remove all containers**
 ```bash
   sudo cess-multibucket-admin down
 ```
 
+**Restart all services**
+```bash
+  sudo cess-multibucket-admin restart
+```
+
+**Restart a service**, such as execute `sudo cess-multibucket-admin reload bucket_1` to restart `bucket_1`
+```bash
+  sudo cess-multibucket-admin restart $1
+```
+
+**Get version information** 
+```bash
+  sudo cess-multibucket-admin version
+```
+
+**Check services status**
+```bash
+  sudo cess-multibucket-admin status
+```
+
+**Pull images**
+```bash
+  sudo cess-multibucket-admin pullimg
+```
+
+**Check disk usage** 
+```bash
+  sudo cess-multibucket-admin tools space-info
+```
+
+**View Bucket Status**
+
+Please wait hours to wait data sync in storage node
+```bash
+  sudo cess bucket stat
+```
+
+**Increase Miner Staking**
+```bash
+  sudo cess-multibucket-admin buckets increase staking <deposit amount>
+```
+
+**Withdraw Miner Staking**
+
+After your node **has exited CESS Network** (see below), run
+```bash
+  sudo cess-multibucket-admin buckets withdraw
+```
+
+**Query Reward Information**
+```bash
+  sudo cess-multibucket-admin buckets reward
+```
+
+**Claim Reward**
+```bash
+  sudo cess-multibucket-admin buckets claim
+```
+
+**Update Earnings Account**
+```bash
+  sudo cess-multibucket-admin buckets update earnings [earnings account]
+```
+
+**Exit CESS network**
+```bash
+  sudo cess-multibucket-admin buckets exit
+```
+
+**Remove all service**
+
+{% hint style="warning" %}
+Do not perform this operation unless the CESS network has been redeployed and it is confirmed that the data can be cleared.
+{% endhint %}
+```bash
+  sudo cess-multibucket-admin purge
+```
 
 # Method 2: Run multi-buckets containers manually
 
