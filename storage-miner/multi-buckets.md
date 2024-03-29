@@ -1,17 +1,160 @@
 # Architecture
 
 Install multi-buckets container can be illustrated as below:
+- watchTower: When there is a difference between the local bucket image and the official bucket image, watchtower will automatically pull the new official image, create a new storage node, and then delete the old storage node.
+- bucket: A storage node. Multiple storage nodes communicate with each other via P2P. The ports configured in the example config.yaml are: 15001, 15002.
+- chain: A chain node. Storage nodes query block information through the chain node's 9944 port by default; chain nodes synchronize data among themselves through the default port: 30336.
 
 ![Multi-bucket Architecture](../assets/storage-miner/multi-buckets/multibucket.png)
 
+# 服务器要求
+
+Minimum Configuration Requirements:
+
+| Resource  | Specification |
+| ------------- | ------------- |
+| Recommended OS | Linux 64-bit Intel / AMD |
+| # of CPU Cores | ≥ 4 |
+| Memory | ≥ 8 GB |
+| Bandwidth | ≥ 5 Mbps |
+| Public Network IP | required |
+| Linux Kernel Version | 5.11 or higher |
+
+Each storage node requires at least 4GB of RAM and 1 logic core, and the chain node requires at least 2GB of RAM and 1 logic core.
+
+At least 10GB of RAM and 3 logic cores if running 2 storage nodes and 1 chain node at the same time
+
 # Method 1: Run multi-buckets containers with admin client
+
+## Storage environment requirements
+
+Installation operation has certain requirements on the storage environment in the current host, 
+and different configurations are required based on the disk configuration.
+
+### Multiple Disks
+
+As shown in the figure below, where `/dev/sda` is the system disk, `/dev/sdb`, `/dev/sdc` are the data disks, users can directly partition and create file systems on the data disks, 
+and finally mount the file systems to the working directory of the storage node.
+
+![Multi Disk](../assets/storage-miner/multi-buckets/multi-disk-env.png)
+
+```bash
+fdisk /dev/sdb
+
+# 2048: The starting sector of a new disk is usually set to 2048. This ensures that the partition boundaries are aligned with the physical sectors of the hard disk.
+# the value after default: The default is the maximum sector value, which partitions the entire disk.
+
+Enter and press Enter:
+n
+p
+1
+2048
+the value after default
+w
+
+# create filesystem in /dev/vdb
+sudo mkfs.ext4 /dev/sdb
+
+Proceed anyway? (y,N) y
+
+# create a diskPath of a storage node
+sudo mkdir /cess_storage1
+
+# mount filesystem
+sudo mount /dev/sdb /cess_storage1
+
+# auto mount when your reboot your server
+sudo cp /etc/fstab /etc/fstab.bak
+sudo sh -c "echo `blkid /dev/sdb | awk '{print $2}' | sed 's/\"//g'` /cess_storage1 ext4 defaults 0 0 >> /etc/fstab"
+```
+
+Repeat the above steps to partition `/dev/sdc` and create a filesystem, then mount it to the file directory: `/cess_storage2`
+
+{% hint style="warning" %}
+In the case where a disk is divided into multiple partitions, when the disk is damaged, all storage nodes that use its partitions for work will be affected.
+{% endhint %}
+
+### Single Disk
+This procedure is suitable for environments with only one system disk.
+
+#### Scene 1
+As shown in the following example, if there is only one 50GB system disk, 
+the `Last sector value` of partition `/dev/sda3` of disk `/dev/sda` is already at its maximum value (50GB disk can not be partitioned any more).
+```bash
+[root@cess ~]# lsblk 
+NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda    253:0    0   50G  0 disk 
+├─sda1 253:1    0    2M  0 part 
+├─sda2 253:2    0  200M  0 part /boot/efi
+└─sda3 253:3    0 49.8G  0 part /
+```
+As shown above, the current system kernel is using this partition, so it can not modify the partition to build the running environment required for multibucket.
+
+If the partition does not take up the entire disk and there is still storage space available for partitioning, you can configure the partition by referring to the configuration method of **Multiple Disks**.(In this situation, the running of multibucket will depend on this single disk.)
+
+
+#### Scene 2
+As shown in the figure below, the current environment has only one `/dev/nvme0n1` system disk with about 1.8T of storage space, which is partitioned three times, including `/dev/nvme0n1p1`, `/dev/nvme0n1p2` and `/dev/nvme0n1p3`.
+
+The current system relies on the virtual logical disk `/dev/ubuntu-vg/ubuntu-lv` created in the third partition `/dev/nvme0n1p3`. Since this virtual logical disk occupies only 100GB of storage space, you can configure a multibucket environment by using `lvm` to create multiple virtual logical volumes on the remaining space.
+
+![Single Disk](../assets/storage-miner/multi-buckets/single-disk-env.png)
+
+```bash
+# use command: vgs to show current volume group, and find that the current volume group name is: ubuntu-vg, VFree displays the remaining storage space of the current volume group.
+$ vgs
+cess@cess:/home/cess# vgs
+  VG        #PV #LV #SN Attr   VSize   VFree
+  ubuntu-vg   1   1   0 wz--n- <1.82t  1.7T
+
+# use command: lvcreate to create a 100GB logic volume named cess_storage from volume group: ubuntu-vg
+$ sudo lvcreate -L 100g -n cess_storage ubuntu-vg -y
+# use command: lvcreate to create logic volume named cess_storage from all remaining space of volume group: ubuntu-vg
+# sudo lvcreate -l 100%FREE -n cess_storage ubuntu-vg -y
+
+# use command: lvdisplay to display logic volume your have created, name: cess_storage, path: /dev/ubuntu-vg/cess_storage
+$ sudo lvdisplay
+root@cess:/home/cess# lvdisplay
+  --- Logical volume ---
+  LV Path                /dev/ubuntu-vg/ubuntu-lv
+  LV Name                ubuntu-lv
+  VG Name                ubuntu-vg
+  LV UUID                zxJiPj-Anon-CG3r-XEIJ-Nydi-xxxx-U6oWqW
+  LV Size                100.00 GiB
+   
+  --- Logical volume ---
+  LV Path                /dev/ubuntu-vg/cess_storage
+  LV Name                cess_storage
+  VG Name                ubuntu-vg
+  LV UUID                33Z2eL-AVma-oV4V-1vnE-G3YC-xxxx-wtzxHs
+  LV Size                <1.72 TiB
+
+# create filesystem in /dev/ubuntu-vg/cess_storage
+$ sudo mkfs.ext4 /dev/ubuntu-vg/cess_storage
+
+# create a diskPath of a storage node
+sudo mkdir /cess
+
+# mount filesystem
+sudo mount /dev/ubuntu-vg/cess_storage /cess
+
+# auto mount when your reboot your server
+sudo cp /etc/fstab /etc/fstab.bak
+# modify <lv path>, <diskPath>, <filesystem type>
+sudo sh -c "echo `blkid /dev/ubuntu-vg/cess_storage | awk '{print $2}' | sed 's/\"//g'` /cess ext4 defaults 0 0 >> /etc/fstab"
+```
+
+{% hint style="warning" %}
+Users can create multiple logic volumes on a single disk by lvm, and mount multiple logic volumes on different diskPaths, but when the disk is damaged, all storage nodes relying on lvm will be down!
+{% endhint %}
+
 
 ## 1. Download and install cess-multibucket-admin client
 
 ```bash
-sudo wget https://github.com/CESSProject/cess-multibucket-admin/archive/v0.0.1.tar.gz
-sudo tar -xvf v0.0.1.tar.gz
-cd cess-multibucket-admin-0.0.1
+sudo wget https://github.com/CESSProject/cess-multibucket-admin/archive/latest.tar.gz
+sudo tar -xvf latest.tar.gz
+cd cess-multibucket-admin-latest
 sudo bash ./install.sh
 ```
 
@@ -23,12 +166,17 @@ After executing the above installation command, customize your own config file a
 
 - UseSpace: Storage capacity of the storage node, measured in GB.
 - UseCpu: Number of logical cores used by the storage node.
-- earningsAcc: Income account. [Get earningsAcc and mnemonic](https://docs.cess.cloud/core/storage-miner/running#prepare-cess-accounts)
-- stakingAcc: Payment account for staking TCESS, where staking 4000 TCESS is required for providing 1T of storage space.
+- port: Storage node use that port to communicat with each other，the port of each storage node must be different and not occupied by other process
+- diskPath: Absolute system path where the storage node run, requiring a file system to be mounted at this path.  
+- earningsAcc: Used to receive mining rewards. [Get earningsAcc and mnemonic](https://docs.cess.cloud/core/storage-miner/running#prepare-cess-accounts)
+- stakingAcc: Used to pay for staking TCESS. 4000 TCESS is required for providing 1T of storage space.
 - mnemonic: Account mnemonic, consisting of 12 words, with each storage node requiring a different mnemonic.
-- diskPath: Absolute system path where the storage node run, requiring a file system to be mounted at this path.
 - chainWsUrl: By default, the local RPC node will be used for  data synchronization. The priority of `buckets[].chainWsUrl` is higher than `node.chainWsUrl`.
 - backupChainWsUrls: Backup RPC nodes that can be official RPC nodes or other RPC nodes you know. The priority of `buckets[].backupChainWsUrls` is higher than `node.backupChainWsUrls`.
+
+{% hint style="warning" %}
+Your can run multibucket in a single disk by lvm, then mount each lv in different diskPath, but when your single disk can not work, all storage nodes depends on this single disk will be down !
+{% endhint %}
 
 
    ```yaml
@@ -75,7 +223,7 @@ After executing the above installation command, customize your own config file a
         # a directory mount with filesystem
         diskPath: "/mnt/cess_storage1"
         # The rpc endpoint of the chain
-        # `official chain: wss://testnet-rpc0.cess.cloud/ws/ wss://testnet-rpc1.cess.cloud/ws/ wss://testnet-rpc2.cess.cloud/ws/` "wss://testnet-rpc2.cess.cloud/ws/"
+        # `official chain: wss://testnet-rpc0.cess.cloud/ws/ wss://testnet-rpc1.cess.cloud/ws/ wss://testnet-rpc2.cess.cloud/ws/` "wss://testnet-rpc3.cess.cloud/ws/"
         chainWsUrl: "ws://127.0.0.1:9944/"
         backupChainWsUrls: []
         # Priority tee list address
@@ -104,7 +252,7 @@ After executing the above installation command, customize your own config file a
         # a directory mount with filesystem
         diskPath: "/mnt/cess_storage2"
         # The rpc endpoint of the chain
-        # `official chain: wss://testnet-rpc0.cess.cloud/ws/ wss://testnet-rpc1.cess.cloud/ws/ wss://testnet-rpc2.cess.cloud/ws/` "wss://testnet-rpc2.cess.cloud/ws/"
+        # `official chain: wss://testnet-rpc0.cess.cloud/ws/ wss://testnet-rpc1.cess.cloud/ws/ wss://testnet-rpc2.cess.cloud/ws/` "wss://testnet-rpc3.cess.cloud/ws/"
         chainWsUrl: "ws://127.0.0.1:9944/"
         backupChainWsUrls: [ ]
         # Priority tee list address
@@ -147,23 +295,100 @@ If an official RPC node or other known RPC node is configured in the configurati
   sudo cess-multibucket-admin install --skip-chain
   ```
 
-## 5. Uninstallation
+## 5. Common Operations
 
-Stop one container, such as execute `sudo cess-multibucket-admin stop bucket_1` to stop `bucket_1`
+**Stop one container**, such as execute `sudo cess-multibucket-admin stop bucket_1` to stop `bucket_1`
 ```bash
   sudo cess-multibucket-admin stop $1
 ```
 
-Stop all containers
+**Stop all containers**
 ```bash
   sudo cess-multibucket-admin stop
 ```
 
-Stop and remove all containers
+**Stop and remove all containers**
 ```bash
   sudo cess-multibucket-admin down
 ```
 
+**Restart all services**
+```bash
+  sudo cess-multibucket-admin restart
+```
+
+**Restart a service**, such as execute `sudo cess-multibucket-admin reload bucket_1` to restart `bucket_1`
+```bash
+  sudo cess-multibucket-admin restart $1
+```
+
+**Get version information** 
+```bash
+  sudo cess-multibucket-admin version
+```
+
+**Check services status**
+```bash
+  sudo cess-multibucket-admin status
+```
+
+**Pull images**
+```bash
+  sudo cess-multibucket-admin pullimg
+```
+
+**Check disk usage** 
+```bash
+  sudo cess-multibucket-admin tools space-info
+```
+
+**View Bucket Status**
+
+Please wait hours to wait data sync in storage node
+```bash
+  sudo cess bucket stat
+```
+
+**Increase Miner Staking**
+```bash
+  sudo cess-multibucket-admin buckets increase staking <deposit amount>
+```
+
+**Withdraw Miner Staking**
+
+After your node **has exited CESS Network** (see below), run
+```bash
+  sudo cess-multibucket-admin buckets withdraw
+```
+
+**Query Reward Information**
+```bash
+  sudo cess-multibucket-admin buckets reward
+```
+
+**Claim Reward**
+```bash
+  sudo cess-multibucket-admin buckets claim
+```
+
+**Update Earnings Account**
+```bash
+  sudo cess-multibucket-admin buckets update earnings [earnings account]
+```
+
+**Exit CESS network**
+```bash
+  sudo cess-multibucket-admin buckets exit
+```
+
+**Remove all service**
+
+{% hint style="warning" %}
+Do not perform this operation unless the CESS network has been redeployed and it is confirmed that the data can be cleared.
+{% endhint %}
+```bash
+  sudo cess-multibucket-admin purge
+```
 
 # Method 2: Run multi-buckets containers manually
 
@@ -281,7 +506,7 @@ Also refer to the Docker [installation documentation](https://docs.docker.com/en
 
    ![folder structure](../assets/storage-miner/multi-buckets/folder.png)
 
-## 4. Configure and start the storage node container
+## 3. Configure and start the storage node container
 
 Please create the `docker-compose.yaml` file with the following content to start storage node containers in batches, you can place this file anywhere accessible.
 
