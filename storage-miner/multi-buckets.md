@@ -7,7 +7,147 @@ Install multi-buckets container can be illustrated as below:
 
 ![Multi-bucket Architecture](../assets/storage-miner/multi-buckets/multibucket.png)
 
+# 服务器要求
+
+Minimum Configuration Requirements:
+
+| Resource  | Specification |
+| ------------- | ------------- |
+| Recommended OS | Linux 64-bit Intel / AMD |
+| # of CPU Cores | ≥ 4 |
+| Memory | ≥ 8 GB |
+| Bandwidth | ≥ 5 Mbps |
+| Public Network IP | required |
+| Linux Kernel Version | 5.11 or higher |
+
+Each storage node requires at least 4GB of RAM and 1 logic core, and the chain node requires at least 2GB of RAM and 1 logic core.
+
+At least 10GB of RAM and 3 logic cores if running 2 storage nodes and 1 chain node at the same time
+
 # Method 1: Run multi-buckets containers with admin client
+
+## Storage environment requirements
+
+Installation operation has certain requirements on the storage environment in the current host, 
+and different configurations are required based on the disk configuration.
+
+### Multiple Disks
+
+As shown in the figure below, where `/dev/sda` is the system disk, `/dev/sdb`, `/dev/sdc` are the data disks, users can directly partition and create file systems on the data disks, 
+and finally mount the file systems to the working directory of the storage node.
+
+![Multi Disk](../assets/storage-miner/multi-buckets/multi-disk-env.png)
+
+```bash
+fdisk /dev/sdb
+
+# 2048: The starting sector of a new disk is usually set to 2048. This ensures that the partition boundaries are aligned with the physical sectors of the hard disk.
+# the value after default: The default is the maximum sector value, which partitions the entire disk.
+
+Enter and press Enter:
+n
+p
+1
+2048
+the value after default
+w
+
+# create filesystem in /dev/vdb
+sudo mkfs.ext4 /dev/sdb
+
+Proceed anyway? (y,N) y
+
+# create a diskPath of a storage node
+sudo mkdir /cess_storage1
+
+# mount filesystem
+sudo mount /dev/sdb /cess_storage1
+
+# auto mount when your reboot your server
+sudo cp /etc/fstab /etc/fstab.bak
+sudo sh -c "echo `blkid /dev/sdb | awk '{print $2}' | sed 's/\"//g'` /cess_storage1 ext4 defaults 0 0 >> /etc/fstab"
+```
+
+Repeat the above steps to partition `/dev/sdc` and create a filesystem, then mount it to the file directory: `/cess_storage2`
+
+{% hint style="warning" %}
+In the case where a disk is divided into multiple partitions, when the disk is damaged, all storage nodes that use its partitions for work will be affected.
+{% endhint %}
+
+### Single Disk
+This procedure is suitable for environments with only one system disk.
+
+#### Scene 1
+As shown in the following example, if there is only one 50GB system disk, 
+the `Last sector value` of partition `/dev/sda3` of disk `/dev/sda` is already at its maximum value (50GB disk can not be partitioned any more).
+```bash
+[root@cess ~]# lsblk 
+NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda    253:0    0   50G  0 disk 
+├─sda1 253:1    0    2M  0 part 
+├─sda2 253:2    0  200M  0 part /boot/efi
+└─sda3 253:3    0 49.8G  0 part /
+```
+As shown above, the current system kernel is using this partition, so it can not modify the partition to build the running environment required for multibucket.
+
+If the partition does not take up the entire disk and there is still storage space available for partitioning, you can configure the partition by referring to the configuration method of **Multiple Disks**.(In this situation, the running of multibucket will depend on this single disk.)
+
+
+#### Scene 2
+As shown in the figure below, the current environment has only one `/dev/nvme0n1` system disk with about 1.8T of storage space, which is partitioned three times, including `/dev/nvme0n1p1`, `/dev/nvme0n1p2` and `/dev/nvme0n1p3`.
+
+The current system relies on the virtual logical disk `/dev/ubuntu-vg/ubuntu-lv` created in the third partition `/dev/nvme0n1p3`. Since this virtual logical disk occupies only 100GB of storage space, you can configure a multibucket environment by using `lvm` to create multiple virtual logical volumes on the remaining space.
+
+![Single Disk](../assets/storage-miner/multi-buckets/single-disk-env.png)
+
+```bash
+# use command: vgs to show current volume group, and find that the current volume group name is: ubuntu-vg, VFree displays the remaining storage space of the current volume group.
+$ vgs
+cess@cess:/home/cess# vgs
+  VG        #PV #LV #SN Attr   VSize   VFree
+  ubuntu-vg   1   1   0 wz--n- <1.82t  1.7T
+
+# use command: lvcreate to create a 100GB logic volume named cess_storage from volume group: ubuntu-vg
+$ sudo lvcreate -L 100g -n cess_storage ubuntu-vg -y
+# use command: lvcreate to create logic volume named cess_storage from all remaining space of volume group: ubuntu-vg
+# sudo lvcreate -l 100%FREE -n cess_storage ubuntu-vg -y
+
+# use command: lvdisplay to display logic volume your have created, name: cess_storage, path: /dev/ubuntu-vg/cess_storage
+$ sudo lvdisplay
+root@cess:/home/cess# lvdisplay
+  --- Logical volume ---
+  LV Path                /dev/ubuntu-vg/ubuntu-lv
+  LV Name                ubuntu-lv
+  VG Name                ubuntu-vg
+  LV UUID                zxJiPj-Anon-CG3r-XEIJ-Nydi-xxxx-U6oWqW
+  LV Size                100.00 GiB
+   
+  --- Logical volume ---
+  LV Path                /dev/ubuntu-vg/cess_storage
+  LV Name                cess_storage
+  VG Name                ubuntu-vg
+  LV UUID                33Z2eL-AVma-oV4V-1vnE-G3YC-xxxx-wtzxHs
+  LV Size                <1.72 TiB
+
+# create filesystem in /dev/ubuntu-vg/cess_storage
+$ sudo mkfs.ext4 /dev/ubuntu-vg/cess_storage
+
+# create a diskPath of a storage node
+sudo mkdir /cess
+
+# mount filesystem
+sudo mount /dev/ubuntu-vg/cess_storage /cess
+
+# auto mount when your reboot your server
+sudo cp /etc/fstab /etc/fstab.bak
+# modify <lv path>, <diskPath>, <filesystem type>
+sudo sh -c "echo `blkid /dev/ubuntu-vg/cess_storage | awk '{print $2}' | sed 's/\"//g'` /cess ext4 defaults 0 0 >> /etc/fstab"
+```
+
+{% hint style="warning" %}
+Users can create multiple logic volumes on a single disk by lvm, and mount multiple logic volumes on different diskPaths, but when the disk is damaged, all storage nodes relying on lvm will be down!
+{% endhint %}
+
 
 ## 1. Download and install cess-multibucket-admin client
 
@@ -366,7 +506,7 @@ Also refer to the Docker [installation documentation](https://docs.docker.com/en
 
    ![folder structure](../assets/storage-miner/multi-buckets/folder.png)
 
-## 4. Configure and start the storage node container
+## 3. Configure and start the storage node container
 
 Please create the `docker-compose.yaml` file with the following content to start storage node containers in batches, you can place this file anywhere accessible.
 
