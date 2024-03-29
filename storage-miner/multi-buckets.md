@@ -410,7 +410,7 @@ After this node **has exited CESS Network** (see below), run
 ```
 
 **Remove configuration of chain and bucket**
-
 ```bash
   sudo cess-multibucket-admin purge
 ```
+
