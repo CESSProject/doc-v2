@@ -7,7 +7,7 @@ Install multi-buckets container can be illustrated as below:
 
 ![Multi-bucket Architecture](../assets/storage-miner/multi-buckets/multibucket.png)
 
-# 服务器要求
+# System requirements
 
 Minimum Configuration Requirements:
 
