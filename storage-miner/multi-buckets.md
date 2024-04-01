@@ -61,13 +61,13 @@ Proceed anyway? (y,N) y
 sudo mkdir /cess_storage1
 
 # mount filesystem
-sudo mount /dev/sdb /cess_storage1
+sudo mount /dev/sdb /mnt/cess_storage1
 
 # auto mount when your reboot your server
 sudo cp /etc/fstab /etc/fstab.bak
 
-# modify </dev/sdb> </cess_storage2>
-sudo sh -c "echo `blkid /dev/sdb | awk '{print $2}' | sed 's/\"//g'` /cess_storage1 ext4 defaults 0 0 >> /etc/fstab"
+# modify <disk: /dev/sdb> <mount path: /mnt/cess_storage1>
+sudo sh -c "echo `blkid /dev/sdb | awk '{print $2}' | sed 's/\"//g'` /mnt/cess_storage1 ext4 defaults 0 0 >> /etc/fstab"
 ```
 
 Repeat the above steps to partition `/dev/sdc` and create a filesystem, then mount it to the file directory: `/cess_storage2`
@@ -397,14 +397,14 @@ The process of exiting the CESS network will last for hours, and forcing an exit
 
 **Withdraw All Storage Nodes Staking**
 
-After all storage nodes **has exited CESS Network** (see below), run
+After all storage nodes **has exited CESS Network** (see above), run
 ```bash
   sudo cess-multibucket-admin buckets withdraw
 ```
 
 **Withdraw Specific Storage Node Staking**
 
-After this node **has exited CESS Network** (see below), run
+After this node **has exited CESS Network** (see above), run
 ```bash
   sudo cess-multibucket-admin buckets withdraw <bucket name>
 ```
@@ -414,3 +414,22 @@ After this node **has exited CESS Network** (see below), run
   sudo cess-multibucket-admin purge
 ```
 
+## 6. upgrade cess-multibucket-admin client
+
+Upgrade the cess-multibucket-admin client by execute command as below:
+
+```bash
+cd /tmp
+sudo wget https://github.com/CESSProject/cess-multibucket-admin/archive/latest.tar.gz
+sudo tar -xvf latest.tar.gz
+cd cess-multibucket-admin-latest
+sudo bash ./install.sh --no-rmi --retain-config --skip-dep --keep-running
+```
+
+Options help:
+```text
+    -n | --no-rmi              do not remove the corresponding image when uninstalling the old services
+    -r | --retain-config       retain old config when upgrade cess-multibucket-admin
+    -s | --skip-dep            skip install the dependencies
+    -k | --keep-running        do not stop the services if there have previous cess services
+```
