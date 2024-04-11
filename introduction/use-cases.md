@@ -29,3 +29,9 @@ When users upload data files to CESS, they get to choose its values. CESS genera
 On CESS, all data file retrieval records are recorded on blockchain and hence are backward traceable. The CESS data rights protection mechanism maintains a recording module to allow users to view their data file retrieval records, providing strong evidence for user data rights protection.
 
 ![Decentralized data marketplace on CESS](../assets/introduction/use-cases-02.png)
+
+## 6. Enabling Secure and Compliant Global AI Development
+
+Various organizations with private data face challenges in utilizing it for AI development due to sensitivity and legal constraints. The CESS network provides a solution by enabling the secure exchange of encrypted parameters and models through Cumulus Gap. This allows organizations to collaborate on building a global AI model while ensuring data privacy and compliance with regulations. The use of the CESS network facilitates the creation of industry-wide or global AI frameworks, leveraging diverse data sources without compromising privacy or regulatory requirements.
+
+![Enabling Secure and Compliant Global AI Development](../assets/introduction/use-cases-03.png)
