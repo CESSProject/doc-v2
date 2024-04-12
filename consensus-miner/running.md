@@ -1,4 +1,4 @@
-## System Requirement
+# System Requirement
 
 If you're planning to run a consensus miner, it's important to make sure your system meets the recommended requirements to ensure that your miner performs at its best.
 
@@ -14,14 +14,14 @@ If you're planning to run a consensus miner, it's important to make sure your sy
 
 {% hint style="info" %}
 
-### Enabled Intel SGX
+## Enabled Intel SGX
 
 For a system to support **Intel Software Guard Extensions** ([Intel SGX](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html)) and **Flexible Launch Control** (FLC), it needs a CPU that supports these features. The CPU should be either Intel ME, Intel SPS, or both Intel SPS and Intel ME. Additionally, the BIOS must support Intel SGX and the SGX option must be enabled. To enable SGX functionality, please refer to the server manufacturer's BIOS guide. You can also check out the [list of CPU models that support SGX](https://ark.intel.com/content/www/us/en/ark/search/featurefilter.html?productType=873&2_SoftwareGuardExtensions=Yes) to ensure your system supports Intel SGX.
 
 - CPU Recommended Models: Intel E, E3, Celeron (some models), Core series CPUs, with Intel Core i5-10500 being the optimal choice.
 - Recommended Motherboard BIOS: Preferred options include mainstream manufacturers such as Supermicro.
 
-### Static Public IP
+## Static Public IP
 
 The server requires a static public IP. Please ensure that the IP address is accessible and not behind a NAT. Run the following command to confirm your public IP.
 
@@ -31,7 +31,7 @@ curl -4 ifconfig.co
 
 {% endhint %}
 
-## Prepare CESS Wallet Accounts
+# Prepare CESS Wallet Accounts
 
 Before setting up your CESS wallet accounts, you must select the type of consensus miner you would like to run.
 
@@ -63,7 +63,7 @@ You can either use [CESS testnet faucet](https://cess.cloud/faucet.html) to get 
 
 After the wallet account is created, navigate to [CESS Explorer](https://testnet.cess.cloud/).
 
-## Binding Funds
+# Binding Funds
 
 {% hint style="info" %}
 _As of CESS v0.7.6, the controller account has been removed from the binding fund operation._
@@ -85,7 +85,7 @@ Fund is bonded successfully!
 
 ![Bonded Fund Successfully](../assets/consensus-miner/running/consensus-pic4.png)
 
-## Install CESS Client
+# Install CESS Client
 
 The `cess-nodeadm` is a CESS node deployment and management tool. It helps deploying and managing storage nodes, consensus nodes, and full nodes, simplifying the devOps for all CESS miners.
 
@@ -104,7 +104,7 @@ On successful installation of cess-nodeadm you will see `Install cess nodeadm su
 
 If the installation fails, please check the [troubleshooting procedures](../storage-miner/troubleshooting.md).
 
-## Configure CESS Client
+# Configure CESS Client
 
 Execute:
 
@@ -195,9 +195,9 @@ It is very important to fill in the correct TEE Worker server address while you 
 
 If the configuration process fails, please refer to the [troubleshooting guideline](../storage-miner/troubleshooting.md).
 
-## Managing Validator
+# Managing Validator
 
-### Becoming a Validator
+## Becoming a Validator
 
 1. Start the consensus node
 
@@ -251,7 +251,7 @@ If the configuration process fails, please refer to the [troubleshooting guideli
 
     You should see that the node has already appeared on the candidate node list.
 
-### Redeeming Rewards
+## Redeeming Rewards
 
 Navigate to CESS Explorer: **Network** > **Staking** > **Payouts** > **Payout**.
 
@@ -265,7 +265,7 @@ In Payouts, click **Payout** to initiate a payment. Any account can initiate a p
 Please claim the reward within 84 era (each era of the test network is 24 hours), which is 84 days. Those who hasn't claimed the reward in this period will not be able to claim it.
 {% endhint %}
 
-### Exiting Consensus from Validation
+## Exiting Consensus from Validation
 
 1. Stop the Consensus
 
@@ -287,7 +287,7 @@ Please claim the reward within 84 era (each era of the test network is 24 hours)
 
     ![Exiting-04](../assets/consensus-miner/running/exiting-04.png)
 
-### Redeeming Stake
+## Redeeming Stake
 
 1. Unbond fund
 
@@ -301,15 +301,15 @@ Please claim the reward within 84 era (each era of the test network is 24 hours)
     cess stop
     ```
 
-## Common Operations
+# Common Operations
 
-### Start Consensus Node
+## Start Consensus Node
 
 ```bash
 cess start
 ```
 
-### Query Miner Status
+## Query Miner Status
 
 ```bash
 $ cess status
@@ -323,22 +323,22 @@ watchtower      Up 2 minutes
 -----------------------------------------
 ```
 
-### Examine Config Information
+## Examine Config Information
 
 ```bash
 cess config show
 ```
 
-## Upgrade CESS Client
+# Upgrade CESS Client
 
-### Stop and Remove All Services
+## Stop and Remove All Services
 
 ```bash
 cess stop
 cess down
 ```
 
-### Remove All Chain Data
+## Remove All Chain Data
 
 {% hint style="warning" %}
 Do not perform this operation unless the CESS network has been redeployed and it is confirmed that the data can be cleared.
@@ -348,7 +348,7 @@ Do not perform this operation unless the CESS network has been redeployed and it
 cess purge
 ```
 
-### Update `cess-nodeadm`
+## Update `cess-nodeadm`
 
 ```bash
 wget https://github.com/CESSProject/cess-nodeadm/archive/refs/tags/<new-version>.tar.gz
@@ -359,13 +359,13 @@ cd cess-nodeadm-<new-version>
 
 Currently [the most updated version](https://github.com/CESSProject/cess-nodeadm/tags) is **v0.5.5**.
 
-### Pull Images
+## Pull Images
 
 ```bash
 cess pullimg
 ```
 
-## Questions & Answers
+# Questions & Answers
 
 1. I don't want to expose my IP address on the chain. What should I do?
 
