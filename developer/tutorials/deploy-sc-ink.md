@@ -18,7 +18,7 @@ In this tutorial, we will learn how to deploy an [**ink!** Smart Contract](https
    # Install `cargo-contract`
    cargo install cargo-contract --force --locked cargo-contract
    # Install `dylint`, a linting tool
-   cargo install cargo-dylint dylink-link
+   cargo install cargo-dylint
    ```
 
 - Verify the installation is successful by running the command:
@@ -112,6 +112,8 @@ You can also use one of the [sample ink! smart contract codes here](https://gith
    cargo build
    target/debug/cess-node --dev
    ```
+> **Note:** Building CESS requires **Protocol Buffer** version 3.25 or later. Please follow the installation instructions provided [here](https://grpc.io/docs/protoc-installation/#install-pre-compiled-binaries-any-os). 
+
 
    The node will start running and the console will display something as below.<br/>
 
