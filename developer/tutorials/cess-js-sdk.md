@@ -1,6 +1,6 @@
 # Overall
 
-In this tutorial, we will interact with the CESS testnet via [**cess-js-sdk**](https://www.npmjs.com/package/cess-js-sdk), so this is particularly useful for Node.js or frontend developers that want to incorporate CESS into their products/systems.
+In this tutorial, we will interact with the CESS testnet via [**cess-js-sdk**](https://www.npmjs.com/package/cess-js-sdk), this is particularly useful for Node.js or frontend developers integrating CESS into their products or systems.
 
 # Prerequisite
 
@@ -8,14 +8,14 @@ In this tutorial, we will interact with the CESS testnet via [**cess-js-sdk**](h
 
 # Code
 
-The code used in this tutorial is in [**cess-examples** Github repo](https://github.com/CESSProject/cess-examples/tree/main/js). We will walk through the code together.
+The code examples used in this tutorial are available on GitHub under the [**cess-examples**](https://github.com/CESSProject/cess-examples/tree/main/js) repository. We will walk through the code together.
 
 The tutorial code performs the following:
 
-1. Check the amount of my rented space and its expiration time on CESS (read operations on the blockchain).
-2. Rent space on CESS testnet (write operations on the blockchain)
+1. Check the user storage space and its expiration time on CESS (read operations on the blockchain).
+2. Lease space on the CESS testnet. (write operations on the blockchain)
 3. Create a bucket (write operations on the blockchain)
-4. Query my existing files in the CESS Cloud (read operations on the blockchain)
+4. Query existing files in the CESS Cloud (read operations on the blockchain)
 5. Upload a file to the bucket (write operations on the blockchain)
 6. Download the file back.
 
@@ -42,10 +42,11 @@ Then we initialize the API with `InitAPI()` call:
 
 ```ts
 import {
+  Bucket,
+  Common,
+  File,
   InitAPI,
   Space,
-  Bucket,
-  File,
   testnetConfig
 } from "cess-js-sdk";
 
@@ -80,7 +81,7 @@ Let's take a deeper look at using **Space** service.
 
 ## Using the Space Service
 
-Let's look at the [function `checkNRentSpace()`](https://github.com/CESSProject/cess-examples/tree/main/js/src/index.ts#L57).
+Let's look at the [function `checkNRentSpace()`](https://github.com/CESSProject/cess-examples/blob/main/js/src/index.ts#L67).
 
 ```ts
 async function checkNRentSpace(space: Space, common: Common) {
@@ -161,7 +162,7 @@ Otherwise, you can use `expandSpace()` to expand the amount of capacity and `ren
 
 We use the **Bucket** service to query information about buckets created by users (a concept similar to directories in our local hard drive), create buckets, and delete buckets.
 
-Let's look at the code in [`checkNCreateBucket()`](https://github.com/CESSProject/cess-examples/tree/main/js/src/index.ts#L73).
+Let's look at the code in [`checkNCreateBucket()`](https://github.com/CESSProject/cess-examples/blob/main/js/src/index.ts#L83).
 
 ```ts
 async function checkNCreateBucket(bucket: Bucket) {
@@ -218,18 +219,17 @@ You can create a bucket with `createBucket()` call and delete a bucket with `del
 
 ## Using the File Service
 
-Let's look at how to query our uploaded files and manage them by looking into [`uploadNDownloadFile()` function](https://github.com/CESSProject/cess-examples/tree/main/js/src/index.ts#L93).
+Let's look at how to query our uploaded files and manage them by looking into [`uploadNDownloadDeleteFile()` function](https://github.com/CESSProject/cess-examples/blob/main/js/src/index.ts#L100).
 
 ```ts
-async function uploadNDownloadFile(fileService: File) {
+async function uploadNDownloadDeleteFile(fileService: File) {
   let res = await fileService.queryFileListFull(acctId);
-  console.log("queryFileListFull", res.data);
-  const { fileHash } = res.data[0];
+  console.log("queryFileListFull", res);
 
   const uploadFile = `${process.cwd()}/package.json`;
-  console.log("uploadFile path:", uploadFile);
+  console.log("sample upload file path:", uploadFile);
   res = await fileService.uploadFile(mnemonic, acctId, uploadFile, BUCKET_NAME);
-  console.log("uploadFile", res);
+  console.log("uploadFile Result", res);
 
   const downloadPath = `${process.cwd()}/download`;
   res = await fileService.downloadFile(fileHash, downloadPath);
@@ -261,7 +261,7 @@ We use `queryFileListFull()` to query the files that the user is accessible to. 
 ]
 ```
 
-It contains the file name, file size, belonging bucket, and the file hash.
+It contains the file name, file size, bucket name, and the file hash.
 
 To upload a file to the CESS cloud, use `uploadFile()`. It takes the upload file path and bucket name as parameters in addition to the account mnemonic.
 
