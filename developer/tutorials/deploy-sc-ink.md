@@ -112,7 +112,7 @@ You can also use one of the [sample ink! smart contract codes here](https://gith
    cargo build
    target/debug/cess-node --dev
    ```
-> **Note:** Building CESS requires **Protocol Buffer** version 3.25 or later. Please follow the installation instructions provided [here](https://grpc.io/docs/protoc-installation/#install-pre-compiled-binaries-any-os). 
+> **Note:** Building CESS requires **Protocol Buffer** version 3.25 or later. Please follow the protocol buffer installation instructions provided [here](https://grpc.io/docs/protoc-installation/#install-pre-compiled-binaries-any-os). 
 
 
    The node will start running and the console will display something as below.<br/>
