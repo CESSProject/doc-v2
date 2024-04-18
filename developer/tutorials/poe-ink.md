@@ -1,4 +1,4 @@
-![Ink! 4.0](../../assets/developer/tutorials/poe-ink/ink-4.0.svg)
+![Ink! 5.0](../../assets/developer/tutorials/poe-ink/ink-5.0.svg)
 
 # Objective
 
@@ -64,7 +64,25 @@ This section has the same prerequisites as the tutorial [Deploy an ink! Smart Co
 
     The front end (see next section) will need to read `contract.json` to know the API of the contract. We will use `contract.contract` to instantiate the contract on-chain.
 
-3. Open `lib.rs`. Let's remove everything and only keep the top-level structure. So we have:
+3. Open `Cargo.toml` and add dependencies as follows
+    ```toml
+      [dependencies]
+      ink = { version = "5.0.0", default-features = false }
+
+      scale = { package = "parity-scale-codec", version = "3", default-features = false, features = ["derive"] }
+      scale-info = { version = "2.6", default-features = false, features = ["derive"], optional = true }
+      
+      ...
+
+      std = [
+        "ink/std",
+        "scale/std",
+        "scale-info/std",
+      ]
+
+    ```
+
+4. Open `lib.rs`. Let's remove everything and only keep the top-level structure. So we have:
 
     ```rs
     #![cfg_attr(not(feature = "std"), no_std, no_main)]
@@ -75,7 +93,7 @@ This section has the same prerequisites as the tutorial [Deploy an ink! Smart Co
     }
     ```
 
-4. In smart contract development, two of the keys are deciding how the storage data structure looks like and what events it emits. Let's think about the PoE functionality. We will need a storage from user addresses mapping to an array of files, indicating the hash digests of the files they owned; and a reverse map from the hash digest to its owner. Currently we don't support the same file / file digest to be owned by multiple users. The following storage structure supports this:
+5. In smart contract development, two of the keys are deciding how the storage data structure looks like and what events it emits. Let's think about the PoE functionality. We will need a storage from user addresses mapping to an array of files, indicating the hash digests of the files they owned; and a reverse map from the hash digest to its owner. Currently we don't support the same file / file digest to be owned by multiple users. The following storage structure supports this:
 
     ```rs
     mod contract {
@@ -95,7 +113,7 @@ This section has the same prerequisites as the tutorial [Deploy an ink! Smart Co
 
     We use `#[ink(storage)]` attribute macro to tell the Rust compiler this is the smart contract storage, and the compiler will further process the storage specification here. [Check here](https://github.com/paritytech/ink#ink-macros--attributes-overview) to learn more about the macros ink! supports.
 
-5. Now, we want our smart contract to emit events when a user successfully claims the file ownership. Let's also allow the user to forfeit the claim in the future. So the two events are:
+6. Now, we want our smart contract to emit events when a user successfully claims the file ownership. Let's also allow the user to forfeit the claim in the future. So the two events are:
 
     ```rs
     mod contract {
@@ -123,11 +141,17 @@ This section has the same prerequisites as the tutorial [Deploy an ink! Smart Co
     - **Claimed**: when this event is emitted, it contains the associated user and the file digest.
     - **Forfeit**: same as above, containing the associated user and the file digest.
 
-6. Let's work on the core logic of the smart contract
+7. Let's work on the core logic of the smart contract
 
     ```rs
     mod contract {
       // ... below the event code
+
+      impl Default for Contract {
+          fn default() -> Self {
+              Self::new()
+          }
+      }
 
       impl Contract {
         /// Constructor to initialize the contract
@@ -141,15 +165,12 @@ This section has the same prerequisites as the tutorial [Deploy an ink! Smart Co
         #[ink(message)]
         pub fn owned_files(&self) -> Vec<Hash> {
           let from = self.env().caller();
-          self.users.get(from).unwrap_or(Vec::<Hash>::new())
+          self.users.get(from).unwrap_or_default()
         }
 
         #[ink(message)]
         pub fn has_claimed(&self, file: Hash) -> bool {
-          match self.files.get(file) {
-            Some(_) => true,
-            None => false,
-          }
+          self.files.get(file).is_some()
         }
       }
     }
@@ -167,7 +188,7 @@ This section has the same prerequisites as the tutorial [Deploy an ink! Smart Co
 
         Notice we still need to specify what hash function to use and how a file is converted to its hash digest. It is a job performed on the front end, so we will take care of this in the next section.
 
-7. Now let's work on the core logic of `fn claim()`. It allows a user claims the ownership of a particular file digest. The overall logic is that:
+8. Now let's work on the core logic of `fn claim()`. It allows a user claims the ownership of a particular file digest. The overall logic is that:
 
     - We first check if the file digest has been claimed.
     - We update the storage `files` and `users` to indicate the caller claims the file ownership.
@@ -219,7 +240,7 @@ This section has the same prerequisites as the tutorial [Deploy an ink! Smart Co
     }
     ```
 
-8. You may have noticed the return value type of `fn claim()` looks different from the two previous functions `fn owned_files()` and `fn has_claimed()`. `fn owned_files()` and `fn has_claimed()` are view functions. They only read the contract storage but don't alter it. `fn claim()`, on the other hand, is a state-modifying function. It returns a [`Result` enum type in Rust](https://doc.rust-lang.org/std/result/enum.Result.html) to indicate whether the function successfully changes the state by returning `Ok(())`, or an error occurs and the state change is reverted by returning `Err(error value here)`.
+9. You may have noticed the return value type of `fn claim()` looks different from the two previous functions `fn owned_files()` and `fn has_claimed()`. `fn owned_files()` and `fn has_claimed()` are view functions. They only read the contract storage but don't alter it. `fn claim()`, on the other hand, is a state-modifying function. It returns a [`Result` enum type in Rust](https://doc.rust-lang.org/std/result/enum.Result.html) to indicate whether the function successfully changes the state by returning `Ok(())`, or an error occurs and the state change is reverted by returning `Err(error value here)`.
 
     Now, let's define the error values. Two error values will be emitted in the contract: when users try to claim a file that has already been claimed, `AlreadyClaimed`, and when users try to forfeit the file ownership they don't own, `NotOwner`.
 
@@ -248,7 +269,7 @@ This section has the same prerequisites as the tutorial [Deploy an ink! Smart Co
     }
     ```
 
-9. The `fn forfeit()` function basically reverses the operation of what `fn claim()` does above.
+10. The `fn forfeit()` function basically reverses the operation of what `fn claim()` does above.
 
     - we first check the caller owns the file. If not, we return an error.
     - we update the **`users`** and **`files`** storage to remove the file hash digest.
@@ -276,7 +297,7 @@ This section has the same prerequisites as the tutorial [Deploy an ink! Smart Co
           }
 
           // Confirmed the caller is the file owner. Update the two storage `users` and `files`.
-          let mut files = self.users.get(from).unwrap_or(vec![]);
+          let mut files = self.users.get(from).unwrap_or_default();
           for idx in 0..files.len() {
             if files[idx] == file {
               files.swap_remove(idx);
@@ -295,9 +316,9 @@ This section has the same prerequisites as the tutorial [Deploy an ink! Smart Co
     }
     ```
 
-10. By this point, you have completed all the core logic of the smart contract. Compile the contract with `cargo contract build` to ensure it builds. If there is any doubt about the final source code, you can always refer to the [source code here](https://github.com/CESSProject/cess-examples/blob/main/ink/poe/lib.rs).
+11. By this point, you have completed all the core logic of the smart contract. Compile the contract with `cargo contract build` to ensure it builds. If there is any doubt about the final source code, you can always refer to the [source code here](https://github.com/CESSProject/cess-examples/blob/main/ink/poe/lib.rs).
 
-11. After the compilation, [deploy the contract on your local cess dev chain](./deploy-sc-ink.md) and interact with the contract to test it. You can access [Contracts UI](https://contracts-ui.substrate.io/), connect it to your local node, and deploy the contract. Refer to the screenshot below.<br/>
+12. After the compilation, [deploy the contract on your local cess dev chain](./deploy-sc-ink.md) and interact with the contract to test it. You can access [Contracts UI](https://contracts-ui.substrate.io/), connect it to your local node, and deploy the contract. Refer to the screenshot below.<br/>
 
     ![Deploy PoE Ink! Contract](../../assets/developer/tutorials/poe-ink/deploy-poe-contract.png)
 
@@ -402,17 +423,17 @@ Let's see how different components are laid out on the screen.
 3. The `<Metadata />` component, referring to `src/Metadata.js`.
 4. The `<Balances />` component, referring to `src/Balances.js`.
 
-We will add a new component and showcase how to use [**useink** javascript library](https://www.npmjs.com/package/useink) connecting the front end to the smart contract.
+We will add a new component and showcase how to use [**use-inkathon** javascript library](https://www.npmjs.com/package/@scio-labs/use-inkathon) connecting the front end to the smart contract.
 
 ## Development
 
-1. Add the **useink** dependency by:
+1. Add the **use-inkathon** dependency by:
 
     ```bash
-    pnpm install useink
+    pnpm add @scio-labs/use-inkathon
     ```
 
-2. In `src/App.js`, let's replace the `<TemplateModule />` component with `<PoEWithInkProvider />`. Remove the `TemplateModule` import line and add back `PoEWithInkProvider`. We also create a basic React skeleton of `src/ProofOfExistenceInk.js`.
+2. In `src/App.js`, let's replace the `<TemplateModule />` component with `<PoEWithInk />`. Remove the `TemplateModule` import line and add `PoEWithInk`. We also create a basic React skeleton of `src/ProofOfExistenceInk.js`.
 
     So, `src/App.js` becomes:
 
@@ -439,7 +460,7 @@ We will add a new component and showcase how to use [**useink** javascript libra
     )
     ```
 
-    The file [`src/ProofOfExistenceInk.js`](https://github.com/CESSProject/cess-examples/blob/main/frontend/src/ProofOfExistenceInk.js) looks like the following:
+    Open the file `src/ProofOfExistenceInk.js` and add the following code:-
 
     ```jsx
     import { React, useState } from "react";
@@ -451,32 +472,58 @@ We will add a new component and showcase how to use [**useink** javascript libra
 
     At this point, the front end should show the line "Proof of Existence Ink! dApp".
 
-3. From now on, we will mainly focus on the file `src/ProofOfExistenceInk.js`. We will not be adding code line by line here, but focus on the APIs provided by **useink** library that facilitate ink! smart contract interaction.
+3. From now on, we will mainly focus on the file `src/ProofOfExistenceInk.js`. We will not be adding code line by line here, but focus on the APIs provided by **use-inkathon** library that facilitate ink! smart contract interaction.
 
     Refer to the code [`src/ProofOfExistenceInk.js`](https://github.com/CESSProject/cess-examples/blob/main/frontend/src/ProofOfExistenceInk.js).
 
 4. Starting from [the bottom](https://github.com/CESSProject/cess-examples/blob/main/frontend/src/ProofOfExistenceInk.js#L194-L201), we have:
 
     ```jsx
-    <UseInkProvider
-      config={{
-        dappName: "Proof of Existence (Ink)",
-        chains: [{ id: "custom", name: "CESS localhost", rpcs: [config.PROVIDER_SOCKET] }],
-      }}
+    <UseInkathonProvider
+      appName="Proof of Existence (Ink)"
+      defaultChain={cessTestnet}
+      deployments={getDeployments()}
     >
-      <ProofOfExistenceInk />
-    </UseInkProvider>
+      <ProofOfExistenceInk/>
+    </UseInkathonProvider>
     ```
 
-    `UseInkProvider` context hook provides ink! contract connection information to its children components. A config object is passed in with the name, and:
+    `UseInkathonProvider` context hook provides ink! contract connection information to its children components. A config object is passed in with the name, and:
 
-    - `chains.id`: there are public chains with well-known IDs. As we connect to a local development chain, we set it to `custom`.
-    - `chain.name`: the name of the chain. It will be displayed when prompting for wallet connections.
-    - `chain.rpcs`: we get this value from the app config, which points to a local chain RPC endpoint `wss://localhost:9944`.
+    - `defaultChain`: there are public chains with well-known IDs. As we connect to a local development chain, we set it to `cess-local`.
+      ```
+      export const cessTestnet = {
+        network: 'cess-local',
+        name: 'CESS Local',
+        ss58Prefix: 11330,
+        rpcUrls: [
+          'http://127.0.0.1:9944',
+        ],
+        testnet: true,
+        faucetUrls: ['https://cess.cloud/faucet.html'],
+        explorerUrls: {
+          [SubstrateExplorer.Other]: `https://substats.cess.cloud/`,
+        },
+      }
+      ```
+    - `deployments`: takes an object with contract information, such as contractId, networkId, abi and contract address.
+      ```
+      const getDeployments = () => {
+        let developments = [
+          {
+            contractId: 'poe-ink-contract',
+            networkId: cessTestnet.network,
+            abi: metadata,
+            address: CONTRACT_ADDR,
+          },
+        ];
+        return developments;
+      }
+      ```
+    
+    With `UseInkathonProvider`, we can make ink! API calls inside `<ProofOfExistenceInk />` component.
 
-    With `UseInkProvider`, we can make ink! API calls inside `<ProofOfExistenceInk />` component.
-
-5. Looking at the code inside [`function ProofOfExistenceInk(props) {...}`](https://github.com/CESSProject/cess-examples/blob/main/frontend/src/ProofOfExistenceInk.js#L31)
+5. Looking at the code inside [`function ProofOfExistenceInk(props) {...}`](https://github.com/CESSProject/cess-examples/blob/main/frontend/src/ProofOfExistenceInk.js#L165)
 
     ```jsx
     // NOTE: In `examples/poe-ink/contract` directory, compile your contract with
@@ -486,34 +533,34 @@ We will add a new component and showcase how to use [**useink** javascript libra
     // NOTE: Update your deployed contract address below.
     const CONTRACT_ADDR = "cXjN2RG7YEpxx1bCa4zJKy3igsh3DuEo8bHnfKp1KsH5LaUub";
 
-    function ProofOfExistenceInk(props) {
-      const { account } = useWallet();
 
-      const balance = useBalance(account);
+    const ProofOfExistenceInk = () => {
+      // get RPC api and active account
+      const { api, activeAccount } = useInkathon();
+      const { freeBalanceFormatted } = useBalance(activeAccount?.address);
 
-      // Getting the contract API
-      const poeContract = useContract(CONTRACT_ADDR, metadata, "custom");
-      const ownedFiles = useCallSubscription(poeContract, "ownedFiles");
-      const ownedFilesRes = pickDecoded(ownedFiles.result);
+      const developments = getDeployments();
+
+      // Register the contract and get contract object
+      const { contract: poeContract } = useRegisteredContract(developments[0].contractId);
+      const [fileHash, setFileHash] = useState(null);
+      const [ownedFilesRes, setOwnedFilesRes] = useState([]);
 
       //... code snapped
     }
     ```
 
-    - Use `useWallet()` to get the current smart-contract connecting account.
+    - Use `useInkathon()` to get the current active account and rpc api.
     - Use `useBalance(account)` to get the account's current balance.
-    - Use `useContract(CONTRACT_ADDR, metadata, "custom")` to get the contract ABI.
-        - The contract address `CONTRACT_ADDR` is specified in the same file above. So, every time a new PoE contract is deployed, we need to update the address value assigned here.
-        - `metadata` is specified above as well. It comes from the metadata json file when we `cargo contract build` our smart contract.
-        - `custom` is the chain ID where the contract is deployed.
+    - Use `useRegisteredContract(contractId)` to get the contract ABI.
 
-        At this point, we have a contract instance `poeContract` that we can interact with.
+  At this point, we have a contract instance `poeContract` that we can interact with.
 
-    - We then use `useCallSubscription()` to subscribe to the value returning from `ownedFiles()` function from the smart contract. Recall from the previous section that this function returns all the file hash digests the user account owned.
+    - We then use `contractQuery()` to query the value returning from `ownedFiles()` function from the smart contract. Recall from the previous section that this function returns all the file hash digests the user account owned.
 
-    - Then we use `pickDecoded()` method to decode the result, converting from the chain data types to javascript data types.
+    - Then we use `decodeOutput()` method to decode the result, converting from the chain data types to javascript data types.
 
-    All the functions mentioned here are provided by **useink**. You can learn more about their usage in [**ink! documentation**](https://use.ink/frontend/hooks).
+    All the functions mentioned here are provided by **use-inkathon**. You can learn more about their usage in [**use-inkathon documentation**](https://www.npmjs.com/package/@scio-labs/use-inkathon?activeTab=readme).
 
 6. Here, we specify how the file hash digest is computed.
 
@@ -533,15 +580,15 @@ We will add a new component and showcase how to use [**useink** javascript libra
 
 7. We then implement a few helper components **TxButton**, **ConnectWallet**, and **WalletSwitcher** to display the UI.
 
-    - **TxButton** component sends either `claim()` or `forfeit()` transaction to the chain depending on whether the user owned the file. It uses `useTx()` to construct the transaction and use `signAndSend()` method to send the transaction.
+    - **TxButton** component sends either `claim()` or `forfeit()` transaction to the chain depending on whether the user owned the file. It uses `contractTx()` to construct and send the transaction.
 
     - **ConnectWallet** component allows users to switch from different wallet providers, including Enkrypt, Polkadot.js extension, SubWallet, and Talisman. A typical choice would be to use [Polkadot.js extension](https://polkadot.js.org/extension/).<br/>
 
         ![Our Front end supports multiple wallet providers](../../assets/developer/tutorials/poe-ink/wallet-type.png)
 
-        It uses `useWallet()` to get the wallet connection function and `useAllWallets()` to get the information of all supported wallets.
+        It uses `connect()` function from `useInkathon()` and `allSubstrateWallets()` to get the information of all supported wallets.
 
-    - **WalletSwitcher** component retrieves all available accounts provided by the wallet chosen in **ConnectWallet**, using the `accounts` object. It also uses `setAccount()` to set a particular account and `disconnect()` to disconnect from the chosen wallet.
+    - **WalletSwitcher** component retrieves all available accounts provided by the wallet chosen in **ConnectWallet**, using the `accounts` object. It also uses `setActiveAccount()` to set a particular account and `disconnect()` to disconnect from the chosen wallet.
 
 8. Finally, we have a front end similar to the following:<br/>
 
@@ -552,13 +599,13 @@ We will add a new component and showcase how to use [**useink** javascript libra
 **Congratulation**! Let's recap what we have done in this tutorial:
 
 - We have successfully implemented a PoE logic in ink! smart contract and deploy it on a local CESS node.
-- Starting with the Substrate Front End Template and **useink** React library, we have successfully implemented the front end that interacts with the smart contract.
+- Starting with the Substrate Front End Template and **use-inkathon** React library, we have successfully implemented the front end that interacts with the smart contract.
 
 Now, you can build your dApps and deploy them on the CESS testnet to test it out. For the next step, you can also learn how to [develop a dApp with Solidity smart contract](./poe-solidity.md) as well.
 
 ## References
 
-- [Ink! 4.0](https://use.ink/)
+- [Ink! 5.0](https://use.ink/)
 - [CESS Node](https://github.com/CESSProject/cess)
 - [Substrate Front End Template](https://github.com/CESSProject/substrate-frontend-template)
 - [Substrate Contracts UI](https://contracts-ui.substrate.io/)
