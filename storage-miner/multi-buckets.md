@@ -418,10 +418,17 @@ cd cess-multibucket-admin-latest
 sudo bash ./install.sh --no-rmi --retain-config --skip-dep --keep-running
 ```
 
+After the program update is completed, please regenerate your configuration as below:
+
+```bash
+sudo cat /opt/cess/multibucket-admin/.old_config.yaml > /opt/cess/multibucket-admin/config.yaml
+cess-multibucket-admin config generate
+```
+
 Options help:
 ```text
     -n | --no-rmi              do not remove the corresponding image when uninstalling the old services
     -r | --retain-config       retain old config when upgrade cess-multibucket-admin
     -s | --skip-dep            skip install the dependencies
-    -k | --keep-running        do not stop the services if there have previous cess services
+    -k | --keep-running        do not stop the services if cess services is running
 ```
