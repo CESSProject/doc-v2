@@ -50,6 +50,7 @@ Input the following:
 - Current Address Scheme: **H160**
 - Change Address Prefix: **11330*
 - Intput address: *your metamask account*
+- Copy the account address starting with "cX.."
 
 Get the EVM address output.
 

@@ -45,3 +45,7 @@ Launch in 2024 Q3 product roadmap
 {% endhint %}
 
 Data ownership can be verified with **Multi-format Data Rights Confirmation technology (MDRC)**. This protocol extracts fingerprints from all data and permanently stores them on-chain for traceability.
+
+## 9. Cumulus Gap
+
+Various organizations possess private data, some of which is sensitive or restricted by national laws, hindering its sharing for AI development. The CESS network offers a solution by facilitating the exchange of encrypted parameters and models through **Cumulus Gap**, ensuring compliance with privacy regulations. This enables the creation of a global model where data remains secure and local, yet contributes to a broader industry or global AI framework without compromising privacy or regulatory compliance.
