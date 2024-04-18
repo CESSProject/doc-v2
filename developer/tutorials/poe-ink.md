@@ -67,7 +67,7 @@ This section has the same prerequisites as the tutorial [Deploy an ink! Smart Co
 3. Open `Cargo.toml` and add dependencies as follows
     ```toml
       [dependencies]
-      ink = { version = "4.2.0", default-features = false }
+      ink = { version = "5.0.0", default-features = false }
 
       scale = { package = "parity-scale-codec", version = "3", default-features = false, features = ["derive"] }
       scale-info = { version = "2.6", default-features = false, features = ["derive"], optional = true }
