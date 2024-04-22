@@ -171,9 +171,9 @@ After executing the above installation command, customize your own config file a
 - port: Storage node use that port to communicat with each other，the port of each storage node must be different and not occupied by other process
 - diskPath: Absolute system path where the storage node run, requiring a file system to be mounted at this path.  
 - earningsAcc: Used to receive mining rewards. [Get earningsAcc and mnemonic](https://docs.cess.cloud/core/storage-miner/running#prepare-cess-accounts)
-- stakingAcc: Used to pay for staking TCESS. 4000 TCESS is required for providing 1T of storage space.
+- stakingAcc: Used to pay for staking TCESS. 4000 TCESS is required for providing 1T of storage space. Delete in config.yaml can stake by earningsAcc.
 - mnemonic: Account mnemonic, consisting of 12 words, with each storage node requiring a different mnemonic.
-- chainWsUrl: By default, the local RPC node will be used for  data synchronization. The priority of `buckets[].chainWsUrl` is higher than `node.chainWsUrl`.
+- chainWsUrl: By default, the local RPC node will be used for data synchronization. The priority of `buckets[].chainWsUrl` is higher than `node.chainWsUrl`.
 - backupChainWsUrls: Backup RPC nodes that can be official RPC nodes or other RPC nodes you know. The priority of `buckets[].backupChainWsUrls` is higher than `node.backupChainWsUrls`.
 
 {% hint style="warning" %}
@@ -228,10 +228,6 @@ Your can run multibucket in a single disk by lvm, then mount each lv in differen
         # `official chain: wss://testnet-rpc0.cess.cloud/ws/ wss://testnet-rpc1.cess.cloud/ws/ wss://testnet-rpc2.cess.cloud/ws/` "wss://testnet-rpc3.cess.cloud/ws/"
         chainWsUrl: "ws://127.0.0.1:9944/"
         backupChainWsUrls: []
-        # Priority tee list address
-        TeeList:
-           - "127.0.0.1:8080"
-           - "127.0.0.1:8081"
         # Bootstrap Nodes
         Boot: "_dnsaddr.boot-bucket-testnet.cess.cloud"
         
@@ -256,11 +252,7 @@ Your can run multibucket in a single disk by lvm, then mount each lv in differen
         # The rpc endpoint of the chain
         # `official chain: wss://testnet-rpc0.cess.cloud/ws/ wss://testnet-rpc1.cess.cloud/ws/ wss://testnet-rpc2.cess.cloud/ws/` "wss://testnet-rpc3.cess.cloud/ws/"
         chainWsUrl: "ws://127.0.0.1:9944/"
-        backupChainWsUrls: [ ]
-        # Priority tee list address
-        TeeList:
-           - "127.0.0.1:8080"
-           - "127.0.0.1:8081"
+        backupChainWsUrls: []
         # Bootstrap Nodes
         Boot: "_dnsaddr.boot-bucket-testnet.cess.cloud"
    ```
@@ -319,7 +311,7 @@ If an official RPC node or other known RPC node is configured in the configurati
   sudo cess-multibucket-admin restart
 ```
 
-**Restart a service**, such as execute `sudo cess-multibucket-admin reload bucket_1` to restart `bucket_1`
+**Restart a service**, such as execute `sudo cess-multibucket-admin restart bucket_1` to restart `bucket_1`
 ```bash
   sudo cess-multibucket-admin restart <bucket name>
 ```
@@ -376,9 +368,9 @@ Please wait hours for data sync in storage node when you first run
   sudo cess-multibucket-admin buckets claim <bucket name>
 ```
 
-**Update Earnings Account**
+**Update All Earnings Account**
 ```bash
-  sudo cess-multibucket-admin buckets update earnings [earnings account]
+  sudo cess-multibucket-admin buckets update earnings <earnings account>
 ```
 
 {% hint style="warning" %}
@@ -426,10 +418,17 @@ cd cess-multibucket-admin-latest
 sudo bash ./install.sh --no-rmi --retain-config --skip-dep --keep-running
 ```
 
+After the program update is completed, please regenerate your configuration as below:
+
+```bash
+sudo cat /opt/cess/multibucket-admin/.old_config.yaml > /opt/cess/multibucket-admin/config.yaml
+cess-multibucket-admin config generate
+```
+
 Options help:
 ```text
     -n | --no-rmi              do not remove the corresponding image when uninstalling the old services
     -r | --retain-config       retain old config when upgrade cess-multibucket-admin
     -s | --skip-dep            skip install the dependencies
-    -k | --keep-running        do not stop the services if there have previous cess services
+    -k | --keep-running        do not stop the services if cess services is running
 ```
