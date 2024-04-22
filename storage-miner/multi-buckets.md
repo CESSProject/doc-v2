@@ -222,7 +222,7 @@ Your can run multibucket in a single disk by lvm, then mount each lv in differen
         # Signature account mnemonic
         # each bucket's mnemonic should be different
         mnemonic: "aaaaa bbbbb ccccc ddddd eeeee fffff ggggg hhhhh iiiii jjjjj kkkkk lllll"
-        # a directory mount with filesystem
+        # bucket work at this path
         diskPath: "/mnt/cess_storage1"
         # The rpc endpoint of the chain
         # `official chain: wss://testnet-rpc0.cess.cloud/ws/ wss://testnet-rpc1.cess.cloud/ws/ wss://testnet-rpc2.cess.cloud/ws/` "wss://testnet-rpc3.cess.cloud/ws/"
@@ -247,7 +247,7 @@ Your can run multibucket in a single disk by lvm, then mount each lv in differen
         # Signature account mnemonic
         # each bucket's mnemonic should be different
         mnemonic: "lllll kkkkk jjjjj iiiii hhhhh ggggg fffff eeeee ddddd ccccc bbbbb aaaaa"
-        # a directory mount with filesystem
+        # bucket work at this path
         diskPath: "/mnt/cess_storage2"
         # The rpc endpoint of the chain
         # `official chain: wss://testnet-rpc0.cess.cloud/ws/ wss://testnet-rpc1.cess.cloud/ws/ wss://testnet-rpc2.cess.cloud/ws/` "wss://testnet-rpc3.cess.cloud/ws/"
@@ -296,14 +296,19 @@ If an official RPC node or other known RPC node is configured in the configurati
   sudo cess-multibucket-admin stop <bucket name>
 ```
 
-**Stop all containers**
+**Stop all services**
 ```bash
   sudo cess-multibucket-admin stop
 ```
 
-**Stop and remove all containers**
+**Stop and remove all services**
 ```bash
   sudo cess-multibucket-admin down
+```
+
+**Stop and remove specific services**
+```bash
+  sudo cess-multibucket-admin down <bucket name>
 ```
 
 **Restart all services**
@@ -374,7 +379,7 @@ Please wait hours for data sync in storage node when you first run
 ```
 
 {% hint style="warning" %}
-The process of exiting the CESS network will last for hours, and forcing an exit in the middle of the process will result in the storage node being published.
+The process of exiting the CESS network will last for hours, and forcing an exit in the middle of the process will make the storage node being punished.
 {% endhint %}
 
 **All Storage Nodes Exit CESS network**
@@ -401,7 +406,7 @@ After this node **has exited CESS Network** (see above), run
   sudo cess-multibucket-admin buckets withdraw <bucket name>
 ```
 
-**Remove configuration of chain and bucket**
+**Remove the configuration and data of chain and bucket**
 ```bash
   sudo cess-multibucket-admin purge
 ```
@@ -412,7 +417,7 @@ Upgrade the cess-multibucket-admin client by execute command as below:
 
 ```bash
 cd /tmp
-sudo wget https://github.com/CESSProject/cess-multibucket-admin/archive/latest.tar.gz
+sudo wget https://github.com/CESSProject/cess-multibucket-admin/archive/latest.tar.gz -O /tmp/latest.tar.gz
 sudo tar -xvf latest.tar.gz
 cd cess-multibucket-admin-latest
 sudo bash ./install.sh --no-rmi --retain-config --skip-dep --keep-running
@@ -422,7 +427,7 @@ After the program update is completed, please regenerate your configuration as b
 
 ```bash
 sudo cat /opt/cess/multibucket-admin/.old_config.yaml > /opt/cess/multibucket-admin/config.yaml
-cess-multibucket-admin config generate
+sudo cess-multibucket-admin config generate
 ```
 
 Options help:
