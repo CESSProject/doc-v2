@@ -11,7 +11,8 @@ Offering the most optimal Web3 solution for storing and retrieving high-frequenc
 By utilizing a decentralized physical infrastructure network (DePIN) model, CESS drives mass deployment of network nodes globally through incentives.
 
 {% hint style="success" %}
-**CESS: Blockchain Powered Decentralized Storage and Content Delivery Network Infrastructure for Web3.**
+    
+    **CESS: Blockchain Powered Decentralized Storage and Content Delivery Network Infrastructure for Web3.**
 {% endhint %}
 
 In this section, we provide a [high level overview on CESS](introduction/what-is-cess.md), its [technical highlight](introduction/technical-highlight.md), and [a few use cases](introduction/use-cases.md) on using CESS.
