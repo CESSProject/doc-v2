@@ -290,15 +290,14 @@ If an official RPC node or other known RPC node is configured in the configurati
   ```
 
 ## 5. Common Operations
-
-**Stop one container**, such as execute `sudo cess-multibucket-admin stop bucket_1` to stop `bucket_1`
-```bash
-  sudo cess-multibucket-admin stop <bucket name>
-```
-
 **Stop all services**
 ```bash
   sudo cess-multibucket-admin stop
+```
+
+**Stop one or more specific service**, such as execute `sudo cess-multibucket-admin stop bucket_1 bucket_2` to stop `bucket_1` and `bucket_2`
+```bash
+  sudo cess-multibucket-admin stop [bucket_name]
 ```
 
 **Stop and remove all services**
@@ -306,9 +305,9 @@ If an official RPC node or other known RPC node is configured in the configurati
   sudo cess-multibucket-admin down
 ```
 
-**Stop and remove specific services**
+**Stop and remove one or more specific service**, such as execute `sudo cess-multibucket-admin down bucket_1` to remove `bucket_1`
 ```bash
-  sudo cess-multibucket-admin down <bucket name>
+  sudo cess-multibucket-admin down [bucket name]
 ```
 
 **Restart all services**
@@ -316,9 +315,9 @@ If an official RPC node or other known RPC node is configured in the configurati
   sudo cess-multibucket-admin restart
 ```
 
-**Restart a service**, such as execute `sudo cess-multibucket-admin restart bucket_1` to restart `bucket_1`
+**Restart one or more specific service**, such as execute `sudo cess-multibucket-admin restart bucket_1` to restart `bucket_1`
 ```bash
-  sudo cess-multibucket-admin restart <bucket name>
+  sudo cess-multibucket-admin restart [bucket name]
 ```
 
 **Get version information** 
@@ -341,72 +340,72 @@ If an official RPC node or other known RPC node is configured in the configurati
   sudo cess-multibucket-admin tools space-info
 ```
 
-**View All Buckets Status**
+**View all storage node's status**
 
 Please wait hours for data sync in storage node when you first run
 ```bash
   sudo cess-multibucket-admin buckets stat
 ```
 
-**Increase All Storage Nodes Staking**
+**Increase all storage node's stake**, such as execute `sudo cess-multibucket-admin buckets increase staking 4000` to increase all node's stake
 ```bash
-  sudo cess-multibucket-admin buckets increase staking <deposit amount>
+  sudo cess-multibucket-admin buckets increase staking $deposit_amount
 ```
 
-**Increase Specific Storage Node Staking**
+**Increase a specific storage node's stake**, such as `sudo cess-multibucket-admin buckets increase staking bucket_1 4000`
 ```bash
-  sudo cess-multibucket-admin buckets increase staking <bucket name> <deposit amount>
+  sudo cess-multibucket-admin buckets increase staking $bucket_name $deposit_amount
 ```
 
-**Query All buckets Reward Information**
+**Query all storage node's reward**
 ```bash
   sudo cess-multibucket-admin buckets reward
 ```
 
-**Claim All Storage Nodes Reward**
+**Claim all storage node's reward**
 ```bash
   sudo cess-multibucket-admin buckets claim
 ```
 
-**Claim Specific Storage Node Reward**
+**Claim a specific storage node's reward**, such as `sudo cess-multibucket-admin buckets claim bucket_1`
 ```bash
-  sudo cess-multibucket-admin buckets claim <bucket name>
+  sudo cess-multibucket-admin buckets claim $bucket_name
 ```
 
-**Update All Earnings Account**
+**Update Earnings Account**, such as `sudo cess-multibucket-admin buckets update earnings cXxxx`
 ```bash
-  sudo cess-multibucket-admin buckets update earnings <earnings account>
+  sudo cess-multibucket-admin buckets update earnings $earnings_account
 ```
 
 {% hint style="warning" %}
 The process of exiting the CESS network will last for hours, and forcing an exit in the middle of the process will make the storage node being punished.
 {% endhint %}
 
-**All Storage Nodes Exit CESS network**
+**Make all storage nodes exit the network of cess**
 ```bash
   sudo cess-multibucket-admin buckets exit
 ```
 
-**Specific Storage Node Exit CESS network**
+**Make a specific storage node exit the network of cess**, such as `sudo cess-multibucket-admin buckets exit bucket_1`
 ```bash
-  sudo cess-multibucket-admin buckets exit <bucket name>
+  sudo cess-multibucket-admin buckets exit $bucket_name
 ```
 
-**Withdraw All Storage Nodes Staking**
+**Withdraw all storage node's stake**
 
 After all storage nodes **has exited CESS Network** (see above), run
 ```bash
   sudo cess-multibucket-admin buckets withdraw
 ```
 
-**Withdraw Specific Storage Node Staking**
+**Withdraw a specific storage node's stake**
 
 After this node **has exited CESS Network** (see above), run
 ```bash
-  sudo cess-multibucket-admin buckets withdraw <bucket name>
+  sudo cess-multibucket-admin buckets withdraw $bucket_name
 ```
 
-**Remove the configuration and data of chain and bucket**
+**Remove the data in chain and bucket**
 ```bash
   sudo cess-multibucket-admin purge
 ```
