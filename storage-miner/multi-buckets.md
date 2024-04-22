@@ -222,7 +222,7 @@ Your can run multibucket in a single disk by lvm, then mount each lv in differen
         # Signature account mnemonic
         # each bucket's mnemonic should be different
         mnemonic: "aaaaa bbbbb ccccc ddddd eeeee fffff ggggg hhhhh iiiii jjjjj kkkkk lllll"
-        # a directory mount with filesystem
+        # bucket work at this path
         diskPath: "/mnt/cess_storage1"
         # The rpc endpoint of the chain
         # `official chain: wss://testnet-rpc0.cess.cloud/ws/ wss://testnet-rpc1.cess.cloud/ws/ wss://testnet-rpc2.cess.cloud/ws/` "wss://testnet-rpc3.cess.cloud/ws/"
@@ -247,7 +247,7 @@ Your can run multibucket in a single disk by lvm, then mount each lv in differen
         # Signature account mnemonic
         # each bucket's mnemonic should be different
         mnemonic: "lllll kkkkk jjjjj iiiii hhhhh ggggg fffff eeeee ddddd ccccc bbbbb aaaaa"
-        # a directory mount with filesystem
+        # bucket work at this path
         diskPath: "/mnt/cess_storage2"
         # The rpc endpoint of the chain
         # `official chain: wss://testnet-rpc0.cess.cloud/ws/ wss://testnet-rpc1.cess.cloud/ws/ wss://testnet-rpc2.cess.cloud/ws/` "wss://testnet-rpc3.cess.cloud/ws/"
@@ -290,20 +290,24 @@ If an official RPC node or other known RPC node is configured in the configurati
   ```
 
 ## 5. Common Operations
-
-**Stop one container**, such as execute `sudo cess-multibucket-admin stop bucket_1` to stop `bucket_1`
-```bash
-  sudo cess-multibucket-admin stop <bucket name>
-```
-
-**Stop all containers**
+**Stop all services**
 ```bash
   sudo cess-multibucket-admin stop
 ```
 
-**Stop and remove all containers**
+**Stop one or more specific service**, such as execute `sudo cess-multibucket-admin stop bucket_1 bucket_2` to stop `bucket_1` and `bucket_2`
+```bash
+  sudo cess-multibucket-admin stop [bucket_name]
+```
+
+**Stop and remove all services**
 ```bash
   sudo cess-multibucket-admin down
+```
+
+**Stop and remove one or more specific service**, such as execute `sudo cess-multibucket-admin down bucket_1` to remove `bucket_1`
+```bash
+  sudo cess-multibucket-admin down [bucket name]
 ```
 
 **Restart all services**
@@ -311,9 +315,9 @@ If an official RPC node or other known RPC node is configured in the configurati
   sudo cess-multibucket-admin restart
 ```
 
-**Restart a service**, such as execute `sudo cess-multibucket-admin restart bucket_1` to restart `bucket_1`
+**Restart one or more specific service**, such as execute `sudo cess-multibucket-admin restart bucket_1` to restart `bucket_1`
 ```bash
-  sudo cess-multibucket-admin restart <bucket name>
+  sudo cess-multibucket-admin restart [bucket name]
 ```
 
 **Get version information** 
@@ -336,72 +340,72 @@ If an official RPC node or other known RPC node is configured in the configurati
   sudo cess-multibucket-admin tools space-info
 ```
 
-**View All Buckets Status**
+**View all storage node's status**
 
 Please wait hours for data sync in storage node when you first run
 ```bash
   sudo cess-multibucket-admin buckets stat
 ```
 
-**Increase All Storage Nodes Staking**
+**Increase all storage node's stake**, such as execute `sudo cess-multibucket-admin buckets increase staking 4000` to increase all node's stake
 ```bash
-  sudo cess-multibucket-admin buckets increase staking <deposit amount>
+  sudo cess-multibucket-admin buckets increase staking $deposit_amount
 ```
 
-**Increase Specific Storage Node Staking**
+**Increase a specific storage node's stake**, such as `sudo cess-multibucket-admin buckets increase staking bucket_1 4000`
 ```bash
-  sudo cess-multibucket-admin buckets increase staking <bucket name> <deposit amount>
+  sudo cess-multibucket-admin buckets increase staking $bucket_name $deposit_amount
 ```
 
-**Query All buckets Reward Information**
+**Query all storage node's reward**
 ```bash
   sudo cess-multibucket-admin buckets reward
 ```
 
-**Claim All Storage Nodes Reward**
+**Claim all storage node's reward**
 ```bash
   sudo cess-multibucket-admin buckets claim
 ```
 
-**Claim Specific Storage Node Reward**
+**Claim a specific storage node's reward**, such as `sudo cess-multibucket-admin buckets claim bucket_1`
 ```bash
-  sudo cess-multibucket-admin buckets claim <bucket name>
+  sudo cess-multibucket-admin buckets claim $bucket_name
 ```
 
-**Update All Earnings Account**
+**Update Earnings Account**, such as `sudo cess-multibucket-admin buckets update earnings cXxxx`
 ```bash
-  sudo cess-multibucket-admin buckets update earnings <earnings account>
+  sudo cess-multibucket-admin buckets update earnings $earnings_account
 ```
 
 {% hint style="warning" %}
-The process of exiting the CESS network will last for hours, and forcing an exit in the middle of the process will result in the storage node being published.
+The process of exiting the CESS network will last for hours, and forcing an exit in the middle of the process will make the storage node being punished.
 {% endhint %}
 
-**All Storage Nodes Exit CESS network**
+**Make all storage nodes exit the network of cess**
 ```bash
   sudo cess-multibucket-admin buckets exit
 ```
 
-**Specific Storage Node Exit CESS network**
+**Make a specific storage node exit the network of cess**, such as `sudo cess-multibucket-admin buckets exit bucket_1`
 ```bash
-  sudo cess-multibucket-admin buckets exit <bucket name>
+  sudo cess-multibucket-admin buckets exit $bucket_name
 ```
 
-**Withdraw All Storage Nodes Staking**
+**Withdraw all storage node's stake**
 
 After all storage nodes **has exited CESS Network** (see above), run
 ```bash
   sudo cess-multibucket-admin buckets withdraw
 ```
 
-**Withdraw Specific Storage Node Staking**
+**Withdraw a specific storage node's stake**
 
 After this node **has exited CESS Network** (see above), run
 ```bash
-  sudo cess-multibucket-admin buckets withdraw <bucket name>
+  sudo cess-multibucket-admin buckets withdraw $bucket_name
 ```
 
-**Remove configuration of chain and bucket**
+**Remove the data in chain and bucket**
 ```bash
   sudo cess-multibucket-admin purge
 ```
@@ -412,7 +416,7 @@ Upgrade the cess-multibucket-admin client by execute command as below:
 
 ```bash
 cd /tmp
-sudo wget https://github.com/CESSProject/cess-multibucket-admin/archive/latest.tar.gz
+sudo wget https://github.com/CESSProject/cess-multibucket-admin/archive/latest.tar.gz -O /tmp/latest.tar.gz
 sudo tar -xvf latest.tar.gz
 cd cess-multibucket-admin-latest
 sudo bash ./install.sh --no-rmi --retain-config --skip-dep --keep-running
@@ -422,7 +426,7 @@ After the program update is completed, please regenerate your configuration as b
 
 ```bash
 sudo cat /opt/cess/multibucket-admin/.old_config.yaml > /opt/cess/multibucket-admin/config.yaml
-cess-multibucket-admin config generate
+sudo cess-multibucket-admin config generate
 ```
 
 Options help:
