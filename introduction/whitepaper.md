@@ -1,1 +1,1 @@
-[CESS Whitepaper - v0.6 English](../assets/whitepaper/cess-whitepaper-v0.6-en.pdf)
+[CESS Whitepaper - v0.9 English](../assets/whitepaper/cess-whitepaper-v0.9-en.pdf)
