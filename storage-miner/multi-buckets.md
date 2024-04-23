@@ -298,6 +298,7 @@ If an official RPC node or other known RPC node is configured in the configurati
 **Stop one or more specific service**
 
 Such as execute `sudo cess-multibucket-admin stop bucket_1 bucket_2` to stop `bucket_1` and `bucket_2`
+
 ```bash
   sudo cess-multibucket-admin stop [bucket_name]
 ```
@@ -310,6 +311,7 @@ Such as execute `sudo cess-multibucket-admin stop bucket_1 bucket_2` to stop `bu
 **Stop and remove one or more specific service**
 
 Such as execute `sudo cess-multibucket-admin down bucket_1` to remove `bucket_1`
+
 ```bash
   sudo cess-multibucket-admin down [bucket name]
 ```
@@ -322,6 +324,7 @@ Such as execute `sudo cess-multibucket-admin down bucket_1` to remove `bucket_1`
 **Restart one or more specific service**
 
 Such as execute `sudo cess-multibucket-admin restart bucket_1` to restart `bucket_1`
+
 ```bash
   sudo cess-multibucket-admin restart [bucket name]
 ```
@@ -356,6 +359,7 @@ Please wait hours for data sync in storage node when you first run
 **Increase all storage node's stake**
 
 Such as execute `sudo cess-multibucket-admin buckets increase staking 4000` to increase all node's stake
+
 ```bash
   sudo cess-multibucket-admin buckets increase staking $deposit_amount
 ```
@@ -363,6 +367,7 @@ Such as execute `sudo cess-multibucket-admin buckets increase staking 4000` to i
 **Increase a specific storage node's stake**
 
 Such as `sudo cess-multibucket-admin buckets increase staking bucket_1 4000`
+
 ```bash
   sudo cess-multibucket-admin buckets increase staking $bucket_name $deposit_amount
 ```
@@ -380,6 +385,7 @@ Such as `sudo cess-multibucket-admin buckets increase staking bucket_1 4000`
 **Claim a specific storage node's reward**
 
 Such as `sudo cess-multibucket-admin buckets claim bucket_1`
+
 ```bash
   sudo cess-multibucket-admin buckets claim $bucket_name
 ```
@@ -387,6 +393,7 @@ Such as `sudo cess-multibucket-admin buckets claim bucket_1`
 **Update Earnings Account**
 
 Such as `sudo cess-multibucket-admin buckets update earnings cXxxx`
+
 ```bash
   sudo cess-multibucket-admin buckets update earnings $earnings_account
 ```
@@ -403,6 +410,7 @@ The process of exiting the CESS network will last for hours, and forcing an exit
 **Make a specific storage node exit the network of cess**
 
 Such as `sudo cess-multibucket-admin buckets exit bucket_1`
+
 ```bash
   sudo cess-multibucket-admin buckets exit $bucket_name
 ```
