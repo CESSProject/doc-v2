@@ -33,7 +33,7 @@ and different configurations are required based on the disk configuration.
 
 ### Multiple Disks
 
-As shown in the figure below, where `/dev/sda` is the system disk, `/dev/sdb`, `/dev/sdc` are the data disks, users can directly partition and create file systems on the data disks, 
+As shown in the figure below, where `/dev/sda` is the system disk, `/dev/sdb` and `/dev/sdc` is the data disks, users can directly partition and create file systems on the data disks, 
 and finally mount the file systems to the working directory of the storage node.
 
 ![Multi Disk](../assets/storage-miner/multi-buckets/multi-disk-env.png)
@@ -58,7 +58,7 @@ sudo mkfs.ext4 /dev/sdb
 Proceed anyway? (y,N) y
 
 # create a diskPath of a storage node
-sudo mkdir /cess_storage1
+sudo mkdir /mnt/cess_storage1
 
 # mount filesystem
 sudo mount /dev/sdb /mnt/cess_storage1
@@ -70,7 +70,7 @@ sudo cp /etc/fstab /etc/fstab.bak
 sudo sh -c "echo `blkid /dev/sdb | awk '{print $2}' | sed 's/\"//g'` /mnt/cess_storage1 ext4 defaults 0 0 >> /etc/fstab"
 ```
 
-Repeat the above steps to partition `/dev/sdc` and create a filesystem, then mount it to the file directory: `/cess_storage2`
+Repeat the above steps to partition `/dev/sdc` and create a filesystem, then mount it to the file directory: `/mnt/cess_storage2`
 
 {% hint style="warning" %}
 In the case where a disk is divided into multiple partitions, when the disk is damaged, all storage nodes that use its partitions for work will be affected.
@@ -92,7 +92,7 @@ sda    253:0    0   50G  0 disk
 ```
 As shown above, the current system kernel is using this partition, so it can not modify the partition to build the running environment required for multibucket.
 
-If the partition does not take up the entire disk and there is still storage space available for partitioning, you can configure the partition by referring to the configuration method of **Multiple Disks**.(In this situation, the running of multibucket will depend on this single disk.)
+If the partition does not take up the entire disk and there is still storage space available for partitioning, you can configure the partition by referring to the configuration method of **Multiple Disks**.(In this situation, the running of multibucket will depend on this single disk)
 
 
 #### Scene 2
@@ -116,7 +116,7 @@ $ sudo lvcreate -L 100g -n cess_storage ubuntu-vg -y
 
 # use command: lvdisplay to display logic volume your have created, name: cess_storage, path: /dev/ubuntu-vg/cess_storage
 $ sudo lvdisplay
-root@cess:/home/cess# lvdisplay
+cess@cess:/home/cess# lvdisplay
   --- Logical volume ---
   LV Path                /dev/ubuntu-vg/ubuntu-lv
   LV Name                ubuntu-lv
@@ -147,7 +147,7 @@ sudo sh -c "echo `blkid /dev/ubuntu-vg/cess_storage | awk '{print $2}' | sed 's/
 ```
 
 {% hint style="warning" %}
-Users can create multiple logic volumes on a single disk by lvm, and mount multiple logic volumes on different diskPaths, but when the disk is damaged, all storage nodes relying on lvm will be down!
+Users can create multiple logic volumes on a single disk by lvm, and mount multiple logic volumes on different diskPaths, but when the disk is damaged, all storage nodes relying on lvm will be affected!
 {% endhint %}
 
 
@@ -295,7 +295,9 @@ If an official RPC node or other known RPC node is configured in the configurati
   sudo cess-multibucket-admin stop
 ```
 
-**Stop one or more specific service**, such as execute `sudo cess-multibucket-admin stop bucket_1 bucket_2` to stop `bucket_1` and `bucket_2`
+**Stop one or more specific service**
+
+Such as execute `sudo cess-multibucket-admin stop bucket_1 bucket_2` to stop `bucket_1` and `bucket_2`
 ```bash
   sudo cess-multibucket-admin stop [bucket_name]
 ```
@@ -305,7 +307,9 @@ If an official RPC node or other known RPC node is configured in the configurati
   sudo cess-multibucket-admin down
 ```
 
-**Stop and remove one or more specific service**, such as execute `sudo cess-multibucket-admin down bucket_1` to remove `bucket_1`
+**Stop and remove one or more specific service**
+
+Such as execute `sudo cess-multibucket-admin down bucket_1` to remove `bucket_1`
 ```bash
   sudo cess-multibucket-admin down [bucket name]
 ```
@@ -315,7 +319,9 @@ If an official RPC node or other known RPC node is configured in the configurati
   sudo cess-multibucket-admin restart
 ```
 
-**Restart one or more specific service**, such as execute `sudo cess-multibucket-admin restart bucket_1` to restart `bucket_1`
+**Restart one or more specific service**
+
+Such as execute `sudo cess-multibucket-admin restart bucket_1` to restart `bucket_1`
 ```bash
   sudo cess-multibucket-admin restart [bucket name]
 ```
@@ -347,12 +353,16 @@ Please wait hours for data sync in storage node when you first run
   sudo cess-multibucket-admin buckets stat
 ```
 
-**Increase all storage node's stake**, such as execute `sudo cess-multibucket-admin buckets increase staking 4000` to increase all node's stake
+**Increase all storage node's stake**
+
+Such as execute `sudo cess-multibucket-admin buckets increase staking 4000` to increase all node's stake
 ```bash
   sudo cess-multibucket-admin buckets increase staking $deposit_amount
 ```
 
-**Increase a specific storage node's stake**, such as `sudo cess-multibucket-admin buckets increase staking bucket_1 4000`
+**Increase a specific storage node's stake**
+
+Such as `sudo cess-multibucket-admin buckets increase staking bucket_1 4000`
 ```bash
   sudo cess-multibucket-admin buckets increase staking $bucket_name $deposit_amount
 ```
@@ -367,12 +377,16 @@ Please wait hours for data sync in storage node when you first run
   sudo cess-multibucket-admin buckets claim
 ```
 
-**Claim a specific storage node's reward**, such as `sudo cess-multibucket-admin buckets claim bucket_1`
+**Claim a specific storage node's reward**
+
+Such as `sudo cess-multibucket-admin buckets claim bucket_1`
 ```bash
   sudo cess-multibucket-admin buckets claim $bucket_name
 ```
 
-**Update Earnings Account**, such as `sudo cess-multibucket-admin buckets update earnings cXxxx`
+**Update Earnings Account**
+
+Such as `sudo cess-multibucket-admin buckets update earnings cXxxx`
 ```bash
   sudo cess-multibucket-admin buckets update earnings $earnings_account
 ```
@@ -386,7 +400,9 @@ The process of exiting the CESS network will last for hours, and forcing an exit
   sudo cess-multibucket-admin buckets exit
 ```
 
-**Make a specific storage node exit the network of cess**, such as `sudo cess-multibucket-admin buckets exit bucket_1`
+**Make a specific storage node exit the network of cess**
+
+Such as `sudo cess-multibucket-admin buckets exit bucket_1`
 ```bash
   sudo cess-multibucket-admin buckets exit $bucket_name
 ```
