@@ -33,7 +33,7 @@ and different configurations are required based on the disk configuration.
 
 ### Multiple Disks
 
-As shown in the figure below, where `/dev/sda` is the system disk, `/dev/sdb` and `/dev/sdc` is the data disks, users can directly partition and create file systems on the data disks, 
+As shown in the figure below, where `/dev/sda` is the system disk, `/dev/sdb` and `/dev/sdc` is the data disk, users can directly partition and create file systems on the data disks, 
 and finally mount the file systems to the working directory of the storage node.
 
 ![Multi Disk](../assets/storage-miner/multi-buckets/multi-disk-env.png)
@@ -177,7 +177,7 @@ After executing the above installation command, customize your own config file a
 - backupChainWsUrls: Backup RPC nodes that can be official RPC nodes or other RPC nodes you know. The priority of `buckets[].backupChainWsUrls` is higher than `node.backupChainWsUrls`.
 
 {% hint style="warning" %}
-Your can run multibucket in a single disk by lvm, then mount each lv in different diskPath, but when your single disk can not work, all storage nodes depends on this single disk will be down !
+Your can run multibucket in a single disk by lvm, then mount each lv in different diskPath, but when your single disk can not work, all storage nodes depends on this single disk will be affected!
 {% endhint %}
 
 
@@ -269,8 +269,16 @@ The following command will generate `config.yaml` for each storage node and `doc
 - Generate each bucket configuration at `$diskPath/bucket/config.yaml`. For example, bucket_1's configuration generate at: `/mnt/cess_storage1/bucket/config.yaml`
 - Generate docker-compose.yaml at `/opt/cess/multibucket-admin/build/docker-compose.yaml`
 
-{% hint style="warning" %}
-Unless the path to the configuration file has been customized, `/opt/cess/multibucket-admin/config.yaml` will be used.
+{% hint style="info" %}
+
+If you want others server access to local rpc node, please add `--rpc-external` in `services.chain.command` in `/opt/cess/multibucket-admin/build/docker-compose.yaml`
+
+and add `--rpc-cors` `all` in `services.chain.command` to allow CORS: `Cross-Origin Resource Sharing`
+
+- '--rpc-external'
+- '--rpc-cors'
+- 'all'
+
 {% endhint %}
 
 ## 4. Installation
@@ -390,7 +398,7 @@ Such as `sudo cess-multibucket-admin buckets claim bucket_1`
   sudo cess-multibucket-admin buckets claim $bucket_name
 ```
 
-**Update Earnings Account**
+**Update an earnings account**
 
 Such as `sudo cess-multibucket-admin buckets update earnings cXxxx`
 
