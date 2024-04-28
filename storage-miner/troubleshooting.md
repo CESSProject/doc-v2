@@ -53,6 +53,38 @@ sudo systemctl start docker
 
 </details>
 
+# Issues After Installation
+
+<details>
+
+<summary>Increase Stake Manually</summary>
+
+If signatureAcc different from stakingAcc is provided as below:
+![CESS Account Issue](../assets/storage-miner/troubleshooting/different-acc.png)
+
+You can not increase stake by command with client:
+```bash
+sudo cess bucket increase staking $deposit_amount
+# or
+sudo cess-multibucket-admin buckets increase staking $bucket_name $deposit_amount
+
+# Execute command as above might get message like: `!! 2024-03-28 13:22:18 0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`
+```
+
+Try to access to [block browser](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc0.cess.cloud%2Fws%2F#/accounts) and send TCESS manually
+
+**Step 1**: Select an account which have sufficient TCESS, then click `send`
+![CESS Account Issue](../assets/storage-miner/troubleshooting/send-in-browser.png)
+
+**Step 2**: Enter the staking account and amount, then click `Make Transfer`
+![CESS Account Issue](../assets/storage-miner/troubleshooting/make-transfer-in-browser.png)
+
+**Step 3**: Finally, enter the password for the account you have selected that has sufficient TCESS.
+
+</details>
+
+
+
 # Issues During Configuration
 
 <details>
