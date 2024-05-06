@@ -154,9 +154,9 @@ Users can create multiple logic volumes on a single disk by lvm, and mount multi
 ## 1. Download and install cess-multi-miner client
 
 ```bash
-sudo wget https://github.com/CESSProject/cess-multi-miner/archive/latest.tar.gz
+sudo wget https://github.com/CESSProject/cess-multiminer-admin/archive/latest.tar.gz
 sudo tar -xvf latest.tar.gz
-cd cess-multi-miner-latest
+cd cess-multiminer-admin-latest
 sudo bash ./install.sh
 ```
 
@@ -448,9 +448,9 @@ Upgrade the mineradm client by execute command as below:
 
 ```bash
 cd /tmp
-sudo wget https://github.com/CESSProject/mineradm/archive/latest.tar.gz -O /tmp/latest.tar.gz
+sudo wget https://github.com/CESSProject/cess-multiminer-admin/archive/latest.tar.gz -O /tmp/latest.tar.gz
 sudo tar -xvf latest.tar.gz
-cd mineradm-latest
+cd cess-multiminer-admin-latest
 sudo bash ./install.sh --no-rmi --retain-config --skip-dep --keep-running
 ```
 
