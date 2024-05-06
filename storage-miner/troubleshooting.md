@@ -64,9 +64,9 @@ If signatureAcc different from stakingAcc is provided as below:
 
 You can not increase stake by command with client:
 ```bash
-sudo cess bucket increase staking $deposit_amount
+sudo cess miner increase staking $deposit_amount
 # or
-sudo cess-multibucket-admin buckets increase staking $bucket_name $deposit_amount
+sudo mineradm miners increase staking $miner_name $deposit_amount
 
 # Execute command as above might get message like: `!! 2024-03-28 13:22:18 0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`
 ```
