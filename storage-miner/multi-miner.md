@@ -1,8 +1,8 @@
 # Architecture
 
-Install multi-bucket s container can be illustrated as below:
-- watchTower: When there is a difference between the local bucket  image and the official bucket  image, watchtower will automatically pull the new official image, create a new storage node, and then delete the old storage node.
-- bucket : A storage node. Multiple storage nodes communicate with each other via P2P. The ports configured in the example config.yaml are: 15001, 15002.
+Install multi-buckets container can be illustrated as below:
+- watchTower: When there is a difference between the local bucket image and the official bucket image, watchtower will automatically pull the new official image, create a new storage node, and then delete the old storage node.
+- bucket: A storage node. Multiple storage nodes communicate with each other via P2P. The ports configured in the example config.yaml are: 15001, 15002.
 - chain: A chain node. Storage nodes query block information through the chain node's 9944 port by default; chain nodes synchronize data among themselves through the default port: 30336.
 
 ![Multi-miner Architecture](../assets/storage-miner/multi-miner/multi-miner-arch.png)
@@ -22,9 +22,9 @@ Minimum Configuration Requirements:
 
 Each storage node requires at least 4GB of RAM and 1 processor, and the chain node requires at least 2GB of RAM and 1 processor.
 
-At least 10GB of RAM and 3 processors if running 2 bucket s and 1 chain node at the same time
+At least 10GB of RAM and 3 processors if running 2 buckets and 1 chain node at the same time
 
-# Method 1: Run multi-bucket s containers with admin client
+# Method 1: Run multi-buckets containers with admin client
 
 ## Storage environment requirements
 
@@ -34,7 +34,7 @@ and different configurations are required based on the disk configuration.
 ### Multiple Disks
 
 As shown in the figure below, where `/dev/sda` is the system disk, `/dev/sdb` and `/dev/sdc` is the data disk, users can directly partition and create file systems on the data disks, 
-and finally mount the file systems to the working directory of the bucket .
+and finally mount the file systems to the working directory of the bucket.
 
 ![Multi Disk](../assets/storage-miner/multi-miner/multi-disk-env.png)
 
@@ -151,7 +151,7 @@ Users can create multiple logic volumes on a single disk by lvm, and mount multi
 {% endhint %}
 
 
-## 1. Download and install cess-multi-bucket  client
+## 1. Download and install cess-multi-bucket client
 
 ```bash
 sudo wget https://github.com/CESSProject/cess-multiminer-admin/archive/latest.tar.gz
@@ -173,11 +173,11 @@ After executing the above installation command, customize your own config file a
 - earningsAcc: Used to receive mining rewards. [Get earningsAcc and mnemonic](https://docs.cess.cloud/core/storage-miner/running#prepare-cess-accounts)
 - stakingAcc: Used to pay for staking TCESS. 4000 TCESS is required for providing 1T of storage space. Delete in config.yaml can stake by earningsAcc.
 - mnemonic: Account mnemonic, consisting of 12 words, with each storage node requiring a different mnemonic.
-- chainWsUrl: By default, the local RPC node will be used for data synchronization. The priority of `bucket s[].chainWsUrl` is higher than `node.chainWsUrl`.
-- backupChainWsUrls: Backup RPC nodes that can be official RPC nodes or other RPC nodes you know. The priority of `bucket s[].backupChainWsUrls` is higher than `node.backupChainWsUrls`.
+- chainWsUrl: By default, the local RPC node will be used for data synchronization. The priority of `buckets[].chainWsUrl` is higher than `node.chainWsUrl`.
+- backupChainWsUrls: Backup RPC nodes that can be official RPC nodes or other RPC nodes you know. The priority of `buckets[].backupChainWsUrls` is higher than `node.backupChainWsUrls`.
 
 {% hint style="warning" %}
-Your can run multi-bucket  in a single disk by lvm, then mount each lv in different diskPath, but when your single disk can not work, all storage nodes depends on this single disk will be affected!
+Your can run multi-bucket in a single disk by lvm, then mount each lv in different diskPath, but when your single disk can not work, all storage nodes depends on this single disk will be affected!
 {% endhint %}
 
 
@@ -185,12 +185,12 @@ Your can run multi-bucket  in a single disk by lvm, then mount each lv in differ
    ## node configurations template
    node:
       ## the mode of node: multibucket 
-      mode: "multibucket "
+      mode: "multibucket"
       ## the profile of node: devnet/testnet/mainnet
       profile: "testnet"
-      # default chain url for bucket , can be overwritten in bucket s[] as below
+      # default chain url for bucket , can be overwritten in buckets[] as below
       chainWsUrl: "ws://127.0.0.1:9944/"
-      # default backup chain urls for bucket , can be overwritten in bucket s[] as below
+      # default backup chain urls for bucket , can be overwritten in buckets[] as below
       backupChainWsUrls: ["wss://testnet-rpc.cess.cloud/ws/"]
 
    ## chain configurations
