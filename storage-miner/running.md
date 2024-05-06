@@ -258,13 +258,13 @@ sudo cess bucket stat
 
 An example of the returned result is shown below：
 
-![CESS Bucket Stat](../assets/storage-miner/running/bucket-stat.png)
+![CESS Bucket Stat](../assets/storage-miner/running/miner-stat.png)
 
 Refer to the [Glossary](../glossary.md#storage-miner) on the names above.
 
 At the beginning of the storage node synchronization, all your **validated space**, **used space**, and **locked space** are 0. It is only when the validated space been incremented above 0 that the storage miner start earning rewards. For testnet, it take about an hour **after** the storage node chain synchronization completed, as shown below.
 
-![CESS Bucket Stat with Validated Space](../assets/storage-miner/running/bucket-stat-validated-space.png)
+![CESS Bucket Stat with Validated Space](../assets/storage-miner/running/miner-stat-validated-space.png)
 
 If you get the result of `You are not a storage node` , please wait for the chain synchronization to complete.
 
