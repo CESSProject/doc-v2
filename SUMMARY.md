@@ -42,7 +42,7 @@
     * [DeOSS](https://docs.cess.cloud/deoss)
 * [🛡 Role: Storage Miners](storage-miner/README.md)
   * [Running a Storage Node](storage-miner/running.md)
-  * [Running Multi-buckets Container](storage-miner/multi-miner)
+  * [Running Multi-miner Container](storage-miner/multi-miner.md)
   * [Node Troubleshooting](storage-miner/troubleshooting.md)
   * [TEE Worker Guide](storage-miner/teeworker.md)
 * [🔒 Role: Consensus Miners](consensus-miner/README.md)
