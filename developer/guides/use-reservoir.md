@@ -1,6 +1,6 @@
 # Background
 
-The cess network has added a new reservoir module, which is mainly used to borrow tokens to miners so that miners can use this loan to mine.
+The CESS network has introduced a new reservoir module primarily designed to lend tokens to miners. Miners can utilize this loan to facilitate their mining activities.
 
 # Guides
 
@@ -8,31 +8,31 @@ The cess network has added a new reservoir module, which is mainly used to borro
 
 Before performing the following operations, you must first ensure:
 
-- Have a cess address.
+- Have a CESS address.
 - There is enough gas in the address.
 
 Attend the token borrowing event officially released by CESS to borrow the deposit required for mining for free.
 
 When the event is released, CESS will announce an `event id`. You can participate by recording this ID call transaction.
 
-1. Enter the blockchain browser and select Develop - Extrinsic - reservoir - attendEvent. Fill in the `event id` for this release. Send transaction last.
+1. Enter the blockchain browser and select Develop - Extrinsic - reservoir - attendEvent. Fill in the `event id` for this release and send a transaction.
 
 ![Call Attend Transaction](../../assets/developer/guides/use-reservoir/pc1.png)
 
-    Note: Only one loan can exist in one account.
+    Note: Only one loan can exist within a single account.
 
-2. After the transaction is successful, query the current borrowing bill. Select Develop - Chain state - reservoir - borrowList. Fill in your address at the mark and search.
+2. After the transaction is successful, query the current borrowing bill. Navigate to Develop - Chain state - reservoir - borrowList. Input your address at the designated mark and proceed with the search.  
 
 ![Check Borrowing Bill](../../assets/developer/guides/use-reservoir/pc2.png)
 
-After confirming that you have successfully borrowed money, you can fill in the reservoir address as the staking address and register the miner.  
+After confirming that you have successfully borrowed the tokens, you can fill in the reservoir address as the staking address and register the miner.
 The reservoir address is:  `cXhT9Xh3E712u51aQdYS5HXftKDUabvFfbSf6Qmromo8CykLG`.
 
 If you want to learn how to run a miner, check out this [tutorial](../../storage-miner/running.md).
 
 ## Store
 
-In addition to borrowing money, you can also actively store tokens in your reservoir account. The purpose of this transaction is that, assuming your loan is only 4,000 CESS, and you need to use your reservoir account to pledge 8,000 CESS, you can make up the remaining part through this transaction. 
+In addition to borrowing tokens, you can also actively store tokens in your reservoir account. The purpose of this transaction is that, assuming your loan is only 4,000 CESS, and you need to use your reservoir account to pledge 8,000 CESS, you can make up the remaining part of this transaction.
 
 Follow the steps below to complete token storage instantly:
 
