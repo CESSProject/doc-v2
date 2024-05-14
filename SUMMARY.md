@@ -42,6 +42,7 @@
     * [DeOSS](https://docs.cess.cloud/deoss)
     * [BuySpace](developer/guides/user-space.md)
     * [Borrow Tokens](developer/guides/use-reservoir.md)
+    * [ISSUE ERC20](developer/guides/issue-erc20.md)
 * [🛡 Role: Storage Miners](storage-miner/README.md)
   * [Running a Storage Node](storage-miner/running.md)
   * [Running Multi-miner Container](storage-miner/multi-miner.md)
