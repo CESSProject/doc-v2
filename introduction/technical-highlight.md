@@ -32,7 +32,7 @@ Will be launched in 2026 Q3
 
 ## 7. Fast Data Retrieval
 
-Data indexing and Decentralized Content Delivery Network (DCDN) improve searching and download speed from user endpoints. Consensus mechanism has been iterated on top of [Polkadot GRANDPA](https://wiki.polkadot.network/docs/learn-consensus#finality-gadget-grandpa) to achieve low gas fees and high transaction throughput.
+Data indexing and Content Decentralized Delivery Network (CD²N) improve searching and download speed from user endpoints. Consensus mechanism has been iterated on top of [Polkadot GRANDPA](https://wiki.polkadot.network/docs/learn-consensus#finality-gadget-grandpa) to achieve low gas fees and high transaction throughput.
 
 ## 8. Data Ownership Traceability
 
