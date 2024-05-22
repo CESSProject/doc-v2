@@ -44,6 +44,42 @@ The following illustrate two ways to create a CESS account.
 
     ![View account in Polkadot.js Apps](../assets/community/cess-account/view-acct-cess-explorer.png)
 
+# Method 3: Create an Account Using SubWallet
+
+[SubWallet](https://www.subwallet.app/) support many types of [wallet-client](https://www.subwallet.app/download.html) like extension, mobile app and web dashboard.
+
+We only demonstrate how to create an account using [SubWallet-Chrome-Extension](https://chromewebstore.google.com/detail/subwallet-polkadot-wallet/onhogfjeacnfoofkfgppdlbmlmnplgbn) at this document.
+
+- Download [SubWallet Chrome Extension](https://chromewebstore.google.com/detail/subwallet-polkadot-wallet/onhogfjeacnfoofkfgppdlbmlmnplgbn) to your Chrome.<br/>
+
+  ![Download SubWallet Chrome Extension](../assets/community/cess-account/download-subwallet-extension.png)
+
+
+- Create a SubWallet account
+
+  ![Create SubWallet Account](../assets/community/cess-account/create-subwallet-account.png)
+
+- Get your TCESS account
+
+After create a SubeWallet account, click `Get address`, and then click `Account 1` can search token: `cess`
+
+<div style="display:inline-block">
+  <img src="../assets/community/cess-account/subwallet-getaddr.png" alt="Get Addr" width="180px">
+  <img src="../assets/community/cess-account/subwallet-select-account.png" alt="Select Account" width="180px">
+  <img src="../assets/community/cess-account/subwallet-search-token.png" alt="Search Token" width="180px">
+  <img src="../assets/community/cess-account/subwallet-getacc.png" alt="Get CESS Account" width="180px">
+</div>
+
+- Get Token by faucet and check in wallet
+
+you can get TCESS in [Faucet](https://cess.cloud/faucet.html)
+
+![Faucet](../assets/community/cess-account/faucet.png)
+
+After get TCESS successfully, check balance in SubWallet
+
+![Check balance](../assets/community/cess-account/subwallet-getTCESS.png)
+
 # How to Configure Polkadot.js Apps?
 
 You can navigate directly to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc0.cess.cloud%2Fws%2F#/explorer).
