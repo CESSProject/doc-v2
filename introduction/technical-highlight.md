@@ -17,7 +17,7 @@ Unlike the storage space bidding of alternative decentralized storage protocols,
 ## 5. IPFS Compatiblity
 
 {% hint style="info" %}
-Launch in 2024 Q4 product roadmap
+Will be launched in 2026 Q4
 {% endhint %}
 
 CESS is compatible with IPFS standard and allows developers to integrate their dApps with an array of storage solutions that utilize IPFS. Data stored on CESS can also be addressed with cryptographic hashes, making the content immutable and tamper-resistant.
@@ -25,27 +25,27 @@ CESS is compatible with IPFS standard and allows developers to integrate their d
 ## 6. Secure Data Access
 
 {% hint style="info" %}
-Launch in 2024 Q3 product roadmap
+Will be launched in 2026 Q3
 {% endhint %}
 
 **Proxy Re-encryption Technology (PReT)** is built on top of Public Key Encryption to allow users to authorize decryption permissions to others without disclosing the data's contents. User data is also processed and accessed in [Trusted Execution Environment](https://en.wikipedia.org/wiki/Trusted_execution_environment) (TEE) within the storage nodes.
 
 ## 7. Fast Data Retrieval
 
-{% hint style="info" %}
-Launch in 2025 product roadmap
-{% endhint %}
-
 Data indexing and Decentralized Content Delivery Network (DCDN) improve searching and download speed from user endpoints. Consensus mechanism has been iterated on top of [Polkadot GRANDPA](https://wiki.polkadot.network/docs/learn-consensus#finality-gadget-grandpa) to achieve low gas fees and high transaction throughput.
 
 ## 8. Data Ownership Traceability
 
 {% hint style="info" %}
-Launch in 2024 Q3 product roadmap
+Will be launched in 2026 Q4
 {% endhint %}
 
 Data ownership can be verified with **Multi-format Data Rights Confirmation technology (MDRC)**. This protocol extracts fingerprints from all data and permanently stores them on-chain for traceability.
 
 ## 9. Cumulus Gap
+
+{% hint style="info" %}
+Will be launched in 2025 Q4
+{% endhint %}
 
 Various organizations possess private data, some of which is sensitive or restricted by national laws, hindering its sharing for AI development. The CESS network offers a solution by facilitating the exchange of encrypted parameters and models through **Cumulus Gap**, ensuring compliance with privacy regulations. This enables the creation of a global model where data remains secure and local, yet contributes to a broader industry or global AI framework without compromising privacy or regulatory compliance.
