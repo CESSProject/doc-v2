@@ -1,6 +1,6 @@
 This section mainly introduces how to obtain some properties of the SDK client.
 
-```
+```golang
 package main
 
 import (
@@ -70,7 +70,7 @@ func main() {
 ```
 
 Output example:
-```
+```bash
 cess-sdk-go
 wss://testnet-rpc0.cess.cloud/ws/
 true

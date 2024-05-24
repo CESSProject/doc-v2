@@ -3,7 +3,6 @@ This article introduces sample codes for various usage scenarios of CESS Network
 - [Preface](preface.md)
 - [Install](install.md)
 - [Initialization](initialization.md)
-- [Quick Start](quick_start.md)
 - [Properties](properties.md)
 - [Data Processing](data_processing.md)
 - [Chain State](chain_state/README.md)

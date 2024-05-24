@@ -8,7 +8,7 @@ Before using SDK, it is necessary to create an SDK object that includes some con
 | SDK name | It's just a name, default is `cess-sdk-go` | sdkgo.Name |
 
 ## Create a query-only sdk client
-```
+```golang
 package main
 
 import (
@@ -39,7 +39,7 @@ func main() {
 ```
 
 ## Create a fully functional sdk client
-```
+```golang
 package main
 
 import (
