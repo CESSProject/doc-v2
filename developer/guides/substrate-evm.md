@@ -24,7 +24,7 @@ There are a couple of points to note here:
 
 So Substrate address is generated as followed:
 
-![image](https://github.com/CESSProject/doc-v2/assets/121914086/a40deeaa-a8ca-418c-b83d-b7de086b048e)
+![substrate address](https://github.com/CESSProject/doc-v2/assets/121914086/e8ca6ff6-66d7-449f-8bad-35068ddd65f4)
 
 
 The account ID is 32 bytes long.
