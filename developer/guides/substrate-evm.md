@@ -24,7 +24,8 @@ There are a couple of points to note here:
 
 So Substrate address is generated as followed:
 
-![Substrate Address](../../assets/developer/guides/substrate-evm/substrate-addr.png)
+![image](https://github.com/CESSProject/doc-v2/assets/121914086/a40deeaa-a8ca-418c-b83d-b7de086b048e)
+
 
 The account ID is 32 bytes long.
 
