@@ -15,7 +15,7 @@ import (
 	"context"
 	"fmt"
 
-	cess "github.com/CESSProject/cess-go-sdk"
+	sdkgo "github.com/CESSProject/cess-go-sdk"
 )
 
 var RPC_ADDRS = []string{
@@ -28,7 +28,7 @@ var RPC_ADDRS = []string{
 func main() {
 	sdk, err := cess.New(
 		context.Background(),
-		cess.ConnectRpcAddrs(RPC_ADDRS),
+		sdkgo.ConnectRpcAddrs(RPC_ADDRS),
 	)
 	if err != nil {
 		panic(err)
@@ -47,7 +47,7 @@ import (
 	"fmt"
 	"time"
 
-	cess "github.com/CESSProject/cess-go-sdk"
+	sdkgo "github.com/CESSProject/cess-go-sdk"
 )
 
 // Substrate well-known mnemonic:
@@ -66,9 +66,9 @@ var RPC_ADDRS = []string{
 func main() {
 	sdk, err := cess.New(
 		context.Background(),
-		cess.ConnectRpcAddrs(RPC_ADDRS),
-		cess.Mnemonic(MY_MNEMONIC),
-		cess.TransactionTimeout(time.Second*10),
+		sdkgo.ConnectRpcAddrs(RPC_ADDRS),
+		sdkgo.Mnemonic(MY_MNEMONIC),
+		sdkgo.TransactionTimeout(time.Second*10),
 	)
 	if err != nil {
 		panic(err)
