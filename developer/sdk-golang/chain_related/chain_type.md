@@ -163,12 +163,13 @@ type ConsensusRrscAppPublic struct {
 	Unknown types.U64
 }
 ```
-
-// Oss
+### OssInfo
+```golang
 type BucketInfo struct {
 	FileList  []FileHash
 	Authority []types.AccountID
 }
+```
 
 type OssInfo struct {
 	Peerid PeerId

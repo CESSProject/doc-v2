@@ -1,9 +1,9 @@
 This section introduces some methods for querying chain status.
 
 - [Audit](audit/audit.md)
-- [Babe](babe.md)
-- [Balances](balances.md)
-- [Deoss](deoss.md)
+- [Babe](babe/babe.md)
+- [Balances](balances/balances.md)
+- [Deoss](deoss/deoss.md)
 - [FileBank](file_bank.md)
 - [SchedulerCredit](scheduler_credit.md)
 - [Session](session.md)

@@ -3,4 +3,4 @@ This section describes the use of the interface to the balances pallet on CESS c
 The list of interfaces is as follows:
 - [QueryTotalIssuance](QueryTotalIssuance.md)
 - [QueryInactiveIssuance](QueryInactiveIssuance.md)
-- [TransferToken](TransferToken.go)
+- [TransferToken](TransferToken.md)
