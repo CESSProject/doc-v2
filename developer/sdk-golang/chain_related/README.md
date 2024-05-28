@@ -4,7 +4,7 @@ This section introduces some methods for querying chain status.
 - [Babe](babe/babe.md)
 - [Balances](balances/balances.md)
 - [Deoss](deoss/deoss.md)
-- [FileBank](file_bank.md)
+- [FileBank](file_bank/file_bank.md)
 - [SchedulerCredit](scheduler_credit.md)
 - [Session](session.md)
 - [Sminer](sminer.md)

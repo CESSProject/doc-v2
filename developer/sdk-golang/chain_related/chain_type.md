@@ -125,14 +125,6 @@ type ProveInfo struct {
 	ServiceProve types.Option[ServiceProveInfo]
 }
 
-type SpaceProofInfo struct {
-	Miner       types.AccountID
-	Front       types.U64
-	Rear        types.U64
-	PoisKey     PoISKeyInfo
-	Accumulator Accumulator
-}
-
 type QElement struct {
 	Index []types.U32
 	Value []Random
@@ -156,6 +148,16 @@ type ServiceProveInfo struct {
 }
 ```
 
+### SpaceProofInfo
+```golang
+type SpaceProofInfo struct {
+	Miner       types.AccountID
+	Front       types.U64
+	Rear        types.U64
+	PoisKey     PoISKeyInfo
+	Accumulator Accumulator
+}
+
 ### ConsensusRrscAppPublic
 ```golang
 type ConsensusRrscAppPublic struct {
@@ -165,18 +167,22 @@ type ConsensusRrscAppPublic struct {
 ```
 ### OssInfo
 ```golang
+type OssInfo struct {
+	Peerid PeerId
+	Domain types.Bytes
+}
+```
+
+### BucketInfo
+```golang
 type BucketInfo struct {
 	FileList  []FileHash
 	Authority []types.AccountID
 }
 ```
 
-type OssInfo struct {
-	Peerid PeerId
-	Domain types.Bytes
-}
-
-// FileBank
+### StorageOrder
+```golang
 type StorageOrder struct {
 	FileSize     types.U128
 	SegmentList  []SegmentList
@@ -184,16 +190,22 @@ type StorageOrder struct {
 	CompleteList []CompleteInfo
 }
 
-type SegmentList struct {
-	SegmentHash  FileHash
-	FragmentHash []FileHash
-}
-
 type CompleteInfo struct {
 	Index types.U8
 	Miner types.AccountID
 }
+```
 
+### SegmentList
+```golang
+type SegmentList struct {
+	SegmentHash  FileHash
+	FragmentHash []FileHash
+}
+```
+
+### FileMetadata
+```golang
 type FileMetadata struct {
 	SegmentList []SegmentInfo
 	Owner       []UserBrief
@@ -202,24 +214,33 @@ type FileMetadata struct {
 	State       types.U8
 }
 
-type SegmentInfo struct {
-	Hash         FileHash
-	FragmentList []FragmentInfo
-}
-
 type FragmentInfo struct {
 	Hash  FileHash
 	Avail types.Bool
 	Tag   types.Option[types.U32]
 	Miner types.AccountID
 }
+```
 
+### SegmentInfo
+```golang
+type SegmentInfo struct {
+	Hash         FileHash
+	FragmentList []FragmentInfo
+}
+```
+
+### UserBrief
+```golang
 type UserBrief struct {
 	User       types.AccountID
 	FileName   types.Bytes
 	BucketName types.Bytes
 }
+```
 
+### RestoralOrderInfo
+```golang
 type RestoralOrderInfo struct {
 	Count        types.U32
 	Miner        types.AccountID
@@ -229,7 +250,16 @@ type RestoralOrderInfo struct {
 	GenBlock     types.U32
 	Deadline     types.U32
 }
+```
 
+### TagSigInfo
+```golang
+type TagSigInfo struct {
+	Miner    types.AccountID
+	Digest   []DigestInfo
+	Filehash FileHash
+}
+```
 type RestoralTargetInfo struct {
 	Miner         types.AccountID
 	ServiceSpace  types.U128
@@ -368,11 +398,7 @@ type IdleSignInfo struct {
 	LastOperationBlock types.U32
 	PoisKey            PoISKeyInfo
 }
-type TagSigInfo struct {
-	Miner    types.AccountID
-	Digest   []DigestInfo
-	Filehash FileHash
-}
+
 
 type DigestInfo struct {
 	Fragment  FileHash
