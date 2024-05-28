@@ -10,6 +10,6 @@ This section introduces some methods for querying chain status.
 - [Sminer](sminer/sminer.md)
 - [Staking](staking/staking.md)
 - [StorageHandler](storage_handler/storage_handler.md)
-- [System](system.md)
+- [System](system/system.md)
 - [Tee](tee.md)
 - [Treasury](treasury.go)

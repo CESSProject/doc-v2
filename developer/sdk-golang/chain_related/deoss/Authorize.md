@@ -18,12 +18,12 @@ Example code:
 package main
 
 import (
-	"context"
-	"fmt"
-	"time"
+    "context"
+    "fmt"
+    "time"
 
-	sdkgo "github.com/CESSProject/cess-go-sdk"
-	"github.com/centrifuge/go-substrate-rpc-client/v4/types"
+    sdkgo "github.com/CESSProject/cess-go-sdk"
+    "github.com/centrifuge/go-substrate-rpc-client/v4/types"
 )
 
 // Substrate well-known mnemonic:
@@ -33,29 +33,29 @@ import (
 var MY_MNEMONIC = "bottom drive obey lake curtain smoke basket hold race lonely fit walk"
 
 var RPC_ADDRS = []string{
-	//testnet
-	"wss://testnet-rpc0.cess.cloud/ws/",
-	"wss://testnet-rpc1.cess.cloud/ws/",
-	"wss://testnet-rpc2.cess.cloud/ws/",
+    //testnet
+    "wss://testnet-rpc0.cess.cloud/ws/",
+    "wss://testnet-rpc1.cess.cloud/ws/",
+    "wss://testnet-rpc2.cess.cloud/ws/",
 }
 
 func main() {
-	sdk, err := sdkgo.New(
-		context.Background(),
-		sdkgo.ConnectRpcAddrs(RPC_ADDRS),
-		sdkgo.Mnemonic(MY_MNEMONIC),
-		sdkgo.TransactionTimeout(time.Second*10),
-	)
-	if err != nil {
-		panic(err)
-	}
-	defer sdk.Close()
+    sdk, err := sdkgo.New(
+        context.Background(),
+        sdkgo.ConnectRpcAddrs(RPC_ADDRS),
+        sdkgo.Mnemonic(MY_MNEMONIC),
+        sdkgo.TransactionTimeout(time.Second*10),
+    )
+    if err != nil {
+        panic(err)
+    }
+    defer sdk.Close()
 
     account_id, err := utils.ParsingPublickey("cXfyomKDABfehLkvARFE854wgDJFMbsxwAJEHezRb6mfcAi2y")
-	if err != nil {
-		panic(err)
-	}
+    if err != nil {
+        panic(err)
+    }
 
-	fmt.Println(sdk.Authorize(account_id))
+    fmt.Println(sdk.Authorize(account_id))
 }
 ```

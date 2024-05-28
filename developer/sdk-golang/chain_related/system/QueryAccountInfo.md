@@ -1,14 +1,14 @@
-This is the interface for querying the block where the storage miner started increase the staking.
+This is the interface for querying account information.
 
 ```golang
-// QueryStakingStartBlock query storage miner's starting staking block
-//   - accountID: storage miner account
+// QueryAccountInfo query account info
+//   - account: account
 //   - block: block number, less than 0 indicates the latest block
 //
 // Return:
-//   - uint32: starting staking block
+//   - types.AccountInfo: account info
 //   - error: error message
-func (c *ChainClient) QueryStakingStartBlock(accountID []byte, block int32) (uint32, error)
+func (c *ChainClient) QueryAccountInfo(account string, block int32) (types.AccountInfo, error)
 ```
 
 Example code:
@@ -41,11 +41,6 @@ func main() {
     }
     defer sdk.Close()
 
-    account_id, err := utils.ParsingPublickey("cXfyomKDABfehLkvARFE854wgDJFMbsxwAJEHezRb6mfcAi2y")
-    if err != nil {
-        panic(err)
-    }
-
-    fmt.Println(sdk.QueryStakingStartBlock(account_id, -1))
+    fmt.Println(sdk.QueryAccountInfo("cXjeCHQW3totBGhQXdAUAqjCNqk1NhiR3UK37czSeUak2pqGV", -1))
 }
 ```

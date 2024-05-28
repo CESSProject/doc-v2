@@ -1,16 +1,14 @@
-This interface is used to query file meta information.
+This is the interface to query the block number based on the block hash.
 
 ```golang
-// QueryFile query file metadata
-//   - fid: file identification
-//   - block: block number, less than 0 indicates the latest block
+// QueryBlockNumber query the block number based on the block hash
+//   - blockhash: hex-encoded block hash, if empty query the latest block number
 //
 // Return:
-//   - FileMetadata: file metadata
+//   - uint32: block number
 //   - error: error message
-func (c *ChainClient) QueryFile(fid string, block int32) (FileMetadata, error)
+func (c *ChainClient) QueryBlockNumber(blockhash string) (uint32, error)
 ```
-The return type is detailed in [FileMetadata](../chain_type.md#StorageOrder).
 
 Example code:
 ```golang
@@ -42,6 +40,6 @@ func main() {
     }
     defer sdk.Close()
 
-    fmt.Println(sdk.QueryFile("b984d0de1428d0011...a26d41f3f7abaa5b6c450", -1))
+    fmt.Println(sdk.QueryBlockNumber("0x31d396f63cff05a52784a6...b80433d7dd9c4a98509a"))
 }
 ```

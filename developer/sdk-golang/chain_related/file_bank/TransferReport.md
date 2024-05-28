@@ -19,11 +19,11 @@ Example code:
 package main
 
 import (
-	"context"
-	"fmt"
-	"time"
+    "context"
+    "fmt"
+    "time"
 
-	sdkgo "github.com/CESSProject/cess-go-sdk"
+    sdkgo "github.com/CESSProject/cess-go-sdk"
 )
 
 // Substrate well-known mnemonic:
@@ -33,24 +33,24 @@ import (
 var MY_MNEMONIC = "bottom drive obey lake curtain smoke basket hold race lonely fit walk"
 
 var RPC_ADDRS = []string{
-	//testnet
-	"wss://testnet-rpc0.cess.cloud/ws/",
-	"wss://testnet-rpc1.cess.cloud/ws/",
-	"wss://testnet-rpc2.cess.cloud/ws/",
+    //testnet
+    "wss://testnet-rpc0.cess.cloud/ws/",
+    "wss://testnet-rpc1.cess.cloud/ws/",
+    "wss://testnet-rpc2.cess.cloud/ws/",
 }
 
 func main() {
-	sdk, err := sdkgo.New(
-		context.Background(),
-		sdkgo.ConnectRpcAddrs(RPC_ADDRS),
-		sdkgo.Mnemonic(MY_MNEMONIC),
-		sdkgo.TransactionTimeout(time.Second*10),
-	)
-	if err != nil {
-		panic(err)
-	}
-	defer sdk.Close()
+    sdk, err := sdkgo.New(
+        context.Background(),
+        sdkgo.ConnectRpcAddrs(RPC_ADDRS),
+        sdkgo.Mnemonic(MY_MNEMONIC),
+        sdkgo.TransactionTimeout(time.Second*10),
+    )
+    if err != nil {
+        panic(err)
+    }
+    defer sdk.Close()
 
-	fmt.Println(sdk.TransferReport(0, "b984d0de1428d0011...a26d41f3f7abaa5b6c450"))
+    fmt.Println(sdk.TransferReport(0, "b984d0de1428d0011...a26d41f3f7abaa5b6c450"))
 }
 ```
