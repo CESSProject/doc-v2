@@ -319,6 +319,43 @@ type RestoralTargetInfo struct {
 }
 ```
 
+### StakingEraRewardPoints
+```golang
+type StakingEraRewardPoints struct {
+	Total      types.U32
+	Individual []Individual
+}
+```
+
+### StakingNominations
+```golang
+type StakingNominations struct {
+	Targets     []types.AccountID
+	SubmittedIn types.U32
+	Suppressed  types.Bool
+}
+```
+
+### StakingLedger
+```golang
+type StakingLedger struct {
+	Stash          types.AccountID
+	Total          types.UCompact
+	Active         types.UCompact
+	Unlocking      []UnlockChunk
+	ClaimedRewards []types.U32
+}
+```
+
+### StakingExposure
+```golang
+type StakingExposure struct {
+	Total  types.UCompact
+	Own    types.UCompact
+	Others []OtherStakingExposure
+}
+```
+
 type UserFileSliceInfo struct {
 	Filehash FileHash
 	Filesize types.U128
@@ -350,29 +387,9 @@ type UserSpaceInfo struct {
 	State          types.Bytes
 }
 
-// Staking
-type StakingEraRewardPoints struct {
-	Total      types.U32
-	Individual []Individual
-}
-
 type Individual struct {
 	Acc    types.AccountID
 	Reward types.U32
-}
-
-type StakingNominations struct {
-	Targets     []types.AccountID
-	SubmittedIn types.U32
-	Suppressed  types.Bool
-}
-
-type StakingLedger struct {
-	Stash          types.AccountID
-	Total          types.UCompact
-	Active         types.UCompact
-	Unlocking      []UnlockChunk
-	ClaimedRewards []types.U32
 }
 
 type UnlockChunk struct {
@@ -420,12 +437,6 @@ type IdleSignInfo struct {
 type DigestInfo struct {
 	Fragment  FileHash
 	TeePubkey WorkerPublicKey
-}
-
-type StakingExposure struct {
-	Total  types.UCompact
-	Own    types.UCompact
-	Others []OtherStakingExposure
 }
 
 type OtherStakingExposure struct {

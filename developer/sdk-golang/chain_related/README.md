@@ -8,7 +8,7 @@ This section introduces some methods for querying chain status.
 - [SchedulerCredit](scheduler_credit/scheduler_credit.md)
 - [Session](session/session.md)
 - [Sminer](sminer/sminer.md)
-- [Staking](staking.md)
+- [Staking](staking/staking.md)
 - [StorageHandler](storage_handler.md)
 - [System](system.md)
 - [Tee](tee.md)
