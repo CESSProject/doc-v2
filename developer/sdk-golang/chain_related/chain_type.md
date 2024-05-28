@@ -260,6 +260,15 @@ type TagSigInfo struct {
 	Filehash FileHash
 }
 ```
+
+### SchedulerCredit
+```golang
+type SchedulerCounterEntry struct {
+	ProceedBlockSize uint64
+	PunishmentCount  uint32
+}
+```
+
 type RestoralTargetInfo struct {
 	Miner         types.AccountID
 	ServiceSpace  types.U128
@@ -270,12 +279,6 @@ type RestoralTargetInfo struct {
 type UserFileSliceInfo struct {
 	Filehash FileHash
 	Filesize types.U128
-}
-
-// SchedulerCredit
-type SchedulerCounterEntry struct {
-	ProceedBlockSize uint64
-	PunishmentCount  uint32
 }
 
 // Session
