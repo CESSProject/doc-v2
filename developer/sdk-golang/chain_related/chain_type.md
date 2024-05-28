@@ -130,11 +130,6 @@ type QElement struct {
 	Value []Random
 }
 
-type PoISKeyInfo struct {
-	G PoISKey_G
-	N PoISKey_N
-}
-
 type IdleProveInfo struct {
 	TeePubkey    WorkerPublicKey
 	IdleProve    types.Bytes
@@ -145,6 +140,14 @@ type ServiceProveInfo struct {
 	TeePubkey    WorkerPublicKey
 	ServiceProve types.Bytes
 	VerifyResult types.Option[bool]
+}
+```
+
+### PoISKeyInfo
+```golang
+type PoISKeyInfo struct {
+	G PoISKey_G
+	N PoISKey_N
 }
 ```
 
@@ -269,25 +272,17 @@ type SchedulerCounterEntry struct {
 }
 ```
 
-type RestoralTargetInfo struct {
-	Miner         types.AccountID
-	ServiceSpace  types.U128
-	RestoredSpace types.U128
-	CoolingBlock  types.U32
+### ExpendersInfo
+```golang
+type ExpendersInfo struct {
+	K types.U64
+	N types.U64
+	D types.U64
 }
+```
 
-type UserFileSliceInfo struct {
-	Filehash FileHash
-	Filesize types.U128
-}
-
-// Session
-type KeyOwnerParam struct {
-	PublicType AppPublicType
-	Public     types.Bytes
-}
-
-// Sminer
+### MinerInfo
+```golang
 type MinerInfo struct {
 	BeneficiaryAccount types.AccountID
 	StakingAccount     types.AccountID
@@ -303,11 +298,36 @@ type MinerInfo struct {
 	ServiceBloomFilter BloomFilter
 	TeeSig             TeeSig
 }
+```
 
+### MinerReward
+```golang
 type MinerReward struct {
 	TotalReward  types.U128
 	RewardIssued types.U128
 	OrderList    []RewardOrder
+}
+```
+
+### RestoralTargetInfo
+```golang
+type RestoralTargetInfo struct {
+	Miner         types.AccountID
+	ServiceSpace  types.U128
+	RestoredSpace types.U128
+	CoolingBlock  types.U32
+}
+```
+
+type UserFileSliceInfo struct {
+	Filehash FileHash
+	Filesize types.U128
+}
+
+// Session
+type KeyOwnerParam struct {
+	PublicType AppPublicType
+	Public     types.Bytes
 }
 
 type RewardOrder struct {
@@ -385,12 +405,6 @@ type WorkerInfo struct {
 	ConfidenceLevel     types.U8
 	Features            []types.U32
 	Role                types.U8 // 0:Full 1:Verifier 2:Marker
-}
-
-type ExpendersInfo struct {
-	K types.U64
-	N types.U64
-	D types.U64
 }
 
 type IdleSignInfo struct {

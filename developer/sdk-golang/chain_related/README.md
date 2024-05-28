@@ -7,7 +7,7 @@ This section introduces some methods for querying chain status.
 - [FileBank](file_bank/file_bank.md)
 - [SchedulerCredit](scheduler_credit/scheduler_credit.md)
 - [Session](session/session.md)
-- [Sminer](sminer.md)
+- [Sminer](sminer/sminer.md)
 - [Staking](staking.md)
 - [StorageHandler](storage_handler.md)
 - [System](system.md)

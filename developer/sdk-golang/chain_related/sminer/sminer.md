@@ -1,0 +1,23 @@
+This section describes the use of the interface to the sminer pallet on CESS chain, which is about storage miner.
+
+The list of interfaces is as follows:
+- [QueryExpenders](QueryExpenders.md)
+- [QueryMinerItems](QueryMinerItems.md)
+- [QueryStakingStartBlock](QueryStakingStartBlock.md)
+- [QueryAllMiner](QueryAllMiner.md)
+- [QueryCounterForMinerItems](QueryCounterForMinerItems.md)
+- [QueryRewardMap](QueryRewardMap.md)
+- [QueryRestoralTarget](QueryRestoralTarget.md)
+- [QueryAllRestoralTarget](QueryAllRestoralTarget.md)
+- [QueryPendingReplacements](QueryPendingReplacements.md)
+- [QueryCompleteSnapShot](QueryCompleteSnapShot.md)
+- [IncreaseCollateral](IncreaseCollateral.md)
+- [IncreaseDeclarationSpace](IncreaseDeclarationSpace.md)
+- [MinerExitPrep](MinerExitPrep.md)
+- [MinerWithdraw](MinerWithdraw.md)
+- [ReceiveReward](ReceiveReward.md)
+- [RegisterPoisKey](RegisterPoisKey.md)
+- [RegnstkSminer](RegnstkSminer.md)
+- [RegnstkAssignStaking](RegnstkAssignStaking.md)
+- [UpdateBeneficiary](UpdateBeneficiary.md)
+- [UpdateSminerPeerId](UpdateSminerPeerId.md)
