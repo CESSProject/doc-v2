@@ -6,7 +6,7 @@ This section introduces some methods for querying chain status.
 - [Deoss](deoss/deoss.md)
 - [FileBank](file_bank/file_bank.md)
 - [SchedulerCredit](scheduler_credit/scheduler_credit.md)
-- [Session](session.md)
+- [Session](session/session.md)
 - [Sminer](sminer.md)
 - [Staking](staking.md)
 - [StorageHandler](storage_handler.md)
