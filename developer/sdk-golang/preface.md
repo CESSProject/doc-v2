@@ -7,4 +7,8 @@ Please visit [GitHub](https://github.com/CESSProject/cess-go-sdk) to obtain the 
 Go SDK provides a wealth of sample programs for your reference or direct use. Examples include the following:
 | Sample Files | Sample content |
 | ------------ | -------------- |
-| [chain.go](https://github.com/CESSProject/cess-go-sdk/blob/main/chain/chain.go#L63) | [Initialize Client](initialization.md) |
+| [NewChainClient](https://github.com/CESSProject/cess-go-sdk/blob/main/chain/chain.go#L97) | [Initialize Client](initialization.md) |
+| [StoreFile](https://github.com/CESSProject/cess-go-sdk/blob/main/core/process/file.go#L52) | Store a file |
+| [StoreObject](https://github.com/CESSProject/cess-go-sdk/blob/main/core/process/file.go#L167) | Store an object |
+| [RetrieveFile](https://github.com/CESSProject/cess-go-sdk/blob/main/core/process/file.go#L232) | Retrieve a file |
+| [RetrieveObject](https://github.com/CESSProject/cess-go-sdk/blob/main/core/process/file.go#L313) | Retrieve an object |
