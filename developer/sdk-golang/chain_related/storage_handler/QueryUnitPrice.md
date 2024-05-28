@@ -1,16 +1,14 @@
-This is the interface to the query validator ledger.
+This is the interface to query the price per GiB of storage space.
 
 ```golang
-// QueryLedger query the staking ledger
-//   - accountID: account id
+// QueryUnitPrice query price per GiB space
 //   - block: block number, less than 0 indicates the latest block
 //
 // Return:
-//   - StakingLedger: staking ledger
+//   - string: price per GiB space
 //   - error: error message
-func (c *ChainClient) QueryLedger(accountID []byte, block int32) (StakingLedger, error)
+func (c *ChainClient) QueryUnitPrice(block int32) (string, error)
 ```
-For the type definition, please refer to [StakingLedger](../chain_type.md#StakingLedger)
 
 Example code:
 ```golang
@@ -42,11 +40,6 @@ func main() {
 	}
 	defer sdk.Close()
 
-    account_id, err := utils.ParsingPublickey("cXfyomKDABfehLkvARFE854wgDJFMbsxwAJEHezRb6mfcAi2y")
-	if err != nil {
-		panic(err)
-	}
-
-	fmt.Println(sdk.QueryLedger(account_id, -1))
+	fmt.Println(sdk.QueryUnitPrice(-1))
 }
 ```

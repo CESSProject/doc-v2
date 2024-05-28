@@ -9,7 +9,7 @@ This section introduces some methods for querying chain status.
 - [Session](session/session.md)
 - [Sminer](sminer/sminer.md)
 - [Staking](staking/staking.md)
-- [StorageHandler](storage_handler.md)
+- [StorageHandler](storage_handler/storage_handler.md)
 - [System](system.md)
 - [Tee](tee.md)
 - [Treasury](treasury.go)

@@ -1,16 +1,17 @@
-This is the interface to the query validator ledger.
+This is the interface for querying information about the space purchased by the user.
 
 ```golang
-// QueryLedger query the staking ledger
-//   - accountID: account id
+// QueryUserOwnedSpace to query user purchased space information
+//   - accountID: user account
 //   - block: block number, less than 0 indicates the latest block
 //
 // Return:
-//   - StakingLedger: staking ledger
+//   - UserSpaceInfo: space information
 //   - error: error message
-func (c *ChainClient) QueryLedger(accountID []byte, block int32) (StakingLedger, error)
+func (c *ChainClient) QueryUserOwnedSpace(accountID []byte, block int32) (UserSpaceInfo, error)
 ```
-For the type definition, please refer to [StakingLedger](../chain_type.md#StakingLedger)
+
+For the type definition, please refer to [UserSpaceInfo](../chain_type.md#UserSpaceInfo)
 
 Example code:
 ```golang
@@ -47,6 +48,6 @@ func main() {
 		panic(err)
 	}
 
-	fmt.Println(sdk.QueryLedger(account_id, -1))
+	fmt.Println(sdk.QueryUserOwnedSpace(account_id, -1))
 }
 ```

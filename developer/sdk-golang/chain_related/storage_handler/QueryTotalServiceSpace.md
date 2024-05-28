@@ -1,16 +1,14 @@
-This is the interface to the query validator ledger.
+This is the interface to query the total service space size.
 
 ```golang
-// QueryLedger query the staking ledger
-//   - accountID: account id
+// QueryTotalServiceSpace query the size of all service space
 //   - block: block number, less than 0 indicates the latest block
 //
 // Return:
-//   - StakingLedger: staking ledger
+//   - uint64: the size of all service space
 //   - error: error message
-func (c *ChainClient) QueryLedger(accountID []byte, block int32) (StakingLedger, error)
+func (c *ChainClient) QueryTotalServiceSpace(block int32) (uint64, error)
 ```
-For the type definition, please refer to [StakingLedger](../chain_type.md#StakingLedger)
 
 Example code:
 ```golang
@@ -42,11 +40,6 @@ func main() {
 	}
 	defer sdk.Close()
 
-    account_id, err := utils.ParsingPublickey("cXfyomKDABfehLkvARFE854wgDJFMbsxwAJEHezRb6mfcAi2y")
-	if err != nil {
-		panic(err)
-	}
-
-	fmt.Println(sdk.QueryLedger(account_id, -1))
+	fmt.Println(sdk.QueryTotalServiceSpace(-1))
 }
 ```

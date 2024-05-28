@@ -160,6 +160,7 @@ type SpaceProofInfo struct {
 	PoisKey     PoISKeyInfo
 	Accumulator Accumulator
 }
+```
 
 ### ConsensusRrscAppPublic
 ```golang
@@ -168,6 +169,7 @@ type ConsensusRrscAppPublic struct {
 	Unknown types.U64
 }
 ```
+
 ### OssInfo
 ```golang
 type OssInfo struct {
@@ -356,17 +358,24 @@ type StakingExposure struct {
 }
 ```
 
+### UserFileSliceInfo
+```golang
 type UserFileSliceInfo struct {
 	Filehash FileHash
 	Filesize types.U128
 }
+```
 
-// Session
+### KeyOwnerParam
+```golang
 type KeyOwnerParam struct {
 	PublicType AppPublicType
 	Public     types.Bytes
 }
+```
 
+### RewardOrder
+```golang
 type RewardOrder struct {
 	ReceiveCount     types.U8
 	MaxCount         types.U8
@@ -375,8 +384,10 @@ type RewardOrder struct {
 	EachAmount       types.U128
 	LastReceiveBlock types.U32
 }
+```
 
-// StorageHandler
+### UserSpaceInfo
+```golang
 type UserSpaceInfo struct {
 	TotalSpace     types.U128
 	UsedSpace      types.U128
@@ -386,32 +397,44 @@ type UserSpaceInfo struct {
 	Deadline       types.U32
 	State          types.Bytes
 }
-
+```
+### Individual
+```golang
 type Individual struct {
 	Acc    types.AccountID
 	Reward types.U32
 }
+```
 
+### UnlockChunk
+```golang
 type UnlockChunk struct {
 	Value types.UCompact
 	Era   types.BlockNumber
 }
+```
 
-// System
+### SysProperties
+```golang
 type SysProperties struct {
 	Ss58Format    types.Bytes
 	TokenDecimals types.U8
 	TokenSymbol   types.Text
 	SS58Prefix    types.U32
 }
+```
 
+### SysSyncState
+```golang
 type SysSyncState struct {
 	StartingBlock types.U32
 	CurrentBlock  types.U32
 	HighestBlock  types.U32
 }
+```
 
-// TeeWorker
+### WorkerInfo
+```golang
 type WorkerInfo struct {
 	Pubkey              WorkerPublicKey
 	EcdhPubkey          EcdhPublicKey
@@ -423,7 +446,10 @@ type WorkerInfo struct {
 	Features            []types.U32
 	Role                types.U8 // 0:Full 1:Verifier 2:Marker
 }
+```
 
+### IdleSignInfo
+```golang
 type IdleSignInfo struct {
 	Miner              types.AccountID
 	Rear               types.U64
@@ -432,29 +458,44 @@ type IdleSignInfo struct {
 	LastOperationBlock types.U32
 	PoisKey            PoISKeyInfo
 }
+```
 
-
+### DigestInfo
+```golang
 type DigestInfo struct {
 	Fragment  FileHash
 	TeePubkey WorkerPublicKey
 }
+```
 
+### OtherStakingExposure
+```golang
 type OtherStakingExposure struct {
 	Who   types.AccountID
 	Value types.UCompact
 }
+```
 
+### StakingValidatorPrefs
+```golang
 type StakingValidatorPrefs struct {
 	Commission types.U32
 	Blocked    types.Bool
 }
+```
 
+### CompleteSnapShotType
+```golang
 type CompleteSnapShotType struct {
 	MinerCount types.U32
 	TotalPower types.U128
 }
+```
 
+### RoundRewardType
+```golang
 type RoundRewardType struct {
 	TotalReward types.U128
 	OtherReward types.U128
 }
+```
