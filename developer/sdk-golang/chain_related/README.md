@@ -13,3 +13,4 @@ This section introduces some methods for querying chain status.
 - [System](system/system.md)
 - [Tee](tee/tee.md)
 - [CessTreasury](cess_treasury/treasury.md)
+- [RpcCall](rpc_calls/rpc_call.md)
