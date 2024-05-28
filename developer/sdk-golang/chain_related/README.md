@@ -11,5 +11,5 @@ This section introduces some methods for querying chain status.
 - [Staking](staking/staking.md)
 - [StorageHandler](storage_handler/storage_handler.md)
 - [System](system/system.md)
-- [Tee](tee.md)
+- [Tee](tee/tee.md)
 - [Treasury](treasury.go)

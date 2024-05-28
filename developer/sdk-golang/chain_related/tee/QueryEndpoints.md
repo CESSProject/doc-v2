@@ -1,16 +1,15 @@
-This is the interface for querying storage miner rewards.
+This is the interface to query the tee worker communication address.
 
 ```golang
-// QueryRewardMap query all reward information for storage miner
+// QueryEndpoints query tee's endpoint
+//   - puk: tee's work public key
 //   - block: block number, less than 0 indicates the latest block
 //
 // Return:
-//   - MinerReward: all reward information
+//   - string: tee's endpoint
 //   - error: error message
-func (c *ChainClient) QueryRewardMap(accountID []byte, block int32) (MinerReward, error)
+func (c *ChainClient) QueryEndpoints(puk WorkerPublicKey, block int32) (string, error)
 ```
-
-For the type definition, please refer to [MinerReward](../chain_type.md#MinerReward)
 
 Example code:
 ```golang
@@ -42,11 +41,13 @@ func main() {
     }
     defer sdk.Close()
 
-    account_id, err := utils.ParsingPublickey("cXfyomKDABfehLkvARFE854wgDJFMbsxwAJEHezRb6mfcAi2y")
-    if err != nil {
-        panic(err)
-    }
+    allWorks, err := sdk.QueryAllWorkers(-1)
+	if err != nil {
+		panic(err)
+	}
 
-    fmt.Println(sdk.QueryRewardMap(account_id, -1))
+	for _, v := range allWorks {
+		fmt.Println(sdk.QueryEndpoints(v.Pubkey, -1))
+	}
 }
 ```

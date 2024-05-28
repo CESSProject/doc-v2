@@ -15,6 +15,6 @@ This is the interface for the storage miner to authenticate the idle space to th
 //   - for storage miner use only
 func (c *ChainClient) CertIdleSpace(spaceProofInfo SpaceProofInfo, teeSignWithAcc, teeSign types.Bytes, teePuk WorkerPublicKey) (string, error)
 ```
-For the type definition, please refer to [SpaceProofInfo](../chain_type.md#SpaceProofInfo), [WorkerPublicKey](../chain_type.md#Typedefinition)
+For the type definition, please refer to [SpaceProofInfo](../chain_type.md#SpaceProofInfo), [WorkerPublicKey](../chain_type.md#Type-definition)
 
 For example code, please refer to [attestation_idle.go](https://github.com/CESSProject/cess-miner/blob/main/node/attestation_idle.go)

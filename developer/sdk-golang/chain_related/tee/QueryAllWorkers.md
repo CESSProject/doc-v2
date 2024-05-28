@@ -1,16 +1,14 @@
-This is the interface for querying storage miner rewards.
+This is the interface to query all tee worker information.
 
 ```golang
-// QueryRewardMap query all reward information for storage miner
+// QueryAllWorkers query all tee work info
 //   - block: block number, less than 0 indicates the latest block
 //
 // Return:
-//   - MinerReward: all reward information
+//   - []WorkerInfo: all tee worker info
 //   - error: error message
-func (c *ChainClient) QueryRewardMap(accountID []byte, block int32) (MinerReward, error)
+func (c *ChainClient) QueryAllWorkers(block int32) ([]WorkerInfo, error)
 ```
-
-For the type definition, please refer to [MinerReward](../chain_type.md#MinerReward)
 
 Example code:
 ```golang
@@ -42,11 +40,6 @@ func main() {
     }
     defer sdk.Close()
 
-    account_id, err := utils.ParsingPublickey("cXfyomKDABfehLkvARFE854wgDJFMbsxwAJEHezRb6mfcAi2y")
-    if err != nil {
-        panic(err)
-    }
-
-    fmt.Println(sdk.QueryRewardMap(account_id, -1))
+    fmt.Println(sdk.QueryAllWorkers(-1))
 }
 ```

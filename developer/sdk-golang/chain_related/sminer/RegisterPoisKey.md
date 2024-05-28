@@ -18,6 +18,6 @@ This is the interface for storage miners to register pois keys and is in the sec
 func (c *ChainClient) RegisterPoisKey(poisKey PoISKeyInfo, teeSignWithAcc, teeSign types.Bytes, teePuk WorkerPublicKey) (string, error)
 ```
 
-For the type definition, please refer to [PoISKeyInfo](../chain_type.md#PoISKeyInfo), [WorkerPublicKey](../chain_type.md#Typedefinition)
+For the type definition, please refer to [PoISKeyInfo](../chain_type.md#PoISKeyInfo), [WorkerPublicKey](../chain_type.md#Type-definition)
 
 For example code, please refer to [run.go](https://github.com/CESSProject/cess-miner/blob/main/cmd/console/run.go)
