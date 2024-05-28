@@ -12,4 +12,4 @@ This section introduces some methods for querying chain status.
 - [StorageHandler](storage_handler/storage_handler.md)
 - [System](system/system.md)
 - [Tee](tee/tee.md)
-- [Treasury](treasury.go)
+- [CessTreasury](cess_treasury/treasury.md)
