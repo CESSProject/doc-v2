@@ -48,7 +48,7 @@
     * [Commonly Used Libs](developer/advanced-guides/common-libs.md)
     * [CESS Code Overview](developer/advanced-guides/src-overview.md)
 * [📱 CESS Products](/product/README.md)
-  * [DeOSS](https://cess.cloud/deoss.html)
+  * [DeOSS](https://docs.cess.cloud/deoss)
   * [DeShare](https://cess.cloud/deshare.html)
 * [📚 References](ref/README.md)
   * [Concepts](ref/concepts/README.md)
