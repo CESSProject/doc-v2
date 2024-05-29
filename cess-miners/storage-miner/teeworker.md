@@ -71,7 +71,8 @@ When setting up the validator stash account, fill in null and this will automati
 
 The working principle of Marker type TEE Worker is shown in the figure below:
 
-![Marker TEE worker workflow](../assets/storage-miner/teeworker/tee-workflow.jpeg)
+![Marker TEE worker workflow](../../assets/storage-miner/teeworker/tee-workflow.jpeg)
+
 
 TEE Worker protects the PoDR² key through the SGX Trusted Execution Environment, which is used to mark user service file fragments, and to verify and sign the results of idle space certification or replacement certification. The PoDR² key is generated in a trusted environment and transferred to the trusted environment of other TEE Workers through a secure key exchange channel without being leaked to the outside, thus ensuring the security of the algorithm; the trusted environment also encapsulates the internal code, and needs to pass Intel remote authentication. The remote authentication report also needs to be verified when TEE Worker is registered to ensure that the code running in SGX is officially disclosed by CESS and has not been maliciously tampered with, thereby ensuring the correctness of the service.
 
