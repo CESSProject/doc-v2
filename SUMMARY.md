@@ -30,7 +30,7 @@
       * [Install](developer/cess-sdk/sdk-golang/install.md)
       * [Initialization](developer/cess-sdk/sdk-golang/initialization.md)
       * [Properties](developer/cess-sdk/sdk-golang/properties.md)
-      * [Data Process](developer/cess-sdk/sdk-golang/data_processing.md)
+      * [Data Process](developer/cess-sdk/sdk-golang/data_process.md)
       * [Chain Related](developer/cess-sdk/sdk-golang/chain_related/README.md)
         * [Audit](developer/cess-sdk/sdk-golang/chain_related/audit/audit.md)
           * [QueryChallengeSnapShot](developer/cess-sdk/sdk-golang/chain_related/audit/QueryChallengeSnapShot.md)
