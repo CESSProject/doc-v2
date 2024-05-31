@@ -8,7 +8,7 @@ Go SDK provides a wealth of sample programs for your reference or direct use. Ex
 | Sample Files | Sample content |
 | ------------ | -------------- |
 | [NewChainClient](https://github.com/CESSProject/cess-go-sdk/blob/main/chain/chain.go#L97) | [Initialize Client](initialization.md) |
-| [StoreFile](https://github.com/CESSProject/cess-go-sdk/blob/main/core/process/file.go#L52) | Store a file |
-| [StoreObject](https://github.com/CESSProject/cess-go-sdk/blob/main/core/process/file.go#L167) | Store an object |
-| [RetrieveFile](https://github.com/CESSProject/cess-go-sdk/blob/main/core/process/file.go#L232) | Retrieve a file |
-| [RetrieveObject](https://github.com/CESSProject/cess-go-sdk/blob/main/core/process/file.go#L313) | Retrieve an object |
+| [StoreFile](https://github.com/CESSProject/cess-go-sdk/blob/main/core/process/file.go#L52) | [Store a file](object_file/StoreFile.md) |
+| [StoreObject](https://github.com/CESSProject/cess-go-sdk/blob/main/core/process/file.go#L167) | [Store an object](object_file/StoreObject.md) |
+| [RetrieveFile](https://github.com/CESSProject/cess-go-sdk/blob/main/core/process/file.go#L232) | [Retrieve a file](object_file/RetrieveFile.md) |
+| [RetrieveObject](https://github.com/CESSProject/cess-go-sdk/blob/main/core/process/file.go#L313) | [Retrieve an object](object_file/RetrieveObject.md) |
