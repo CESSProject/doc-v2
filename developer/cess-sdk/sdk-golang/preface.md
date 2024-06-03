@@ -5,7 +5,7 @@ Please visit [GitHub](https://github.com/CESSProject/cess-go-sdk) to obtain the 
 
 ## Sample Program
 Go SDK provides a wealth of sample programs for your reference or direct use. Examples include the following:
-| Sample Files | Sample content |
+| Sample Files | Sample Content |
 | ------------ | -------------- |
 | [NewChainClient](https://github.com/CESSProject/cess-go-sdk/blob/main/chain/chain.go#L97) | [Initialize Client](initialization.md) |
 | [StoreFile](https://github.com/CESSProject/cess-go-sdk/blob/main/core/process/file.go#L52) | [Store a file](object_file/StoreFile.md) |
