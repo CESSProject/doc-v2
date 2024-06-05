@@ -6,6 +6,6 @@ Here is the table of contents for this section:
 - [Initialization](initialization.md)
 - [Properties](properties.md)
 - [Client Type](client_type.md)
-- [Online Action](online_action.md)
+- [Boot Node](boot_node.md)
 - [Tee Related](tee_related.md)
 - [File Related](file_related.md)
