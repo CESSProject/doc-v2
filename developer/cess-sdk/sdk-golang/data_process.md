@@ -11,7 +11,7 @@ Data padding is in order to unify the size of the data, but also for subsequent 
 
 Example:
 For a 1MiB file: it willbe padded to 32MiB
-For 33MiB files: it will be padded to 64MiB
+For 33MiB file: it will be padded to 64MiB
 For a 500MiB file: it will be padded to 512MiB
 And so on...
 

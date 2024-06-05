@@ -7,5 +7,5 @@ Here is the table of contents for this section:
 - [Properties](properties.md)
 - [Client Type](client_type.md)
 - [Boot Node](boot_node.md)
-- [Tee Related](tee_related.md)
 - [File Related](file_related.md)
+- [Tee Related](tee_related.md)
