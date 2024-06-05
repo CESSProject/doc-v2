@@ -1,0 +1,1 @@
+This section describes how to get some attributes of a p2p node.
