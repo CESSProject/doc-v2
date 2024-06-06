@@ -4,7 +4,7 @@ CESS offers large-scale storage capacity, managing data files with up to space i
 
 CESS adopts layered and loosely coupled system architecture, which is divided into **CESS Protocol Suite** and **XESS AI Protocol Suite**.
 
-![CESS Layered Architecture](../assets/concepts/system-architecture/cess_arch.png)
+![CESS Architecture](../../assets/concepts/system-architecture/cess-arch.png)
 
 **CESS Protocol Suite** includes a blockchain service layer, distributed storage resource layer, and distributed content delivery layer.
 
@@ -38,7 +38,7 @@ This layer combines the advantages of CDN and P2P technologies for efficient fil
 
 On the application side, the stored content will be published on the seed node first, and the download service will be continuously provided if the seed node is not offline. However, as the number of user downloads from the same seed node increases, the bandwidth of that node will be exhausted, and the download speed per user will be reduced. With the design of a content delivery network, numerous tenant nodes then begin to serve the content. As a result, users can download content from multiple nodes, significantly improving the user experience.
 
-![Distributed Content Delivery Layer](../assets/concepts/system-architecture/distributed-cdn.png)
+![Distributed Content Delivery Layer](../../assets/concepts/system-architecture/distributed-cdn.png)
 
 The design of the CDN Layer is perfectly combined with blockchain technology. Storage miners form CDNs with cache miners in each region. Cache and retrieval miners create a relatively independent P2P network without public network IP. Node contribution rewards are issued through smart contracts, forming an autonomous network for development, as shown in the above diagram.
 
@@ -56,7 +56,7 @@ On the other hand, CESS can also be viewed to have the following logical archite
 
 - Applications built in the CESS ecosystem, including the CESS blockchain explorer; low-level services such as decentralized object storage service; and high-level services such as clients, cloud services, gateways, DeShare, and possibly many more.
 
-![Logical Architecture](../assets/concepts/system-architecture/logical-structure.png)
+![Logical Architecture](../../assets/concepts/system-architecture/logical-structure.png)
 
 - **Storage Node**: Primarily responsible for providing space, storing data, and computing proofs.
 
