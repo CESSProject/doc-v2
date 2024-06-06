@@ -49,7 +49,7 @@ func main() {
 	}
 	defer peer2.Close()
 
-	maddr, err := ma.NewMultiaddr(fmt.Sprintf("/ip4/192.168.110.247/tcp/%d/p2p/%s", P2P_PORT2, peer2.ID()))
+	maddr, err := ma.NewMultiaddr(fmt.Sprintf("/ip4/127.0.0.1/tcp/%d/p2p/%s", P2P_PORT2, peer2.ID()))
 	if err != nil {
 		panic(err)
 	}
