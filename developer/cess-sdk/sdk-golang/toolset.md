@@ -1,7 +1,7 @@
 This section focuses on the use of some of the tools.
 
 The list of interfaces is as follows:
-| Method Name | description |
+| Method Name | Description |
 | ----------- | ----------- |
 | [BytesToFileHash]([BytesToChainType.md](https://github.com/CESSProject/cess-go-sdk/blob/main/chain/util.go#L21)) | Convert byte arrays to FileHash |
 | [BytesToWorkPublickey](https://github.com/CESSProject/cess-go-sdk/blob/main/chain/util.go#L32) | Convert byte arrays to WorkPublickey |

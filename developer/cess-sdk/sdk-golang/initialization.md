@@ -1,6 +1,6 @@
 Before using SDK, it is necessary to create an SDK object that includes some configuration items in the following table. Please fill in according to the actual situation:
 
-| configuration | description | method |
+| configuration | Description | Method |
 | ------------- | ----------- | ------ |
 | RPC address | CESS chain rpc address | sdkgo.ConnectRpcAddrs |
 | Mnemonic | CESS wallet mnemonic phrase, if empty, no transaction can be made. | sdkgo.Mnemonic |
