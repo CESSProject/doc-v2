@@ -1,18 +1,21 @@
 To explore what you can do with CESS SDKs or APIs, please check our tutorials. To learn more about a certain topic on development, goto our guides.
 
-# Tutorials
+# Advanced Guides
 
-- [Deploy an ink!(Wasm) Smart Contract on CESS](tutorials/deploy-sc-ink.md)
-- [Deploy a Solidity Smart Contract on CESS](tutorials/deploy-sc-solidity.md)
-- [Develop with CESS Javascript APIs](tutorials/cess-js-sdk.md)
-- [Build a Proof of Existence dApp (ink!)](tutorials/poe-ink.md)
-- [Build a Proof of Existence dApp (Solidity)](tutorials/poe-solidity.md)
+- [Commonly Used Libraries and Toolchains in Development](advanced-guides/common-libs.md)
+- [Substrate and EVM Address Conversion](advanced-guides/substrate-evm.md)
+- [CESS Code Overview](advanced-guides/src-overview.md)
 
-# Guides
+# Smart Contract
 
-- [Using CESS Testnet Faucet](guides/testnet-faucet.md)
-- [Commonly Used Libraries and Toolchains in Development](guides/common-libs.md)
-- [Substrate and EVM Address Conversion](guides/substrate-evm.md)
-- [CESS Code Overview](guides/src-overview.md)
-- [DeOSS](https://docs.cess.cloud/deoss)
-- [User Space Operations Guide](guides/user-space.md)
+- [Issue an ERC-20 Smart Contract on CESS](smart-contract/issue-erc20.md)
+- [Deploy an ink!(Wasm) Smart Contract on CESS](smart-contract/deploy-sc-ink.md)
+- [Deploy a Solidity Smart Contract on CESS](smart-contract/deploy-sc-solidity.md)
+- [Build a Proof of Existence dApp (ink!)](smart-contract/poe-ink.md)
+- [Build a Proof of Existence dApp (Solidity)](smart-contract/poe-solidity.md)
+
+# CESS SDK
+
+- [Develop App with CESS Golang SDK](cess-sdk/sdk-golang/README.md)
+- [Develop App with CESS Javascript SDK](cess-sdk/sdk-js/README.md)
+- [Develop App with CESS Rust SDK](cess-sdk/sdk-rust/README.md)
