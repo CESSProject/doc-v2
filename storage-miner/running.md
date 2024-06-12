@@ -191,7 +191,7 @@ Set configurations successfully
 ```
 
 - If a staker payment account is provided, for testnet, the pledged space (answer to the **Enter cess storage space**) is **round up** to the closest TB unit and that amount multiply with 4,000 amount of TCESS will be locked as a miner deposit.
-- If a staker payment account is not provided, then another account, the signature account, as the staking account.
+- If a staker payment account is not provided, then the signature account will be used as the staking account. If the staking account different from signature account is provided, can only [increase stake in block browser manually](https://docs.cess.cloud/core/storage-miner/troubleshooting).
 - Default TEE worker endpoints for the chain will be used if you don't provide any TEE worker endpoints. This doesn't affect your reward as a storage miner.
 
 Start CESS bucket
@@ -258,17 +258,19 @@ sudo cess bucket stat
 
 An example of the returned result is shown below：
 
-![CESS Bucket Stat](../assets/storage-miner/running/bucket-stat.png)
+![CESS Bucket Stat](../assets/storage-miner/running/miner-stat.png)
 
 Refer to the [Glossary](../glossary.md#storage-miner) on the names above.
 
 At the beginning of the storage node synchronization, all your **validated space**, **used space**, and **locked space** are 0. It is only when the validated space been incremented above 0 that the storage miner start earning rewards. For testnet, it take about an hour **after** the storage node chain synchronization completed, as shown below.
 
-![CESS Bucket Stat with Validated Space](../assets/storage-miner/running/bucket-stat-validated-space.png)
+![CESS Bucket Stat with Validated Space](../assets/storage-miner/running/miner-stat-validated-space.png)
 
 If you get the result of `You are not a storage node` , please wait for the chain synchronization to complete.
 
 ## Increase Miner Staking
+
+Make sure that the signatureAcc is the same as stakingAcc can use this command
 
 ```bash
 sudo cess bucket increase staking <deposit amount>
