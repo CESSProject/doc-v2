@@ -3,11 +3,11 @@
 If you're planning to run a consensus miner, it's important to make sure your system meets the recommended requirements to ensure that your miner performs at its best.
 
 | Resource                      | Specification               |
-| ----------------------------- | --------------------------- |
+|-------------------------------|-----------------------------|
 | Recommended OS                | Ubuntu\_x64 20.04 or higher |
-| # of CPU Cores                | ≥ 4                         |
+| CPU Processor Num             | ≥ 4                         |
 | Intel SGX Enabled             | required                    |
-| Memory (SGX encrypted memory) | ≥ 64 GB                     |
+| Memory (SGX encrypted memory) | ≥ 16 GB                     |
 | Bandwidth                     | ≥ 5 Mbps                    |
 | Public Network IP             | required                    |
 | Linux Kernel Version          | 5.11 or higher              |
@@ -16,7 +16,7 @@ If you're planning to run a consensus miner, it's important to make sure your sy
 
 ## Enabled Intel SGX
 
-For a system to support **Intel Software Guard Extensions** ([Intel SGX](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html)) and **Flexible Launch Control** (FLC), it needs a CPU that supports these features. The CPU should be either Intel ME, Intel SPS, or both Intel SPS and Intel ME. Additionally, the BIOS must support Intel SGX and the SGX option must be enabled. To enable SGX functionality, please refer to the server manufacturer's BIOS guide. You can also check out the [list of CPU models that support SGX](https://ark.intel.com/content/www/us/en/ark/search/featurefilter.html?productType=873&2_SoftwareGuardExtensions=Yes) to ensure your system supports Intel SGX.
+For a system to support **Intel Software Guard Extensions** ([Intel SGX](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html)) and **Flexible Launch Control** (FLC), it needs a CPU that supports these features. The CPU should be either Intel ME, Intel SPS, or both Intel SPS and Intel ME. Additionally, the BIOS must support Intel SGX and the SGX option must be enabled. To enable SGX functionality, please refer to the server manufacturer's BIOS guide. You can also check out the [list of CPU models that support SGX](https://ark.intel.com/content/www/us/en/ark/search/featurefilter.html?productType=873&2_SoftwareGuardExtensions=Yes%20with%20both%20Intel%C2%AE%20SPS%20and%20Intel%C2%AE%20ME) to ensure your system supports Intel SGX.
 
 - CPU Recommended Models: Intel E, E3, Celeron (some models), Core series CPUs, with Intel Core i5-10500 being the optimal choice.
 - Recommended Motherboard BIOS: Preferred options include mainstream manufacturers such as Supermicro.
@@ -262,7 +262,7 @@ In Payouts, click **Payout** to initiate a payment. Any account can initiate a p
 ![Redemption: Second Step](../assets/consensus-miner/running/redemption-02.png)
 
 {% hint style="info" %}
-Please claim the reward within 84 era (each era of the test network is 24 hours), which is 84 days. Those who hasn't claimed the reward in this period will not be able to claim it.
+Please claim the reward within 84 era (each era of the test network is 6 hours), which is 21 days. Those who hasn't claimed the reward in this period will not be able to claim it.
 {% endhint %}
 
 ## Exiting Consensus from Validation
@@ -291,7 +291,7 @@ Please claim the reward within 84 era (each era of the test network is 24 hours)
 
 1. Unbond fund
 
-    After 28 eras (each era of the test network is 24 hours), goto [CESS Explorer](https://testnet.cess.cloud/), navigate to: **Network > Staking > Account Actions > Unbond Funds**.
+    After 28 eras (each era of the test network is 6 hours), goto [CESS Explorer](https://testnet.cess.cloud/), navigate to: **Network > Staking > Account Actions > Unbond Funds**.
 
     ![Staking 01](../assets/consensus-miner/running/staking-01.png)
 
