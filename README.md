@@ -1,14 +1,10 @@
 **Your Data, Your Right.**
 
-Welcome to the CESS Documentation Portal.
+Welcome to the CESS Documentation Center.
 
 # 🗂 Introduction
 
-CESS (Cumulus Encrypted Storage System) is a blockchain powered decentralized storage and content delivery network (CDN) infrastructure for Web3. Users and creators alike use the platform for on-chain data sharing, whilst builders can develop and deploy DApps.
-
-Offering the most optimal Web3 solution for storing and retrieving high-frequency dynamic data, CESS reshapes the value distribution and circulation of data assets whilst ensuring data sovereignty and user privacy.
-
-By utilizing a decentralized physical infrastructure network (DePIN) model, CESS drives mass deployment of network nodes globally through incentives.
+CESS is a blockchain-powered decentralized cloud storage network with native CD²N, where users and creators share data on-chain, and builders can create and deploy DApps. Offering the most optimal Web3 solution for storing and retrieving high-frequency dynamic data, CESS reshapes the value distribution and circulation of data assets whilst ensuring data sovereignty and complete user privacy. Our vision is to create a secure, transparent, and high-throughput decentralized data value network. Operating as a public blockchain network with distributed storage capabilities and high-speed CD²N, CESS promotes AI advancements through web3 protocols. 
 
 {% hint style="success" %}
 **CESS: Blockchain Powered Decentralized Storage and Content Delivery Network Infrastructure for Web3.**
@@ -23,5 +19,5 @@ There are mainly [five types of user roles](user-roles.md) in CESS ecosystem. If
 * [Community Members](community/)
 * [dApp Users](user/)
 * [dApp Developers](developer/)
-* [Storage Miners](storage-miner/)
-* [Consensus Miners](consensus-miner/)
+* [Storage Miners](cess-miners/storage-miner/)
+* [Consensus Miners](cess-miners/consensus-miner/)
