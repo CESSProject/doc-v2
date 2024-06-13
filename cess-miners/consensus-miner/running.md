@@ -71,19 +71,19 @@ _As of CESS v0.7.6, the controller account has been removed from the binding fun
 
 Open [CESS Explorer](https://testnet.cess.cloud/) and Select **Network** > **Staking** > **Accounts** > **Stash**
 
-![Add a Stash](../assets/consensus-miner/running/consensus-pic1.png)
+![Add a Stash](../../assets/consensus-miner/running/consensus-pic1.png)
 
 Select the appropriate _stash account_ from the drop down menu and enter at least **3,000,000** TCESS in _value bounded_ field. In _payment destination_, select  **Stash Account as the reward receiving account (do not increase the amount at stake)**, which means that mining income will not be automatically added to the stake.
 
-![Bond Fund](../assets/consensus-miner/running/consensus-pic2.png)
+![Bond Fund](../../assets/consensus-miner/running/consensus-pic2.png)
 
 Click **Bond** -> **Sign and Submit** to link the Stash Account.
 
-![Sign and Submit](../assets/consensus-miner/running/consensus-pic3.png)
+![Sign and Submit](../../assets/consensus-miner/running/consensus-pic3.png)
 
 Fund is bonded successfully!
 
-![Bonded Fund Successfully](../assets/consensus-miner/running/consensus-pic4.png)
+![Bonded Fund Successfully](../../assets/consensus-miner/running/consensus-pic4.png)
 
 # Install CESS Client
 
@@ -114,7 +114,7 @@ sudo cess config set
 
 The following is an operational example of running the miner in the `Full` capacity mode:
 
-*Tips: You can press Enter to skip when the default value of 'current' is suitable*
+_Tips: You can press Enter to skip when the default value of 'current' is suitable_
 
 ```bash
 Enter cess node mode from 'authority/storage/rpcnode' (current: authority, press enter to skip): authority
@@ -211,7 +211,7 @@ If the configuration process fails, please refer to the [troubleshooting guideli
     cess tools rotate-keys
     ```
 
-    ![rotate-keys Output Example](../assets/consensus-miner/running/rotate-keys.png)
+    ![rotate-keys Output Example](../../assets/consensus-miner/running/rotate-keys.png)
 
     The field in the quotation marks after "result" is the Session Key, which will be used in subsequent operations. "localhost:9933" is the default port.
 
@@ -219,23 +219,23 @@ If the configuration process fails, please refer to the [troubleshooting guideli
 
     Navigate to [CESS Explorer](https://testnet.cess.cloud), choose **Network** > **Staking** > **Accounts** > **Session Key**
 
-    ![Session Key 01](../assets/consensus-miner/running/session-key-01.png)
+    ![Session Key 01](../../assets/consensus-miner/running/session-key-01.png)
 
     Fill in the **Session Key** in the red box
 
-    ![Session Key 02](../assets/consensus-miner/running/session-key-02.png)
+    ![Session Key 02](../../assets/consensus-miner/running/session-key-02.png)
 
     Click **Sign and Submit**
 
-    ![Session Key 03](../assets/consensus-miner/running/session-key-03.png)
+    ![Session Key 03](../../assets/consensus-miner/running/session-key-03.png)
 
 4. Becoming a validator
 
     Navigate to [CESS Explorer](https://testnet.cess.cloud), click **Network** > **Staking** > **Accounts** > **Validate**
 
-    ![Validator 01](../assets/consensus-miner/running/validator-01.webp)
+    ![Validator 01](../../assets/consensus-miner/running/validator-01.webp)
 
-    ![Validator 02](../assets/consensus-miner/running/validator-02.png)
+    ![Validator 02](../../assets/consensus-miner/running/validator-02.png)
 
     Enter **100** in _reward commission percentage_, indicating that the reward will not be distributed to others.
 
@@ -243,11 +243,11 @@ If the configuration process fails, please refer to the [troubleshooting guideli
 
     Again, click **Sign and Submit**.
 
-    ![Validator 03](../assets/consensus-miner/running/validator-03.png)
+    ![Validator 03](../../assets/consensus-miner/running/validator-03.png)
 
     After completing the steps above, open the [CESS Explorer](https://testnet.cess.cloud/) and click **Network** > **Staking** > **Waiting**.
 
-    ![Validator 04](../assets/consensus-miner/running/validator-04.webp)
+    ![Validator 04](../../assets/consensus-miner/running/validator-04.webp)
 
     You should see that the node has already appeared on the candidate node list.
 
@@ -255,11 +255,11 @@ If the configuration process fails, please refer to the [troubleshooting guideli
 
 Navigate to CESS Explorer: **Network** > **Staking** > **Payouts** > **Payout**.
 
-![Redemption: First Step](../assets/consensus-miner/running/redemption-01.png)
+![Redemption: First Step](../../assets/consensus-miner/running/redemption-01.png)
 
 In Payouts, click **Payout** to initiate a payment. Any account can initiate a payment.
 
-![Redemption: Second Step](../assets/consensus-miner/running/redemption-02.png)
+![Redemption: Second Step](../../assets/consensus-miner/running/redemption-02.png)
 
 {% hint style="info" %}
 Please claim the reward within 84 era (each era of the test network is 6 hours), which is 21 days. Those who hasn't claimed the reward in this period will not be able to claim it.
@@ -271,21 +271,21 @@ Please claim the reward within 84 era (each era of the test network is 6 hours),
 
     In [CESS Explorer](https://testnet.cess.cloud), navigate to: **Network > Staking > Account Actions > Stop**.
 
-    ![Exiting-01](../assets/consensus-miner/running/exiting-01.png)
+    ![Exiting-01](../../assets/consensus-miner/running/exiting-01.png)
 
 2. Clear Session Keys
 
     In [CESS Explorer](https://testnet.cess.cloud), navigate to: **Developer -> Submission**
 
-    ![Exiting-02](../assets/consensus-miner/running/exiting-02.png)
+    ![Exiting-02](../../assets/consensus-miner/running/exiting-02.png)
 
     Enter controller account in _using the selected account controller_. Then in _submit the following extrinsic_, enter **session** and choose **purgeKeys()** in the box next to it.
 
-    ![Exiting-03](../assets/consensus-miner/running/exiting-03.png)
+    ![Exiting-03](../../assets/consensus-miner/running/exiting-03.png)
 
     Click **Submit Transaction** button to clear session keys
 
-    ![Exiting-04](../assets/consensus-miner/running/exiting-04.png)
+    ![Exiting-04](../../assets/consensus-miner/running/exiting-04.png)
 
 ## Redeeming Stake
 
@@ -293,7 +293,7 @@ Please claim the reward within 84 era (each era of the test network is 6 hours),
 
     After 28 eras (each era of the test network is 6 hours), goto [CESS Explorer](https://testnet.cess.cloud/), navigate to: **Network > Staking > Account Actions > Unbond Funds**.
 
-    ![Staking 01](../assets/consensus-miner/running/staking-01.png)
+    ![Staking 01](../../assets/consensus-miner/running/staking-01.png)
 
 2. Stop the CESS client
 
@@ -384,7 +384,7 @@ cess pullimg
 
    You can select Chain State in the block explorer. Through this method, you can check whether the registration was successful.
 
-   ![check-register](../assets/consensus-miner/qa/check-register.png)
+   ![check-register](../../assets/consensus-miner/qa/check-register.png)
 
 3. I don't want the program to update automatically. What should I do?
 
