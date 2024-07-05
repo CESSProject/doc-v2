@@ -1,17 +1,13 @@
-This is the interface for the storage miner to report that the fragment transfer is complete, telling the chain that it has been stored.
+This is the interface cancel a consignment territory.
 
 ```golang
-// TransferReport is used by miners to report that a file has been transferred
-//   - index: index of the file fragment
-//   - fid: file identification
+// CancelConsignment cancel consignment territory
+//   - territory_name: territory name
 //
 // Return:
 //   - string: block hash
 //   - error: error message
-//
-// Note:
-//   - for storage miner use only
-func (c *ChainClient) TransferReport(index uint8, fid string) (string, error)
+func (c *ChainClient) CancelConsignment(territory_name string) (string, error)
 ```
 
 Example code:
@@ -49,6 +45,6 @@ func main() {
     }
     defer sdk.Close()
 
-    fmt.Println(sdk.TransferReport(0, "b984d0de1428d0011...a26d41f3f7abaa5b6c450"))
+    fmt.Println(sdk.CancelConsignment("territory_name"))
 }
 ```

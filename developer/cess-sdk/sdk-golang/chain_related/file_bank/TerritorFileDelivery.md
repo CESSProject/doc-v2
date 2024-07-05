@@ -1,17 +1,15 @@
-This is the interface for the storage miner to report that the fragment transfer is complete, telling the chain that it has been stored.
+This interface is used to transfer files to another territory.
 
 ```golang
-// TransferReport is used by miners to report that a file has been transferred
-//   - index: index of the file fragment
-//   - fid: file identification
+// TerritorFileDelivery transfer files to another territory
+//   - user: file owner account
+//   - fid: file id
+//   - target_territory: transfer to the target territory
 //
 // Return:
 //   - string: block hash
 //   - error: error message
-//
-// Note:
-//   - for storage miner use only
-func (c *ChainClient) TransferReport(index uint8, fid string) (string, error)
+func (c *ChainClient) TerritorFileDelivery(user []byte, fid string, target_territory string) (string, error)
 ```
 
 Example code:
@@ -49,6 +47,6 @@ func main() {
     }
     defer sdk.Close()
 
-    fmt.Println(sdk.TransferReport(0, "b984d0de1428d0011...a26d41f3f7abaa5b6c450"))
+    fmt.Println(sdk.TerritorFileDelivery(sdk.GetSignatureAccPulickey(),"fid", "target_territory"))
 }
 ```

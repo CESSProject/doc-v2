@@ -1,14 +1,14 @@
-This is the interface for querying account information.
+This interface is used to query all fids uploaded by the user.
 
 ```golang
-// QueryAccountInfo query account info
-//   - account: account
+// QueryUserFidList query user's all fids
+//   - accountID: user account
 //   - block: block number, less than 0 indicates the latest block
 //
 // Return:
-//   - types.AccountInfo: account info
+//   - []string: all fids
 //   - error: error message
-func (c *ChainClient) QueryAccountInfo(account string, block int32) (types.AccountInfo, error)
+func (c *ChainClient) QueryUserFidList(accountID []byte, block int32) ([]string, error)
 ```
 
 Example code:
@@ -39,6 +39,11 @@ func main() {
     }
     defer sdk.Close()
 
-    fmt.Println(sdk.QueryAccountInfo("cXjeCHQW3totBGhQXdAUAqjCNqk1NhiR3UK37czSeUak2pqGV", -1))
+    account_id, err := utils.ParsingPublickey("cX...")
+    if err != nil {
+        panic(err)
+    }
+
+    fmt.Println(sdk.QueryUserFidList(account_id, -1))
 }
 ```

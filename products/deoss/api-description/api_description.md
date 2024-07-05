@@ -23,5 +23,6 @@ We provide a public gateway, The information is as follows:
 - [View File Metadata](metadata.md)
 - [View Bucket](view_bucket.md)
 - [View Bucket List](view_bucket_list.md)
+- [View Version](view_version.md)
 
 :warning: You can use it for testing, but it is not recommended to use it for production environments.

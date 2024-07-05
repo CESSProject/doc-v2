@@ -1,17 +1,14 @@
-This is the interface for the storage miner to report that the fragment transfer is complete, telling the chain that it has been stored.
+This is the interface for renewing purchased territory.
 
 ```golang
-// TransferReport is used by miners to report that a file has been transferred
-//   - index: index of the file fragment
-//   - fid: file identification
+// RenewalTerritory renewal of territory validity period
+//   - territory_name: territory name
+//   - days_count: renewal days
 //
 // Return:
 //   - string: block hash
 //   - error: error message
-//
-// Note:
-//   - for storage miner use only
-func (c *ChainClient) TransferReport(index uint8, fid string) (string, error)
+func (c *ChainClient) RenewalTerritory(territory_name string, days_count uint32) (string, error)
 ```
 
 Example code:
@@ -49,6 +46,7 @@ func main() {
     }
     defer sdk.Close()
 
-    fmt.Println(sdk.TransferReport(0, "b984d0de1428d0011...a26d41f3f7abaa5b6c450"))
+    // renewal for 100 days
+    fmt.Println(sdk.RenewalTerritory("territory_name", 100))
 }
 ```
