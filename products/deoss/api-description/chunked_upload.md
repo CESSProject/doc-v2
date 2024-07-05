@@ -19,6 +19,7 @@ Compared with uploading the entire file directly, resumable upload has some more
 _Identity signature required: yes_
 
 **Request Body:**
+
 The file is provided in the form.
 | key  | value        |
 | ---- | ------------ |
@@ -26,5 +27,5 @@ The file is provided in the form.
 
 **Request example:**
 ```shell
-# curl -X PUT URL/chunks -F 'file=@test-chunk0;type=application/octet-stream' -H "Bucket: bucket_name" -H "Territory: territory_name" -H "Account: cX..." -H "Message: ..." -H "Signature: 0x... -H FileName: test.log -H BlockNumber: 5 -H BlockIndex: 0 -H TotalSize: 1000"
+curl -X PUT URL/chunks -F 'file=@test-chunk0;type=application/octet-stream' -H "Bucket: bucket_name" -H "Territory: territory_name" -H "Account: cX..." -H "Message: ..." -H "Signature: 0x... -H FileName: test.log -H BlockNumber: 5 -H BlockIndex: 0 -H TotalSize: 1000"
 ```

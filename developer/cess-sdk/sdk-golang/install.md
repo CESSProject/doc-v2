@@ -1,5 +1,5 @@
 ## Installation Environment
-+ Use Golang 1.20.
++ Use Golang 1.21.
 
 Please refer to [golang installation](https://go.dev/doc/install/source) to download and install the Go compilation and running environment. After Go is installed, please create a new system variable GOPATH and point it to your code directory. To learn more about GOPATH, execute the command go help gopath.
 
@@ -13,12 +13,12 @@ Please refer to [golang installation](https://go.dev/doc/install/source) to down
 Add the following dependencies in the go.mod file, the following takes version 0.5.0 as an example. Other versions need to be replaced with corresponding version numbers.
 ```golang
 require (
-    github.com/CESSProject/cess-go-sdk v0.4.0
+    github.com/CESSProject/cess-go-sdk v0.5.0
 )
 ```
 + source code method
 ```bash
-go get github.com/CESSProject/cess-go-sdk@v0.4.0
+go get github.com/CESSProject/cess-go-sdk@v0.5.0
 ```
 
 ## Verify SDK
