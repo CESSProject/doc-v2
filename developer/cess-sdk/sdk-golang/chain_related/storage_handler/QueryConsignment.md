@@ -1,17 +1,17 @@
-This interface is used to query bucket information created by sstorage users.
+This is the interface to query the consignment info.
 
 ```golang
-// QueryBucket query user's bucket information
-//   - accountID: user account
-//   - bucketName: bucket name
+// QueryConsignment query consignment info
+//   - token: territory key
 //   - block: block number, less than 0 indicates the latest block
 //
 // Return:
-//   - BucketInfo: bucket info
+//   - ConsignmentInfo: consignment info
 //   - error: error message
-func (c *ChainClient) QueryBucket(accountID []byte, bucketName string, block int32) (BucketInfo, error)
+func (c *ChainClient) QueryConsignment(token types.H256, block int32) (ConsignmentInfo, error) 
 ```
-The return type is detailed in [BucketInfo](../chain_type.md#BucketInfo).
+
+The return type is detailed in [ConsignmentInfo](../chain_type.md#ConsignmentInfo).
 
 Example code:
 ```golang
@@ -46,6 +46,11 @@ func main() {
         panic(err)
     }
 
-    fmt.Println(sdk.QueryBucket(account_id, -1))
+    territoryinfo, err := sdk.QueryTerritory(account_id, "territory_name", -1)
+	if err != nil {
+		panic(err)
+	}
+
+    fmt.Println(sdk.QueryConsignment(territoryinfo.Token, -1))
 }
 ```

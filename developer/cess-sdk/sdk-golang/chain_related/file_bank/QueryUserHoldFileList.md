@@ -1,15 +1,17 @@
-This is the interface for querying account information.
+This interface is used to query all files uploaded by the user.
 
 ```golang
-// QueryAccountInfo query account info
-//   - account: account
+// QueryUserHoldFileList query user's all files
+//   - accountID: user account
 //   - block: block number, less than 0 indicates the latest block
 //
 // Return:
-//   - types.AccountInfo: account info
+//   - []UserFileSliceInfo: file list
 //   - error: error message
-func (c *ChainClient) QueryAccountInfo(account string, block int32) (types.AccountInfo, error)
+func (c *ChainClient) QueryUserHoldFileList(accountID []byte, block int32) ([]UserFileSliceInfo, error)
 ```
+
+The return type is detailed in [UserFileSliceInfo](../chain_type.md#UserFileSliceInfo).
 
 Example code:
 ```golang
@@ -39,6 +41,11 @@ func main() {
     }
     defer sdk.Close()
 
-    fmt.Println(sdk.QueryAccountInfo("cXjeCHQW3totBGhQXdAUAqjCNqk1NhiR3UK37czSeUak2pqGV", -1))
+    account_id, err := utils.ParsingPublickey("cX...")
+    if err != nil {
+        panic(err)
+    }
+
+    fmt.Println(sdk.QueryUserHoldFileList(account_id, -1))
 }
 ```

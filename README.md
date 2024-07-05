@@ -21,4 +21,4 @@ There are mainly [five types of user roles](user-roles.md) in CESS ecosystem. If
 * [dApp Developers](developer/)
 * [Storage Miners](cess-miners/storage-miner/)
 * [Consensus Miners](cess-miners/consensus-miner/)
-* [Products](product/)
+* [Products](products/)

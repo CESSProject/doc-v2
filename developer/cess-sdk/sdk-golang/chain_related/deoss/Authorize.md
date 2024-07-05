@@ -34,9 +34,7 @@ var MY_MNEMONIC = "bottom drive obey lake curtain smoke basket hold race lonely 
 
 var RPC_ADDRS = []string{
     //testnet
-    "wss://testnet-rpc0.cess.cloud/ws/",
-    "wss://testnet-rpc1.cess.cloud/ws/",
-    "wss://testnet-rpc2.cess.cloud/ws/",
+    "wss://testnet-rpc.cess.cloud/ws/",
 }
 
 func main() {
@@ -51,7 +49,7 @@ func main() {
     }
     defer sdk.Close()
 
-    account_id, err := utils.ParsingPublickey("cXfyomKDABfehLkvARFE854wgDJFMbsxwAJEHezRb6mfcAi2y")
+    account_id, err := utils.ParsingPublickey("cX...")
     if err != nil {
         panic(err)
     }
