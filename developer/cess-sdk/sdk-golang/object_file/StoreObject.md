@@ -5,13 +5,14 @@ This is the interface for uploading objects to the gateway.
 //
 // Receive parameter:
 //   - url: gateway url
-//   - bucket: the bucket for storing object, it will be created automatically.
+//   - bucket: the bucket for storing object, it will be created automatically
+//   - territory: territory name
 //   - mnemonic: polkadot account mnemonic
-//   - reader: strings, byte data, file streams, network streams, etc.
+//   - reader: strings, byte data, file streams, network streams, etc
 //
 // Return parameter:
-//   - string: [fid] unique identifier for the file.
-//   - error: error message.
+//   - string: [fid] unique identifier for the file
+//   - error: error message
 //
 // Preconditions:
 //  1. Account requires purchasing space, refer to [BuySpace] interface.
@@ -23,7 +24,7 @@ This is the interface for uploading objects to the gateway.
 //   - Account refers to the account where you configured mnemonic when creating an SDK.
 //   - CESS public gateway address: [http://deoss-pub-gateway.cess.cloud/]
 //   - CESS public gateway account: [cXhwBytXqrZLr1qM5NHJhCzEMckSTzNKw17ci2aHft6ETSQm9]
-func StoreObject(url string, bucket, mnemonic string, reader io.Reader) (string, error)
+func StoreObject(url string, bucket, territory, mnemonic string, reader io.Reader) (string, error)
 ```
 
 Example code:
@@ -68,12 +69,6 @@ func main() {
 		panic(err)
 	}
 	defer sdk.Close()
-
-	// buy space
-	_, err = sdk.BuySpace(1)
-	if err != nil {
-		panic(err)
-	}
 
 	puk, err := utils.ParsingPublickey(PublicGatewayAccount)
 	if err != nil {

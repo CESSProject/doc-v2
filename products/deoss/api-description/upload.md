@@ -15,6 +15,7 @@ This interface is used to upload files to the cess system. You need to submit th
 _Identity signature required: yes_
 
 **Request Body:**
+
 The file is provided in the form.
 | key  | value        |
 | ---- | ------------ |
@@ -22,7 +23,7 @@ The file is provided in the form.
 
 **Request example:**
 ```shell
-# curl -X PUT URL/file -F 'file=@test.log;type=application/octet-stream' -H "Bucket: bucket_name" -H "Territory: territory_name" -H "Account: cX..." -H "Message: ..." -H "Signature: 0x..."
+curl -X PUT URL/file -F 'file=@test.log;type=application/octet-stream' -H "Bucket: bucket_name" -H "Territory: territory_name" -H "Account: cX..." -H "Message: ..." -H "Signature: 0x..."
 ```
 
 ## Upload an object
@@ -42,6 +43,7 @@ This interface is used to upload an object, you can write what you want to store
 _Identity signature required: yes_
 
 **Request Body:**
+
 [content]
 
 **Request example:**

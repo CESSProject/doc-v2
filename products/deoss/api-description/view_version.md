@@ -8,5 +8,5 @@ This interface is used to view version.
 
 **Request example:**
 ```shell
-# curl -X GET URL/version
+curl -X GET URL/version
 ```

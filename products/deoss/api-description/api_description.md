@@ -5,11 +5,11 @@ The gateway will connect the communication between the HTTP request and the bloc
 In the request example section, the GatewayURL field needs to be replaced with the server address of the gateway.
 
 We provide a public gateway, The information is as follows:
-| Address | http://deoss-pub-gateway.cess.cloud/ |
-| ------- | ------------------------------------ |
 
+| name    | value               |
+| ------- | ------------------- |
+| Address | http://deoss-pub-gateway.cess.cloud/ |
 | Account | cXhwBytXqrZLr1qM5NHJhCzEMckSTzNKw17ci2aHft6ETSQm9 |
-| ------- | ------------------------------------------------- |
 
 **Table of Contents**
 - [Prerequisites](prerequisites.md)

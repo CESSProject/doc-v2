@@ -14,4 +14,5 @@ This interface is used to preview a file, it has two prerequisites: one is that 
 If you fill in the `Account`, the file will be previewed in the file type set by the account. If you fill in the `Format`, it will be previewed in the specified format, account will not work at this time. If you do not fill in either, it will be previewed in the format set by the first owner.
 
 **Request example:**
+
 Open in browser: URL/open/{fid}
