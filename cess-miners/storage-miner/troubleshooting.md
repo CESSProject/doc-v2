@@ -120,3 +120,54 @@ Reinstall `cess-nodeadm` again:
 ```
 
 </details>
+
+<details>
+
+<summary>Set Docker Daemon Access with TLS</summary>
+
+`mineradm` will enable docker daemon access at port: `2375` automatically when install `mineradm`, but if you want to watchdog access to a host in public network, you need to set that host's docker daemon start with TLS.
+
+Because watchdog need to request each miner's config file from others hosts by docker api, and this config file contain miner's mnemonic, so it must encrypt when transferring in public network.
+
+It is a shell demo to generate files by openssl. change the `<IP where watchdog run>` to your watchdog server ip. You can get more detail information from [Docker Daemon Access with TLS](https://docs.docker.com/engine/security/protect-access/).
+
+**Please keep your file safe and make sure no one can get your key file.**
+
+```bash
+PASSPHRASE=
+openssl genrsa -aes256 -passout pass:$PASSPHRASE -out ca-key.pem 4096
+openssl req -new -x509 -passin pass:$PASSPHRASE -days 36500 -key ca-key.pem -sha256 -subj "/C=US" -out ca.pem
+openssl genrsa -aes256 -passout pass:$PASSPHRASE -out server-key.pem 4096
+openssl req -subj "/C=US" -passin pass:$PASSPHRASE -passout pass:$PASSPHRASE -sha256 -new -key server-key.pem -out server.csr
+echo subjectAltName = DNS:IP:<IP where watchdog run> >> extfile.cnf
+echo extendedKeyUsage = serverAuth >> extfile.cnf
+openssl x509 -req -days 36500 -passin pass:$PASSPHRASE -sha256 -in server.csr -CA ca.pem -CAkey ca-key.pem -CAcreateserial -out server-cert.pem -extfile extfile.cnf
+openssl genrsa -out key.pem 4096
+openssl req -subj '/CN=client' -new -key key.pem -out client.csr
+echo extendedKeyUsage = clientAuth > extfile-client.cnf
+openssl x509 -req -days 36500 -passin pass:$PASSPHRASE -sha256 -in client.csr -CA ca.pem -CAkey ca-key.pem -CAcreateserial -out cert.pem -extfile extfile-client.cnf
+openssl rsa -passin pass:$PASSPHRASE -in server-key.pem -out server-key-decrypted.pem
+rm -v client.csr server.csr extfile.cnf extfile-client.cnf
+chmod -v 0444 ca.pem server-cert.pem cert.pem
+```
+
+After generate files by openssl, start listen docker daemon with TLS at port: 2376
+
+```bash
+# Testing: docker can run with tls successfully
+systemctl stop docker
+dockerd --tlsverify --tlscacert=ca.pem --tlscert=server-cert.pem --tlskey=server-key-decrypted.pem -H=0.0.0.0:2376 -H unix:///var/run/docker.sock &
+```
+
+Recommend to use `systemd` to start docker daemon with TLS.
+```bash
+# 1: edit file: /lib/systemd/system/docker.service
+# 2: modify row: `ExecStart=...` to
+ExecStart=/usr/bin/dockerd --tlsverify --tlscacert=/etc/docker/ca.pem --tlscert=/etc/docker/server-cert.pem --tlskey=/etc/docker/server-key-decrypted.pem -H tcp://0.0.0.0:2376 -H unix:///var/run/docker.sock
+systemctl daemon-reload && systemctl restart docker
+```
+
+
+Finally, copy files(ca.pem/key.pem/cert.pem) to the server where watchdog run, then config the files path in `/opt/cess/mineradm/config.yaml` and run `mineradm config generate`
+
+</details>
