@@ -14,5 +14,5 @@ This interface is used to view bucket information, including the number of store
 
 **Request example:**
 ```shell
-# curl -X GET URL/bucket -H "Account: cX..." -H "Bucket: bucket_name"
+curl -X GET URL/bucket -H "Account: cX..." -H "Bucket: bucket_name"
 ```

@@ -8,5 +8,5 @@ This interface is used to view the metadata of a file.
 
 **Request example:**
 ```shell
-# curl -X GET URL/metadata/<fid>
+curl -X GET URL/metadata/<fid>
 ```
