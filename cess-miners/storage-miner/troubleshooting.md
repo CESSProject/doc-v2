@@ -71,7 +71,7 @@ sudo mineradm miners increase staking $miner_name $deposit_amount
 # Execute command as above might get message like: `!! 2024-03-28 13:22:18 0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`
 ```
 
-Try to access to [block browser](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc0.cess.cloud%2Fws%2F#/accounts) and send TCESS manually
+Try to access to [block browser](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc0.cess.network%2Fws%2F#/accounts) and send TCESS manually
 
 **Step 1**: Select an account which have sufficient TCESS, then click `send`
 ![CESS Account Issue](../assets/storage-miner/troubleshooting/send-in-browser.png)
@@ -161,10 +161,14 @@ dockerd --tlsverify --tlscacert=ca.pem --tlscert=server-cert.pem --tlskey=server
 
 Recommend to use `systemd` to start docker daemon with TLS.
 ```bash
+
 # 1: edit file: /lib/systemd/system/docker.service
+
 # 2: modify row: `ExecStart=...` to
 ExecStart=/usr/bin/dockerd --tlsverify --tlscacert=/etc/docker/ca.pem --tlscert=/etc/docker/server-cert.pem --tlskey=/etc/docker/server-key-decrypted.pem -H tcp://0.0.0.0:2376 -H unix:///var/run/docker.sock
+
 systemctl daemon-reload && systemctl restart docker
+
 ```
 
 
