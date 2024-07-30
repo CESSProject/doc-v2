@@ -1,13 +1,14 @@
-This is the interface for renewing purchased storage.
+This is the interface for expanding purchased territory.
 
 ```golang
-// RenewalSpace renew your space
-//   - days: renewal time, in days
+// ExpandingTerritory expanding the territory size
+//   - territory_name: territory name
+//   - gib_count: size to be expanded
 //
 // Return:
 //   - string: block hash
 //   - error: error message
-func (c *ChainClient) RenewalSpace(days uint32) (string, error)
+func (c *ChainClient) ExpandingTerritory(territory_name string, gib_count uint32) (string, error)
 ```
 
 Example code:
@@ -30,9 +31,7 @@ var MY_MNEMONIC = "bottom drive obey lake curtain smoke basket hold race lonely 
 
 var RPC_ADDRS = []string{
     //testnet
-    "wss://testnet-rpc0.cess.cloud/ws/",
-    "wss://testnet-rpc1.cess.cloud/ws/",
-    "wss://testnet-rpc2.cess.cloud/ws/",
+    "wss://testnet-rpc.cess.cloud/ws/",
 }
 
 func main() {
@@ -47,7 +46,7 @@ func main() {
     }
     defer sdk.Close()
 
-    // renewal for 100 days
-    fmt.Println(sdk.RenewalSpace(100))
+    // expand 100GiB space
+    fmt.Println(sdk.ExpandingTerritory(100, "territory_name"))
 }
 ```

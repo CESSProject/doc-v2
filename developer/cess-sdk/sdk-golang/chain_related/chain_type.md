@@ -361,8 +361,9 @@ type StakingExposure struct {
 ### UserFileSliceInfo
 ```golang
 type UserFileSliceInfo struct {
-    Filehash FileHash
-    Filesize types.U128
+	TerritoryName types.Bytes
+	Filehash      FileHash
+	FileSize      types.U128
 }
 ```
 
@@ -398,6 +399,32 @@ type UserSpaceInfo struct {
     State          types.Bytes
 }
 ```
+
+### TerritoryInfo
+```golang
+type TerritoryInfo struct {
+	Token          types.H256
+	TotalSpace     types.U128
+	UsedSpace      types.U128
+	LockedSpace    types.U128
+	RemainingSpace types.U128
+	Start          types.U32
+	Deadline       types.U32
+	State          types.U8 //0: Active 1: Frozen 2: Expired 3: OnConsignment
+}
+```
+
+### ConsignmentInfo
+```golang
+type ConsignmentInfo struct {
+	User   types.AccountID
+	Price  types.U128
+	Buyers types.OptionAccountID
+	Exec   types.OptionU32
+	Locked types.Bool
+}
+```
+
 ### Individual
 ```golang
 type Individual struct {

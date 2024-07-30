@@ -1,17 +1,14 @@
-This is the interface for purchasing storage space.
+This is the interface purchase territories for consignment.
 
 ```golang
-// BuySpace purchase space for current account
-//   - count: size of space purchased in gib
+// BuyConsignment purchase territories for consignment
+//   - token: territory key
+//   - territory_name: renamed territory name
 //
 // Return:
 //   - string: block hash
 //   - error: error message
-//
-// Note:
-//   - if you have already purchased space and you are unable to purchase it again,
-//     you have the option to expand your space.
-func (c *ChainClient) BuySpace(count uint32) (string, error)
+func (c *ChainClient) BuyConsignment(token types.H256, territory_name string) (string, error)
 ```
 
 Example code:
@@ -34,9 +31,7 @@ var MY_MNEMONIC = "bottom drive obey lake curtain smoke basket hold race lonely 
 
 var RPC_ADDRS = []string{
     //testnet
-    "wss://testnet-rpc0.cess.cloud/ws/",
-    "wss://testnet-rpc1.cess.cloud/ws/",
-    "wss://testnet-rpc2.cess.cloud/ws/",
+    "wss://testnet-rpc.cess.cloud/ws/",
 }
 
 func main() {
@@ -51,8 +46,16 @@ func main() {
     }
     defer sdk.Close()
 
-    // purchase 100GiB space
-    fmt.Println(sdk.BuySpace(100))
+    account_id, err := utils.ParsingPublickey("cX...")
+    if err != nil {
+        panic(err)
+    }
+
+    territoryinfo, err := sdk.QueryTerritory(account_id, "territory_name", -1)
+	if err != nil {
+		panic(err)
+	}
+
+    fmt.Println(sdk.BuyConsignment(territoryinfo.token, "territory_name"))
 }
 ```
-> Note: The default space validity period is 432000 blocks (approximately 1 month)

@@ -7,6 +7,7 @@ This is the interface for uploading files to the gateway.
 //   - url: gateway url
 //   - file: stored file
 //   - bucket: bucket for storing file
+//   - territory: territory name
 //   - mnemonic: polkadot account mnemonic
 //
 // Return parameter:
@@ -23,7 +24,7 @@ This is the interface for uploading files to the gateway.
 //   - Account refers to the account where you configured mnemonic when creating an SDK.
 //   - CESS public gateway address: [http://deoss-pub-gateway.cess.cloud/]
 //   - CESS public gateway account: [cXhwBytXqrZLr1qM5NHJhCzEMckSTzNKw17ci2aHft6ETSQm9]
-func StoreFile(url, file, bucket, mnemonic string) (string, error)
+func StoreFile(url, file, bucket, territory, mnemonic string) (string, error)
 ```
 
 Example code:
@@ -51,15 +52,14 @@ var MY_MNEMONIC = "bottom drive obey lake curtain smoke basket hold race lonely 
 
 var RPC_ADDRS = []string{
 	//testnet
-	"wss://testnet-rpc0.cess.cloud/ws/",
-	"wss://testnet-rpc1.cess.cloud/ws/",
-	"wss://testnet-rpc2.cess.cloud/ws/",
+	"wss://testnet-rpc.cess.cloud/ws/",
 }
 
 const PublicGateway = "http://deoss-pub-gateway.cess.cloud/"
 const PublicGatewayAccount = "cXhwBytXqrZLr1qM5NHJhCzEMckSTzNKw17ci2aHft6ETSQm9"
 const UploadFile = "Your File"
 const BucketName = "Your Bucket"
+const Territory = "Your Territory"
 
 func main() {
 	sdk, err := sdkgo.New(
@@ -71,12 +71,6 @@ func main() {
 		panic(err)
 	}
 	defer sdk.Close()
-
-	// buy space
-	_, err = sdk.BuySpace(1)
-	if err != nil {
-		panic(err)
-	}
 
 	puk, err := utils.ParsingPublickey(PublicGatewayAccount)
 	if err != nil {
@@ -90,7 +84,7 @@ func main() {
 	}
 
 	// upload file to gateway
-	fid, err := process.StoreFile(PublicGateway, UploadFile, BucketName, MY_MNEMONIC)
+	fid, err := process.StoreFile(PublicGateway, UploadFile, BucketName, Territory, MY_MNEMONIC)
 	if err != nil {
 		panic(err)
 	}
