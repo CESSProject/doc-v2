@@ -1,15 +1,18 @@
-This interface is used to query all files uploaded by the user.
+This is the interface to query the territory info.
 
 ```golang
-// QueryAllUserFiles query user's all files
-//   - accountID: user account
+// QueryTerritory query territory info
+//   - accountId: account id
+//   - name: territory name
 //   - block: block number, less than 0 indicates the latest block
 //
 // Return:
-//   - []string: all file identification
+//   - TerritoryInfo: territory info
 //   - error: error message
-func (c *ChainClient) QueryAllUserFiles(accountID []byte, block int32) ([]string, error)
+func (c *ChainClient) QueryTerritory(accountId []byte, name string, block int32) (TerritoryInfo, error)
 ```
+
+The return type is detailed in [TerritoryInfo](../chain_type.md#TerritoryInfo).
 
 Example code:
 ```golang
@@ -26,9 +29,7 @@ import (
 
 var RPC_ADDRS = []string{
     //testnet
-    "wss://testnet-rpc0.cess.cloud/ws/",
-    "wss://testnet-rpc1.cess.cloud/ws/",
-    "wss://testnet-rpc2.cess.cloud/ws/",
+    "wss://testnet-rpc.cess.cloud/ws/",
 }
 
 func main() {
@@ -41,11 +42,11 @@ func main() {
     }
     defer sdk.Close()
 
-    account_id, err := utils.ParsingPublickey("cXfyomKDABfehLkvARFE854wgDJFMbsxwAJEHezRb6mfcAi2y")
+    account_id, err := utils.ParsingPublickey("cX...")
     if err != nil {
         panic(err)
     }
 
-    fmt.Println(sdk.QueryAllUserFiles(account_id, -1))
+    fmt.Println(sdk.QueryTerritory(account_id, "territory_name", -1))
 }
 ```

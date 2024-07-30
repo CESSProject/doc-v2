@@ -1,13 +1,14 @@
-This is the interface for expanding purchased storage.
+This is the interface for purchasing a territory.
 
 ```golang
-// ExpansionSpace expands the size of your space
-//   - count: size of space expands in gib
+// MintTerritory purchase a territory
+//   - gib_count: territory size
+//   - territory_name: territory name
 //
 // Return:
 //   - string: block hash
 //   - error: error message
-func (c *ChainClient) ExpansionSpace(count uint32) (string, error)
+func (c *ChainClient) MintTerritory(gib_count uint32, territory_name string) (string, error)
 ```
 
 Example code:
@@ -30,9 +31,7 @@ var MY_MNEMONIC = "bottom drive obey lake curtain smoke basket hold race lonely 
 
 var RPC_ADDRS = []string{
     //testnet
-    "wss://testnet-rpc0.cess.cloud/ws/",
-    "wss://testnet-rpc1.cess.cloud/ws/",
-    "wss://testnet-rpc2.cess.cloud/ws/",
+    "wss://testnet-rpc.cess.cloud/ws/",
 }
 
 func main() {
@@ -47,7 +46,7 @@ func main() {
     }
     defer sdk.Close()
 
-    // expand 100GiB space
-    fmt.Println(sdk.ExpansionSpace(100))
+    // purchase a 100GiB territory
+    fmt.Println(sdk.MintTerritory(100, "myTerritory"))
 }
 ```

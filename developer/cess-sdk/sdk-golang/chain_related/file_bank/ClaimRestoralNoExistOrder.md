@@ -35,9 +35,7 @@ var MY_MNEMONIC = "bottom drive obey lake curtain smoke basket hold race lonely 
 
 var RPC_ADDRS = []string{
     //testnet
-    "wss://testnet-rpc0.cess.cloud/ws/",
-    "wss://testnet-rpc1.cess.cloud/ws/",
-    "wss://testnet-rpc2.cess.cloud/ws/",
+    "wss://testnet-rpc.cess.cloud/ws/",
 }
 
 func main() {
@@ -52,11 +50,11 @@ func main() {
     }
     defer sdk.Close()
 
-    account_id, err := utils.ParsingPublickey("cXfyomKDABfehLkvARFE854wgDJFMbsxwAJEHezRb6mfcAi2y")
+    account_id, err := utils.ParsingPublickey("cX...")
     if err != nil {
         panic(err)
     }
 
-    fmt.Println(sdk.ClaimRestoralNoExistOrder(account_id, "b984d0de1428d0011...a26d41f3f7abaa5b6c450", "50c54b1da4029f201465...7c8b378b6daecc0b674"))
+    fmt.Println(sdk.ClaimRestoralNoExistOrder(account_id, "fid", "fragment_hash"))
 }
 ```
