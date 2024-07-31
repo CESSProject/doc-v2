@@ -58,4 +58,4 @@
 
 # Reference
 
-* [https://docs.cess.cloud/deoss/introduction/terminologies](https://docs.cess.cloud/deoss/introduction/terminologies)
+* [https://docs.cess.network/deoss/introduction/terminologies](https://docs.cess.network/deoss/introduction/terminologies)

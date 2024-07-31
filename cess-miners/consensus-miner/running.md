@@ -57,11 +57,11 @@ Running consensus miner as a `Marker` requires only one account and does not req
 Also if you already have a stash account or would like to use someone else's stash account you do not need to perform the **Binding Funds** operation.
 {% endhint %}
 
-You can also refer to the artcle [Creating CESS Accounts](../community/cess-account.md) for creating a CESS account.
+You can also refer to the artcle [Creating CESS Accounts](../user/cess-account.md) for creating a CESS account.
 
-You can either use [CESS testnet faucet](https://cess.cloud/faucet.html) to get TCESS, or [contact us](../introduction/contact.md) to receive TCESS tokens for staking.
+You can either use [CESS testnet faucet](https://cess.network/faucet.html) to get TCESS, or [contact us](../introduction/contact.md) to receive TCESS tokens for staking.
 
-After the wallet account is created, navigate to [CESS Explorer](https://testnet.cess.cloud/).
+After the wallet account is created, navigate to [CESS Explorer](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc.cess.network%2Fws%2F#/).
 
 # Binding Funds
 
@@ -69,7 +69,7 @@ After the wallet account is created, navigate to [CESS Explorer](https://testnet
 _As of CESS v0.7.6, the controller account has been removed from the binding fund operation._
 {% endhint %}
 
-Open [CESS Explorer](https://testnet.cess.cloud/) and Select **Network** > **Staking** > **Accounts** > **Stash**
+Open [CESS Explorer](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc.cess.network%2Fws%2F#/) and Select **Network** > **Staking** > **Accounts** > **Stash**
 
 ![Add a Stash](../../assets/consensus-miner/running/consensus-pic1.png)
 
@@ -90,9 +90,9 @@ Fund is bonded successfully!
 The `cess-nodeadm` is a CESS node deployment and management tool. It helps deploying and managing storage nodes, consensus nodes, and full nodes, simplifying the devOps for all CESS miners.
 
 ```bash
-wget https://github.com/CESSProject/cess-nodeadm/archive/refs/tags/v0.5.5.tar.gz
-tar -xvf v0.5.5.tar.gz
-cd cess-nodeadm-0.5.5
+wget https://github.com/CESSProject/cess-nodeadm/archive/refs/tags/v0.5.7.tar.gz
+tar -xvf v0.5.7.tar.gz
+cd cess-nodeadm-0.5.7
 sudo ./install.sh
 ```
 
@@ -220,7 +220,7 @@ If the configuration process fails, please refer to the [troubleshooting guideli
 
 3. Setup a session key
 
-    Navigate to [CESS Explorer](https://testnet.cess.cloud), choose **Network** > **Staking** > **Accounts** > **Session Key**
+    Navigate to [CESS Explorer](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc.cess.network%2Fws%2F#/), choose **Network** > **Staking** > **Accounts** > **Session Key**
 
     ![Session Key 01](../../assets/consensus-miner/running/session-key-01.png)
 
@@ -234,7 +234,7 @@ If the configuration process fails, please refer to the [troubleshooting guideli
 
 4. Becoming a validator
 
-    Navigate to [CESS Explorer](https://testnet.cess.cloud), click **Network** > **Staking** > **Accounts** > **Validate**
+    Navigate to [CESS Explorer](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc.cess.network%2Fws%2F#/), click **Network** > **Staking** > **Accounts** > **Validate**
 
     ![Validator 01](../../assets/consensus-miner/running/validator-01.webp)
 
@@ -248,7 +248,7 @@ If the configuration process fails, please refer to the [troubleshooting guideli
 
     ![Validator 03](../../assets/consensus-miner/running/validator-03.png)
 
-    After completing the steps above, open the [CESS Explorer](https://testnet.cess.cloud/) and click **Network** > **Staking** > **Waiting**.
+    After completing the steps above, open the [CESS Explorer](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc.cess.network%2Fws%2F#/) and click **Network** > **Staking** > **Waiting**.
 
     ![Validator 04](../../assets/consensus-miner/running/validator-04.webp)
 
@@ -272,13 +272,13 @@ Please claim the reward within 84 era (each era of the test network is 6 hours),
 
 1. Stop the Consensus
 
-    In [CESS Explorer](https://testnet.cess.cloud), navigate to: **Network > Staking > Account Actions > Stop**.
+    In [CESS Explorer](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc.cess.network%2Fws%2F#/), navigate to: **Network > Staking > Account Actions > Stop**.
 
     ![Exiting-01](../../assets/consensus-miner/running/exiting-01.png)
 
 2. Clear Session Keys
 
-    In [CESS Explorer](https://testnet.cess.cloud), navigate to: **Developer -> Submission**
+    In [CESS Explorer](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc.cess.network%2Fws%2F#/), navigate to: **Developer -> Submission**
 
     ![Exiting-02](../../assets/consensus-miner/running/exiting-02.png)
 
@@ -294,7 +294,7 @@ Please claim the reward within 84 era (each era of the test network is 6 hours),
 
 1. Unbond fund
 
-    After 28 eras (each era of the test network is 6 hours), goto [CESS Explorer](https://testnet.cess.cloud/), navigate to: **Network > Staking > Account Actions > Unbond Funds**.
+    After 28 eras (each era of the test network is 6 hours), goto [CESS Explorer](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc.cess.network%2Fws%2F#/), navigate to: **Network > Staking > Account Actions > Unbond Funds**.
 
     ![Staking 01](../../assets/consensus-miner/running/staking-01.png)
 
@@ -372,11 +372,11 @@ cess pullimg
 
 1. I don't want to expose my IP address on the chain. What should I do?
 
-   During the cess config set process, you can set your endpoint with a domain name. For example, if your registered domain is tee-xxx.cess.cloud, you can enter <http://tee-xxx.cess.cloud> when setting the endpoint. The script will then ask you if you want to enable one-click domain proxy. You can enter y to enable it, as shown below:
+   During the cess config set process, you can set your endpoint with a domain name. For example, if your registered domain is tee-xxx.cess.network, you can enter <http://tee-xxx.cess.network> when setting the endpoint. The script will then ask you if you want to enable one-click domain proxy. You can enter y to enable it, as shown below:
 
    ```bash
    .....
-   Enter the kaleido endpoint (current: http://tee-xxx.cess.cloud, press enter to skip): http://tee-xxx.cess.cloud
+   Enter the kaleido endpoint (current: http://tee-xxx.cess.network, press enter to skip): http://tee-xxx.cess.network
    Do you need to configure a domain name proxy with one click? (y/n): y
    .....
    ```

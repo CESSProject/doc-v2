@@ -11,12 +11,12 @@ When you upload data to CESS, it goes through an erasure coding technology (base
 To upload data to the CESS network, users must perform the following steps:
 
 1. Rent storage space
-2. Authorize the space usage rights to [**DeOSS**](https://docs.cess.cloud/deoss)
+2. Authorize the space usage rights to [**DeOSS**](https://docs.cess.network/deoss)
 3. Create a bucket if needed
 4. Upload data to DeOSS
 5. Check the on-chain data status based on the returned transaction hash
 
-For detailed steps, please refer to the [DeOSS guide](https://docs.cess.cloud/deoss).
+For detailed steps, please refer to the [DeOSS guide](https://docs.cess.network/deoss).
 
 # Upload Process
 

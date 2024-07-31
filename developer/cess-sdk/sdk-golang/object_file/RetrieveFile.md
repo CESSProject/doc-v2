@@ -36,7 +36,7 @@ import (
 //  - cXgaee2N8E77JJv9gdsGAckv1Qsf3hqWYf7NL4q6ZuQzuAUtB
 var MY_MNEMONIC = "bottom drive obey lake curtain smoke basket hold race lonely fit walk"
 
-const PublicGateway = "http://deoss-pub-gateway.cess.cloud/"
+const PublicGateway = "http://deoss-pub-gateway.cess.network/"
 const PublicGatewayAccount = "cXhwBytXqrZLr1qM5NHJhCzEMckSTzNKw17ci2aHft6ETSQm9"
 const RetrieveFid = "Your Fid"
 const SavePath = "Your file path"

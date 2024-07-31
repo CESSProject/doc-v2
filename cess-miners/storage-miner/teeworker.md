@@ -54,7 +54,7 @@ cess config set
 Enter cess node mode from 'authority/storage/watcher' (current: authority, press enter to skip): authority
 Intel SGX is already enabled on this system
 Enter cess node name (current: cess-test-node2-526824, press enter to skip): cess-test-node2
-Enter cess chain ws url (current: wss://testnet-rpc0.cess.cloud/ws/, press enter to skip): ws://129.226.81.243:9944
+Enter cess chain ws url (current: wss://testnet-rpc.cess.network/ws/, press enter to skip): ws://129.226.81.243:9944
 Enter listener port for kaleido (current: 10010, press enter to skip):
 Enter the kaleido endpoint (current: http://test.dm.com, press enter to skip): http://45.195.74.43:10010
 Enter cess validator stash account (current: , press enter to skip): null

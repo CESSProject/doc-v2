@@ -50,4 +50,4 @@ As a CESS ambassador, you are eligible to receive great perks and rewards. You a
 
     Ambassadors will work closely with CESS core team and be the first ones to learn about CESS's progress and news, including technology, products, market, and industry information.
 
-If you are interested, please visit our [Ambassador Program page](https://www.cess.cloud/ambassador.html) to apply.
+If you are interested, please visit our [Ambassador Program page](https://www.cess.network/ambassador.html) to apply.

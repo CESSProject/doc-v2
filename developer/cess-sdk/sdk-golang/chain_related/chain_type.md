@@ -40,7 +40,7 @@ const (
     CharacterName_Default = "cess-sdk-go"
 
     // offcial gateway address
-    PublicGatewayAddr = "http://deoss-pub-gateway.cess.cloud/"
+    PublicGatewayAddr = "http://deoss-pub-gateway.cess.network/"
 
     // offcial gateway account
     PublicGatewayAccount = "cXhwBytXqrZLr1qM5NHJhCzEMckSTzNKw17ci2aHft6ETSQm9"

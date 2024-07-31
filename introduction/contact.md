@@ -4,21 +4,21 @@ If you are interested in building up the CESS protocol and contribute to the dec
 
 ## Contact
 
-e-mail: [**hello@cess.cloud**](mailto:hello@cess.cloud)
+e-mail: [**hello@cess.network**](mailto:hello@cess.cloud)
 
 ## Get Involved
 
-👀 [Ambassador Program](https://cess.cloud/ambassador.html)
+👀 [Ambassador Program](https://cess.network/ambassador.html)
 
-🌐 [CESS Blogs](https://cess.cloud/posts/news)
+🌐 [CESS Blogs](https://cess.network/posts/news)
 
-🗓 [CESS Events](https://cess.cloud/posts/events)
+🗓 [CESS Events](https://cess.network/posts/events)
 
 ## Job Openings
 
-👥 [Our Team](https://cess.cloud/team.html)
+👥 [Our Team](https://cess.network/team.html)
 
-📝 [Job Openings](https://cess.cloud/jobs.html)
+📝 [Job Openings](https://cess.network/jobs.html)
 
 ## Community
 
