@@ -173,7 +173,7 @@ After executing the above installation command, customize your own config file a
 - **UseCpu:** Number of logical cores used by the miner(storage node).
 - **port:** miner use that port to communicat with each other, the port of each miner must be different and not occupied by other process
 - **diskPath:** Absolute system path where the miner run, requiring a file system to be mounted at this path.
-- **earningsAcc:** Used to receive mining rewards. [Get earningsAcc and mnemonic](https://docs.cess.network/core/storage-miner/running#prepare-cess-accounts)
+- **earningsAcc:** Used to receive mining rewards. [Get earningsAcc and mnemonic](../../user/cess-account.md)
 - **mnemonic:** Account mnemonic, consisting of 12 words, with each miner requiring a different mnemonic, set mnemonic as miner's signatureAcc in /opt/cess/mineradm/config.yaml.
 - **stakingAcc:** Used to pay for staking TCESS. 4000 TCESS at least is required for stakingAcc([Get TCESS](https://cess.network/faucet.html)). SignatureAcc also can be a stakingAcc when delete property: stakingAcc or make it empty in /opt/cess/mineradm/config.yaml.
 - **Storage Deposit:** To keep the storage node miner in honoring its service commitment, the miner account will have its native tokens locked for the storage amount pledged to offer. Current in testnet, it is 4,000 TCESS per TB. The pledged space is **round up** to the closest TB unit and locked for that amount multiply with 4,000 TCESS. The minimum locked token is also 4,000 TCESS.
@@ -183,7 +183,7 @@ After executing the above installation command, customize your own config file a
 - **watchdog.enable:** enable watchdog to monitor the health of the miner(storage node).
 - **watchdog.apiUrl:** a public url that can access to the watchdog service, user can set a `dns resolution` and `proxy service` to these watchdog server. default value: `http://<host public ip>:$port`
 - **watchdog.port:** watchdog server port
-- **watchdog.hosts:** watchdog server can scrape miners data from these hosts, `ip` is the host ip, `port` is the port which docker daemon listen. TLS configuration must be set if scrape data from a host in a public network. [how to set docker daemon tls](https://docs.cess.network/core/cess-miners/storage-miner/troubleshooting)
+- **watchdog.hosts:** watchdog server can scrape miners data from these hosts, `ip` is the host ip, `port` is the port which docker daemon listen. TLS configuration must be set if scrape data from a host in a public network. [how to set docker daemon tls](../../cess-miners/storage-miner/troubleshooting.md)
 - **watchdog.alert:** enable alert or not. Watchdog will send alert to the email address you set in `watchdog.alert.email.receiver` and send webhook to the webhook url you set in `watchdog.alert.webhook` if alert enable.
 
 

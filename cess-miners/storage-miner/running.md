@@ -121,7 +121,7 @@ Miners need to create at least two wallet accounts.
 
 **Note：Each signature account can only be used by one storage miner, otherwise an exception will occur.**
 
-Please refer to [Creating CESS Accounts](../user/cess-account.md) for creating a CESS account, goto [CESS faucet](https://cess.network/faucet.html) to get our testnet tokens, TCESS, or [contact us](../introduction/contact.md) to get assistance.
+Please refer to [Creating CESS Accounts](../../user/cess-account.md) for creating a CESS account, goto [CESS faucet](https://cess.network/faucet.html) to get our testnet tokens, TCESS, or [contact us](../../introduction/contact.md) to get assistance.
 
 # Install CESS Client
 
@@ -205,7 +205,7 @@ sudo cess start
  ✔ Container watchtower  Running                                                0.0s
 ```
 
-If you want to speed up your earnings, you can choose to deploy a Marker-type TEE Worker to help miners certify space and mark user service files. Please refer to the [TEE Worker User Guide](./TEE-Worker-Guide-EN.md).
+If you want to speed up your earnings, you can choose to deploy a Marker-type TEE Worker to help miners certify space and mark user service files. Please refer to the [TEE Worker User Guide](./teeworker.md).
 
 # Common Operations
 
