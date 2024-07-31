@@ -18,7 +18,7 @@ In blockchain, Fungible tokens are called ERC-20 tokens, a standard format creat
 
 CESS or Cumulus Encrypted Storage is a fully decentralized data storage protocol that provides a full-stack solution for all your data storage needs. It is the first decentralized storage protocol that provides users with data ownership rights, that is fast, scalable, efficient in storage space utilization, and guarantees data availability.
 
-CESS provides SDKs and RESTful APIs to upload and download files through the gateway to the CESS network without worrying about understanding the underlying mechanics of the file distribution mechanism of CESS. You can learn more about CESS [here](https://docs.cess.cloud/cess-wiki/introduction/overview).
+CESS provides SDKs and RESTful APIs to upload and download files through the gateway to the CESS network without worrying about understanding the underlying mechanics of the file distribution mechanism of CESS. You can learn more about CESS [here](https://docs.cess.network/cess-wiki/introduction/overview).
 
 # NFT Marketplace Architecture
 
@@ -76,7 +76,7 @@ CESS provides us with various SDKs and RESTful APIs to upload our files. We will
 
 ## Funding your Account
 
-Funding your account is fairly easy. Visit [CESS Testnet Faucet](https://testnet-faucet.cess.cloud/) and enter your account address then press Get TCESS. Your account will be funded with 10,000 CESS Tokens.
+Funding your account is fairly easy. Visit [CESS Testnet Faucet](https://testnet-faucet.cess.network/) and enter your account address then press Get TCESS. Your account will be funded with 10,000 CESS Tokens.
 
 ![CESS Testnet Faucet](../../assets/developer/tutorials/nft-marketplace/testnet-faucet.png)
 
@@ -84,7 +84,7 @@ Funding your account is fairly easy. Visit [CESS Testnet Faucet](https://testnet
 
 There are two options for purchasing space.
   1. Using SDK, or
-  2. [CESS Explorer](https://testnet.cess.cloud/)
+  2. [CESS Explorer](https://testnet.cess.network/)
 
 ### A. Purchase space using SDK
 
@@ -123,7 +123,7 @@ Depending on the SDK you choose for your application, the steps below will be so
 
 ### B. Purchase space using CESS Explorer
 
-To purchase space, first, navigate to [CESS Explorer](https://testnet.cess.cloud/) and follow the instructions.
+To purchase space, first, navigate to [CESS Explorer](https://testnet.cess.network/) and follow the instructions.
 
 1. Navigate to Developer > Extrinsics
 
@@ -138,7 +138,7 @@ To purchase space, first, navigate to [CESS Explorer](https://testnet.cess.cloud
 Once we have tokens in our account and enough storage space allocated to our account, we are ready to upload our files to the CESS network. Since we will be using the CESS DeOSS gateway to upload our files, we will have to authenticate the DeOSS gateway so that the gateway can send some storage-related transactions on our behalf and generate an authorization token. For testnet DeOSS we have
 
 {% hint style="info" %}
-DeOSS URL: <http://deoss-pub-gateway.cess.cloud/>
+DeOSS URL: <http://deoss-pub-gateway.cess.network/>
 
 DeOSS Gateway Account Address: `cXhwBytXqrZLr1qM5NHJhCzEMckSTzNKw17ci2aHft6ETSQm9`
 {% endhint %}
@@ -177,7 +177,7 @@ Now, we can use REST API to upload our files to the CESS network.
 To upload a file execute the following command
 
 ```bash
-curl -X PUT http://deoss-pub-gateway.cess.cloud/ \
+curl -X PUT http://deoss-pub-gateway.cess.network/ \
   -F 'file=@cryptopunk.png;type=image/png' \
   -H "Authorization: eyJh...IL1g" \
   -H "BucketName: my_nfts"
@@ -191,7 +191,7 @@ Executing this function will return us with an FID that we can use to access our
 
 ![ink!](../../assets/developer/tutorials/nft-marketplace/use-ink.png)
 
-We will use [ink!](https://use.ink/) to write our smart contract. As I mentioned above, our smart contract will be responsible for creating NFTs based on the [PSP34](https://github.com/w3f/PSPs/blob/master/PSPs/psp-34.md) standard. Before we get started, there are some prerequisites. Please follow [Deploy an Ink! Smart Contract](https://docs.cess.cloud/core/developer/tutorials/deploy-sc-ink) tutorial and install Rust and `cargo-contract`.
+We will use [ink!](https://use.ink/) to write our smart contract. As I mentioned above, our smart contract will be responsible for creating NFTs based on the [PSP34](https://github.com/w3f/PSPs/blob/master/PSPs/psp-34.md) standard. Before we get started, there are some prerequisites. Please follow [Deploy an Ink! Smart Contract](https://docs.cess.network/core/developer/tutorials/deploy-sc-ink) tutorial and install Rust and `cargo-contract`.
 
 ## Development
 

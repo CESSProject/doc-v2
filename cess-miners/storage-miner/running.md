@@ -121,7 +121,7 @@ Miners need to create at least two wallet accounts.
 
 **Note：Each signature account can only be used by one storage miner, otherwise an exception will occur.**
 
-Please refer to [Creating CESS Accounts](../community/cess-account.md) for creating a CESS account, goto [CESS faucet](https://cess.network/faucet.html) to get our testnet tokens, TCESS, or [contact us](../introduction/contact.md) to get assistance.
+Please refer to [Creating CESS Accounts](../user/cess-account.md) for creating a CESS account, goto [CESS faucet](https://cess.network/faucet.html) to get our testnet tokens, TCESS, or [contact us](../introduction/contact.md) to get assistance.
 
 # Install CESS Client
 

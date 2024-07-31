@@ -19,7 +19,7 @@ var MY_MNEMONIC = "bottom drive obey lake curtain smoke basket hold race lonely 
 
 var RPC_ADDRS = []string{
     //testnet
-    "wss://testnet-rpc.cess.cloud/ws/",
+    "wss://testnet-rpc.cess.network/ws/",
 }
 
 func main() {
@@ -70,7 +70,7 @@ func main() {
 Output example:
 ```bash
 cess-sdk-go
-wss://testnet-rpc0.cess.cloud/ws/
+wss://testnet-rpc.cess.network/ws/
 true
 cXgaee2N8E77JJv9gdsGAckv1Qsf3hqWYf7NL4q6ZuQzuAUtB
 [70 235 221 239 140 217 187 22 125 195 8 120 215 17 59 126 22 142 111 6 70 190 255 215 125 105 211 155 173 118 180 122]

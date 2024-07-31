@@ -14,7 +14,7 @@ This is the interface used to create storage buckets, all files must have corres
 //   - if you are not the owner, the owner account must be authorised to you
 //
 // For details on bucket naming rules, see:
-//   - https://docs.cess.cloud/deoss/get-started/deoss-gateway/step-1-create-a-bucket#naming-conventions-for-a-bucket
+//   - https://docs.cess.network/deoss/get-started/deoss-gateway/step-1-create-a-bucket#naming-conventions-for-a-bucket
 func (c *ChainClient) CreateBucket(owner []byte, bucketName string) (string, error)
 ```
 
@@ -46,7 +46,7 @@ var MY_MNEMONIC = "bottom drive obey lake curtain smoke basket hold race lonely 
 
 var RPC_ADDRS = []string{
     //testnet
-    "wss://testnet-rpc.cess.cloud/ws/",
+    "wss://testnet-rpc.cess.network/ws/",
 }
 
 func main() {
