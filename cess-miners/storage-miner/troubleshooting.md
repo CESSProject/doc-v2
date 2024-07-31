@@ -71,7 +71,7 @@ sudo mineradm miners increase staking $miner_name $deposit_amount
 # Execute command as above might get message like: `!! 2024-03-28 13:22:18 0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`
 ```
 
-Try to access to [block browser](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc0.cess.network%2Fws%2F#/accounts) and send TCESS manually
+Try to access to [block browser](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc.cess.network%2Fws%2F#/accounts) and send TCESS manually
 
 **Step 1**: Select an account which have sufficient TCESS, then click `send`
 ![CESS Account Issue](../assets/storage-miner/troubleshooting/send-in-browser.png)

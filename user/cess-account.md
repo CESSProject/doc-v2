@@ -4,7 +4,7 @@ The following illustrate two ways to create a CESS account.
 
 # Method 1: Create an Account Using Polkadot.js Apps
 
-- Navigate to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc0.cess.network%2Fws%2F#/explorer).
+- Navigate to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc.cess.network%2Fws%2F#/explorer).
 
 - Click **Settings**, under *in-browser account creation*, choose **Allow local in-browser account storage**, and click the save button at the bottom right.<br/>
 
@@ -40,7 +40,7 @@ The following illustrate two ways to create a CESS account.
 
     ![Create a CESS account](../assets/community/cess-account/create-acct.png)
 
-- You can view the account in [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc0.cess.network%2Fws%2F#/explorer).<br/>
+- You can view the account in [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc.cess.network%2Fws%2F#/explorer).<br/>
 
     ![View account in Polkadot.js Apps](../assets/community/cess-account/view-acct-cess-explorer.png)
 
@@ -82,7 +82,7 @@ After get TCESS successfully, check balance in SubWallet
 
 # How to Configure Polkadot.js Apps?
 
-You can navigate directly to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc0.cess.network%2Fws%2F#/explorer).
+You can navigate directly to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc.cess.network%2Fws%2F#/explorer).
 
 If the link fails or you want to connect to the CESS network through another RPC address, you can configure it as follows:
 
@@ -101,9 +101,5 @@ If the link fails or you want to connect to the CESS network through another RPC
 - The following are the available RPC addresses in CESS testnet:
 
     {% hint style="info" %}
-    wss://testnet-rpc0.cess.network/ws/
-
-    wss://testnet-rpc1.cess.network/ws/
-
-    wss://testnet-rpc2.cess.network/ws/
+    wss://testnet-rpc.cess.network/ws/
     {% endhint %}

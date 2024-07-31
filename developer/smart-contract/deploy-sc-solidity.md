@@ -27,9 +27,7 @@ On **Add a network manually** page, enter the following details:
 
 - Network Name: **CESS Testnet**
 - New RPC URL, one of the following:
-   - <https://testnet-rpc0.cess.network/ws/>
-   - <https://testnet-rpc1.cess.network/ws/>
-   - <https://testnet-rpc2.cess.network/ws/>
+   - <https://testnet-rpc.cess.network/ws/>
 - Chain ID: **11330**
 - Currency Symbol: **TCESS**
 
