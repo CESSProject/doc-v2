@@ -26,7 +26,7 @@ During random challenges, rewards will be divided based on the proportion of the
 
 ## Operation Guide
 
-Running TEE Worker with **Marker** requires an account: the **Controller account**, and only one Gas fee for registering transactions. Please refer to [Create CESS Account](../user/cess-account.md), and go to [CESS Faucet](https://cess.network/faucet.html) to obtain TCESS, or [Contact Us](../introduction/contact.md) to obtain TCESS tokens.
+Running TEE Worker with **Marker** requires an account: the **Controller account**, and only one Gas fee for registering transactions. Please refer to [Create CESS Account](../../user/cess-account.md), and go to [CESS Faucet](https://cess.network/faucet.html) to obtain TCESS, or [Contact Us](../../introduction/contact.md) to obtain TCESS tokens.
 
 After creating a wallet account, navigate to [CESS Browser](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc.cess.network%2Fws%2F#/explorer). To run other types of TEE Workers, please refer to [Consensus Node Deployment Guide](../consensus-miner/running.md).
 
