@@ -1,6 +1,6 @@
 # System Requirement
 
-If you're planning to run a consensus miner, it's important to make sure your system meets the recommended requirements to ensure that your miner performs at its best.
+If you're planning to run a consensus miner, it's important to make sure your system meets the recommended requirements to ensure that your miner performs at its best.The consensus miner consists of a cess-node and a Tee worker.
 
 | Resource                      | Specification               |
 |-------------------------------|-----------------------------|
@@ -23,7 +23,7 @@ For a system to support **Intel Software Guard Extensions** ([Intel SGX](https:/
 
 ## Static Public IP
 
-The server requires a static public IP. Please ensure that the IP address is accessible and not behind a NAT. Run the following command to confirm your public IP.
+The server requires a static public IPv4 IP. Please ensure that the IP address is accessible and not behind a NAT. Run the following command to confirm your public IP.
 
 ```bash
 curl -4 ifconfig.co
@@ -150,18 +150,21 @@ Start configuring the endpoint to access TEE worker from the Internet
 Enter the TEE worker endpoint (current: http://xx.xxx.xx.xx:19999, press enter to skip)
 ```
 
-Next, you will need to enter the CESS validator stash account address. When `current` is set to `null`, this means that it is empty. You can simply press enter to skip if you would like to run your consensus miner in **`Marker`** mode. We will enter a stash address as we will run our node in **`Full`** mode.
-
+The current version of Tee worker supports two running remote attestation types. You can choose according to your machine. For details on how to know which remote attestation type your machine supports, please see the `Questions & Answers` at the end of the article.
 ```bash
-Enter cess validator stash account (current: null, press enter to skip): cXic3WhctsJ9cExmjE9vog49xaLuVbDLcFi2odeEnvV5Sbq4f
+Enter the type of remote attestation method 'ias/dcap' (current: , press enter to skip):dcap
 ```
 
-Enter Full to run the node in **`Full`** mode. Then enter your CESS Controller account mnemonic phrase.
+ You can choose role now. **`Full`** mode has all the capabilities of Tee worker, **`Verifier`** only has the capabilities of Tee worker to verify the proof from miners, and **`Marker`** only has the capabilities of Tee worker to tag file from miners. When you choose the **`Marker`** role, you do not need to fill in the CESS validator stash account in the next step.
+ ```bash
+ Enter what kind of tee worker would you want to be [Full/Verifier/Marker]: Full 
+ ```
 
-```bash
-Enter what kind of tee worker would you want to be [Full/Verifier]: Full
-Enter cess validator controller phrase: xxxxxxxxxxxxxx
-```
+ Then enter your CESS Controller account mnemonic phrase.
+ ```bash
+ Enter cess validator stash account (current: null, press enter to skip): cXic3WhctsJ9cExmjE9vog49xaLuVbDLcFi2odeEnvV5Sbq4f
+ Enter cess validator controller phrase: xxxxxxxxxxxxxx
+ ```
 
 Lastly, you will see the following messages printed on the screen which downloads all the required docker images.
 
@@ -399,3 +402,22 @@ cess pullimg
    ```
 
    Every automatic upgrade from you means a bug fix for the consensus miner program by the official, and we **strongly discourage** you from turning off the automatic upgrade feature, as this may render your service **unusable**.
+
+4. How do I know which remote attestation method my machine supports?
+    If the processor supports Intel® SGX and FLC, then DCAP is supported.
+    There are two options to determine if your system's processor supports FLC:
+    
+    * First Option:
+    On Linux* systems, execute cpuid in a terminal:
+        1. Open a terminal and run: $ cpuid | grep -i sgx
+        2. Look for the output: SGX_LC: SGX launch config supported = true
+
+    * Second Option:
+    Using test-sgx.c:
+        1. Go to the [SGX hardware Github](https://github.com/ayeks/SGX-hardware) and download the file test-sgx.c or clone the repository
+        2. Compile and run test-sgx.c according to the following instructions:
+            ```bash
+            gcc test-sgx.c -o test-sgx
+            ./test-sgx
+            ```
+        3. Find Output: sgx launch control: 1
