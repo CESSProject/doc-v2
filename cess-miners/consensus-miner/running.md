@@ -57,9 +57,9 @@ Running consensus miner as a `Marker` requires only one account and does not req
 Also if you already have a stash account or would like to use someone else's stash account you do not need to perform the **Binding Funds** operation.
 {% endhint %}
 
-You can also refer to the artcle [Creating CESS Accounts](../user/cess-account.md) for creating a CESS account.
+You can also refer to the artcle [Creating CESS Accounts](../../user/cess-account.md) for creating a CESS account.
 
-You can either use [CESS testnet faucet](https://cess.network/faucet.html) to get TCESS, or [contact us](../introduction/contact.md) to receive TCESS tokens for staking.
+You can either use [CESS testnet faucet](https://cess.network/faucet.html) to get TCESS, or [contact us](../../introduction/contact.md) to receive TCESS tokens for staking.
 
 After the wallet account is created, navigate to [CESS Explorer](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc.cess.network%2Fws%2F#/).
 
