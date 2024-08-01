@@ -10,15 +10,15 @@ Please refer to [golang installation](https://go.dev/doc/install/source) to down
 ## Install Go SDK
 + go mod way
 
-Add the following dependencies in the go.mod file, the following takes version 0.5.0 as an example. Other versions need to be replaced with corresponding version numbers.
+Add the following dependencies in the go.mod file, the following takes version 0.6.1 as an example. Other versions need to be replaced with corresponding version numbers.
 ```golang
 require (
-    github.com/CESSProject/cess-go-sdk v0.5.0
+    github.com/CESSProject/cess-go-sdk v0.6.1
 )
 ```
 + source code method
 ```bash
-go get github.com/CESSProject/cess-go-sdk@v0.5.0
+go get github.com/CESSProject/cess-go-sdk@v0.6.1
 ```
 
 ## Verify SDK

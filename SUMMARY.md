@@ -84,7 +84,7 @@
           * [DeleteBucket](developer/cess-sdk/sdk-golang/chain_related/file_bank/DeleteBucket.md)
           * [DeleteFile](developer/cess-sdk/sdk-golang/chain_related/file_bank/DeleteFile.md)
           * [GenerateRestoralOrder](developer/cess-sdk/sdk-golang/chain_related/file_bank/GenerateRestoralOrder.md)
-          * [GenerateStorageOrder](developer/cess-sdk/sdk-golang/chain_related/file_bank/GenerateStorageOrder.md)
+          * [PlaceStorageOrder](developer/cess-sdk/sdk-golang/chain_related/file_bank/PlaceStorageOrder.md)
           * [ReplaceIdleSpace](developer/cess-sdk/sdk-golang/chain_related/file_bank/ReplaceIdleSpace.md)
           * [RestoralOrderComplete](developer/cess-sdk/sdk-golang/chain_related/file_bank/RestoralOrderComplete.md)
           * [TransferReport](developer/cess-sdk/sdk-golang/chain_related/file_bank/TransferReport.md)
