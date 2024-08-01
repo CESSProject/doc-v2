@@ -15,7 +15,7 @@ const P2P_PORT = 4001
 
 var P2P_BOOT_ADDRS = []string{
 	//testnet
-	"_dnsaddr.boot-miner-testnet.cess.cloud",
+	"_dnsaddr.boot-miner-testnet.cess.network",
 }
 
 func main() {

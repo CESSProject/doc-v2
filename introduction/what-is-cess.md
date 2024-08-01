@@ -1,6 +1,6 @@
 In this article, we will delve into the what, why, and how of CESS, exploring its features and benefits.
 
-# WHAT is CESS?
+# What is CESS?
 
 CESS is a decentralized data value network designed with a holistic three-layer architecture. Our network architecture integrates a decentralized cloud storage network and a CD²N, offering highly customizable solutions for decentralized data storage and real-time sharing, specifically tailored for modern high-frequency dynamic data storage and retrieval needs. We meet enterprise users' demands for massive storage capacity, location-based storage selection (LBSS), hierarchical permission management, and other custom requirements and/or compliance needs.
 
@@ -10,7 +10,7 @@ Supporting applications including but not limited to personalized medicine to de
 **CESS: Blockchain Powered Distributed Storage and Content Decentralized Delivery Network (CD²N) Infrastructure for Web3.**
 {% endhint %}
 
-# WHY CESS?
+# Why CESS?
 
 CESS is the first large-scale, enterprise-level decentralized storage, enabling users to securely store their data in an encrypted format. It utilizes advanced encryption techniques to ensure that only the authorized users can access the data and provide end-to-end privacy and security. CESS is also an open-source and public blockchain intended to be the underlying infrastructure for decentralized storage needs. By leveraging blockchain and peer-to-peer technology, CESS eliminates the need for a centralized authority, making it resistant to censorship and tampering.
 
@@ -20,7 +20,7 @@ By utilizing a decentralized physical infrastructure network (DePIN) model, CESS
 
 CESS is also compatible with both EVM and WebAssembly (Wasm). The underlying blockchain framework allows cross-ecosystem, cross-chain applications to use CESS. Its technology stack supports most Web3 applications.
 
-# HOW does CESS work?
+# How does CESS work?
 
 CESS adopts layered and loosely coupled system architecture, which is divided into **CESS Protocol Suite** and **XESS AI Protocol Suite**. 
 

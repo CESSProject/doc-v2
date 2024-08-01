@@ -27,9 +27,7 @@ On **Add a network manually** page, enter the following details:
 
 - Network Name: **CESS Testnet**
 - New RPC URL, one of the following:
-   - <https://testnet-rpc0.cess.cloud/ws/>
-   - <https://testnet-rpc1.cess.cloud/ws/>
-   - <https://testnet-rpc2.cess.cloud/ws/>
+   - <https://testnet-rpc.cess.network/ws/>
 - Chain ID: **11330**
 - Currency Symbol: **TCESS**
 
@@ -56,7 +54,7 @@ Get the EVM address output.
 
 # Fund the Account
 
-Using [CESS Explorer](https://testnet.cess.cloud/) **Accounts -> Transfer** to transfer some balance to the Substrate address output above. For testnet goto [testnet faucet](https://cess.cloud/faucet.html) to get fund drip into this Substrate address.
+Using [CESS Explorer](https://testnet.cess.network/) **Accounts -> Transfer** to transfer some balance to the Substrate address output above. For testnet goto [testnet faucet](https://cess.network/faucet.html) to get fund drip into this Substrate address.
 
 ![CESS Explorer: Transfer Amount](../../assets/developer/tutorials/deploy-sc-solidity/05.png)
 
@@ -123,7 +121,7 @@ Copy the Ethereum equivalent address and use MetaMask to transfer fund.
   </tr>
 </table>
 
-Confirm the balance in the [CESS Explorer: Developer RPC calls](https://testnet.cess.cloud/#/rpc). Use the Ethereum address in previous step.
+Confirm the balance in the [CESS Explorer: Developer RPC calls](https://testnet.cess.network/#/rpc). Use the Ethereum address in previous step.
 
 ![CESS Explorer: Get Balance](../../assets/developer/tutorials/deploy-sc-solidity/16.png)
 

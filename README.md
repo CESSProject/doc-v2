@@ -1,6 +1,6 @@
-**Your Data, Your Right.**
+**The Decentralized Data Infrastructure.**
 
-Welcome to the CESS Documentation Center.
+Welcome to the CESS Document Center.
 
 # 🗂 Introduction
 

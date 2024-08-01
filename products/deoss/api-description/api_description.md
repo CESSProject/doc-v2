@@ -8,7 +8,7 @@ We provide a public gateway, The information is as follows:
 
 | name    | value               |
 | ------- | ------------------- |
-| Address | http://deoss-pub-gateway.cess.cloud/ |
+| Address | http://deoss-pub-gateway.cess.network/ |
 | Account | cXhwBytXqrZLr1qM5NHJhCzEMckSTzNKw17ci2aHft6ETSQm9 |
 
 **Table of Contents**

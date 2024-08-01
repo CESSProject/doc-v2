@@ -1,6 +1,6 @@
 # System Requirement
 
-If you're planning to run a consensus miner, it's important to make sure your system meets the recommended requirements to ensure that your miner performs at its best.
+If you're planning to run a consensus miner, it's important to make sure your system meets the recommended requirements to ensure that your miner performs at its best.The consensus miner consists of a cess-node and a Tee worker.
 
 | Resource                      | Specification               |
 |-------------------------------|-----------------------------|
@@ -23,7 +23,7 @@ For a system to support **Intel Software Guard Extensions** ([Intel SGX](https:/
 
 ## Static Public IP
 
-The server requires a static public IP. Please ensure that the IP address is accessible and not behind a NAT. Run the following command to confirm your public IP.
+The server requires a static public IPv4 IP. Please ensure that the IP address is accessible and not behind a NAT. Run the following command to confirm your public IP.
 
 ```bash
 curl -4 ifconfig.co
@@ -57,11 +57,11 @@ Running consensus miner as a `Marker` requires only one account and does not req
 Also if you already have a stash account or would like to use someone else's stash account you do not need to perform the **Binding Funds** operation.
 {% endhint %}
 
-You can also refer to the artcle [Creating CESS Accounts](../community/cess-account.md) for creating a CESS account.
+You can also refer to the artcle [Creating CESS Accounts](../../user/cess-account.md) for creating a CESS account.
 
-You can either use [CESS testnet faucet](https://cess.cloud/faucet.html) to get TCESS, or [contact us](../introduction/contact.md) to receive TCESS tokens for staking.
+You can either use [CESS testnet faucet](https://cess.network/faucet.html) to get TCESS, or [contact us](../../introduction/contact.md) to receive TCESS tokens for staking.
 
-After the wallet account is created, navigate to [CESS Explorer](https://testnet.cess.cloud/).
+After the wallet account is created, navigate to [CESS Explorer](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc.cess.network%2Fws%2F#/).
 
 # Binding Funds
 
@@ -69,7 +69,7 @@ After the wallet account is created, navigate to [CESS Explorer](https://testnet
 _As of CESS v0.7.6, the controller account has been removed from the binding fund operation._
 {% endhint %}
 
-Open [CESS Explorer](https://testnet.cess.cloud/) and Select **Network** > **Staking** > **Accounts** > **Stash**
+Open [CESS Explorer](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc.cess.network%2Fws%2F#/) and Select **Network** > **Staking** > **Accounts** > **Stash**
 
 ![Add a Stash](../../assets/consensus-miner/running/consensus-pic1.png)
 
@@ -90,9 +90,9 @@ Fund is bonded successfully!
 The `cess-nodeadm` is a CESS node deployment and management tool. It helps deploying and managing storage nodes, consensus nodes, and full nodes, simplifying the devOps for all CESS miners.
 
 ```bash
-wget https://github.com/CESSProject/cess-nodeadm/archive/refs/tags/v0.5.5.tar.gz
-tar -xvf v0.5.5.tar.gz
-cd cess-nodeadm-0.5.5
+wget https://github.com/CESSProject/cess-nodeadm/archive/refs/tags/v0.5.7.tar.gz
+tar -xvf v0.5.7.tar.gz
+cd cess-nodeadm-0.5.7
 sudo ./install.sh
 ```
 
@@ -150,18 +150,21 @@ Start configuring the endpoint to access TEE worker from the Internet
 Enter the TEE worker endpoint (current: http://xx.xxx.xx.xx:19999, press enter to skip)
 ```
 
-Next, you will need to enter the CESS validator stash account address. When `current` is set to `null`, this means that it is empty. You can simply press enter to skip if you would like to run your consensus miner in **`Marker`** mode. We will enter a stash address as we will run our node in **`Full`** mode.
-
+The current version of Tee worker supports two running remote attestation types. You can choose according to your machine. For details on how to know which remote attestation type your machine supports, please see the `Questions & Answers` at the end of the article.
 ```bash
-Enter cess validator stash account (current: null, press enter to skip): cXic3WhctsJ9cExmjE9vog49xaLuVbDLcFi2odeEnvV5Sbq4f
+Enter the type of remote attestation method 'ias/dcap' (current: , press enter to skip):dcap
 ```
 
-Enter Full to run the node in **`Full`** mode. Then enter your CESS Controller account mnemonic phrase.
+ You can choose role now. **`Full`** mode has all the capabilities of Tee worker, **`Verifier`** only has the capabilities of Tee worker to verify the proof from miners, and **`Marker`** only has the capabilities of Tee worker to tag file from miners. When you choose the **`Marker`** role, you do not need to fill in the CESS validator stash account in the next step.
+ ```bash
+ Enter what kind of tee worker would you want to be [Full/Verifier/Marker]: Full 
+ ```
 
-```bash
-Enter what kind of tee worker would you want to be [Full/Verifier]: Full
-Enter cess validator controller phrase: xxxxxxxxxxxxxx
-```
+ Then enter your CESS Controller account mnemonic phrase.
+ ```bash
+ Enter cess validator stash account (current: null, press enter to skip): cXic3WhctsJ9cExmjE9vog49xaLuVbDLcFi2odeEnvV5Sbq4f
+ Enter cess validator controller phrase: xxxxxxxxxxxxxx
+ ```
 
 Lastly, you will see the following messages printed on the screen which downloads all the required docker images.
 
@@ -217,7 +220,7 @@ If the configuration process fails, please refer to the [troubleshooting guideli
 
 3. Setup a session key
 
-    Navigate to [CESS Explorer](https://testnet.cess.cloud), choose **Network** > **Staking** > **Accounts** > **Session Key**
+    Navigate to [CESS Explorer](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc.cess.network%2Fws%2F#/), choose **Network** > **Staking** > **Accounts** > **Session Key**
 
     ![Session Key 01](../../assets/consensus-miner/running/session-key-01.png)
 
@@ -231,7 +234,7 @@ If the configuration process fails, please refer to the [troubleshooting guideli
 
 4. Becoming a validator
 
-    Navigate to [CESS Explorer](https://testnet.cess.cloud), click **Network** > **Staking** > **Accounts** > **Validate**
+    Navigate to [CESS Explorer](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc.cess.network%2Fws%2F#/), click **Network** > **Staking** > **Accounts** > **Validate**
 
     ![Validator 01](../../assets/consensus-miner/running/validator-01.webp)
 
@@ -245,7 +248,7 @@ If the configuration process fails, please refer to the [troubleshooting guideli
 
     ![Validator 03](../../assets/consensus-miner/running/validator-03.png)
 
-    After completing the steps above, open the [CESS Explorer](https://testnet.cess.cloud/) and click **Network** > **Staking** > **Waiting**.
+    After completing the steps above, open the [CESS Explorer](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc.cess.network%2Fws%2F#/) and click **Network** > **Staking** > **Waiting**.
 
     ![Validator 04](../../assets/consensus-miner/running/validator-04.webp)
 
@@ -269,13 +272,13 @@ Please claim the reward within 84 era (each era of the test network is 6 hours),
 
 1. Stop the Consensus
 
-    In [CESS Explorer](https://testnet.cess.cloud), navigate to: **Network > Staking > Account Actions > Stop**.
+    In [CESS Explorer](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc.cess.network%2Fws%2F#/), navigate to: **Network > Staking > Account Actions > Stop**.
 
     ![Exiting-01](../../assets/consensus-miner/running/exiting-01.png)
 
 2. Clear Session Keys
 
-    In [CESS Explorer](https://testnet.cess.cloud), navigate to: **Developer -> Submission**
+    In [CESS Explorer](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc.cess.network%2Fws%2F#/), navigate to: **Developer -> Submission**
 
     ![Exiting-02](../../assets/consensus-miner/running/exiting-02.png)
 
@@ -291,7 +294,7 @@ Please claim the reward within 84 era (each era of the test network is 6 hours),
 
 1. Unbond fund
 
-    After 28 eras (each era of the test network is 6 hours), goto [CESS Explorer](https://testnet.cess.cloud/), navigate to: **Network > Staking > Account Actions > Unbond Funds**.
+    After 28 eras (each era of the test network is 6 hours), goto [CESS Explorer](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc.cess.network%2Fws%2F#/), navigate to: **Network > Staking > Account Actions > Unbond Funds**.
 
     ![Staking 01](../../assets/consensus-miner/running/staking-01.png)
 
@@ -369,11 +372,11 @@ cess pullimg
 
 1. I don't want to expose my IP address on the chain. What should I do?
 
-   During the cess config set process, you can set your endpoint with a domain name. For example, if your registered domain is tee-xxx.cess.cloud, you can enter <http://tee-xxx.cess.cloud> when setting the endpoint. The script will then ask you if you want to enable one-click domain proxy. You can enter y to enable it, as shown below:
+   During the cess config set process, you can set your endpoint with a domain name. For example, if your registered domain is tee-xxx.cess.network, you can enter <http://tee-xxx.cess.network> when setting the endpoint. The script will then ask you if you want to enable one-click domain proxy. You can enter y to enable it, as shown below:
 
    ```bash
    .....
-   Enter the kaleido endpoint (current: http://tee-xxx.cess.cloud, press enter to skip): http://tee-xxx.cess.cloud
+   Enter the kaleido endpoint (current: http://tee-xxx.cess.network, press enter to skip): http://tee-xxx.cess.network
    Do you need to configure a domain name proxy with one click? (y/n): y
    .....
    ```
@@ -399,3 +402,22 @@ cess pullimg
    ```
 
    Every automatic upgrade from you means a bug fix for the consensus miner program by the official, and we **strongly discourage** you from turning off the automatic upgrade feature, as this may render your service **unusable**.
+
+4. How do I know which remote attestation method my machine supports?
+    If the processor supports Intel® SGX and FLC, then DCAP is supported.
+    There are two options to determine if your system's processor supports FLC:
+    
+    * First Option:
+    On Linux* systems, execute cpuid in a terminal:
+        1. Open a terminal and run: $ cpuid | grep -i sgx
+        2. Look for the output: SGX_LC: SGX launch config supported = true
+
+    * Second Option:
+    Using test-sgx.c:
+        1. Go to the [SGX hardware Github](https://github.com/ayeks/SGX-hardware) and download the file test-sgx.c or clone the repository
+        2. Compile and run test-sgx.c according to the following instructions:
+            ```bash
+            gcc test-sgx.c -o test-sgx
+            ./test-sgx
+            ```
+        3. Find Output: sgx launch control: 1
