@@ -22,7 +22,7 @@ This is the interface for uploading objects to the gateway.
 //
 // Explanation:
 //   - Account refers to the account where you configured mnemonic when creating an SDK.
-//   - CESS public gateway address: [http://deoss-pub-gateway.cess.cloud/]
+//   - CESS public gateway address: [http://deoss-pub-gateway.cess.network/]
 //   - CESS public gateway account: [cXhwBytXqrZLr1qM5NHJhCzEMckSTzNKw17ci2aHft6ETSQm9]
 func StoreObject(url string, bucket, territory, mnemonic string, reader io.Reader) (string, error)
 ```
@@ -52,10 +52,10 @@ var MY_MNEMONIC = "bottom drive obey lake curtain smoke basket hold race lonely 
 
 var RPC_ADDRS = []string{
 	//testnet
-	"wss://testnet-rpc.cess.cloud/ws/",
+	"wss://testnet-rpc.cess.network/ws/",
 }
 
-const PublicGateway = "http://deoss-pub-gateway.cess.cloud/"
+const PublicGateway = "http://deoss-pub-gateway.cess.network/"
 const PublicGatewayAccount = "cXhwBytXqrZLr1qM5NHJhCzEMckSTzNKw17ci2aHft6ETSQm9"
 const BucketName = "Your Bucket"
 

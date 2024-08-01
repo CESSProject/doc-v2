@@ -35,7 +35,7 @@ var MY_MNEMONIC = "bottom drive obey lake curtain smoke basket hold race lonely 
 
 var RPC_ADDRS = []string{
     //testnet
-    "wss://testnet-rpc.cess.cloud/ws/",
+    "wss://testnet-rpc.cess.network/ws/",
 }
 
 func main() {

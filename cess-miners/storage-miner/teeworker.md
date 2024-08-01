@@ -26,9 +26,9 @@ During random challenges, rewards will be divided based on the proportion of the
 
 ## Operation Guide
 
-Running TEE Worker with **Marker** requires an account: the **Controller account**, and only one Gas fee for registering transactions. Please refer to [Create CESS Account](../community/cess-account.md), and go to [CESS Faucet](https://cess.cloud/faucet.html) to obtain TCESS, or [Contact Us](../introduction/contact.md) to obtain TCESS tokens.
+Running TEE Worker with **Marker** requires an account: the **Controller account**, and only one Gas fee for registering transactions. Please refer to [Create CESS Account](../../user/cess-account.md), and go to [CESS Faucet](https://cess.network/faucet.html) to obtain TCESS, or [Contact Us](../../introduction/contact.md) to obtain TCESS tokens.
 
-After creating a wallet account, navigate to [CESS Browser](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc0.cess.cloud%2Fws%2F#/explorer). To run other types of TEE Workers, please refer to [Consensus Node Deployment Guide](../consensus-miner/running.md).
+After creating a wallet account, navigate to [CESS Browser](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc.cess.network%2Fws%2F#/explorer). To run other types of TEE Workers, please refer to [Consensus Node Deployment Guide](../consensus-miner/running.md).
 
 ### Install CESS Client
 
@@ -54,7 +54,7 @@ cess config set
 Enter cess node mode from 'authority/storage/watcher' (current: authority, press enter to skip): authority
 Intel SGX is already enabled on this system
 Enter cess node name (current: cess-test-node2-526824, press enter to skip): cess-test-node2
-Enter cess chain ws url (current: wss://testnet-rpc0.cess.cloud/ws/, press enter to skip): ws://129.226.81.243:9944
+Enter cess chain ws url (current: wss://testnet-rpc.cess.network/ws/, press enter to skip): ws://129.226.81.243:9944
 Enter listener port for kaleido (current: 10010, press enter to skip):
 Enter the kaleido endpoint (current: http://test.dm.com, press enter to skip): http://45.195.74.43:10010
 Enter cess validator stash account (current: , press enter to skip): null

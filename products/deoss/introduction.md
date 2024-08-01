@@ -11,7 +11,7 @@ DApp, NFT, and Web3 developers, SocialFi developers, and users with large-scale 
 DeOSS can store high-definition pictures, audio, video, and backup files in websites and applications, as well as files of various DApp applications and network disk applications.
 
 ## How do you use DeOSS
-If you are not a developer, you can use [DeShare Web App](https://cess.cloud/deshare.html) and [DeOSS Web App](https://cess.cloud/deoss.html). If you are a developer, you can refer to the [API](api-description/api_description.md) to use it.
+If you are not a developer, you can use [DeShare Web App](https://cess.network/deshare.html) and [DeOSS Web App](https://cess.network/deoss.html). If you are a developer, you can refer to the [API](api-description/api_description.md) to use it.
 
 ## Technology Highlights
 ![technology_highlights.jpg](picture/technology_highlights.jpg)

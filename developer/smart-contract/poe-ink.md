@@ -500,9 +500,9 @@ We will add a new component and showcase how to use [**use-inkathon** javascript
           'http://127.0.0.1:9944',
         ],
         testnet: true,
-        faucetUrls: ['https://cess.cloud/faucet.html'],
+        faucetUrls: ['https://cess.network/faucet.html'],
         explorerUrls: {
-          [SubstrateExplorer.Other]: `https://substats.cess.cloud/`,
+          [SubstrateExplorer.Other]: `https://substats.cess.network/`,
         },
       }
       ```

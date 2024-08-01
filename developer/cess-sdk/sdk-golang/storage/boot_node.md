@@ -1,4 +1,4 @@
-The bootstrap node is used to allow storage miners to join the storage network, each storage node will be connected to a bootstrap node when it comes online, and the bootstrap node will record all the nodes it has connected to, and the address of the bootstrap node in the test network is: `_dnsaddr.boot-miner-testnet.cess.cloud`.
+The bootstrap node is used to allow storage miners to join the storage network, each storage node will be connected to a bootstrap node when it comes online, and the bootstrap node will record all the nodes it has connected to, and the address of the bootstrap node in the test network is: `_dnsaddr.boot-miner-testnet.cess.network`.
 
 The bootstrap node publishes node information periodically through pub/sub, and other nodes can quickly discover other node information by subscribing to the connected bootstrap node. The private code is as follows:
 ```golang
@@ -20,7 +20,7 @@ const P2P_PORT = 4001
 
 var P2P_BOOT_ADDRS = []string{
 	//testnet
-	"_dnsaddr.boot-miner-devnet.cess.cloud",
+	"_dnsaddr.boot-miner-devnet.cess.network",
 }
 
 func main() {

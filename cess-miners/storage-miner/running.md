@@ -23,7 +23,7 @@ Please refer to the [official documentation](https://docs.docker.com/engine/inst
 The following commands are executed with root privileges. If error messages of `permission denied` appear, switch to root privilege or add `sudo` at the beginning of these commands.
 {% endhint %}
 
-By default, the node client program, **cess-bucket**, uses port 4001 to listen for incoming connections, if your OS firewalled the port by default, you may need to enable the access to the port.
+By default, the node client program, **cess-miner**, uses port 4001 to listen for incoming connections, if your OS firewalled the port by default, you may need to enable the access to the port.
 
 ```bash
 ufw allow 4001
@@ -121,7 +121,7 @@ Miners need to create at least two wallet accounts.
 
 **Note：Each signature account can only be used by one storage miner, otherwise an exception will occur.**
 
-Please refer to [Creating CESS Accounts](../community/cess-account.md) for creating a CESS account, goto [CESS faucet](https://cess.cloud/faucet.html) to get our testnet tokens, TCESS, or [contact us](../introduction/contact.md) to get assistance.
+Please refer to [Creating CESS Accounts](../../user/cess-account.md) for creating a CESS account, goto [CESS faucet](https://cess.network/faucet.html) to get our testnet tokens, TCESS, or [contact us](../../introduction/contact.md) to get assistance.
 
 # Install CESS Client
 
@@ -191,21 +191,21 @@ Set configurations successfully
 ```
 
 - If a staker payment account is provided, for testnet, the pledged space (answer to the **Enter cess storage space**) is **round up** to the closest TB unit and that amount multiply with 4,000 amount of TCESS will be locked as a miner deposit.
-- If a staker payment account is not provided, then the signature account will be used as the staking account. If the staking account different from signature account is provided, can only [increase stake in block browser manually](https://docs.cess.cloud/core/storage-miner/troubleshooting).
+- If a staker payment account is not provided, then the signature account will be used as the staking account. If the staking account different from signature account is provided, can only [increase stake in block browser manually](https://docs.cess.network/core/storage-miner/troubleshooting).
 - Default TEE worker endpoints for the chain will be used if you don't provide any TEE worker endpoints. This doesn't affect your reward as a storage miner.
 
-Start CESS bucket
+Start CESS miner
 
 ```bash
 sudo cess start
 
 [+] Running 3/0
  ✔ Container chain       Running                                                0.0s
- ✔ Container bucket      Running                                                0.0s
+ ✔ Container miner       Running                                                0.0s
  ✔ Container watchtower  Running                                                0.0s
 ```
 
-If you want to speed up your earnings, you can choose to deploy a Marker-type TEE Worker to help miners certify space and mark user service files. Please refer to the [TEE Worker User Guide](./TEE-Worker-Guide-EN.md).
+If you want to speed up your earnings, you can choose to deploy a Marker-type TEE Worker to help miners certify space and mark user service files. Please refer to the [TEE Worker User Guide](./teeworker.md).
 
 # Common Operations
 
@@ -215,9 +215,9 @@ If you want to speed up your earnings, you can choose to deploy a Marker-type TE
 docker logs chain
 ```
 
-As shown below, if we see that the height of the block corresponding to "best" is about the latest height in [CESS Explorer](https://testnet.cess.cloud/), it means the local chain node synchronization is completed.
+As shown below, if we see that the height of the block corresponding to "best" is about the latest height in [CESS Explorer](https://testnet.cess.network/), it means the local chain node synchronization is completed.
 
-![CESS Blockchain Synchronization Completed](../assets/storage-miner/running/sync-status.png)
+![CESS Blockchain Synchronization Completed](../../assets/storage-miner/running/sync-status.png)
 
 Only when the chain synchronization is completed can you operate other functions such as increase the staking, view the status of the node, etc.
 
@@ -230,41 +230,41 @@ You can check your miner status on-chain.
 3. Click the button on the right to query the state
 4. At the bottom of the returned list, you should find the miner address that your mnemonic (with root path) generated from your answer to `sudo cess config set`. See below for an example.
 
-   ![CESS query on all miners](../assets/storage-miner/running/query-allminer.png)
+   ![CESS query on all miners](../../assets/storage-miner/running/query-allminer.png)
 
 5. You can also check your detail miner info with selecting **sminer** pallet and **minerItems(AccountId32)** storage item. In the *Option\<AccountId32\>*, choose/input the miner address. It will return your detail information on-chain. See below for an example.
 
-   ![CESS query on my miner item](../assets/storage-miner/running/query-miner-item.png)
+   ![CESS query on my miner item](../../assets/storage-miner/running/query-miner-item.png)
 
 6. Go to [the **Accounts** page](https://polkadot.js.org/apps/#/accounts) and check your account details, you would see a certain amount of TCESS has been reserved as the storage deposit.
 
-   ![Token is reserved as a storage miner](../assets/storage-miner/running/storage-miner-deposit.png)
+   ![Token is reserved as a storage miner](../../assets/storage-miner/running/storage-miner-deposit.png)
 
 ## View the Storage Node Log
 
 ```bash
-docker logs bucket
+docker logs miner
 ```
 
 As shown below, seeing `/kldr-testnet` indicates that the network environment is a test network, and seeing `Connected to the bootstrap node...` indicates that there is a connection to the bootstrap node.
 
-![Storage Node Log](../assets/storage-miner/running/view-node-log.webp)
+![Storage Node Log](../../assets/storage-miner/running/view-node-log.webp)
 
-## View Bucket Status
+## View Miner Status
 
 ```bash
-sudo cess bucket stat
+sudo cess miner stat
 ```
 
 An example of the returned result is shown below：
 
-![CESS Bucket Stat](../assets/storage-miner/running/miner-stat.png)
+![CESS Miner Stat](../../assets/storage-miner/running/miner-stat.png)
 
-Refer to the [Glossary](../glossary.md#storage-miner) on the names above.
+Refer to the [Glossary](../../glossary.md#storage-miner) on the names above.
 
 At the beginning of the storage node synchronization, all your **validated space**, **used space**, and **locked space** are 0. It is only when the validated space been incremented above 0 that the storage miner start earning rewards. For testnet, it take about an hour **after** the storage node chain synchronization completed, as shown below.
 
-![CESS Bucket Stat with Validated Space](../assets/storage-miner/running/miner-stat-validated-space.png)
+![CESS Miner Stat with Validated Space](../../assets/storage-miner/running/miner-stat-validated-space.png)
 
 If you get the result of `You are not a storage node` , please wait for the chain synchronization to complete.
 
@@ -273,7 +273,7 @@ If you get the result of `You are not a storage node` , please wait for the chai
 Make sure that the signatureAcc is the same as stakingAcc can use this command
 
 ```bash
-sudo cess bucket increase staking <deposit amount>
+sudo cess miner increase staking <deposit amount>
 ```
 
 ## Withdraw Miner Staking
@@ -281,19 +281,19 @@ sudo cess bucket increase staking <deposit amount>
 After your node **has exited CESS Network** (see below), run
 
 ```bash
-sudo cess bucket withdraw
+sudo cess miner withdraw
 ```
 
 ## Query Reward Information
 
 ```bash
-sudo cess bucket reward
+sudo cess miner reward
 ```
 
 ## Claim Reward
 
 ```bash
-sudo cess bucket claim
+sudo cess miner claim
 ```
 
 ## Update All Service Images
@@ -311,13 +311,13 @@ sudo cess down
 ## Update Earnings Account
 
 ```bash
-sudo cess bucket update earnings [earnings account]
+sudo cess miner update earnings [earnings account]
 ```
 
 ## Exit CESS Network
 
 ```bash
-sudo cess bucket exit
+sudo cess miner exit
 ```
 
 # Upgrade CESS Client
