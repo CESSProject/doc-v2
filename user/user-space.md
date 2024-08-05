@@ -2,9 +2,17 @@
 
 CESS testnet has been released. If users want to upload files, they need to purchase space and an authorized gateway first. This guide is for developers who want to interact directly with the chain through a blockchain browser to purchase territory, expand territory, and other operations.
 
+## What is territory
+
+To allow users to use the storage space of the CESS network more flexibly, we have decided to give the storage space the characteristics of NFTs, making it unique and tradable. This is intended to activate the network. We have thus introduced the concept of "CESS territory."
+
+"Territory" replaces the previous concept of storage space, converting user-held space into user-held territory. The files uploaded by users will be uploaded to the territory they own.
+
+Each user can have an unlimited number of "territories." Users can name each of their territories. At the same time, each territory has a unique token value for identification. Users can trade or transfer their territories using the territory token value. Since this is an expansion of the previous version of storage space, each territory will also have an expiration time. Users can renew and expand their existing territories through renewal or expansion.
+
 # Guides
 
-The guide will explain how to purchase space, expand space, renew space, and some of the details.
+The guide will explain how to purchase territory, expand territory, renew territory, and some of the details.
 
 ## Buy Territory
 
