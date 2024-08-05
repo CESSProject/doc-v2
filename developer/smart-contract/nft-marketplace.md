@@ -16,7 +16,7 @@ In blockchain, Fungible tokens are called ERC-20 tokens, a standard format creat
 
 # What is CESS?
 
-CESS or Cumulus Encrypted Storage is a fully decentralized data storage protocol that provides a full-stack solution for all your data storage needs. It is the first decentralized storage protocol that provides users with data ownership rights, that is fast, scalable, efficient in storage space utilization, and guarantees data availability.
+CESS is a fully decentralized data storage protocol that provides a full-stack solution for all your data storage needs. It is the first decentralized storage protocol that provides users with data ownership rights, that is fast, scalable, efficient in storage space utilization, and guarantees data availability.
 
 CESS provides SDKs and RESTful APIs to upload and download files through the gateway to the CESS network without worrying about understanding the underlying mechanics of the file distribution mechanism of CESS. You can learn more about CESS [here](https://docs.cess.network/cess-wiki/introduction/overview).
 
