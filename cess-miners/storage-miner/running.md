@@ -7,7 +7,7 @@ The recommended requirement of a storage server:
 | Recommended OS | Linux 64-bit Intel / AMD |
 | # of CPU Cores | ≥ 4 |
 | Memory | ≥ 8 GB |
-| Bandwidth | ≥ 5 Mbps |
+| Bandwidth | ≥ 20 Mbps |
 | Public Network IP | required |
 | Linux Kernel Version | 5.11 or higher |
 
@@ -130,15 +130,11 @@ Please refer to [Creating CESS Accounts](../../user/cess-account.md) for creatin
 2. Download and install
 
    ```bash
-   wget https://github.com/CESSProject/cess-nodeadm/archive/vx.x.x.tar.gz
-   tar -xvzf vx.x.x.tar.gz
-   cd cess-nodeadm-x.x.x/
+   wget https://github.com/CESSProject/cess-nodeadm/archive/v0.5.7.tar.gz
+   tar -xvzf v0.5.7.tar.gz
+   cd cess-nodeadm-0.5.7/
    ./install.sh
    ```
-
-   {% hint style="info" %}
-   ⚠️ Replace the above `x.x.x` with the latest version (as of writing, it is **0.5.5**).
-   {% endhint %}
 
    If a message `Install cess nodeadm success` shows up at the end, it means the installation is completed.
 
@@ -179,6 +175,7 @@ sudo cess config set
 
 Enter cess node mode from 'authority/storage/watcher': storage
 Enter cess storage listener port (current: 15001, press enter to skip): 
+Enter cess rpc ws-url (current: local-chain, to use an external chain, type WS-URL directly, or press enter to skip): # for example, enter wss://testnet-rpc.cess.cloud/ws/
 Enter cess storage earnings account: # enter the account to earn reward, should start from "c..."
 Enter cess storage signature account phrase: # enter your signature account mnemonic, it can only be used by one storage miner!
 Enter cess storage disk path: # the disk path

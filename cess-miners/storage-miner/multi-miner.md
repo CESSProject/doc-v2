@@ -19,7 +19,7 @@ Minimum Configuration Requirements:
 | Recommended OS       | Linux 64-bit Intel / AMD |
 | # of CPU Cores       | ≥ 4                      |
 | Memory               | ≥ 8 GB                   |
-| Bandwidth            | ≥ 5 Mbps                 |
+| Bandwidth            | ≥ 20 Mbps                |
 | Public Network IP    | required                 |
 | Linux Kernel Version | 5.11 or higher           |
 
