@@ -4,6 +4,20 @@ The `transfer_report` is used by miners to report a file to complete the storage
 
 
 ```rust
+/// Reports a file to complete the storage transaction. This function is used by miners to report their part of the file storage,
+/// which is necessary for the file to be fully represented and declared on the chain.
+///
+/// # Parameters
+///
+/// - `index`: The index of the part of the file that the miner is responsible for. This helps to identify which segment of the file is being reported.
+/// - `deal_hash`: The unique hash associated with the storage deal for the file.
+///
+/// # Returns
+///
+/// Returns a `Result` that, on success, contains a tuple with:
+/// - `TxHash`: The transaction hash associated with the reporting of the file storage.
+/// - `TransferReport`: A structure representing the result of the file transfer reporting.
+///
 pub async fn transfer_report(
     &self,
     index: u8,
