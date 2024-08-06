@@ -35,13 +35,12 @@ After creating a wallet account, navigate to [CESS Browser](https://polkadot.js.
 cess-nodeadm is a CESS node deployment and management program that helps deploy and manage storage nodes, consensus nodes, and full nodes to simplify development operations for all CESS miners.
 
 ``` shell
-wget https://github.com/CESSProject/cess-nodeadm/archive/v0.5.x.tar.gz
-tar -xvf v0.5.x.tar.gz
-cd cess-nodeadm-0.5.x
+wget https://github.com/CESSProject/cess-nodeadm/archive/v0.5.7.tar.gz
+tar -xvf v0.5.7.tar.gz
+cd cess-nodeadm-0.5.7
 sudo ./install.sh
 ```
 
-Please check that you are using the latest version of cess-nodeadm. Currently it is version v0.5.5.
 If the `Install cess nodeadm success` message appears, the installation was successful.
 If the installation fails, review the troubleshooting steps.
 
@@ -64,7 +63,7 @@ Enter cess validator controller phrase (current: level course inflict raise gian
 Set configurations successfully
 ```
 
-The current version of Tee worker supports two running remote attestation types. You can choose according to your machine. For details on how to know which remote attestation type your machine supports, please see the [Questions & Answers](../consensus-miner/running.md#questions--answers) at the end of the article.
+The current version of Tee worker supports two running remote attestation types. You can choose according to your machine. For details on how to know which remote attestation type your machine supports, please see the [Questions & Answers 4.](../consensus-miner/running.md#questions--answers) at the end of the article.
 
 When setting up the validator stash account, fill in null and this will automatically configure it to Marker mode, and then enter the controller account (a work account used for TEE Worker registration, sending transactions, etc.) mnemonic phrase (account seed) to complete the configuration. Then enter the `cess start` command to start the Marker TEE Worker.
 
