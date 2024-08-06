@@ -4,11 +4,12 @@ This is the interface for purchasing a territory.
 // MintTerritory purchase a territory
 //   - gib_count: territory size
 //   - territory_name: territory name
+//   - days: effective days
 //
 // Return:
 //   - string: block hash
 //   - error: error message
-func (c *ChainClient) MintTerritory(gib_count uint32, territory_name string) (string, error)
+func (c *ChainClient) MintTerritory(gib_count uint32, territory_name string, days uint32) (string, error)
 ```
 
 Example code:
@@ -47,6 +48,6 @@ func main() {
     defer sdk.Close()
 
     // purchase a 100GiB territory
-    fmt.Println(sdk.MintTerritory(100, "myTerritory"))
+    fmt.Println(sdk.MintTerritory(100, "myTerritory", 300))
 }
 ```

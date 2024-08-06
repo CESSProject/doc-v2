@@ -19,7 +19,7 @@ const P2P_PORT2 = 4002
 
 var P2P_BOOT_ADDRS = []string{
 	//testnet
-	"_dnsaddr.boot-miner-devnet.cess.network",
+	"_dnsaddr.boot-miner-testnet.cess.network",
 }
 
 func main() {
@@ -49,22 +49,34 @@ func main() {
 	}
 	defer peer2.Close()
 
-	maddr, err := ma.NewMultiaddr(fmt.Sprintf("/ip4/127.0.0.1/tcp/%d/p2p/%s", P2P_PORT2, peer2.ID()))
-	if err != nil {
-		panic(err)
-	}
+	remoteAddrs := peer2.Addrs()
 
-	target_addr, err := peer.AddrInfoFromP2pAddr(maddr)
-	if err != nil {
-		panic(err)
-	}
+	for _, v := range remoteAddrs {
+		remoteAddr, err := ma.NewMultiaddr(fmt.Sprintf("%s/p2p/%s", v, peer2.ID().String()))
+		if err != nil {
+			fmt.Println("NewMultiaddr err: ", err)
+			continue
+		}
+		info, err := peer.AddrInfoFromP2pAddr(remoteAddr)
+		if err != nil {
+			fmt.Println("AddrInfoFromP2pAddr err: ", err)
+			continue
+		}
 
-	err = peer1.Connect(ctx, *target_addr)
-	if err != nil {
-		panic(err)
-	}
+		err = peer1.Connect(context.TODO(), *info)
+		if err != nil {
+			fmt.Println("Connect err: ", err)
+			continue
+		}
 
-	err = peer1.ReadFileAction(target_addr.ID, "test_fid", "fragment_hash", "test_file", core.FragmentSize)
-	fmt.Println("err: ", err)
+		err = peer1.ReadFileAction(info.ID, "test_fid", "fragment_hash", "test_file", core.FragmentSize)
+		if err != nil {
+			fmt.Println("ReadFileAction err: ", err)
+			continue
+		}
+		fmt.Println("ok")
+		return
+	}
+	fmt.Println("failed")
 }
 ```

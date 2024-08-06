@@ -20,7 +20,7 @@ const P2P_PORT = 4001
 
 var P2P_BOOT_ADDRS = []string{
 	//testnet
-	"_dnsaddr.boot-miner-devnet.cess.network",
+	"_dnsaddr.boot-miner-testnet.cess.network",
 }
 
 func main() {
@@ -28,7 +28,7 @@ func main() {
 
 	peer_node, err := p2pgo.New(
 		ctx,
-		p2pgo.Workspace("/home"),
+		p2pgo.Workspace("."),
 		p2pgo.ListenPort(P2P_PORT),
 		p2pgo.BootPeers(P2P_BOOT_ADDRS),
 	)

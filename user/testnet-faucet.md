@@ -1,6 +1,6 @@
 ## Background
 
-CESS Testnet has been launched. You can reach the blockchain explorer at <https://substats.cess.network/>.
+CESS Testnet has been launched. You can reach the blockchain explorer at <https://scan.cess.network/>.
 
 To deploy applications on CESS Testnet, you will need testnet tokens. You can get them from our [**Testnet Faucet**](https://cess.network/faucet.html).
 
@@ -22,6 +22,4 @@ To deploy applications on CESS Testnet, you will need testnet tokens. You can ge
 
     ![Faucet Request Succeeded](../../assets/developer/guides/testnet-faucet/02-faucet-successful.png)
 
-6. You can check in the blockchain explorer <https://substats.cess.network/> that the testnet tokens have indeed been granted to your account.
-
-    ![Confirm the testnet tokens on Blockchain Explorer](../../assets/developer/guides/testnet-faucet/03-confirmation.png)
+6. You can check it in the blockchain browser <https://substats.cess.network/>, enter your account address, and then click the `Transfer` option below.

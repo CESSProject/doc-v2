@@ -87,6 +87,16 @@ Fund is bonded successfully!
 
 # Install CESS Client
 
+{% hint style="info" %}
+Before running, if you have previously deployed a previous version of CESS consensus miner on your instance, please be sure to uninstall it before running. The uninstallation method is as follows (if it is a new machine, please ignore it)
+{% endhint %}
+```bash
+    #Delete all information of the previous version
+    cess purge
+    #Delete old scripts
+    /opt/cess/nodeadm/scripts/uninstall.sh
+```
+
 The `cess-nodeadm` is a CESS node deployment and management tool. It helps deploying and managing storage nodes, consensus nodes, and full nodes, simplifying the devOps for all CESS miners.
 
 ```bash
