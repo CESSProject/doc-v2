@@ -57,11 +57,14 @@ Enter cess node name (current: cess-test-node2-526824, press enter to skip): ces
 Enter cess chain ws url (current: wss://testnet-rpc.cess.network/ws/, press enter to skip): ws://129.226.81.243:9944
 Enter listener port for kaleido (current: 10010, press enter to skip):
 Enter the kaleido endpoint (current: http://test.dm.com, press enter to skip): http://45.195.74.43:10010
+Enter the type of remote attestation method 'ias/dcap' (current: , press enter to skip):dcap
 Enter cess validator stash account (current: , press enter to skip): null
 Your Tee worker will work as 'Marker'!
 Enter cess validator controller phrase (current: level course inflict raise giant hammer blur run seed adjust ice goddess, press enter to skip):
 Set configurations successfully
 ```
+
+The current version of Tee worker supports two running remote attestation types. You can choose according to your machine. For details on how to know which remote attestation type your machine supports, please see the [Questions & Answers](../consensus-miner/running.md#questions--answers) at the end of the article.
 
 When setting up the validator stash account, fill in null and this will automatically configure it to Marker mode, and then enter the controller account (a work account used for TEE Worker registration, sending transactions, etc.) mnemonic phrase (account seed) to complete the configuration. Then enter the `cess start` command to start the Marker TEE Worker.
 
