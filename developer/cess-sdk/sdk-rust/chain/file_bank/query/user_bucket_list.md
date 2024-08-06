@@ -1,5 +1,7 @@
 # Query `user_bucket_list`
 
+Returns a list of all buckets created by each user.
+
 ```rust
 /// Retrieves a list of user buckets associated with the specified account.
 /// 
