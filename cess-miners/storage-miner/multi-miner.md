@@ -27,13 +27,12 @@ Each miner requires at least 4GB of RAM and 1 processor, and the chain node requ
 
 At least 10GB of RAM and 3 processors if running 2 miners and 1 chain node at the same time
 
-# Method 1: Run multi-miners containers with admin client
 
-## Storage environment requirements
+# Storage environment requirements
 
 Installation operation has certain requirements on the storage environment in the current host, and different configurations are required based on the disk configuration.
 
-### Multiple Disks
+## Multiple Disks
 
 As shown in the figure below, where `/dev/sda` is the system disk, `/dev/sdb` and `/dev/sdc` is the data disk, users can directly partition and create file systems on the data disks, and finally mount the file systems to the working directory of the miner.
 
@@ -77,11 +76,11 @@ Repeat the above steps to partition `/dev/sdc` and create a filesystem, then mou
 In the case where a disk is divided into many partitions, when the disk is damaged, all miners that use its partitions for work will be affected.
 {% endhint %}
 
-### Single Disk
+## Single Disk
 
 This procedure is suitable for environments with only one system disk.
 
-#### Scene 1
+### Scene 1
 
 As shown in the following example, if there is only one 50GB system disk, the `Last sector value` of partition `/dev/sda3` of disk `/dev/sda` is already at its maximum value (50GB disk can not be partitioned anymore).
 
@@ -98,7 +97,7 @@ As shown above, the current system kernel is using this partition, so it can not
 
 If the partition does not take up the entire disk and there is still storage space available for partitioning, you can configure the partition by referring to the configuration method of **Multiple Disks**.(In this situation, the running of multi-miner will depend on this single disk)
 
-#### Scene 2
+### Scene 2
 
 As shown in the figure below, the current environment has only one `/dev/nvme0n1` system disk with about 1.8T of storage space, which is partitioned three times, including `/dev/nvme0n1p1`, `/dev/nvme0n1p2` and `/dev/nvme0n1p3`.
 
@@ -154,7 +153,7 @@ sudo sh -c "echo `blkid /dev/ubuntu-vg/cess_storage | awk '{print $2}' | sed 's/
 Warning: If create multiple logic volumes on a single disk by lvm, then mount multiple logic volumes on different `diskPath`, when the disk is damaged, all miners relying on lvm will be affected!
 {% endhint %}
 
-## 1. Download and install cess-multi-miner client
+# 1. Download and install cess-multi-miner client
 
 ```bash
 sudo wget https://github.com/CESSProject/cess-multiminer-admin/archive/latest.tar.gz
@@ -163,7 +162,7 @@ cd cess-multiminer-admin-latest
 sudo bash ./install.sh
 ```
 
-## 2. Customize your own configuration
+# 2. Customize your own configuration
 
 {% hint style="info" %}
 After executing the above installation command, customize your own config file at: `/opt/cess/mineradm/config.yaml`.
@@ -287,6 +286,7 @@ After executing the above installation command, customize your own config file a
      hosts:
        - ip: 127.0.0.1 # 127.x, 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 is a private IP
          # make sure docker daemon listen at 2375: https://docs.docker.com/config/daemon/remote-access/
+         # will be bind at 127.0.0.1:2375 when install mineradm
          port: 2375
        # Configure remote access for Docker daemon in public network must use tls to make sure mnemonic safe
        # set ca/crt/key path if the ip no belongs to [ 127.x, 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 ]
@@ -316,7 +316,7 @@ After executing the above installation command, customize your own config file a
            - example2@outlook.com
    ```
 
-## 3. Generate configuration
+# 3. Generate configuration
 
 The following command will generate `config.yaml` for each miner and generate `docker-compose.yaml` based on the file located at: `/opt/cess/mineradm/config.yaml`.
 
@@ -353,9 +353,9 @@ server {
 
 {% endhint %}
 
-## 4. Installation
+# 4. Installation
 
-### Install all services
+## Install all services
 
 Install watchTower, rpc node, watchdog, watchdog-web and miners services
 
@@ -363,7 +363,7 @@ Install watchTower, rpc node, watchdog, watchdog-web and miners services
   sudo mineradm install
   ```
 
-### Skip install rpcnode
+## Skip install rpcnode
 
 If an official RPC node or other known RPC node is configured in the configuration file, you can skip starting a local RPC node with `--skip-chain`.
 
@@ -371,7 +371,7 @@ If an official RPC node or other known RPC node is configured in the configurati
   sudo mineradm install --skip-chain
   ```
 
-## 5. Common Operations
+# 5. Common Operations
 
 **Stop all services**
 
@@ -591,7 +591,7 @@ After this node **has exited CESS Network** (see above), run
   sudo mineradm purge
 ```
 
-## 6. upgrade mineradm client
+# 6. upgrade mineradm client
 
 Upgrade the mineradm client by execute command as below:
 
