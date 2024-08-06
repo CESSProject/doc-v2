@@ -1,6 +1,7 @@
 This section describes how to use the interface for the audit pallet on the CESS chain, which relates to storage miner challenges.
 
 The list of query interfaces is as follows:
+
 - [challenge_snapshot](query/challenge_snapshot.md)
 - [counted_clear](query/counted_clear.md)
 - [counted_service_failed](query/counted_service_failed.md)
