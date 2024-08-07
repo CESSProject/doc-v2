@@ -20,7 +20,7 @@ const P2P_PORT2 = 4002
 
 var P2P_BOOT_ADDRS = []string{
 	//testnet
-	"_dnsaddr.boot-miner-devnet.cess.network",
+	"_dnsaddr.boot-miner-testnet.cess.network",
 }
 
 func main() {
@@ -37,7 +37,6 @@ func main() {
 		panic(err)
 	}
 	defer peer1.Close()
-    defer os.RemoveAll("./peer1")
 
 	// peer2
 	peer2, err := p2pgo.New(
@@ -50,30 +49,40 @@ func main() {
 		panic(err)
 	}
 	defer peer2.Close()
-    defer os.RemoveAll("./peer2")
-
-	target_maddr, err := ma.NewMultiaddr(fmt.Sprintf("/ip4/127.0.0.1/tcp/%d/p2p/%s", P2P_PORT2, peer2.ID()))
-	if err != nil {
-		panic(err)
-	}
-
-	target_addr, err := peer.AddrInfoFromP2pAddr(target_maddr)
-	if err != nil {
-		panic(err)
-	}
-
-	err = peer1.Connect(ctx, *target_addr)
-	if err != nil {
-		panic(err)
-	}
-
+    
 	err = os.WriteFile("./test_file", make([]byte, core.FragmentSize), os.ModePerm)
 	if err != nil {
 		panic(err)
 	}
-	defer os.Remove("./test_file")
+    defer os.Remove("./test_file")
 
-	err = peer1.WriteFileAction(target_addr.ID, "test_fid", "./test_file")
-	fmt.Println("err: ", err)
+	remoteAddrs := peer2.Addrs()
+	for _, v := range remoteAddrs {
+		remoteAddr, err := ma.NewMultiaddr(fmt.Sprintf("%s/p2p/%s", v, peer2.ID().String()))
+		if err != nil {
+			fmt.Println("NewMultiaddr err: ", err)
+			continue
+		}
+		info, err := peer.AddrInfoFromP2pAddr(remoteAddr)
+		if err != nil {
+			fmt.Println("AddrInfoFromP2pAddr err: ", err)
+			continue
+		}
+
+		err = peer1.Connect(context.TODO(), *info)
+		if err != nil {
+			fmt.Println("Connect err: ", err)
+			continue
+		}
+
+		err = peer1.WriteFileAction(info.ID, "test_fid", "./test_file")
+		if err != nil {
+			fmt.Println("WriteFileAction err: ", err)
+			continue
+		}
+		fmt.Println("ok")
+		return
+	}
+	fmt.Println("failed")
 }
 ```

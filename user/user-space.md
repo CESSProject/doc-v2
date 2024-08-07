@@ -1,36 +1,34 @@
 # Background
 
-CESS testnet has been released. If users want to upload files, they need to purchase space and an authorized gateway first. This guide is for developers who want to interact directly with the chain through a blockchain browser to purchase space, expand space, and other operations.
+CESS testnet has been released. If users want to upload files, they need to purchase space and an authorized gateway first. This guide is for developers who want to interact directly with the chain through a blockchain browser to purchase territory, expand territory, and other operations.
+
+## What is territory
+
+To allow users to use the storage space of the CESS network more flexibly, we have decided to give the storage space the characteristics of NFTs, making it unique and tradable. This is intended to activate the network. We have thus introduced the concept of "CESS territory."
+
+"Territory" replaces the previous concept of storage space, converting user-held space into user-held territory. The files uploaded by users will be uploaded to the territory they own.
+
+Each user can have an unlimited number of "territories." Users can name each of their territories. At the same time, each territory has a unique token value for identification. Users can trade or transfer their territories using the territory token value. Since this is an expansion of the previous version of storage space, each territory will also have an expiration time. Users can renew and expand their existing territories through renewal or expansion.
 
 # Guides
 
-The guide will explain how to purchase space, expand space, renew space, and some of the details.
+The guide will explain how to purchase territory, expand territory, renew territory, and some of the details.
 
-## Buy Space
+## Buy Territory
 
-1. After connecting to any rpc node, the browser loads the blockchain information. We select Developer - Extrinsics as shown in the image below.
+1. After connecting to rpc node, the browser loads the blockchain information. We select Developer - Extrinsics as shown in the image below.
 
 ![Enter The Transaction Page](../../assets/developer/guides/space-operation/pic1.png)
 
-2. Select the `StorageHandler` module and select the `buySpace` transaction.
+2. Select the `StorageHandler` module and select the `mintTerritory`.
 
-![Find Transaction](../../assets/developer/guides/space-operation/pic2.png)
+![mint territory](../../assets/developer/guides/territory-operation/buy_territory.png)
 
-3. In the `gibCount` column, fill in the amount of storage space you want to purchase, in gib. After confirming that the parameters are correct, click `Submit Transaction`
-
-        Please make sure your account balance is sufficient for this step. The current space unit price of the CESS test network is 30 TCESS / GIB / DAY
-
-![Parameters](../../assets/developer/guides/space-operation/pic3.png)
-
-4. Click `Sign and Submit` to confirm the signature. 
-
-![Submit Transaction](../../assets/developer/guides/space-operation/pic4.png)
-
-5. Then wait for the browser to call the wallet to sign. After entering your customized password, click `Sign the transaction` to sign the transaction.
+3. Click `Sign and Submit` to confirm the signature, Then wait for the browser to call the wallet to sign. After entering your customized password, click `Sign the transaction` to sign the transaction.
 
 ![Signature Transaction](../../assets/developer/guides/space-operation/pic5.png)
 
-6. Wait for the transaction to be packaged and then broadcast the confirmation. If you see the content shown in Figure 2 below, it means that the transaction you submitted has been successfully executed.
+4. Wait for the transaction to be packaged and then broadcast the confirmation. If you see the content shown in Figure 2 below, it means that the transaction you submitted has been successfully executed.
 
         It should be noted that if your account has already purchased space, calling this transaction will fail. If you want to expand or renew the lease, please call the corresponding transaction.
 
@@ -38,35 +36,38 @@ The guide will explain how to purchase space, expand space, renew space, and som
 
 ![Success](../../assets/developer/guides/space-operation/pic7.png)
 
-## Renew Space
+## Renewal Territory
 
-1. Select the StorageHandler module. Then select the renewalSpace transaction. After filling in the parameters `days` correctly, send the transaction.
+1. Select `Developer -> Extrinsics -> StorageHandler` module, then select the `renewalTerritory`, after filling in the parameters `territoryName` and  `days` correctly, submit the transaction.
 
-        days represents the number of days to renew the lease.
+       `territoryName` is the name of the territory you have purchased.
+       `days` is the increased validity period days.
 
-![Lease Renewal Transaction](../../assets/developer/guides/space-operation/pic8.png)
+![Renewal Territory](../../assets/developer/guides/territory-operation/renewal_territory.jpg)
 
 2. The subsequent operations are the same as purchasing space.
 
-## Expansion Space
+## Expand Territory
 
-1. Select the `StorageHandler` module. Then select the `expansionSpace` transaction. After filling in the parameter gibCount correctly, send the transaction.
+1. Select `Developer -> Extrinsics -> StorageHandler` module, then select the `expandingTerritory`, after filling in the parameters `territoryName` and  `gibCount` correctly, submit the transaction.
 
-![Expansion Transaction](../../assets/developer/guides/space-operation/pic9.png)
+       `territoryName` is the name of the territory you have purchased.
+       `gibCount` is the size of the expansion, in GiB.
 
-## Query Space
+![Expand Territory](../../assets/developer/guides/territory-operation/expanding_territory.jpg)
 
-1. Select `Developer` - `Chain state`
+2. The subsequent operations are the same as purchasing space.
 
-![Status Query](../../assets/developer/guides/space-operation/pic10.png)
+## Query Territory
 
-2. Select the `StorageHandler` module. Continue to select the `userOwnedSpace` interface. Enter the wallet address you want to query.
+1. Select `Developer -> Chain state -> StorageHandler` module, then select the `territory`, after filling in the parameters `AccountID32` and  `Bytes` correctly, click "+" to query. View the returned results.
 
-![select Query](../../assets/developer/guides/space-operation/pic11.png)
+       `AccountID32` is the account address where you purchased the territory.
+       `Bytes` is the name of the territory.
 
-3. Click "+" to query. View the returned results.
+![Query Territory](../../assets/developer/guides/territory-operation/query_territory.jpg)
 
-![Make Query](../../assets/developer/guides/space-operation/pic12.png)
+`token`: is the unique identifier of the territory.
 
 `totalSpace`: Indicates the total space currently held by the user, in bytes.
 
