@@ -1,4 +1,4 @@
-This section describes how to use the interface for the file_bank pallet on the CESS chain, which is focused on user files.
+This section describes how to use the interface for the `file_bank` pallet on the CESS chain, which is focused on user files.
 
 The list of query interfaces is as follows:
 
