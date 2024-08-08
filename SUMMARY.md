@@ -196,7 +196,7 @@
           * [User Hold File List](developer/cess-sdk/sdk-rust/chain/file_bank/query/user_hold_file_list.md) 
           * [Calculate Report](developer/cess-sdk/sdk-rust/chain/file_bank/transaction/calculate_report.md) 
           * [Certify Idle Space](developer/cess-sdk/sdk-rust/chain/file_bank/transaction/cert_idle_space.md) 
-          * [Claim Restoral Roexist Order](developer/cess-sdk/sdk-rust/chain/file_bank/transaction/claim_restoral_noexist_order.md) 
+          * [Claim Restoral Noexist Order](developer/cess-sdk/sdk-rust/chain/file_bank/transaction/claim_restoral_noexist_order.md) 
           * [Claim Restoral Order](developer/cess-sdk/sdk-rust/chain/file_bank/transaction/claim_restoral_order.md) 
           * [Create Bucket](developer/cess-sdk/sdk-rust/chain/file_bank/transaction/create_bucket.md) 
           * [Delete Bucket](developer/cess-sdk/sdk-rust/chain/file_bank/transaction/delete_bucket.md) 
