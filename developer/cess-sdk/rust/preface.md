@@ -7,4 +7,4 @@ The Rust SDK's source code is available on the official [GitHub](https://github.
 git clone https://github.com/CESSProject/cess-rust-sdk
 ```
 
-For more information, see [the official Rust SDK API documentation](https://doc.cess.network/developer/cess-sdk/rust-sdk).
+For more information, see [the official Rust SDK API documentation](https://doc.cess.network/developer/cess-sdk/rust).
