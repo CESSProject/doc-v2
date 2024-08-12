@@ -174,4 +174,20 @@ systemctl daemon-reload && systemctl restart docker
 
 Finally, copy files(ca.pem/key.pem/cert.pem) to the server where watchdog run, then config the files path in `/opt/cess/mineradm/config.yaml` and run `mineradm config generate`
 
+⚠️ Expose Docker API Port at `0.0.0.0:2375` without TLS is unsafe, it may get network attack like `kdevtmpfsi`
+
+If you have already get attack, please execute command as down below
+
+```bash
+
+docker stop $(docker ps -a | grep ubuntu | awk '{print $1}')
+docker rm $(docker ps -a | grep ubuntu | awk '{print $1}')
+docker rmi $(docker images | grep ubuntu | awk '{print $3}')
+
+
+sudo sed -i 's/^ExecStart=.*/ExecStart=\/usr\/bin\/dockerd -H fd:\/\/ -H unix:\/\/\/var\/run\/docker.sock -H tcp:\/\/127.0.0.1:2375/' /lib/systemd/system/docker.service
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+sudo mineradm install
+```
 </details>

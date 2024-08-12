@@ -32,6 +32,6 @@ On CESS, all data file retrieval records are recorded on blockchain and hence ar
 
 ## 6. Enabling Secure and Compliant Global AI Development
 
-Various organizations with private data face challenges in utilizing it for AI development due to sensitivity and legal constraints. The CESS network provides a solution by enabling the secure exchange of encrypted parameters and models through Cumulus Gap. This allows organizations to collaborate on building a global AI model while ensuring data privacy and compliance with regulations. The use of the CESS network facilitates the creation of industry-wide or global AI frameworks, leveraging diverse data sources without compromising privacy or regulatory requirements.
+Various organizations with private data face challenges in utilizing it for AI development due to sensitivity and legal constraints. The CESS network provides a solution by enabling the secure exchange of encrypted parameters and models through CESS AI-LINK. This allows organizations to collaborate on building a global AI model while ensuring data privacy and compliance with regulations. The use of the CESS network facilitates the creation of industry-wide or global AI frameworks, leveraging diverse data sources without compromising privacy or regulatory requirements.
 
 ![Enabling Secure and Compliant Global AI Development](../assets/introduction/use-cases-03.png)

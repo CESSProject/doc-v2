@@ -1,4 +1,5 @@
-This is the interface for the storage miner to authenticate the idle space to the chain, when the storage miner finishes generating idle data, it needs to call this interface to authenticate to the chain, if the authentication passes, the idle space of the storage miner will be increased.
+The interface for replacing idle files with inservice files. 
+It is called by storage nodes.
 
 ```golang
 // ReplaceIdleSpace replaces idle files with service files
@@ -12,7 +13,7 @@ This is the interface for the storage miner to authenticate the idle space to th
 //   - error: error message
 //
 // Note:
-//   - for storage miner use only
+//   - for storage node only
 func (c *ChainClient) ReplaceIdleSpace(spaceProofInfo SpaceProofInfo, teeSignWithAcc, teeSign types.Bytes, teePuk WorkerPublicKey) (string, error)
 ```
 For the type definition, please refer to [SpaceProofInfo](../chain_type.md#SpaceProofInfo), [WorkerPublicKey](../chain_type.md#Type-definition)
