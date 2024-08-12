@@ -2,7 +2,7 @@ The interface for replacing idle files with inservice files.
 It is called by storage nodes.
 
 ```golang
-// ReplaceIdleSpace replaces idle files with service files
+// ReplaceIdleSpace replaces idle files with inservice files
 //   - spaceProofInfo: space proof info
 //   - teeSignWithAcc: tee sign with account
 //   - teeSign: tee sign

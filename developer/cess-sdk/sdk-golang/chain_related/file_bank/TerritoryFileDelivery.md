@@ -1,7 +1,7 @@
 This interface is used to transfer files to another territory.
 
 ```golang
-// TerritorFileDelivery transfer files to another territory
+// TerritoryFileDelivery transfer files to another territory
 //   - user: file owner account
 //   - fid: file id
 //   - target_territory: transfer to the target territory
@@ -9,7 +9,7 @@ This interface is used to transfer files to another territory.
 // Return:
 //   - string: block hash
 //   - error: error message
-func (c *ChainClient) TerritorFileDelivery(user []byte, fid string, target_territory string) (string, error)
+func (c *ChainClient) TerritoryFileDelivery(user []byte, fid string, target_territory string) (string, error)
 ```
 
 Example code:
@@ -47,6 +47,6 @@ func main() {
     }
     defer sdk.Close()
 
-    fmt.Println(sdk.TerritorFileDelivery(sdk.GetSignatureAccPulickey(),"fid", "target_territory"))
+    fmt.Println(sdk.TerritoryFileDelivery(sdk.GetSignatureAccPulickey(),"fid", "target_territory"))
 }
 ```
