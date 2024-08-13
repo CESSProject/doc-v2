@@ -51,3 +51,20 @@ _Identity signature required: yes_
 curl -X PUT URL/object --data "[content]" -H "Account: cX..." -H "Message: ..." -H "Signature: 0x..." -H "Bucket: bucket_name" -H "Territory: territory_name"
 ```
 
+## Specify miner storage
+The gateway supports you to store files on the specified miners. When the number of miners you specify is greater than 12, the gateway will randomly store them in the 12 miners you specify. When the number of miners you specify is less than 12, the gateway will store them in the miners you specify first, and then randomly store them in other miners.
+
+The method to specify the storage miner is to specify it by filling in the header of `Miner` in the upload interface. All upload interfaces support it.
+
+The example is as follows:
+```shell
+curl -X PUT URL/file -F 'file=@test.log;type=application/octet-stream' -H "Miner: cX..." -H "Miner: cX..." -H "Miner: cX..." -H "Bucket: bucket_name" -H "Territory: territory_name" -H "Account: cX..." -H "Message: ..." -H "Signature: 0x..."
+```
+
+## Specify coordinate range storage
+The gateway supports you to set a batch of longitude and latitude coordinate ranges for storage. The number of coordinates cannot be less than 3. The file will be randomly stored in the coordinate range you specify. Set a coordinate point by setting the Latitude and Longitude pair in the request header. Note: Please set the Latitude and Longitude coordinate points in order. All upload interfaces support it.
+
+The example is as follows:
+```shell
+curl -X PUT URL/file -F 'file=@test.log;type=application/octet-stream' -H "Latitude: 0.0" -H "Longitude: 0.0" -H "Latitude: 3.0" -H "Longitude: 3.0" -H "Latitude: -3.0" -H "Longitude: -3.0" -H "Bucket: bucket_name" -H "Territory: territory_name" -H "Account: cX..." -H "Message: ..." -H "Signature: 0x..."
+```
