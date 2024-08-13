@@ -1,5 +1,5 @@
 ## View bucket list
-This interface is used to view bucket information, including the number of stored files and file IDs.
+This interface is used to view the bucket list created by the user.
 
 **HTTP Interface:**
 
