@@ -8,7 +8,6 @@
   * [Contact & Social Media](introduction/contact.md)
 * [⛏️ CESS Miners](cess-miners/README.md)
   * [Storage Miners](cess-miners/storage-miner/README.md)
-    * [Borrow Tokens for Staking](cess-miners/storage-miner/use-reservoir.md)
     * [Running a Storage Node](cess-miners/storage-miner/running.md)
     * [Running Multi-miner Container](cess-miners/storage-miner/multi-miner.md)
     * [Acceleration Guide](cess-miners/storage-miner/teeworker.md)
