@@ -15,7 +15,6 @@
     * [Node Troubleshooting](cess-miners/storage-miner/troubleshooting.md)
   * [Consensus Miners](cess-miners/consensus-miner/README.md)
     * [Running a Consensus Node](cess-miners/consensus-miner/running.md)
-    * [Reward Mechanism](cess-miners/consensus-miner/reward.md)
 * [🌏 Community Members](community/README.md)
   * [Ambassador Program](community/ambassador.md)
   * [Community Governance](community/governance.md)
