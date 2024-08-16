@@ -31,7 +31,7 @@ curl -4 ifconfig.co
 
 {% endhint %}
 
-# Prepare CESS Wallet Accounts
+# Select Tee Node Type
 
 Running a TEE node can increase the reputation points of a running Consensus Node. TEE nodes are divided into several roles. Some TEE nodes need to be bound to a Consensus Node to run. You can choose to bind your own Consensus Node or a Consensus Node account you are familiar with.
 
@@ -40,6 +40,8 @@ Running a TEE node can increase the reputation points of a running Consensus Nod
 - **Verifier**: Verifier nodes handles random challenges for idle and service data.
 
 - **Marker**: These nodes are called Markers, and their role is to compute tags for the user's data, also known as service data. They are also responsible for creating, verifying, and replacing idle data segments. These nodes can be registered independently and serve a designated Storage Node cluster. **It's important to note that operating the TEE Node in this capacity does not increase reputation points**.
+
+# Prepare CESS Wallet Accounts
 
 To run the TEE node in both `Full` and `Verifier` operational capacities, you need two separate accounts.
 
