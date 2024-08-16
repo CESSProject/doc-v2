@@ -9,7 +9,7 @@
 * [⛏️ CESS Miners](cess-miners/README.md)
   * [Storage Miners](cess-miners/storage-miner/README.md)
     * [Running a Storage Node](cess-miners/storage-miner/running.md)
-    * [Running Multi-miner Container](cess-miners/storage-miner/multi-miner.md)
+    * [Running MultiNodes](cess-miners/storage-miner/multi-miner.md)
     * [Acceleration Guide](cess-miners/storage-miner/teeworker.md)
     * [Node Troubleshooting](cess-miners/storage-miner/troubleshooting.md)
   * [Consensus Miners](cess-miners/consensus-miner/README.md)
