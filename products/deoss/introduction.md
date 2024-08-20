@@ -1,5 +1,5 @@
-## Decentralized Object Storage Service
-DeOSS (Decentralized Object Storage Service) is a decentralized object-based, low-cost, secure, agile, and scalable distributed mass storage service for web3 indestury. 
+## What is DeOSS
+DeOSS (Decentralized Object Storage Service) is a decentralized object-based, low-cost, secure, agile, and scalable distributed mass storage service for the web3 industry. 
 Both enterprises and individuals can use DeOSS to store, manage and protect data, such as NFT images and videos, DAPP (Decentralized Application) user data,  DeFi (Decentralized Finance) programs, etc. Based on blockchain technology, DeOSS effectively utilizes online idle storage resources to build a vast distributed storage network. 
 The mission of DeOSS is to give the data ownership and benefits right back to the data producers, rather than centralized platforms. 
 DeOSS follows the Apache 2.0 open-source protocol and allows one to deploy it at any time, any place, and to use it to freely access files stored distributedly around the world.
