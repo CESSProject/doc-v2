@@ -106,7 +106,7 @@ You can also use one of the [sample ink! smart contract codes here](https://gith
 
    ```bash
    # Select the appropriate/latest git tag from the git repository
-   git clone https://github.com/CESSProject/cess.git --branch v0.7.4
+   git clone https://github.com/CESSProject/cess.git --branch v0.7.8-venus
    cd cess
    # The build process will take probably 10 mins depending on your machine spec
    cargo build
