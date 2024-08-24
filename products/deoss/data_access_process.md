@@ -1,7 +1,7 @@
 ## Data Access Process
 Data DistributionBefore users access files on the CESS network using DeOSS, they need to first purchase sufficient storage space and authorize DeOSS to use that storage space. Overall, CESS is simply divided into an application layer and a network layer, where users can view the network layer as a black box. Users only need to complete a few steps to finish file uploads and downloads. The file upload/download process is illustrated in the following figure.
 
-![upload_download.jpg](picture/upload_download.jpg)
+<figure><img src="picture/upload_download.jpg" alt="File Upload/Download Process"><figcaption><p>File Upload/Download Process</p></figcaption></figure>
 
 ## File Upload
 When users upload files, they first need to transfer the files to DeOSS, and then DeOSS will act as a proxy to process and distribute the files. Given that the data files may be quite large and the network transmission stability may not be very good, CESS supports a file resume/restart function to ensure the stability of the transmission. The working principle is as shown in the following figure.
