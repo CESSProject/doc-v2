@@ -6,7 +6,7 @@ Data DistributionBefore users access files on the CESS network using DeOSS, they
 ## File Upload
 When users upload files, they first need to transfer the files to DeOSS, and then DeOSS will act as a proxy to process and distribute the files. Given that the data files may be quite large and the network transmission stability may not be very good, CESS supports a file resume/restart function to ensure the stability of the transmission. The working principle is as shown in the following figure.
 
-![upload.jpg](picture/upload.jpg)
+<figure><img src="picture/upload.jpg" alt="File Upload"><figcaption><p>File Upload</p></figcaption></figure>
 
 1. Using the SDK, the data is divided into specific-sized chunks based on the network conditions. When the network is good, the data is split into larger chunks, and when the network is poor, it is split into smaller chunks.
 2. These chunks are then uploaded to DeOSS (supporting out-of-order and concurrent uploads). When DeOSS successfully receives a chunk, it returns the index of that data chunk. If the upload fails or the connection times out, an error message is returned, and the application can retry the failed chunk.
@@ -16,7 +16,7 @@ When users upload files, they first need to transfer the files to DeOSS, and the
 ## Data Preprocessing
 DeOSS first merges the file chunks into a complete file, and then divides the file into segments according to a predefined specification, with each segment being 32MiB in size. Next, it slices and adds redundancy to each segment separately, generating 12 file fragments of 8MiB each. Subsequently, these fragments are rearranged, and a File ID (FID) is calculated based on this. Finally, the data's metadata (such as size, name, number of segments and fragments, etc.) is uploaded to the CESS chain, forming a storage order, as shown in the following figure.
 
-![data_process.jpg](picture/data_process.jpg)
+<figure><img src="picture/data_process.jpg" alt="Data Process"><figcaption><p>Data Process</p></figcaption></figure>
 
 After pre-processing, the user's data is expanded to three times its original size. Even if 2/3 of the data is lost, the file can still be downloaded normally. During this process, users can also choose to encrypt the data to protect its privacy.
 
