@@ -23,7 +23,7 @@ After pre-processing, the user's data is expanded to three times its original si
 ## Data Distribution
 As shown in the following figure, DeOSS uses a scheduling module to randomly distribute the data fragments to storage nodes for persistent storage. Developers can customize different scheduling strategies through configuration files based on their needs (such as prioritizing data transmission to specific storage nodes or avoiding storage on certain nodes), but they must require the fragments to be stored in a distributed manner to avoid security risks from centralized storage. The scheduling module will preferentially select nodes with good communication status and service quality with DeOSS, in order to ensure reliable and efficient data access as much as possible.
 
-![data_distribution.jpg](picture/data_distribution.jpg)
+<figure><img src="picture/data_distribution.jpg" alt="Data Distribution"><figcaption><p>Data Distribution</p></figcaption></figure>
 
 After receiving the file fragments, the storage nodes need to report to the CESS chain, so that DeOSS can promptly receive the storage feedback. If a storage node fails to report for a long time after receiving the file, DeOSS will find new nodes to upload the fragments, and mark the uncooperative nodes. Once a node exceeds a certain number of failures, it will be put into a cooldown pool and no longer receive data transmissions for a certain period.
 
@@ -33,18 +33,18 @@ If storage nodes are not proactive in receiving user files, they will lose the t
 ### Download Process
 When downloading a file, DeOSS first checks the local cache to see if the file is available. If not, it queries the on-chain file metadata to obtain the storage location information, and then downloads the data fragments from the corresponding storage nodes. Only 1/3 of the fragments need to be downloaded to restore the complete file.
 
-![download.jpg](picture/download.jpg)
+<figure><img src="picture/download.jpg" alt="File Download"><figcaption><p>File Download</p></figcaption></figure>
 
 In addition, DeOSS can also share data through the P2P network with nearby cache nodes or peer DeOSS instances, to facilitate high-speed downloads for users. Applications can download data from any DeOSS, without having to use the same DeOSS as the one they uploaded to - this enables "upload once, download anywhere" functionality.
 
 ### File Merging
 When DeOSS retrieves data fragments from storage nodes, cache nodes, or peer DeOSS instances, it first uses the Reed-Solomon algorithm to restore the complete data segments based on the guidance from the file metadata. Then, it merges these data segments in order to reconstruct the complete file. The file merging process is the inverse of the file pre-processing, as shown in the following figure.
 
-![file_merging.jpg](picture/file_merging.jpg)
+<figure><img src="picture/file_merging.jpg" alt="File Merging"><figcaption><p>File Merging</p></figcaption></figure>
 
 ## Encryption and Decryption
 DeOSS supports encryption and decryption of user files. Currently, it has implemented AES symmetric encryption, and will support various other encryption methods in the future, such as proxy re-encryption. The encryption and decryption process for user files in DeOSS is shown in the following figure.
 
-![encrypt_decrypt.jpg](picture/encrypt_decrypt.jpg)
+<figure><img src="picture/encrypt_decrypt.jpg" alt="Encryption and Decryption"><figcaption><p>Encryption and Decryption</p></figcaption></figure>
 
 The encryption process occurs during the file pre-processing stage. DeOSS first segments the file, and then performs symmetric encryption on each segment individually. The decryption process occurs during the file merging stage. DeOSS first restores the fragments back into segments, then decrypts each segment, and finally merges the decrypted segments into the original user file.
