@@ -252,6 +252,7 @@
 * [📱 CESS Products](products/README.md)
   * [DeOSS](products/deoss/deoss.md)
     * [Introduction](products/deoss/introduction.md)
+    * [Technical Highlights](products/deoss/tech_highlights.md)
     * [Architecture](products/deoss/architecture.md)
     * [Data Access Process](products/deoss/data_access_process.md)
     * [API Description](products/deoss/api-description/api_description.md)
