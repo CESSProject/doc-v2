@@ -12,8 +12,3 @@ DeOSS can store high-definition pictures, audio, video, and backup files in webs
 
 ## How do you use DeOSS
 If you are not a developer, you can use [DeShare Web App](https://cess.network/deshare.html) and [DeOSS Web App](https://cess.network/deoss.html). If you are a developer, you can refer to the [API](api-description/api_description.md) to use it.
-
-## Technology Highlights
-<figure><img src="picture/technology_highlights.jpg" alt="DeOSS Technology Highlights"><figcaption><p>DeOSS Technology Highlights</p></figcaption></figure>
-
-DeOSS not only has the advantages of existing market products on object storage (such as high reliability, easy extensibility, low cost, high security, etc.), but also possesses the features such as anti-censorship, data ownership belonging to its user, and so on. Currently, the object storage services of web2, such as the OSS (Operation Support Systems) of AWS and Alibaba Cloud, are centralized storage. That means their service sacrifice user’s data to be in the custody of a third party, and there is a risk of data being regulated and monopolized. By contrast, based on CESS blockchain technology, the data uploaded through DeOSS enjoys decentralized storage, and the data ownership is secured to the user. Through DeOSS, users can authorize certain applications to use the data, while keeping these applications from controlling the data.
