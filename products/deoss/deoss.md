@@ -1,4 +1,4 @@
-<figure><img src="picture/deoss.jpg" alt="DeOSS"><figcaption><p></p></figcaption></figure>
+<figure><img src="picture/deoss.jpg" alt="DeOSS"></figure>
 
 - [Introduction](introduction.md)
 - [Technical Highlights](tech_highlights.md)
