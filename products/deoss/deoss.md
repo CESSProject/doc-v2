@@ -1,4 +1,4 @@
-![deoss.jpg](picture/deoss.jpg)
+<figure><img src="picture/deoss.jpg" alt="DeOSS"><figcaption><p></p></figcaption></figure>
 
 - [Introduction](introduction.md)
 - [Technical Highlights](tech_highlights.md)
