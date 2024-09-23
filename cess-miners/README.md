@@ -1,4 +1,6 @@
-CESS Network has two node types that node miners could participate: **Consensus Nodes** and **Storage Nodes**.
+CESS Network has two types of nodes, including: **Consensus Nodes** and **Storage Nodes**. 
+
+CESS testnet RPC address: `wss://testnet-rpc.cess.network/ws/`.
 
 # Consensus Nodes
 
