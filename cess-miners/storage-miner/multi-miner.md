@@ -1,12 +1,12 @@
 # Architecture
 
-Install multi-miners container can be illustrated as below:
+Install multi-nodes can be illustrated as below:
 
-- watchTower: When there is a difference between the local miner image and the official miner image, watchtower will automatically pull the new official image, create a new miner, and then delete the old one.
-- miner: A storage node. Miners communicate with each other via P2P. The ports configured in the example config.yaml are: 15001, 15002.
-- chain: A chain node. miner query blockchain data through the chain node's 9944 port by default; chain nodes synchronize data among themselves through the default port: 30336.
-- watchdog: Miner monitor. can scrape miner's data from different hosts and alert user when some exception occurs.
-- dashboard: The dashboard of Miner monitor. can display the miner data in a web page.
+- watchTower: When there is a difference between the local storage node image and the official storage node image, watchtower will automatically pull the new official image, create a new miner, and then delete the old one.
+- storage node: A storage node communicate with each other via P2P. The ports configured in the config template are: 15001, 15002.
+- chain: A chain node. storage node query blockchain data through the chain node's 9944 port by default; chain nodes synchronize data among themselves through the default port: 30336.
+- watchdog: storage nodes monitor. can scrape node's data from different hosts and alert user when some exception occurs.
+- dashboard: The dashboard of storage node monitor. can display the storage node data in a web page.
 
 ![Multi-miner Architecture](../../assets/storage-miner/multi-miner/multi-miner-arch.png)
 
@@ -23,9 +23,9 @@ Minimum Configuration Requirements:
 | Public Network IP    | required                 |
 | Linux Kernel Version | 5.11 or higher           |
 
-Each miner requires at least 4GB of RAM and 1 processor, and the chain node requires at least 2GB of RAM and 1 processor.
+Each storage node requires at least 4GB of RAM and 1 processor, and the chain node requires at least 2GB of RAM and 1 processor.
 
-At least 10GB of RAM and 3 processors if running 2 miners and 1 chain node at the same time
+At least 10GB of RAM and 3 processors if running 2 storage nodes and 1 chain node at the same time
 
 
 # Storage environment requirements
@@ -57,7 +57,7 @@ sudo mkfs.ext4 /dev/sdb
 
 Proceed anyway? (y,N) y
 
-# create a diskPath of a miner
+# create a diskPath of a storage node
 sudo mkdir /mnt/cess_storage1
 
 # mount filesystem
@@ -73,7 +73,7 @@ sudo sh -c "echo `blkid /dev/sdb | awk '{print $2}' | sed 's/\"//g'` /mnt/cess_s
 Repeat the above steps to partition `/dev/sdc` and create a filesystem, then mount it to the file directory: `/mnt/cess_storage2`
 
 {% hint style="warning" %}
-In the case where a disk is divided into many partitions, when the disk is damaged, all miners that use its partitions for work will be affected.
+In the case where a disk is divided into many partitions, when the disk is damaged, all storage nodes that use its partitions for work will be affected.
 {% endhint %}
 
 ## Single Disk
@@ -93,15 +93,15 @@ sda    253:0    0   50G  0 disk
 └─sda3 253:3    0 49.8G  0 part /
 ```
 
-As shown above, the current system kernel is using this partition, so it can not modify the partition to build the running environment required for multi-miner.
+As shown above, the current system kernel is using this partition, so it can not modify the partition to build the running environment required for multi-nodes.
 
-If the partition does not take up the entire disk and there is still storage space available for partitioning, you can configure the partition by referring to the configuration method of **Multiple Disks**.(In this situation, the running of multi-miner will depend on this single disk)
+If the partition does not take up the entire disk and there is still storage space available for partitioning, you can configure the partition by referring to the configuration method of **Multiple Disks**.(In this situation, the running of multi-nodes will depend on this single disk)
 
 ### Scene 2
 
 As shown in the figure below, the current environment has only one `/dev/nvme0n1` system disk with about 1.8T of storage space, which is partitioned three times, including `/dev/nvme0n1p1`, `/dev/nvme0n1p2` and `/dev/nvme0n1p3`.
 
-The current system relies on the virtual logical disk `/dev/ubuntu-vg/ubuntu-lv` created in the third partition `/dev/nvme0n1p3`. Since this virtual logical disk occupies only 100GB of storage space, you can configure a multi-miner environment by using `lvm` to create multiple virtual logical volumes on the remaining space.
+The current system relies on the virtual logical disk `/dev/ubuntu-vg/ubuntu-lv` created in the third partition `/dev/nvme0n1p3`. Since this virtual logical disk occupies only 100GB of storage space, you can configure a multi-nodes environment by using `lvm` to create multiple virtual logical volumes on the remaining space.
 
 ![Single Disk](../../assets/storage-miner/multi-miner/single-disk-env.png)
 
@@ -137,7 +137,7 @@ cess@cess:/home/cess# lvdisplay
 # create filesystem in /dev/ubuntu-vg/cess_storage
 $ sudo mkfs.ext4 /dev/ubuntu-vg/cess_storage
 
-# create a diskPath of a miner
+# create a diskPath of a storage node
 sudo mkdir /cess
 
 # mount filesystem
@@ -150,10 +150,10 @@ sudo sh -c "echo `blkid /dev/ubuntu-vg/cess_storage | awk '{print $2}' | sed 's/
 ```
 
 {% hint style="warning" %}
-Warning: If create multiple logic volumes on a single disk by lvm, then mount multiple logic volumes on different `diskPath`, when the disk is damaged, all miners relying on lvm will be affected!
+Warning: If create multiple logic volumes on a single disk by lvm, then mount multiple logic volumes on different `diskPath`, when the disk is damaged, all nodes relying on lvm will be affected!
 {% endhint %}
 
-# 1. Download and install cess-multi-miner client
+# 1. Download and install multi-nodes client
 
 ```bash
 sudo wget https://github.com/CESSProject/cess-multiminer-admin/archive/latest.tar.gz
@@ -168,21 +168,21 @@ sudo bash ./install.sh
 After executing the above installation command, customize your own config file at: `/opt/cess/mineradm/config.yaml`.
 {% endhint %}
 
-- **UseSpace:** Storage capacity of the miner(storage node), measured in GB.
-- **UseCpu:** Number of logical cores used by the miner(storage node).
-- **port:** miner use that port to communicat with each other, the port of each miner must be different and not occupied by other process
-- **diskPath:** Absolute system path where the miner run, requiring a file system to be mounted at this path.
+- **UseSpace:** Storage capacity of the storage node, measured in GB.
+- **UseCpu:** Number of logical cores used by the storage node.
+- **port:** storage node use that port to communicat with each other, the port of each storage node must be different and not occupied by other process
+- **diskPath:** Absolute system path where the storage node run, requiring a file system to be mounted at this path.
 - **earningsAcc:** Used to receive mining rewards. [Get earningsAcc and mnemonic](../../user/cess-account.md)
-- **mnemonic:** Account mnemonic, consisting of 12 words, with each miner requiring a different mnemonic, set mnemonic as miner's signatureAcc in /opt/cess/mineradm/config.yaml.
+- **mnemonic:** Account mnemonic, consisting of 12 words, with each storage node requiring a different mnemonic, set mnemonic as node's signatureAcc in /opt/cess/mineradm/config.yaml.
 - **stakingAcc:** Used to pay for staking TCESS. 4000 TCESS at least is required for stakingAcc([Get TCESS](https://cess.network/faucet.html)). SignatureAcc also can be a stakingAcc when delete property: stakingAcc or make it empty in /opt/cess/mineradm/config.yaml.
-- **Storage Deposit:** To keep the storage node miner in honoring its service commitment, the miner account will have its native tokens locked for the storage amount pledged to offer. Current in testnet, it is 4,000 TCESS per TB. The pledged space is **round up** to the closest TB unit and locked for that amount multiply with 4,000 TCESS. The minimum locked token is also 4,000 TCESS.
+- **Storage Deposit:** To keep the storage node in honoring its service commitment, the storage node account will have its native tokens locked for the storage amount pledged to offer. Current in testnet, it is 4,000 TCESS per TB. The pledged space is **round up** to the closest TB unit and locked for that amount multiply with 4,000 TCESS. The minimum locked token is also 4,000 TCESS.
 - **chainWsUrl:** As an RPC node for blockchain synchronization. The priority of `miners[].chainWsUrl` is higher than `node.chainWsUrl` in /opt/cess/mineradm/config.yaml.
 - **backupChainWsUrls:** Backup RPC nodes that can be official RPC nodes or other RPC nodes you know. The priority of `miners[].backupChainWsUrls` is higher than `node.backupChainWsUrls` in
   /opt/cess/mineradm/config.yaml.
-- **watchdog.enable:** enable watchdog to monitor the health of the miner(storage node).
+- **watchdog.enable:** enable watchdog to monitor the health of the storage node.
 - **watchdog.apiUrl:** a public url that can access to the watchdog service, user can set a `dns resolution` and `proxy service` to these watchdog server. default value: `http://<host public ip>:$port`
 - **watchdog.port:** watchdog server port
-- **watchdog.hosts:** watchdog server can scrape miners data from these hosts, `ip` is the host ip, `port` is the port which docker daemon listen. TLS configuration must be set if scrape data from a host in a public network. [how to set docker daemon tls](../../cess-miners/storage-miner/troubleshooting.md)
+- **watchdog.hosts:** watchdog server can scrape nodes data from these hosts, `ip` is the host ip, `port` is the port which docker daemon listen. TLS configuration must be set if scrape data from a host in a public network. [how to set docker daemon tls](../../cess-miners/storage-miner/troubleshooting.md)
 - **watchdog.alert:** enable alert or not. Watchdog will send alert to the email address you set in `watchdog.alert.email.receiver` and send webhook to the webhook url you set in `watchdog.alert.webhook` if alert enable.
 
 
@@ -195,9 +195,9 @@ After executing the above installation command, customize your own config file a
      mode: "multiminer"
      ## the profile of node: devnet/testnet/mainnet
      profile: "testnet"
-     # default chain url for miner, can be overwritten in miners[] as below
+     # default chain url for storage node, can be overwritten in miners[] as below
      chainWsUrl: "ws://127.0.0.1:9944/"
-     # default backup chain urls for miner, can be overwritten in miners[] as below
+     # default backup chain urls for storage node, can be overwritten in miners[] as below
      backupChainWsUrls: [ "wss://testnet-rpc.cess.network/ws/" ]
 
    ## chain configurations
@@ -211,12 +211,12 @@ After executing the above installation command, customize your own config file a
      ## listen rpc service at port 9944
      rpcPort: 9944
 
-   ## miner configurations  (multi storage miner mode)
+   ## storage nodes configurations  (multi nodes mode)
    miners:
      - name: "miner1"
        # P2P communication port
        port: 15001
-       # Maximum space used in each miner, the unit is GiB
+       # Maximum space used in each storage node, the unit is GiB
        # The declaration space on chain is the UseSpace after round up to the closest TB
        # If set UseSpace to 2100, that means declare 3 TiB space on the chain
        # If set UseSpace to 300, that means declare 1 TiB space on the chain
@@ -230,9 +230,9 @@ After executing the above installation command, customize your own config file a
        # otherwise the staking will be paid by the signatureAcc(mnemonic as signatureAcc).
        stakingAcc: "cXxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
        # Signature account mnemonic
-       # each miner's mnemonic should be different
+       # each node's mnemonic should be different
        mnemonic: "aaaaa bbbbb ccccc ddddd eeeee fffff ggggg hhhhh iiiii jjjjj kkkkk lllll"
-       # miner work at this path
+       # storage node work at this path
        diskPath: "/mnt/cess_storage1"
        # The rpc endpoint of the chain
        # `official chain: wss://testnet-rpc.cess.network/ws/"
@@ -244,7 +244,7 @@ After executing the above installation command, customize your own config file a
      - name: "miner2"
        # P2P communication port
        port: 15002
-       # Maximum space used in each miner, the unit is GiB
+       # Maximum space used in each storage node, the unit is GiB
        # The declaration space on chain is the UseSpace after round up to the closest TB
        # If set UseSpace to 2100, that means declare 3 TiB space on the chain
        # If set UseSpace to 300, that means declare 1 TiB space on the chain
@@ -258,9 +258,9 @@ After executing the above installation command, customize your own config file a
        # otherwise the staking will be paid by the signatureAcc(mnemonic as a signatureAcc).
        stakingAcc: "cXxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
        # Signature account mnemonic
-       # each miner's mnemonic should be different
+       # each node's mnemonic should be different
        mnemonic: "lllll kkkkk jjjjj iiiii hhhhh ggggg fffff eeeee ddddd ccccc bbbbb aaaaa"
-       # miner work at this path
+       # storage node work at this path
        diskPath: "/mnt/cess_storage2"
        # The rpc endpoint of the chain
        # `official chain: wss://testnet-rpc.cess.network/ws/"
@@ -270,9 +270,9 @@ After executing the above installation command, customize your own config file a
        Boot: "_dnsaddr.boot-miner-testnet.cess.network"
        
        
-   # miners monitor service, send alert with email/webhook when miners is down or get punishment
+   # nodes monitor service, send alert with email/webhook when nodes is down or get punishment
    watchdog:
-     # enable miners monitor or not
+     # enable storage nodes monitor or not
      enable: false
      # external: run with 0.0.0.0 or 127.0.0.1
      external: false
@@ -280,9 +280,9 @@ After executing the above installation command, customize your own config file a
      apiUrl: ""
      # watchdog server listen http port at: 13081 (watchdog-web listen at 13080)
      port: 13081
-     # the interval of scrape data from chain for each miner, 30 <= scrapeInterval <= 300
+     # the interval of scrape data from chain for each storage node, 30 <= scrapeInterval <= 300
      scrapeInterval: 60
-     # watchdog can scrape miners data from this hosts
+     # watchdog can scrape nodes data from this hosts
      hosts:
        - ip: 127.0.0.1 # 127.x, 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 is a private IP
          # make sure docker daemon listen at 2375: https://docs.docker.com/config/daemon/remote-access/
@@ -293,7 +293,7 @@ After executing the above installation command, customize your own config file a
        - ip: 1.1.1.1 # 1.1.1.1 is a public IP
          # make sure docker daemon tls listen at 2376: https://docs.docker.com/engine/security/protect-access/
          port: 2376
-         # please make sure each file name is unique, can get help from: https://docs.cess.network/core/cess-miners/storage-miner/troubleshooting
+         # please make sure each file name is unique, can get help from: https://doc.cess.network/cess-miners/storage-miner/troubleshooting
          # will mount this files from host to container automatically
          ca_path: /etc/docker/tls/1.1.1.1_ca.pem
          cert_path: /etc/docker/tls/1.1.1.1_cert.pem
@@ -318,13 +318,13 @@ After executing the above installation command, customize your own config file a
 
 # 3. Generate configuration
 
-The following command will generate `config.yaml` for each miner and generate `docker-compose.yaml` based on the file located at: `/opt/cess/mineradm/config.yaml`.
+The following command will generate `config.yaml` for each storage node and generate `docker-compose.yaml` based on the file located at: `/opt/cess/mineradm/config.yaml`.
 
    ```bash
    sudo mineradm config generate
    ```
 
-- Generate each miner configuration at `$diskPath/miner/config.yaml`. For example, miner1's configuration generate at: `/mnt/cess_storage1/miner/config.yaml`
+- Generate each storage node configuration at `$diskPath/miner/config.yaml`. For example, miner1's configuration generate at: `/mnt/cess_storage1/miner/config.yaml`
 - Generate docker-compose.yaml at `/opt/cess/mineradm/build/docker-compose.yaml`
 - If set enable watchdog service, its config will be generated at `/opt/cess/mineradm/build/watchdog/config.yaml`
 
@@ -357,7 +357,7 @@ server {
 
 ## Install all services
 
-Install watchTower, rpc node, watchdog, watchdog-web and miners services
+Install watchTower, rpc node, watchdog, watchdog-web and storage nodes services
 
   ```bash
   sudo mineradm install
@@ -439,7 +439,7 @@ Such as execute `sudo mineradm restart miner1` to restart `miner1`
   sudo mineradm tools space-info
 ```
 
-**View all miners status**
+**View all storage nodes status**
 
 If you get the result of `you are not registered as a storage miner yet...`, please allow several hours for the rpc node block synchronization when you first run.
 
@@ -447,19 +447,19 @@ If you get the result of `you are not registered as a storage miner yet...`, ple
   sudo mineradm miners stat
 ```
 
-**Increase all miners stake**
+**Increase all storage nodes staking**
 
-Only all miners signatureAcc(mnemonic) is the same as its stakingAcc can use this command, otherwise can only transfer stake to stakingAcc in browser [manually](https://docs.cess.network/core/storage-miner/troubleshooting).
+Only all storage nodes signatureAcc(mnemonic) is the same as its stakingAcc can use this command, otherwise can only transfer staking to stakingAcc in browser [manually](https://doc.cess.network/storage-miner/troubleshooting).
 
-Such as execute `sudo mineradm miners increase staking 4000` to increase all miners stake
+Such as execute `sudo mineradm miners increase staking 4000` to increase all storage nodes staking
 
 ```bash
   sudo mineradm miners increase staking $deposit_amount
 ```
 
-**Increase a specific miner's stake**
+**Increase a specific storage node's staking**
 
-Make sure that the miner's signatureAcc(mnemonic) is the same as its stakingAcc can use this command, otherwise can only transfer stake to stakingAcc in browser [manually](https://docs.cess.network/core/storage-miner/troubleshooting).
+Make sure that the storage node's signatureAcc(mnemonic) is the same as its stakingAcc can use this command, otherwise can only transfer staking to stakingAcc in browser [manually](https://doc.cess.network/storage-miner/troubleshooting).
 
 Such as `sudo mineradm miners increase staking miner1 4000`
 
@@ -467,21 +467,21 @@ Such as `sudo mineradm miners increase staking miner1 4000`
   sudo mineradm miners increase staking $miner_name $deposit_amount
 ```
 
-**Increase all miners declaration space**
+**Increase all storage nodes declaration space**
 
-space_amount unit: TiB, The `declaration space` on chain is auto set by the value of `UseSpace after round up to the closest TB` when the miner first run
+space_amount unit: TiB, The `declaration space` on chain is auto set by the value of `UseSpace after round up to the closest TB` when the storage node first run
 
-Before increase `declaration space`, please make sure that the miner have sufficient TCESS in `stakingAcc`. For example, increase stake from `4000` to `8000` before increase `declaration space` from `1 Tib` to `2 TiB`
+Before increase `declaration space`, please make sure that the storage node have sufficient TCESS in `stakingAcc`. For example, increase staking from `4000` to `8000` before increase `declaration space` from `1 Tib` to `2 TiB`
 
 Execute: `sudo mineradm miners stat` to check current `declaration space` at first
 
-After increase stake in stakingAcc, then execute `sudo mineradm miners increase space 2` to increase all miners stake declaration space to 2 TiB
+After increase staking in stakingAcc, then execute `sudo mineradm miners increase space 2` to increase all storage nodes staking declaration space to 2 TiB
 
 ```bash
   sudo mineradm miners increase space $space_amount
 ```
 
-**Increase a specific miner's declaration space**
+**Increase a specific storage node's declaration space**
 
 space_amount unit: TiB, command usage as same as above
 
@@ -489,27 +489,27 @@ space_amount unit: TiB, command usage as same as above
   sudo mineradm miners increase space $miner_name $space_amount
 ```
 
-**Change all miners UseSpace**
+**Change all storage nodes UseSpace**
 
 UseSpace unit: GiB
 
-The `UseSpace` in each miner is less or equal to `declaration space`, the miner can only use storage space less or equal to `UseSpace`
+The `UseSpace` in each storage node is less or equal to `declaration space`, the storage node can only use storage space less or equal to `UseSpace`
 
-If set UseSpace to 2100 when miner first run, that means the miner declare 3 TiB space on the chain, if set UseSpace to 300 when miner first run, that means declare 1 TiB space on the chain(at least 1 TB)
+If set UseSpace to 2100 when storage node first run, that means the storage node declare 3 TiB space on the chain, if set UseSpace to 300 when storage node first run, that means declare 1 TiB space on the chain(at least 1 TB)
 
 Example 1: The miner1's disk size is 1.5 TiB in current, but only set 800 GiB UseSpace for running, then you can run `sudo mineradm tools set use-space miner1 1200` to increase UseSpace to 1200 GiB
 
 Example 2: The miner1's disk size is 1.5 TiB in current, and set 1400 GiB UseSpace for running, so you can run `sudo mineradm tools set use-space mienr1 1000` to decrease miner1's UseSpace to 1000 GiB if the result of `used space` with `mineradm miners stat` is less than 1000 GiB
 
 {% hint style="warning" %}
-If only declare 1 TiB on the chain, but set UseSpace greater than 1024 GiB, the additional UseSpace in miner can not be used
+If only declare 1 TiB on the chain, but set UseSpace greater than 1024 GiB, the additional UseSpace in storage node can not be used
 {% endhint %}
 
 ```bash
   sudo mineradm tools set use-space $UseSpace
 ```
 
-**Change a specific miner's UseSpace**
+**Change a specific storage node's UseSpace**
 
 UseSpace unit: GiB, command usage as same as above
 
@@ -517,19 +517,19 @@ UseSpace unit: GiB, command usage as same as above
   sudo mineradm tools set use-space $miner_name $UseSpace
 ```
 
-**Query all miners reward**
+**Query all storage nodes reward**
 
 ```bash
   sudo mineradm miners reward
 ```
 
-**Claim all miners reward**
+**Claim all storage nodes reward**
 
 ```bash
   sudo mineradm miners claim
 ```
 
-**Claim a specific miner's reward**
+**Claim a specific storage node's reward**
 
 Such as `sudo mineradm miners claim miner1`
 
@@ -537,7 +537,7 @@ Such as `sudo mineradm miners claim miner1`
   sudo mineradm miners claim $miner_name
 ```
 
-**Update a miner's earnings account**
+**Update a storage node's earnings account**
 
 Such as change miner1's earningsAcc to $earnings_account: `sudo mineradm miners update account miner1 $earnings_account`
 
@@ -545,23 +545,23 @@ Such as change miner1's earningsAcc to $earnings_account: `sudo mineradm miners 
   sudo mineradm miners update account $miner_name $earnings_account
 ```
 
-**Update all miners earnings account**
+**Update all storage nodes earnings account**
 
 ```bash
   sudo mineradm miners update account $earnings_account
 ```
 
 {% hint style="warning" %}
-The process of exiting the CESS network will last for hours, and forcing an exit in the middle of the process might make the miner being punished.
+The process of exiting the CESS network will last for hours, and forcing an exit in the middle of the process might make the storage node being punished.
 {% endhint %}
 
-**Make all miners exit the network of cess**
+**Make all storage nodes exit the network of cess**
 
 ```bash
   sudo mineradm miners exit
 ```
 
-**Make a specific miner exit the network of cess**
+**Make a specific storage node exit the network of cess**
 
 Such as `sudo mineradm miners exit miner1`
 
@@ -569,15 +569,15 @@ Such as `sudo mineradm miners exit miner1`
   sudo mineradm miners exit $miner_name
 ```
 
-**Withdraw all miners stake**
+**Withdraw all storage nodes staking**
 
-After all miners **has exited CESS Network** (see above), run
+After all storage nodes **has exited CESS Network** (see above), run
 
 ```bash
   sudo mineradm miners withdraw
 ```
 
-**Withdraw a specific miner's stake**
+**Withdraw a specific storage node's staking**
 
 After this node **has exited CESS Network** (see above), run
 

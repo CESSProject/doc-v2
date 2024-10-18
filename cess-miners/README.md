@@ -1,4 +1,6 @@
-CESS Network has two node types that node miners could participate: **Consensus Nodes** and **Storage Nodes**.
+CESS Network has two types of nodes, including: **Consensus Nodes** and **Storage Nodes**. 
+
+CESS testnet RPC address: `wss://testnet-rpc.cess.network/ws/`.
 
 # Consensus Nodes
 
@@ -52,5 +54,5 @@ The database component adopts a high-performance [LevelDB](https://en.wikipedia.
 The P2P communication component is based on [**libp2p**](https://libp2p.io/) development, which realizes the formation of a P2P network between storage nodes. For details, refer to the GitHub repository [CESSProject/p2p-go](https://github.com/CESSProject/p2p-go).
 
 {% hint style="success" %}
-If you are interested in running a storage node, please refer to the section [**Storage Miners**](storage-miner/).
+If you are interested in running a storage node, please refer to the section [**Storage Node**](storage-miner/).
 {% endhint %}
