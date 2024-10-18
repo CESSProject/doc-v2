@@ -12,6 +12,10 @@ Consensus nodes are essential in validator elections and authoring blocks in the
 - Contain cryptographic algorithm for signatures and transaction verifications
 
 Consensus node is developed using [Substrate](https://substrate.io/) framework.
+According to different responsibilities, the consensus node is divided into CESS worker and TEE Worker. 
+
+## CESS Worker
+CESS worker is responsible for the packaging of transactions, transaction verification, block generation and blockchain data storage for the entire network.
 
 ## TEE Worker
 
