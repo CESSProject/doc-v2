@@ -12,25 +12,25 @@ Consensus nodes are essential in validator elections and authoring blocks in the
 - Contain cryptographic algorithm for signatures and transaction verifications
 
 Consensus node is developed using [Substrate](https://substrate.io/) framework.
+According to different responsibilities, the consensus node is divided into CESS worker and TEE Worker. 
 
-## CESS Node
-
-CESS Node is a core component in the CESS network. It is a blockchain node program developed based on the Substrate framework.
-
-{% hint style="info" %}
-If running TEE worker simultaneously, a CESS node running in full-node is eligible to be elected as a validator, responsible for producing and verifying blocks.
-{% endhint %}
+## CESS Worker
+CESS worker is responsible for the packaging of transactions, transaction verification, block generation and blockchain data storage for the entire network.
 
 ## TEE Worker
 
-The main task of the TEE worker is to mark data (generate file tags) for user's files that are used in PoDR2 (Proof of Data Reduplication and Recovery) proofs and to generate space-holder files for the space provided by the storage miners in PoIS (Proof of Idle Space) proofs. Every job completed in the TEE worker is tamper-proof and verifiable, which can effectively ensure data authenticity.
+The main task of the TEE worker is to mark data (generate file tags) for user's files that are used in PoDR² (Proof of Data Reduplication and Recovery) proofs and to generate space-holder files for the space provided by the storage miners in PoIS (Proof of Idle Space) proofs. Every job completed in the TEE worker is tamper-proof and verifiable, which can effectively ensure data authenticity.
 
 TEE worker is developed based on the [Gramine library](https://gramineproject.io/) and currently only supports [Intel series chips](https://www.intel.com/content/www/us/en/developer/articles/tool/intel-trusted-execution-technology.html).
 
 A TEE worker is bound to a consensus node and can only work after registering a transaction with the account signature of the consensus node. It requires a relatively high hardware requirement and needs the support of TEE functions. To balance out the higher cost, miners also earn a higher reward.
 
+{% hint style="info" %}
+If a CESS node is running in both full-node mode and TEE worker mode, it is eligible to be elected as a validator which responsible for producing and verifying blocks.
+{% endhint %}
+
 {% hint style="success" %}
-If you are interested in running a consensus node, please refer to the section [**Consensus Miners**](consensus-miner/).
+If you are interested in running a consensus node, please refer to the section [**Consensus Nodes**](consensus-miner/).
 {% endhint %}
 
 # Storage Nodes
