@@ -276,6 +276,7 @@
       * [Block](ref/concepts/blockchain-core/block.md)
       * [Storage](ref/concepts/blockchain-core/storage.md)
       * [Transaction](ref/concepts/blockchain-core/transaction.md)
+      * [Time Periods](ref/concepts/blockchain-core/time-period.md)
       * [Substrate Runtime](ref/concepts/blockchain-core/substrate-runtime.md)
       * [Consensus](ref/concepts/blockchain-core/consensus.md)
       * [Randomness](ref/concepts/blockchain-core/randomness.md)
