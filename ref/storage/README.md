@@ -9,6 +9,7 @@ CESS builds a decentralized cloud storage ecosystem based on blockchain to reali
 In this section, we will cover how the peer-to-peer network used in CESS Network works and how nodes discover each others within the network.
 
 - [Identification](identification.md)
+- [Consistency Guarantee](consensus-security.md)
 - [Node Discovery](node-discovery.md)
 - [Message Protocol](message-protocol.md)
 - [Storage Method](storage-method.md)
