@@ -296,6 +296,7 @@
     * [Data Audit](ref/data-lifecycle/audit.md)
   * [Distributed Storage](ref/storage/README.md)
     * [Identification](ref/storage/identification.md)
+    * [Consistency Guarantee](ref/storage/consensus-security.md)
     * [Node Discovery](ref/storage/node-discovery.md)
     * [Message Protocol](ref/storage/message-protocol.md)
     * [Storage Method](ref/storage/storage-method.md)
