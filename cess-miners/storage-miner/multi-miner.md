@@ -170,12 +170,14 @@ After executing the above installation command, customize your own config file a
 
 - **UseSpace:** Storage capacity of the storage node, measured in GB.
 - **UseCpu:** Number of logical cores used by the storage node.
-- **port:** storage node use that port to communicat with each other, the port of each storage node must be different and not occupied by other process
+- **TeeList:** Use this list to specify the TEE Nodes first.
+- **Timeout:** Default 12 second for transaction with chain.
+- **port:** Storage node use that port to communicat with each other, the port of each storage node must be different and not occupied by other process
+- **apiendpoint:** An external IP address or domain which can be accessed by internet, default value: `hostPublicIP:port`.
 - **diskPath:** Absolute system path where the storage node run, requiring a file system to be mounted at this path.
 - **earningsAcc:** Used to receive mining rewards. [Get earningsAcc and mnemonic](../../user/cess-account.md)
 - **mnemonic:** Account mnemonic, consisting of 12 words, with each storage node requiring a different mnemonic, set mnemonic as node's signatureAcc in /opt/cess/mineradm/config.yaml.
 - **stakingAcc:** Used to pay for staking TCESS. 4000 TCESS at least is required for stakingAcc([Get TCESS](https://cess.network/faucet.html)). SignatureAcc also can be a stakingAcc when delete property: stakingAcc or make it empty in /opt/cess/mineradm/config.yaml.
-- **Storage Deposit:** To keep the storage node in honoring its service commitment, the storage node account will have its native tokens locked for the storage amount pledged to offer. Current in testnet, it is 4,000 TCESS per TB. The pledged space is **round up** to the closest TB unit and locked for that amount multiply with 4,000 TCESS. The minimum locked token is also 4,000 TCESS.
 - **chainWsUrl:** As an RPC node for blockchain synchronization. The priority of `miners[].chainWsUrl` is higher than `node.chainWsUrl` in /opt/cess/mineradm/config.yaml.
 - **backupChainWsUrls:** Backup RPC nodes that can be official RPC nodes or other RPC nodes you know. The priority of `miners[].backupChainWsUrls` is higher than `node.backupChainWsUrls` in
   /opt/cess/mineradm/config.yaml.
