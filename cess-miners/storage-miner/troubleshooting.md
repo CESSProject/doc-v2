@@ -64,7 +64,7 @@ If signatureAcc different from stakingAcc is provided as below:
 
 You can not increase stake by command with client:
 ```bash
-sudo cess miner increase staking $deposit_amount
+sudo cess storage node increase staking $deposit_amount
 # or
 sudo mineradm miners increase staking $miner_name $deposit_amount
 
@@ -127,7 +127,7 @@ Reinstall `cess-nodeadm` again:
 
 `mineradm` will enable docker daemon access at port: `2375` automatically when install `mineradm`, but if you want to watchdog access to a host in public network, you need to set that host's docker daemon start with TLS.
 
-Because watchdog need to request each miner's config file from others hosts by docker api, and this config file contain miner's mnemonic, so it must encrypt when transferring in public network.
+Because watchdog need to request each storage node's config file from others hosts by docker api, and this config file contain storage node's mnemonic, so it must encrypt when transferring in public network.
 
 It is a shell demo to generate files by openssl. change the `<IP where watchdog run>` to your watchdog server ip. You can get more detail information from [Docker Daemon Access with TLS](https://docs.docker.com/engine/security/protect-access/).
 

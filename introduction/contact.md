@@ -34,4 +34,4 @@ e-mail: [**hello@cess.network**](mailto:hello@cess.cloud)
 
 <img src="../assets/others/icons/medium.png" alt="" data-size="line"> [Medium](https://medium.com/@CESS_LAB)
 
-<img src="../assets/others/icons/linkedin.png" alt="" data-size="line"> [LinkedIn](https://www.linkedin.com/company/cumulus-encrypted-storage-system)
+<img src="../assets/others/icons/linkedin.png" alt="" data-size="line"> [LinkedIn](https://uk.linkedin.com/company/cessnetwork)

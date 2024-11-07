@@ -1,4 +1,4 @@
-This is the interface where users authorize space usage rights to the gateway.
+https://deoss-sgp.cess.network/fileThis is the interface where users authorize space usage rights to the gateway.
 
 ```golang
 // Authorize to authorise space usage to another account

@@ -1,4 +1,4 @@
-This interface is used to query bucket information created by sstorage users.
+This interface is used to query bucket information created by storage users.
 
 ```golang
 // QueryBucket query user's bucket information
