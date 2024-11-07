@@ -36,7 +36,7 @@
 
 | Term                                 | Definition |
 | ------------------------------------ | ---------- |
-| Bucket                               | Buckets are containers for storing objects. Each private key/account can manage up to 1,000 storage containers. |
+| Territory                            | Territories are containers for storing objects. Each private key/account can manage up to many territories. Territory and the data within it can be transferred, sold and given away together |
 | Decentralized Object Storage Service | Storage service that store user data as object and are accessible via CESS APIs. |
 | Object                               | An Object is a basic unit for storing data. Unlike traditional file systems, objects do not have the hierarchical relational structure of a file directory. An object includes data, metadata, and fid. |
 | Data | User's data includes but is not limited to high-definition pictures, audio, video, and backup files in websites and applications |
