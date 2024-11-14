@@ -97,11 +97,106 @@ Ensures that the data collected from diverse IoT sources is in a standard format
 
 Examples: [IoTeX](https://iotex.io/?ref=cess.network), [peaq](https://www.peaq.network/?ref=cess.network)
 
+#### Protocols
+
+##### ZkTLS
+
+zkTLS (Zero - Knowledge Transport Layer Security) provides a high level of privacy for data in transit. it provides a high level of privacy for data in transit, enables secure authentication of devices and users, and facilitates trustless data sharing between different nodes or entities in the DePIN ecosystem. 
+
+Examples: [clique](https://www.clique.tech/?ref=cess.network), [opacity](https://www.opacity.network/?ref=cess.network)
+
+##### Staking
+
+Staking helps in securing the network. It serves as an incentive for users to contribute physical infrastructure resources, and provides users with governance power. 
+
+Examples: [glif](https://www.glif.io/en/?ref=cess.network)
+
+### Physical Infrastructure Networks
+
+#### Compute Networks
+
+##### General Purpose
+
+The General Purpose Compute network usually acts as a provider of computing resources. It's responsible for the execution and scheduling of computational tasks and provides compatibility and interoperability between different software and hardware components. 
+
+Examples:  [aethir](https://aethir.com/?ref=cess.network), [flux](https://runonflux.io/?ref=cess.network)
+
+##### AI, ML, ...
+This kind of Networks platform  well-suited for parallel computing, and the distributed GPUs platform can be a powerful resource for AI-training and machine-learning algorithms and data-analytics tasks in DePIN. 
+
+Examples: [io.net](https://io.net/?ref=cess.network)
+
+#### Storage Networks
+
+##### File System
+
+##### Database
+
 //todo
 
 We are very sure that among the many projects summarized on this DePIN Sector Map, there are some you’re familiar with and others you may not know as well. Moreover, this map is incomplete, and many excellent projects are not included. Moreover, we believe that as time goes by, more and more great projects will be added to this map to build our future together.
 
+## What's CESS doing in DePIN
+Having explored the general definition and development of DePIN, the question remains: how can a DePIN project use innovative technology to create tangible benefits for industries, organizations, and individual users?
 
+Let’s see how CESS does it.
+
+### Decentralized storage
+
+Decentralized storage is the foundation of DePIN. Unlike traditional storage solutions that rely on centralized servers, decentralized storage distributes data across multiple nodes in a network. We use a blockchain-powered infrastructure to offer secure and scalable storage solutions. By distributing data across numerous nodes globally, CESS not only increases data availability but also ensures that users retain full ownership and control of their data. This makes it a perfect fit for the Web3 era, where data sovereignty is key.
+
+### Decentralized Content Delivery Network 
+And Decentralized Content Delivery Network is also crucial for efficiently delivering content across the web. Unlike traditional CDNs that rely on centralized data centers, decentralized CDN leverages a distributed network of nodes to deliver content. This approach reduces latency, increases speed, and ensures content is accessible even during outages or attacks. CESS’s CD²N takes this concept further by integrating it with its decentralized storage. By utilizing the same global network of nodes, CESS ensures that content is delivered quickly and securely, without the bottlenecks associated with traditional, centralized CDNs. This is particularly beneficial for applications that require high-performance content delivery, such as video streaming and large-scale data distribution. We provide highly-customizable solutions for users who have large-scale data needs. For example, you can choose where your data is stored and distributed.
+
+### Decentralized computing 
+Decentralized computing is the next frontier, where computational tasks are distributed across a network rather than being handled by a central server. When combined with AI, this allows for the development of robust, scalable AI applications that are not reliant on centralized infrastructure. CESS is at the forefront of AI and blockchain integrations with our innovative AI-LINK. This component allows for collaborative AI model training across the network, without sharing raw data. This ensures that data privacy is maintained while still harnessing the collective computational power of the network. 
+
+## CESS Architecture
+CESS architecture is designed for decentralized efficiency. We have multiple interfaces—CLI, RPC, API, and SDK—enabling flexible access. Our Protocol Suite includes the Distributed Content Delivery Layer with cache and retrieval nodes for fast data delivery, and the Distributed Storage Resource Layer with storage and consensus nodes to ensure data reliability. CESS’s blockchain layer supports smart contracts, data ownership (MDRC), data availability, and our consensus algorithms PoIS and PoDR², providing a secure foundation for Web3.
+
+<figure><img src="../../assets/ref/depin/The-Dawn-of-the-New-World.png" alt="The Dawn of the New World"><figcaption><p>The Dawn of the New World</p></figcaption></figure>
+
+
+## Innovative Technologies in CESS 
+CESS brings several innovative technologies into play:
+
+<figure><img src="../../assets/ref/depin/The-Dawn-of-the-New-World.png" alt="The Dawn of the New World"><figcaption><p>The Dawn of the New World</p></figcaption></figure>
+
+- Random Rotational Selection (R²S) is a consensus mechanism to achieve lower gas fees and higher transaction processing speeds (10,000 TPS)  and maximum decentralization among network nodes. Process, transact and share your data in a Trusted Execution Environment (TEE). 
+- Proof of Data Reduplication and Recovery (PoDR²) is atrustless solution that verifies the authenticity of your data. PoDR² continuously challenges storage nodes to prove data validity and availability. Recovery functionality will prevent data loss and guarantee data integrity when storage nodes quit the network and enter the data cooling period.
+- Proof of Idle Space (PoIS), is a mechanism introduced by CESS to certify, verify, and manage idle space on storage nodes. The proof of idle space organizes idle data into files and uses a Merkle hash tree to verify the integrity of each idle file.
+- Proxy Re-encryption Technology (PReT) enables secure sharing of encrypted data among authorized parties. A public key encryption technology that allows users to authorize decryption permissions to others without revealing data content.
+- Multi-Format Data Rights Confirmation (MDRC): Fingerprints are extracted from all data and permanently stored on-chain via smart contracts for traceability. Similar duplication can be discerned to confirm originality.
+- CESS AI-LINK is a Byzantine-robust circuit designed to protect user privacy and data sovereignty, allowing participants in each CESS node to collaboratively train a shared model without sharing their original data.
+
+## What CESS Offers
+
+<figure><img src="../../assets/ref/depin/The-Dawn-of-the-New-World.png" alt="The Dawn of the New World"><figcaption><p>The Dawn of the New World</p></figcaption></figure>
+
+- **Data Sovereignty and Privacy**: Blockchain-based encrypted storage technology provides secure data access to the data owner for privacy and control.
+- **Location-Based Storage**: Customizable data storage locations allow data management and regulation compliances (GDPR, HIPPA…)
+- **Responsible AI with Privacy**: Traceable multi-party AI model training without exposing their original data.
+- **Massive Storage Capacity**: Enterprise-level storage solutions that are decentralized and cost-effective, utilizing global idle resources to provide limitless capacity.
+- **Blockchain-Based Disaster Recovery**: Storage-Proof mechanism safeguards the integrity and availability of nodes against potential losses of up to 66%.
+- **Fast Data Retrieval**: Decentralized data framework facilitates data access and processing in milliseconds.
+
+## The Future
+Let’s take a look at what the future holds with DePIN and the transformative potential it offers in several key areas.
+DePIN is going to shift power from centralized entities to individuals. In today’s digital world, much of our data is controlled by a few major corporations. DePIN changes that by giving people the opportunity to own, control, and monetize their data without relying on intermediaries. This empowerment enables individuals to fully participate in the digital economy, benefiting from the value that their data generates.
+With DePIN, we’re building a decentralized foundation for a safer internet. Centralized networks are prone to single points of failure, making them vulnerable to data breaches and cyberattacks. By decentralizing data storage and infrastructure, DePIN enhances security across the board. Each node in the network contributes to data redundancy and security, ensuring that no single entity holds all the power or responsibility. This approach leads to a more resilient internet, where data integrity and privacy are foundational elements.
+DePIN presents a unique opportunity for those who embrace it early to lead the charge in the next generation of internet infrastructure. Countries and organizations that adopt decentralized infrastructure can position themselves as pioneers in data sovereignty, privacy protection, and digital independence. This is an opportunity for global leadership, showing the world what a fair and transparent digital ecosystem can look like. DePIN gives us a framework to build a future where innovation and ethics go hand in hand.
+We need to admit that DePIN’s success depends on a collective effort. To realize the potential of a decentralized internet, we need support from stakeholders across various sectors—governments, enterprises, developers, and users. Each group has a role to play in shaping a fair, accessible, and open infrastructure. Governments can create supportive policies, enterprises can innovate with decentralized technology, and users can adopt DePIN solutions in their daily lives. By working together, we can build a strong ecosystem that drives positive change.
+In summary, the future with DePIN is one that prioritizes empowerment, security, collaboration, and leadership. By embracing DePIN, we are setting the stage for a decentralized future that benefits everyone involved in the digital ecosystem.
+
+<figure><img src="../../assets/ref/depin/The-Dawn-of-the-New-World.png" alt="The Dawn of the New World"><figcaption><p>The Dawn of the New World</p></figcaption></figure>
+
+
+## Ending
+DePIN offers a powerful vision for the future—one where individuals are empowered, the internet is more secure, collaboration drives innovation, and global leadership embraces ethical technology. By investing in and supporting decentralized infrastructure, we are collectively building a digital ecosystem that respects data sovereignty and privacy, and that ultimately serves everyone, not just a select few.
+
+<figure><img src="../../assets/ref/depin/The-Dawn-of-the-New-World.png" alt="The Dawn of the New World"><figcaption><p>The Dawn of the New World</p></figcaption></figure>
+
+We hope that CESS can contribute to this vision for all mankind.
 
 
 
