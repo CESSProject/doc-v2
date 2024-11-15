@@ -147,9 +147,9 @@ Examples: [CESS](https://cess.network), [filecoin](https://filecoin.io/?ref=cess
 
 ##### Database
 
-The distributed database is designed to be decentralized. It ensures data consistency and integrity across the distributed network. It supports concurrent operations, allowing multiple users or applications to access and modify the data simultaneously and offers scalability to meet the growing demands of a DePIN. 
+The decentralized distributed databases ensure data consistency and integrity by their consensus Algorithms and conflict resolution mechanisms. They support concurrent operations, allow multiple users or applications to access and modify the data simultaneously. These types of databases offer great scalability to easily meet DePIN’s growing needs.
 
-Examples: [CESS](https://cess.network), [meson](https://www.meson.network/?ref=cess.network),
+Examples: [polybase](https://polybaselabs.com/?ref=cess.network), [tableland](https://tableland.xyz/?ref=cess.network)
 
 #### Transmission Networks
 
