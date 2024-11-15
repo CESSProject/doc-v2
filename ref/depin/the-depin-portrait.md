@@ -161,7 +161,7 @@ For example, in a city-wide environmental monitoring system, even if one or seve
 
 The distributed energy networks enable the integration of multiple energy sources and will be responsible for distributing the power efficiently. In a DePIN setting, it can incorporate renewable energy sources such as solar panels, wind turbines, and small-scale hydroelectric generators. The distributed energy networks can determine the optimal times to store energy, such as when there is excess generation from renewable sources, and release it when the demand is high or during grid-instability. And, it will complete the Data Collection and Analytics for Optimization in these processes.
 
-Examples: [emerson](https://www.emerson.com/?ref=cess.network),
+Examples: [emerson](https://www.emerson.com/?ref=cess.network)
 
 ......
 
