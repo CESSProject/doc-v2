@@ -11,12 +11,13 @@ Decentralized platforms offer us a new way forward—one that prioritizes transp
 
 ## Understanding DePIN
 As we progress into the Web 3.0 era, it's crucial to understand the role of Decentralized Physical Infrastructure Networks, or **DePIN**. DePIN represents a transformative shift in how we approach the development and management of infrastructure that underpins digital ecosystems. Unlike traditional, centralized systems that are controlled by a single entity, DePIN leverages the power of decentralization to create a network of resources—be it storage, computation, or content delivery—spread across a vast array of independent nodes. This ensures that no single point of failure can compromise the integrity or availability of the services provided.
-<figure><img src="../../assets/ref/depin/The-Dawn-of-the-New-World.png" alt="The Dawn of the New World"><figcaption><p>The Dawn of the New World</p></figcaption></figure>
+
+<figure><img src="../../assets/ref/depin/depin-words.PNG" style="width:50%;display:block;margin:0 auto;" alt="DePIN"><figcaption><p>DePIN</p></figcaption></figure>
 
 ## DePIN Advantages compared to centralized infrastructure
 Let’s take a look at the key advantages that DePIN, or Decentralized Physical Infrastructure Networks, offer over traditional centralized infrastructure.
 
-<figure><img src="../../assets/ref/depin/The-Dawn-of-the-New-World.png" alt="The Dawn of the New World"><figcaption><p>The Dawn of the New World</p></figcaption></figure>
+<figure><img src="../../assets/ref/depin/DePIN-Advantages.PNG" alt="DePIN Advantages"><figcaption><p>DePIN Advantages</p></figcaption></figure>
 
 Firstly, **Security & Privacy**: In a decentralized setup, data is encrypted and spread across multiple nodes, which helps prevent single points of failure and reduces the risk of data breaches. This means data is safer and more resilient to attacks.
 
@@ -33,7 +34,7 @@ Let’s dive into the components that make up DePIN, and some DePIN projects, an
 
 CESS believes that DePIN will be the foundation of the Next Generation of the Internet. We can simply divide DePIN into **De-Networks** and **PIN-Networks**.
 
-<figure><img src="../../assets/ref/depin/The-Dawn-of-the-New-World.png" alt="The Dawn of the New World"><figcaption><p>The Dawn of the New World</p></figcaption></figure>
+<figure><img src="../../assets/ref/depin/Components-of-DePIN.PNG" alt="Components of DePIN"><figcaption><p>Components of DePIN</p></figcaption></figure>
 
 **De-Networks (Decentralized Networks)** include but are not limited to: L1 Chain, X-Hub, Wallet, Primitives, Infra Module and other components.
 
@@ -46,7 +47,7 @@ Together, these elements of DePIN not only support decentralized services and ap
 ## DePIN Sector Map
 Let's dive into the details of DePIN. DePIN encompasses various subcategories that address different aspects of our digital infrastructure. Let's first divide it into two parts, Decentralized Networks and Physical Infrastructure Networks. 
 
-<figure><img src="../../assets/ref/depin/The-Dawn-of-the-New-World.png" alt="The Dawn of the New World"><figcaption><p>The Dawn of the New World</p></figcaption></figure>
+<figure><img src="../../assets/ref/depin/DePIN-Sector-Map.PNG" alt="DePIN Sector Map"><figcaption><p>DePIN Sector Map</p></figcaption></figure>
 
 ### Decentralized Networks
 
@@ -154,13 +155,13 @@ Decentralized computing is the next frontier, where computational tasks are dist
 ## CESS Architecture
 CESS architecture is designed for decentralized efficiency. We have multiple interfaces—CLI, RPC, API, and SDK—enabling flexible access. Our Protocol Suite includes the Distributed Content Delivery Layer with cache and retrieval nodes for fast data delivery, and the Distributed Storage Resource Layer with storage and consensus nodes to ensure data reliability. CESS’s blockchain layer supports smart contracts, data ownership (MDRC), data availability, and our consensus algorithms PoIS and PoDR², providing a secure foundation for Web3.
 
-<figure><img src="../../assets/ref/depin/The-Dawn-of-the-New-World.png" alt="The Dawn of the New World"><figcaption><p>The Dawn of the New World</p></figcaption></figure>
+<figure><img src="../../assets/ref/depin/CESS-Architecture.png" alt="CESS Architecture"><figcaption><p>CESS Architecture</p></figcaption></figure>
 
 
 ## Innovative Technologies in CESS 
 CESS brings several innovative technologies into play:
 
-<figure><img src="../../assets/ref/depin/The-Dawn-of-the-New-World.png" alt="The Dawn of the New World"><figcaption><p>The Dawn of the New World</p></figcaption></figure>
+<figure><img src="../../assets/ref/depin/CESS-Innovative-Technologies.png" alt="CESS Innovative Technologies"><figcaption><p>CESS Innovative Technologies</p></figcaption></figure>
 
 - Random Rotational Selection (R²S) is a consensus mechanism to achieve lower gas fees and higher transaction processing speeds (10,000 TPS)  and maximum decentralization among network nodes. Process, transact and share your data in a Trusted Execution Environment (TEE). 
 - Proof of Data Reduplication and Recovery (PoDR²) is atrustless solution that verifies the authenticity of your data. PoDR² continuously challenges storage nodes to prove data validity and availability. Recovery functionality will prevent data loss and guarantee data integrity when storage nodes quit the network and enter the data cooling period.
@@ -171,7 +172,7 @@ CESS brings several innovative technologies into play:
 
 ## What CESS Offers
 
-<figure><img src="../../assets/ref/depin/The-Dawn-of-the-New-World.png" alt="The Dawn of the New World"><figcaption><p>The Dawn of the New World</p></figcaption></figure>
+<figure><img src="../../assets/ref/depin/What-CESS-Offers.png" alt="What CESS Offers"><figcaption><p>What CESS Offers</p></figcaption></figure>
 
 - **Data Sovereignty and Privacy**: Blockchain-based encrypted storage technology provides secure data access to the data owner for privacy and control.
 - **Location-Based Storage**: Customizable data storage locations allow data management and regulation compliances (GDPR, HIPPA…)
@@ -188,13 +189,13 @@ DePIN presents a unique opportunity for those who embrace it early to lead the c
 We need to admit that DePIN’s success depends on a collective effort. To realize the potential of a decentralized internet, we need support from stakeholders across various sectors—governments, enterprises, developers, and users. Each group has a role to play in shaping a fair, accessible, and open infrastructure. Governments can create supportive policies, enterprises can innovate with decentralized technology, and users can adopt DePIN solutions in their daily lives. By working together, we can build a strong ecosystem that drives positive change.
 In summary, the future with DePIN is one that prioritizes empowerment, security, collaboration, and leadership. By embracing DePIN, we are setting the stage for a decentralized future that benefits everyone involved in the digital ecosystem.
 
-<figure><img src="../../assets/ref/depin/The-Dawn-of-the-New-World.png" alt="The Dawn of the New World"><figcaption><p>The Dawn of the New World</p></figcaption></figure>
+<figure><img src="../../assets/ref/depin/The-Future-with-DePIN.png" alt="The Future with DePIN"><figcaption><p>The Future with DePIN</p></figcaption></figure>
 
 
 ## Ending
 DePIN offers a powerful vision for the future—one where individuals are empowered, the internet is more secure, collaboration drives innovation, and global leadership embraces ethical technology. By investing in and supporting decentralized infrastructure, we are collectively building a digital ecosystem that respects data sovereignty and privacy, and that ultimately serves everyone, not just a select few.
 
-<figure><img src="../../assets/ref/depin/The-Dawn-of-the-New-World.png" alt="The Dawn of the New World"><figcaption><p>The Dawn of the New World</p></figcaption></figure>
+<figure><img src="../../assets/ref/depin/The-DePlN-Portrait.png" alt="The DePIN Portrait"><figcaption><p>The DePIN Portrait</p></figcaption></figure>
 
 We hope that CESS can contribute to this vision for all mankind.
 
