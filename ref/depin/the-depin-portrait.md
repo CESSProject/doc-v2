@@ -68,7 +68,7 @@ Ensures the security of data and transactions. Once a transaction is recorded on
 - Incentive Mechanisms
 Facilitates the distribution of rewards and incentives. Tokens can be used to compensate users who contribute resources such as bandwidth (in a network-based DePIN) or storage space (for a data-related DePIN). The blockchain layer manages the accounting and transfer of these tokens in a transparent and efficient manner.
 
-Examples: [CESS](https://cess.network), [Ethereum](https://ethereum.org/en/?ref=cess.network), [Solana](https://solana.com/?ref=cess.network)
+Examples: [CESS](https://cess.network), [Ethereum](https://ethereum.org/?ref=cess.network), [Solana](https://solana.com/?ref=cess.network)
 
 ##### X-Hub
 - Interoperability
@@ -110,7 +110,7 @@ Examples: [clique](https://www.clique.tech/?ref=cess.network), [opacity](https:/
 
 Staking helps in securing the network. It serves as an incentive for users to contribute physical infrastructure resources, and provides users with governance power. 
 
-Examples: [glif](https://www.glif.io/en/?ref=cess.network)
+Examples: [glif](https://www.glif.io/?ref=cess.network)
 
 ### Physical Infrastructure Networks
 
@@ -131,9 +131,39 @@ Examples: [io.net](https://io.net/?ref=cess.network)
 
 ##### File System
 
+- **Data Storage and Redundancy**
+The primary function is to store data. In a DePIN for a smart city, it can hold vast amounts of data such as traffic camera footage, energy consumption records of buildings, and environmental sensor readings. The distributed nature of the system provides redundancy. Data is replicated and stored across multiple nodes. For example, if one storage node fails due to a hardware malfunction or a natural disaster, the data can still be retrieved from other intact nodes, ensuring data availability and durability.
+
+- **Decentralized Data Management**
+It enables decentralized data management. Instead of relying on a central data center, the distributed file system in DePIN allows different participants in the network to have a degree of control over the data. For instance, in a DePIN for a peer - to - peer energy trading network, homeowners can manage the storage and sharing of their own energy - production and - consumption data. This decentralization also enhances data security as there is no single point of failure or control.
+
+- **Scalability**
+The distributed file system can easily scale to meet the growing demands for data storage. As more devices and applications are added to the DePIN, more storage space is needed. The system can accommodate this by adding new storage nodes. For example, in a DePIN for an Internet of Things (IoT) - based logistics network, as the number of tracked packages and associated data (such as location, temperature, and humidity) increases, the distributed file system can expand to store all the additional information.
+
+- **Data Privacy and Ownership**
+It helps in maintaining data privacy and clarifying data ownership. In a DePIN for a healthcare system, patients' medical records can be stored in a distributed manner. The patients have more control over who can access their data and under what conditions. The system can use encryption and access - control mechanisms to ensure that only authorized parties can view or modify the data, respecting the privacy and ownership rights of the data owners.
+
+Examples: [CESS](https://cess.network), [filecoin](https://filecoin.io/?ref=cess.network), [storj](https://www.storj.io/?ref=cess.network)
+
 ##### Database
 
-//todo
+The distributed database is designed to be decentralized. It ensures data consistency and integrity across the distributed network. It supports concurrent operations, allowing multiple users or applications to access and modify the data simultaneously and offers scalability to meet the growing demands of a DePIN. 
+
+Examples: [CESS](https://cess.network), [meson](https://www.meson.network/?ref=cess.network),
+
+#### Transmission Networks
+
+##### Mesh
+The distributed mesh network provides highly robust and reliable connectivity. There is no single point of control or a central hub that all communication must pass through. The mesh networks have redundancy and fault-tolerance mechanisms. 
+For example, in a city-wide environmental monitoring system, even if one or several links between CESS nodes are disrupted due to physical damage or interference, the CESS CD²N can reroute data through alternative paths. This ensures that the data from air quality sensors, noise monitors, and other devices continues to flow without interruption, maintaining the integrity of the monitoring system.
+
+#### Energy Networks
+
+The distributed energy networks enable the integration of multiple energy sources and will be responsible for distributing the power efficiently. In a DePIN setting, it can incorporate renewable energy sources such as solar panels, wind turbines, and small-scale hydroelectric generators. The distributed energy networks can determine the optimal times to store energy, such as when there is excess generation from renewable sources, and release it when the demand is high or during grid-instability. And, it will complete the Data Collection and Analytics for Optimization in these processes.
+
+Examples: [emerson](https://www.emerson.com/?ref=cess.network),
+
+......
 
 We are very sure that among the many projects summarized on this DePIN Sector Map, there are some you’re familiar with and others you may not know as well. Moreover, this map is incomplete, and many excellent projects are not included. Moreover, we believe that as time goes by, more and more great projects will be added to this map to build our future together.
 
