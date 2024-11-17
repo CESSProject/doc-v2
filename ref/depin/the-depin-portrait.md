@@ -12,7 +12,7 @@ Decentralized platforms offer us a new way forward—one that prioritizes transp
 ## Understanding DePIN
 As we progress into the Web 3.0 era, it's crucial to understand the role of Decentralized Physical Infrastructure Networks, or **DePIN**. DePIN represents a transformative shift in how we approach the development and management of infrastructure that underpins digital ecosystems. Unlike traditional, centralized systems that are controlled by a single entity, DePIN leverages the power of decentralization to create a network of resources—be it storage, computation, or content delivery—spread across a vast array of independent nodes. This ensures that no single point of failure can compromise the integrity or availability of the services provided.
 
-<figure><img src="../../assets/ref/depin/depin-words.PNG" style="width:50%;display:block;margin:0 auto;" alt="DePIN"><figcaption><p>DePIN</p></figcaption></figure>
+<figure><img src="../../assets/ref/depin/depin-words.png" style="width:50%;display:block;margin:0 auto;" alt="DePIN"><figcaption><p>DePIN</p></figcaption></figure>
 
 ## DePIN Advantages compared to centralized infrastructure
 Let’s take a look at the key advantages that DePIN, or Decentralized Physical Infrastructure Networks, offer over traditional centralized infrastructure.
