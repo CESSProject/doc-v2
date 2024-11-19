@@ -55,10 +55,21 @@ Achieve millisecond-level hot data access in a decentralized storage system with
 
 **The 1st Decentralized Storage Standard Protocol**
 
-Leading the industry with the first IEEE blockchain-based decentralized storage protocol, P3220.02, for technological breakthroughs.
+Leading the industry with the first IEEE blockchain-based decentralized storage protocol, **P3220.02**, for technological breakthroughs.
 
 # Where can CESS be used?
 You can find some use cases [here](use-cases.md).
+
+# Who can join CESS?
+There are many user roles in CESS ecosystem. If you have identified yourself as a certain role in the ecosystem, feel free to jump right in.
+
+* [dApp Users](../user/)
+* [dApp Developers](../developer/)
+* [Storage Miners](../cess-miners/storage-miner/)
+* [Consensus Miners](../cess-miners/consensus-miner/)
+* [Community Members](../community/)
+* [Products](../products/)
+
 
 # How does CESS work?
 
