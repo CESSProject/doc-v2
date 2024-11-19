@@ -16,6 +16,9 @@ CESS is an innovative solution for entropy reduction in our ever-chaotic digital
 **CESS: The first decentralized data infrastructure with L1 chain, infinite storage capacity and ethical AI.**
 {% endhint %}
 
+# When did the story of CESS begin?
+Since its inception in 2019, our team has been a beacon of youthful energy and innovation, hailing from the UK, USA, India, China (Hong Kong), UAE and Argentina. We are a diverse collective of cryptographers, data storage experts, and computer science engineers, united by a common vision to disrupt the status quo. With a passion for making a difference, we are committed to crafting solutions that not only challenge the boundaries of technology but also have the potential to positively impact the world around us. Our mission is to ingrain a prestigious legacy on the digital landscape, one innovative step at a time.
+
 # Why CESS?
 
 CESS is the first large-scale, enterprise-level decentralized storage, enabling users to securely store their data in an encrypted format. It utilizes advanced encryption techniques to ensure that only the authorized users can access the data and provide end-to-end privacy and security. CESS is also an open-source and public blockchain intended to be the underlying infrastructure for decentralized storage needs. By leveraging blockchain and peer-to-peer technology, CESS eliminates the need for a centralized authority, making it resistant to censorship and tampering.
