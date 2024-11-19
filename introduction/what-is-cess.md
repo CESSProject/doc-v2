@@ -10,9 +10,7 @@ CESS is a public blockchain network based on a distributed storage system with m
 
 CESS is a secure, efficient, and scalable decentralized cloud storage network that provides data storage services and data sharing platform.
 
-CESS is an innovative solution for entropy reduction in our ever-chaotic digital landscape:
-
-\Delta CESS=\int\frac {\delta Q} {T}<0 \\
+CESS is an innovative solution for entropy reduction in our ever-chaotic digital landscape.
 
 {% hint style="success" %}
 **CESS: The first decentralized data infrastructure with L1 chain, infinite storage capacity and ethical AI.**
@@ -55,6 +53,9 @@ Achieve millisecond-level hot data access in a decentralized storage system with
 **The 1st Decentralized Storage Standard Protocol**
 
 Leading the industry with the first IEEE blockchain-based decentralized storage protocol, P3220.02, for technological breakthroughs.
+
+# Where can CESS be used?
+You can find some use cases [here](use-cases.md).
 
 # How does CESS work?
 
