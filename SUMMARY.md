@@ -1,7 +1,7 @@
 # Table of contents
 
 * [🗂 Introduction](README.md)
-  * [What is CESS](introduction/what-is-cess.md)
+  * [5Ws-1H about CESS](introduction/what-is-cess.md)
   * [Technical Highlight](introduction/technical-highlight.md)
   * [Use Cases](introduction/use-cases.md)
   * [Whitepaper](introduction/whitepaper.md)
