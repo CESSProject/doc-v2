@@ -1,13 +1,8 @@
-**The Decentralized Data Infrastructure.**
-
 Welcome to the CESS Document Center.
 
 # 🗂 Introduction
-
-CESS is a blockchain-powered decentralized cloud storage network with native CD²N, where users and creators share data on-chain, and builders can create and deploy DApps. Offering the most optimal Web3 solution for storing and retrieving high-frequency dynamic data, CESS reshapes the value distribution and circulation of data assets whilst ensuring data sovereignty and complete user privacy. Our vision is to create a secure, transparent, and high-throughput decentralized data value network. Operating as a public blockchain network with distributed storage capabilities and high-speed CD²N, CESS promotes AI advancements through web3 protocols. 
-
 {% hint style="success" %}
-**CESS: Blockchain Powered Decentralized Storage and Content Delivery Network Infrastructure for Web3.**
+**CESS: The first decentralized data infrastructure with L1 chain, infinite storage capacity and ethical AI.**
 {% endhint %}
 
 In this section, we provide a [high level overview on CESS](introduction/what-is-cess.md), its [technical highlight](introduction/technical-highlight.md), and [a few use cases](introduction/use-cases.md) on using CESS.
