@@ -20,6 +20,34 @@ By utilizing a decentralized physical infrastructure network (DePIN) model, CESS
 
 CESS is also compatible with both EVM and WebAssembly (Wasm). The underlying blockchain framework allows cross-ecosystem, cross-chain applications to use CESS. Its technology stack supports most Web3 applications.
 
+So, why you choose CESS? 
+
+Here's the answer:
+
+**Location-based Storage Selection**
+
+Ensure data privacy with compliance routing, keeping data within borders and easing national security concerns.
+
+**User Privacy Authorization**
+
+CESS Proxy Re-Encryption Technology enables secure data sharing among authorized parties without revealing the data content.
+
+**Empower Responsible AI with Privacy**
+
+Empower Responsible AI with user consent, smart contracts, and privacy algorithms, safeguarding sensitive data.
+
+**Blockchain-based Disaster Recovery**
+
+CESS Proof of Data Reduplication and Recovery (PoDR²) mechanism prevents any data loss and guarantees data integrity under any circumstance while continuously challenging storage nodes to prove data validity and availability, all executed within TEE.
+
+**Millisecond Data Retrieval**
+
+Achieve millisecond-level hot data access in a decentralized storage system with CESS's CD²N.
+
+**The 1st Decentralized Storage Standard Protocol**
+
+Leading the industry with the first IEEE blockchain-based decentralized storage protocol, P3220.02, for technological breakthroughs.
+
 # How does CESS work?
 
 CESS adopts layered and loosely coupled system architecture, which is divided into **CESS Protocol Suite** and **XESS AI Protocol Suite**. 
