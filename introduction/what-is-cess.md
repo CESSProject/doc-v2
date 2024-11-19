@@ -2,12 +2,20 @@ In this article, we will delve into the what, why, and how of CESS, exploring it
 
 # What is CESS?
 
-CESS is a decentralized data value network designed with a holistic three-layer architecture. Our network architecture integrates a decentralized cloud storage network and a CD²N, offering highly customizable solutions for decentralized data storage and real-time sharing, specifically tailored for modern high-frequency dynamic data storage and retrieval needs. We meet enterprise users' demands for massive storage capacity, location-based storage selection (LBSS), hierarchical permission management, and other custom requirements and/or compliance needs.
+CESS is **the first decentralized data infrastructure with L1 chain, infinite storage capacity and ethical AI.**
 
-Supporting applications including but not limited to personalized medicine to decentralized social media and responsible AI, CESS empowers industries with data integrity, privacy, availability and sovereignty.
+CESS is a blockchain-powered decentralized cloud storage network with native CD²N, where users and creators share data on-chain, and builders can create and deploy DApps. Offering the most optimal Web3 solution for storing and retrieving high-frequency dynamic data, CESS reshapes the value distribution and circulation of data assets whilst ensuring data sovereignty and complete user privacy. The vision of CESS is to create a secure, transparent, and high-throughput decentralized data value network. 
+
+CESS is a public blockchain network based on a distributed storage system with milliseconds high-speed Content Decentralized Delivery Network (CD²N) and empowers AI innovations by web3 protocols.
+
+CESS is a secure, efficient, and scalable decentralized cloud storage network that provides data storage services and data sharing platform.
+
+CESS is an innovative solution for entropy reduction in our ever-chaotic digital landscape:
+
+\Delta CESS=\int\frac {\delta Q} {T}<0 \\
 
 {% hint style="success" %}
-**CESS: Blockchain Powered Distributed Storage and Content Decentralized Delivery Network (CD²N) Infrastructure for Web3.**
+**CESS: The first decentralized data infrastructure with L1 chain, infinite storage capacity and ethical AI.**
 {% endhint %}
 
 # Why CESS?
