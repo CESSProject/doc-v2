@@ -1,4 +1,4 @@
-In this article, we will delve into the what, why, and how of CESS, exploring its features and benefits.
+In this article, we will delve into the what, when, why, where, who and how of CESS, exploring its features and benefits.
 
 # What is CESS?
 
