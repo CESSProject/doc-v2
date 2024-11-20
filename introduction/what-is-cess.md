@@ -17,7 +17,7 @@ CESS is an innovative solution for entropy reduction in our ever-chaotic digital
 {% endhint %}
 
 # When did the story of CESS begin?
-Since its inception in 2019, our team has been a beacon of youthful energy and innovation, hailing from the UK, USA, India, China (Hong Kong), UAE and Argentina. We are a diverse collective of cryptographers, data storage experts, and computer science engineers, united by a common vision to disrupt the status quo. With a passion for making a difference, we are committed to crafting solutions that not only challenge the boundaries of technology but also have the potential to positively impact the world around us. Our mission is to ingrain a prestigious legacy on the digital landscape, one innovative step at a time.
+Since its inception in **2019**, our team has been a beacon of youthful energy and innovation, hailing from the UK, USA, India, China (Hong Kong), UAE and Argentina. We are a diverse collective of cryptographers, data storage experts, and computer science engineers, united by a common vision to disrupt the status quo. With a passion for making a difference, we are committed to crafting solutions that not only challenge the boundaries of technology but also have the potential to positively impact the world around us. Our mission is to ingrain a prestigious legacy on the digital landscape, one innovative step at a time.
 
 # Why CESS?
 
@@ -55,7 +55,7 @@ Achieve millisecond-level hot data access in a decentralized storage system with
 
 **The 1st Decentralized Storage Standard Protocol**
 
-Leading the industry with the first IEEE blockchain-based decentralized storage protocol, **P3220.02**, for technological breakthroughs.
+Leading the industry with the first IEEE blockchain-based decentralized storage protocol, [**P3220.02**](https://standards.ieee.org/ieee/3220.02/11522/), for technological breakthroughs.
 
 # Where can CESS be used?
 You can find some use cases [here](use-cases.md).
