@@ -34,7 +34,7 @@ Let’s dive into the components that make up DePIN, and some DePIN projects, an
 
 CESS believes that DePIN will be the foundation of the Next Generation of the Internet. We can simply divide DePIN into **De-Networks** and **PIN-Networks**.
 
-<figure><img src="../../assets/ref/depin/Components-of-DePIN.PNG" alt="Components of DePIN"><figcaption><p>Components of DePIN</p></figcaption></figure>
+<figure><img src="../../assets/ref/depin/Components-of-DePIN.png" alt="Components of DePIN"><figcaption><p>Components of DePIN</p></figcaption></figure>
 
 **De-Networks (Decentralized Networks)** include but are not limited to: L1 Chain, X-Hub, Wallet, Primitives, Infra Module and other components.
 
