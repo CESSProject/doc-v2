@@ -1,13 +1,13 @@
 Random rotational consensus is an important component of the CESS protocol. Unlike the Polkadot consensus mechanism, random rotation consensus changes the process of verifying node elections. The following is the overall process flow:
 
-1. A node stakes 1 million tokens to register as a consensus node.
+1. A node stakes 3 million tokens to register as a consensus node.
 
-2. At the beginning of each era validation nodes will rotate, and the rotation rule is credit ranking: Selecting the top 11 nodes with the highest credits from all consensus nodes as the validation nodes for this era.
+2. At the start of each era, validator nodes are chosen based on credit ratings. The top 11 nodes with the highest credits among all consensus nodes serve as the validation nodes for that era.
 
-3. The final credit is determined by the sum of reputation credits and the random credits:
+3. The final credit rating is calculated based on reputation credits, staked score (calculated from both self and delegated), and random credits.
 
     {% hint style="success" %}
-    **Final Credits** = (reputation credits * 80%) + (random credits * 20%).
+    **Final Credits** = (reputation credits * 50%) + (staked score * 30%) + (random credits * 20%).
     {% endhint %}
 
 4. The block producer selection mechanism is the same as [BABE](https://wiki.polkadot.network/docs/learn-consensus#block-production-babe), where each block producer is randomly selected from 11 validation nodes through VRF.
