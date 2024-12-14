@@ -17,7 +17,7 @@ As we progress into the Web 3.0 era, it's crucial to understand the role of Dece
 ## DePIN Advantages compared to centralized infrastructure
 Let’s take a look at the key advantages that DePIN, or Decentralized Physical Infrastructure Networks, offer over traditional centralized infrastructure.
 
-<figure><img src="../../assets/ref/depin/DePIN-Advantages.PNG" alt="DePIN Advantages"><figcaption><p>DePIN Advantages</p></figcaption></figure>
+<figure><img src="../../assets/ref/depin/DePIN-Advantages.png" alt="DePIN Advantages"><figcaption><p>DePIN Advantages</p></figcaption></figure>
 
 Firstly, **Security & Privacy**: In a decentralized setup, data is encrypted and spread across multiple nodes, which helps prevent single points of failure and reduces the risk of data breaches. This means data is safer and more resilient to attacks.
 
