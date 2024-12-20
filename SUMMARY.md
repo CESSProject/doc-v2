@@ -269,6 +269,7 @@
       * [View Bucket List](products/deoss/api-description/view_bucket_list.md)
       * [View Version](products/deoss/api-description/view_version.md)
 * [📚 References](ref/README.md)
+  <!--
   * [Concepts](ref/concepts/README.md)
     * [System Architecture](ref/concepts/system-arch.md)
     * [Blockchain Architecture](ref/concepts/blockchain-arch.md)
@@ -284,6 +285,7 @@
       * [Data Migration](ref/concepts/blockchain-core/data-migration.md)
       * [Off-chain Worker](ref/concepts/blockchain-core/off-chain-worker.md)
       * [Forkless Upgrade](ref/concepts/blockchain-core/forkless-upgrade.md)
+  -->
   * [Node Operations](ref/ops/README.md)
     * [Running RPC Node](ref/ops/running-rpc-node.md)
   * [In-depth Technical Features](ref/in-depth-feat/README.md)
