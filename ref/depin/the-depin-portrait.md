@@ -47,7 +47,7 @@ Together, these elements of DePIN not only support decentralized services and ap
 ## DePIN Sector Map
 Let's dive into the details of DePIN. DePIN encompasses various subcategories that address different aspects of our digital infrastructure. Let's first divide it into two parts, Decentralized Networks and Physical Infrastructure Networks. 
 
-<figure><img src="../../assets/ref/depin/DePIN-Sector-Map.PNG" alt="DePIN Sector Map"><figcaption><p>DePIN Sector Map</p></figcaption></figure>
+<figure><img src="../../assets/ref/depin/DePIN-Sector-Map.png" alt="DePIN Sector Map"><figcaption><p>DePIN Sector Map</p></figcaption></figure>
 
 ### Decentralized Networks
 
