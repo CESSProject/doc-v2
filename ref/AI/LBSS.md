@@ -72,16 +72,16 @@ The LBSS algorithm seeks to minimize $C_{cost}(L, D)$, selecting storage locatio
 
 ### **The LBSS Algorithm: Optimizing Storage Decisions**
 
-The **Location-Based Storage Selection (LBSS)** system uses a multi-factor optimization algorithm to balance compliance, latency, and cost. The general **objective function** for selecting the optimal storage location \( L_{optimal} \) for a dataset \( D \) can be represented as:
+The **Location-Based Storage Selection (LBSS)** system uses a multi-factor optimization algorithm to balance compliance, latency, and cost. The general **objective function** for selecting the optimal storage location $L_{optimal} $ for a dataset $D$ can be represented as:
 
-\[
-L_{optimal} = \arg \min_{L \in \mathcal{L_(set)}} \left( \alpha \cdot T_{latency}(L, D) + \beta \cdot C_{compliance}(L, D) + \gamma \cdot C_{cost}(L, D) \right)
-\]
+$$
+L_{optimal} = \arg \min_{L \in \mathcal{L_{set}}} \left( \alpha \cdot T_{latency}(L, D) + \beta \cdot C_{compliance}(L, D) + \gamma \cdot C_{cost}(L, D) \right)
+$$
 
 Where:
-- \( \mathcal{L_(set)} \) is the set of all possible storage locations.
-- \( \alpha, \beta, \gamma \) are weighting factors that define the relative importance of latency, compliance, and cost. These factors can be dynamically adjusted based on the specific needs of the application (e.g., an AI-powered medical diagnostic tool may prioritize compliance over cost).
-- \( T_{latency}(L, D) \), \( C_{compliance}(L, D) \), and \( C_{cost}(L, D) \) are the latency, compliance, and cost factors, respectively, as described above.
+- $\mathcal{L_{set}}$ is the set of all possible storage locations.
+- $\alpha$, $\beta$, $\gamma$ are weighting factors that define the relative importance of latency, compliance, and cost. These factors can be dynamically adjusted based on the specific needs of the application (e.g., an AI-powered medical diagnostic tool may prioritize compliance over cost).
+- $T_{latency}(L, D) $, $C_{compliance}(L, D) $, and $C_{cost}(L, D)$ are the latency, compliance, and cost factors, respectively, as described above.
 
 By adjusting the weights of these factors, businesses and developers can tailor the LBSS system to meet their specific use case needs — whether they prioritize data security, performance, or cost.
 
