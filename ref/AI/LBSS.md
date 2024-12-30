@@ -4,7 +4,7 @@
 
 As industries across the globe increasingly adopt AI and machine learning, the need for secure, scalable, and highly performant data infrastructure is more critical than ever. Data is central to the development and operation of AI systems, but managing it across a diverse range of regulatory environments, geographical boundaries, and data privacy standards presents a significant challenge.
 
-One of the key obstacles in managing AI data is ensuring **data sovereignty** and **regulatory compliance** while simultaneously meeting the performance requirements of modern AI applications. These applications often require access to vast amounts of real-time data, while data protection regulations such as **General Data Protection Regulation (GDPR)** in the EU, **Health Insurance Portability and Accountability Act (HIPAA)** in the US, and **China’s Cybersecurity Law** impose stringent rules on how and where data can be stored, processed, and shared.
+One of the key obstacles in managing AI data is ensuring **data sovereignty** and **regulatory compliance** while simultaneously meeting the performance requirements of modern AI applications. These applications often require access to vast amounts of real-time data, while data protection regulations such as **General Data Protection Regulation (GDPR)** in the EU, **Health Insurance Portability and Accountability Act (HIPAA)** in the US, and China’s **Cybersecurity Law** impose stringent rules on how and where data can be stored, processed, and shared.
 
 The **Location-Based Storage Selection (LBSS)** feature within the **CESS Network** aims to address this challenge by offering businesses the ability to store their data in specific geographic regions in a way that balances compliance with performance and cost considerations. This article explores the technical details of the LBSS feature, the algorithms behind it, and its application in real-world AI scenarios.
 
@@ -17,7 +17,7 @@ AI applications today are highly dependent on access to vast datasets. However, 
 For instance:
 - **GDPR** mandates that personal data of European Union (EU) citizens must be stored and processed within the EU unless specific conditions are met.
 - **HIPAA** requires healthcare data to be stored in compliance with strict privacy protections in the US.
-- **China’s Cybersecurity Law** stipulates that certain data (particularly that related to Chinese citizens) must remain within China’s borders.
+- **Cybersecurity Law** stipulates that certain data (particularly that related to Chinese citizens) must remain within China’s borders.
 
 Simultaneously, AI models rely on **low-latency access** to data in order to perform real-time processing and decision-making, such as in the case of autonomous vehicles, financial fraud detection, and predictive maintenance in industrial settings. These systems need to be able to fetch data quickly from storage locations that are geographically close to the point of application.
 
