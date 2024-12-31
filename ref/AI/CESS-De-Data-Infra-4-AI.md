@@ -80,6 +80,8 @@ CESS introduces the world’s first blockchain-based disaster recovery system th
 
 As AI-driven applications become increasingly global, compliance with regional and international data protection laws such as **GDPR**, **HIPAA**, and **CCPA** is more critical than ever. CESS’s **Location-Based Storage Selection (LBSS)** feature allows users to store data in specific geographic regions, ensuring compliance with legal frameworks that govern data privacy and sovereignty.
 
+<figure><img src="../../assets/ref/AI/LBSS.png" style="width:100%;display:block;margin:0 auto;" alt="LBSS"><figcaption><p>LBSS</p></figcaption></figure>
+
 **Key Benefits**:
 
 - **Regulatory Compliance**: CESS’s LBSS ensures that AI applications can store data in specific countries or jurisdictions to meet local compliance requirements. This feature is crucial for industries like healthcare, finance, and e-commerce, where data compliance is a top priority.
