@@ -54,6 +54,8 @@ CESS offers **unlimited storage capacity** through its decentralized storage net
 
 The **AI-LINK** protocol enables CESS to securely connect decentralized GPU networks, facilitating **confidential AI inference** and **model sharing**. This groundbreaking feature allows businesses to run AI models without sacrificing privacy, ensuring that data is never exposed or controlled by a single entity.
 
+<figure><img src="../../assets/ref/AI/AI-LINK.png" style="width:100%;display:block;margin:0 auto;" alt="AI-LINK"><figcaption><p>AI-LINK</p></figcaption></figure>
+
 **Key Benefits**:
 
 - **Decentralized AI Inference**: AI models can infer from distributed datasets without centralizing sensitive information. This ensures compliance with data sovereignty laws and guarantees privacy for AI applications in highly regulated sectors like healthcare, finance, and government.
