@@ -304,6 +304,8 @@
     * [Storage Method](ref/storage/storage-method.md)
   * [DePIN](ref/depin/README.md)
     * [The DePIN Portrait](ref/depin/the-depin-portrait.md)
+  * [AI](ref/AI/README.md)
+    * [CESS: The Future of Decentralized Data Infrastructure for the AI-Driven World](ref/AI/CESS-De-Data-Infra-4-AI.md)
 * [📖 Glossary](glossary.md)
 
 <!--
