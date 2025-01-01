@@ -36,7 +36,7 @@ CESS is specifically optimized for AI use cases, enabling decentralized AI model
 
 - **Privacy-Preserving Computations**: CESS leverages technologies like **Secure Multi-Party Computation (SMPC)** and **Homomorphic Encryption** to run AI models on encrypted data. This allows for training and inference without exposing raw, sensitive data to any party.
 
-**Example Application**: In healthcare, CESS enables hospitals to train AI models on encrypted patient data, allowing researchers and practitioners to derive insights without ever accessing personally identifiable information (PII).
+**Example Application**: In healthcare, CESS enables hospitals to train AI models on encrypted patient data, allowing researchers and practitioners to derive insights without ever accessing **PII** (**personally identifiable information**).
 
 #### 2. **Decentralized, Programmable Data Infrastructure**
 
