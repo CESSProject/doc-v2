@@ -26,9 +26,9 @@ The **CESS AI-Link** is a groundbreaking innovation designed to enable decentral
 Unlike centralized cloud providers, CESS gives organizations complete control over their data. AI developers can choose how and where their data is stored, enabling them to meet compliance requirements and maintain data sovereignty. Whether it’s regulatory adherence or optimizing for performance, CESS ensures flexibility and control, reducing the risks associated with vendor lock-in and centralization.
 
 ## Use Cases of CESS in AI
-- Healthcare AI: Using CESS to store encrypted patient data enables AI models to train on diverse datasets while maintaining privacy. This helps in developing more accurate and robust models for medical diagnosis and treatment prediction, without compromising on patient privacy and confidentiality.
-- Autonomous Vehicles: Self-driving cars generate massive amounts of data that need to be stored and processed securely. CESS provides the scalable, decentralized infrastructure to store and analyze this data in real-time, ensuring that AI models can be trained effectively while maintaining data security.
-- AI for Climate Change: AI models used to predict climate change impact require huge datasets, including historical climate data and environmental variables. CESS enables the decentralized storage and retrieval of this data, ensuring that climate models remain accessible, scalable, and resistant to censorship.
+- **Healthcare AI**: Using CESS to store encrypted patient data enables AI models to train on diverse datasets while maintaining privacy. This helps in developing more accurate and robust models for medical diagnosis and treatment prediction, without compromising on patient privacy and confidentiality.
+- **Autonomous Vehicles**: Self-driving cars generate massive amounts of data that need to be stored and processed securely. CESS provides the scalable, decentralized infrastructure to store and analyze this data in real-time, ensuring that AI models can be trained effectively while maintaining data security.
+- **AI for Climate Change**: AI models used to predict climate change impact require huge datasets, including historical climate data and environmental variables. CESS enables the decentralized storage and retrieval of this data, ensuring that climate models remain accessible, scalable, and resistant to censorship.
 - Many more...
 
 ## Why CESS is the Future of AI
