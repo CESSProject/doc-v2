@@ -1,11 +1,11 @@
 On January 17, 2025, NVIDIA founder and CEO Jensen Huang kicked off CES 2025 with a 90-minute keynote that included new products to advance gaming, autonomous vehicles, robotics, and agentic AI.
 
 Huang’s keynote showcased how NVIDIA’s latest innovations are enabling this new era of AI, with several groundbreaking announcements, including:
-- The just-announced NVIDIA Cosmos platform advances physical AI with new models and video data processing pipelines for robots, autonomous vehicles and vision AI.
-- New NVIDIA Blackwell-based GeForce RTX 50 Series GPUs offer stunning visual realism and unprecedented performance boosts.
-- AI foundation models introduced at CES for RTX PCs feature NVIDIA NIM microservices and AI Blueprints for crafting digital humans, podcasts, images and videos.
-- The new NVIDIA Project DIGITS brings the power of NVIDIA Grace Blackwell to developer desktops in a compact package that can practically fit in a pocket.
-- NVIDIA is partnering with Toyota for safe next-gen vehicle development using the NVIDIA DRIVE AGX in-vehicle computer running NVIDIA DriveOS.
+- The just-announced NVIDIA **Cosmos platform** advances physical AI with new models and video data processing pipelines for robots, autonomous vehicles and vision AI.
+- New NVIDIA Blackwell-based **GeForce RTX 50 Series GPUs** offer stunning visual realism and unprecedented performance boosts.
+- AI foundation models introduced at CES for RTX PCs feature **NVIDIA NIM microservices** and AI Blueprints for crafting digital humans, podcasts, images and videos.
+- The new NVIDIA Project **DIGITS** brings the power of **NVIDIA Grace Blackwell** to developer desktops in a compact package that can practically fit in a pocket.
+- NVIDIA is partnering with Toyota for safe next-gen vehicle development using the **NVIDIA DRIVE AGX** in-vehicle computer running **NVIDIA DriveOS**.
 
 <figure><img src="../../assets/ref/AI/rtx50s.png" style="width:100%;display:block;margin:0 auto;" alt="GeForce RTX 50 Series GPUs"><figcaption><p>GeForce RTX 50 Series GPUs</p></figcaption></figure>
 
@@ -58,11 +58,11 @@ As AI models become more complex, **privacy** and **data sovereignty** concerns 
 
 - **End-to-End Encryption**: All data on the CESS network is encrypted, ensuring that sensitive information remains private. This is particularly important when dealing with personal or proprietary data.
 - **User-Controlled Data Access**: CESS puts the control of data in the hands of the users, enabling them to decide how and when their data is accessed. This contrasts with centralized systems, where data ownership and control can be opaque.
-- **Blockchain Transparency**: CESS uses **blockchain technology** to log every interaction with the data, providing a transparent, immutable record of who accessed what data and when. This enhances accountability and builds trust in the system, ensuring that data is used ethically and in accordance with the user's preferences.
+- **Transparency**: CESS logs every interaction with the data, providing a transparent, immutable record of who accessed what data and when. This enhances accountability and builds trust in the system, ensuring that data is used ethically and in accordance with the user's preferences.
 - **Compliance with Regulations**: CESS’s infrastructure is designed to meet regulatory requirements such as **GDPR** or other **data sovereignty laws**, ensuring that users can store and access data in compliance with local laws and jurisdictions.
 
 ### **CESS Network's Leading Position in the AI Era**
 
-As AI continues to advance, the need for scalable, efficient, and ethical data infrastructure will only increase. **CESS Network** offers a solution to the challenges posed by **scaling laws** and data sovereignty concerns. By providing **distributed storage**, **fast access** to data, and robust **privacy protection**, CESS positions itself as a leading platform in the AI era.
+As AI continues to advance, the need for scalable, efficient, and ethical data infrastructure will only increase. CESS Network offers a solution to the challenges posed by **scaling laws** and data sovereignty concerns. By providing **distributed storage**, **millisecond access** to data, and robust **privacy protection**, CESS positions itself as a leading platform in the AI era.
 
-While **Cosmos AI** pushes the envelope in AI-driven video processing and content creation, its controversies highlight the growing importance of **ethical data collection** and **responsible AI development**. CESS’s decentralized, **user-controlled** approach provides a model for how AI systems can scale while respecting user rights and ensuring privacy. In an era where data is the most valuable asset, CESS’s infrastructure is perfectly positioned to lead in the development of AI technologies that are **scalable**, **secure**, and **ethically responsible**.
+While **Cosmos** pushes the envelope in AI-driven video processing and content creation, its controversies highlight the growing importance of **ethical data collection** and **responsible AI development**. CESS’s decentralized, user-controlled approach provides a model for how AI systems can scale while respecting user rights and ensuring privacy. In an era where data is the most valuable asset, CESS’s infrastructure is perfectly positioned to lead in the development of AI technologies that are **scalable**, **secure**, and **ethically responsible**.
