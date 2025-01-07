@@ -307,6 +307,7 @@
   * [AI](ref/AI/README.md)
     * [CESS: The Future of Decentralized Data Infrastructure for the AI-Driven World](ref/AI/CESS-De-Data-Infra-4-AI.md)
     * [Decentralized Solutions for AI: How CESS is Shaping a Trusted Future](ref/AI/How-CESS-is-Shaping-a-Trusted-Future.md)
+    * [CESS in CES: Insights from Jensen Huang’s CES 2025 Speech and CESS Network’s Role in the AI Era](ref/AI/CES-CESS-2025.md)
 * [📖 Glossary](glossary.md)
 
 <!--
