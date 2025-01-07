@@ -7,11 +7,15 @@ Huang’s keynote showcased how NVIDIA’s latest innovations are enabling this 
 - The new NVIDIA Project DIGITS brings the power of NVIDIA Grace Blackwell to developer desktops in a compact package that can practically fit in a pocket.
 - NVIDIA is partnering with Toyota for safe next-gen vehicle development using the NVIDIA DRIVE AGX in-vehicle computer running NVIDIA DriveOS.
 
+<figure><img src="../../assets/ref/AI/rtx50s.png" style="width:100%;display:block;margin:0 auto;" alt="GeForce RTX 50 Series GPUs"><figcaption><p>GeForce RTX 50 Series GPUs</p></figcaption></figure>
+
 Of course, game players are certainly surprised by the release of GeForce RTX 50 Series GPUs, but many developers had their eyes more on the NVIDIA Cosmos platform.
 
 **Introduction to the Cosmos AI Platform**
 
 The **Cosmos AI platform** is designed to transform how AI systems are built and deployed, particularly in areas that require heavy video processing and simulation, such as **3D content creation**, **autonomous driving**, and **digital human applications**. This platform leverages **optical transmission**, **physical simulations**, and **intelligent algorithms** to enhance the AI's ability to understand and interact with the world in a more human-like manner.
+
+<figure><img src="../../assets/ref/AI/cosmos-nvidia.png" style="width:100%;display:block;margin:0 auto;" alt="Advancing Physical AI With Cosmos"><figcaption><p>Advancing Physical AI With Cosmos</p></figcaption></figure>
 
 Some of the core features of the **Cosmos AI platform** include:
 - **Advanced Video Processing**: Capabilities to process vast amounts of video data in real-time, crucial for applications like **autonomous vehicles** or **interactive virtual environments**.
@@ -31,6 +35,8 @@ The controversy surrounding **illegal data collection** has intensified discussi
 ### **CESS Network’s Advantages in the AI Era: Distributed Access and Privacy Protection**
 
 While **Cosmos AI** seeks to revolutionize data processing and AI capabilities, it also underscores the challenges related to **data scaling**, **privacy**, and **sovereignty**. In this context, **CESS Network** emerges as a powerful solution.
+
+<figure><img src="../../assets/ref/AI/nic-in-ces2025.png" style="width:100%;display:block;margin:0 auto;" alt="CESS in CES"><figcaption><p>CESS in CES</p></figcaption></figure>
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">CESS in CES...<a href="https://t.co/e4u5aYTkRX">https://t.co/e4u5aYTkRX</a></p>&mdash; CESS Labs (@CESS_Tech) <a href="https://twitter.com/CESS_Tech/status/1876651373556908136?ref_src=twsrc%5Etfw">January 7, 2025</a></blockquote> 
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
