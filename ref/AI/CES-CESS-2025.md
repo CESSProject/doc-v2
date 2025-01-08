@@ -71,4 +71,4 @@ As AI continues to advance, the need for scalable, efficient, and ethical data i
 While **Cosmos** pushes the envelope in AI-driven video processing and content creation, its controversies highlight the growing importance of **ethical data collection** and **responsible AI development**. CESS’s decentralized, user-controlled approach provides a model for how AI systems can scale while respecting user rights and ensuring privacy. In an era where data is the most valuable asset, CESS’s infrastructure is perfectly positioned to lead in the development of AI technologies that are **scalable**, **secure**, and **ethically responsible**.
 
 ### **References**
-[1] https://www.youtube.com/live/k82RwXqZHY8?si=tZFQ_vPXn_JaXxh0
+[1]  [NVIDIA CEO Jensen Huang Keynote at CES 2025](https://www.youtube.com/live/k82RwXqZHY8?si=tZFQ_vPXn_JaXxh0) 
