@@ -1,4 +1,7 @@
-On January 17, 2025, **NVIDIA** founder and CEO **Jensen Huang** kicked off **CES 2025** with a 90-minute keynote that included new products to advance gaming, autonomous vehicles, robotics, and agentic AI.
+
+*2025-01-06 by CESS* 
+
+On January 6th, 2025, **NVIDIA** founder and CEO **Jensen Huang** kicked off **CES 2025** with a 90-minute keynote that included new products to advance gaming, autonomous vehicles, robotics, and agentic AI.
 
 Huang’s keynote showcased how NVIDIA’s latest innovations are enabling this new era of AI, with several groundbreaking announcements, including:
 - The just-announced NVIDIA **Cosmos platform** advances physical AI with new models and video data processing pipelines for robots, autonomous vehicles and vision AI.
