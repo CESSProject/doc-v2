@@ -8,7 +8,11 @@ Just like in the **web era**, **Yahoo** became the portal for various sites, the
 
 ### **Technical Features of CESS AI Agent Hub**
 
-At the core of the **CESS AI Agent Hub** is **CESS Network’s decentralized infrastructure** and **XESS AI Protocol Suite**, which leverages distributed storage, computing, and blockchain-based security to aggregate and serve AI agents. What truly sets **CESS AI Agent Hub** apart is its **decentralized architecture**. Powered by **Blockchain** and **distributed computing**, the platform allows for the **decentralized deployment** and **orchestration** of AI agents. This ensures several advantages:
+At the core of the **CESS AI Agent Hub** is **CESS Network’s decentralized infrastructure** and **XESS AI Protocol Suite**, which leverages distributed storage, computing, and blockchain-based security to aggregate and serve AI agents. What truly sets **CESS AI Agent Hub** apart is its **decentralized architecture**. Powered by **Blockchain** and **distributed computing**, the platform allows for the **decentralized deployment** and **orchestration** of AI agents. 
+
+<figure><img src="../../assets/ref/AI/CESSArchitecture-agent.png" style="width:100%;display:block;margin:0 auto;" alt="CESS AI Agent Hub"><figcaption><p>CESS AI Agent Hub</p></figcaption></figure>
+
+This ensures several advantages:
 
 1. **Scalability**: The **CESS AI Agent Hub** is designed to handle massive scalability. As demand grows across sectors like healthcare, finance, and autonomous driving, the decentralized nature of the system ensures that it can scale without compromising performance or security.
    
