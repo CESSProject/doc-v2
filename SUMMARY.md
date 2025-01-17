@@ -12,6 +12,7 @@
     * [Running MultiNodes](cess-miners/storage-miner/multi-miner.md)
     * [Acceleration Guide](cess-miners/storage-miner/teeworker.md)
     * [Node Troubleshooting](cess-miners/storage-miner/troubleshooting.md)
+    * [Storage Miner Upgrade Guide](cess-miners/storage-miner/sminer-upgrade.md)
   * [Consensus Nodes](cess-miners/consensus-miner/README.md)
     * [Running a Consensus Node](cess-miners/consensus-miner/running.md)
     * [Reward Mechanism](cess-miners/consensus-miner/reward.md)
