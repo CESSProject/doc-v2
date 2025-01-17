@@ -45,9 +45,6 @@ chain:
   rpcs:
     - 'ws://127.0.0.1:9944'
     - 'wss://testnet-rpc.cess.network'
-  tees:
-    - '127.0.0.1:8080'
-    - '127.0.0.1:8081'
 ```
 
 
@@ -86,6 +83,7 @@ sudo bash ./install.sh --no-rmi --retain-config --skip-dep --keep-running
 $ sudo mineradm pullimg
 
 # step 3: update config file
+# Attention: Storage miner will not use public tee nodes on chain if set custom tee nodes in config.yaml
 method 1: edit /opt/cess/mineradm/config.yaml based on the old config file: /opt/cess/mineradm/.old_config.yaml
 method 2: use default value of apiendpoint/Timeout: cat /opt/cess/mineradm/.old_config.yaml > /opt/cess/mineradm/config.yaml
 
@@ -93,6 +91,7 @@ method 2: use default value of apiendpoint/Timeout: cat /opt/cess/mineradm/.old_
 $ sudo mineradm config generate
 
 # step 5: restart service
-$ sudo mineradm restart
+$ sudo mineradm down
+$ sudo mineradm install
 ```
 
