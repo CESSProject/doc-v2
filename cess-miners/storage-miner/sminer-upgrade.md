@@ -2,11 +2,13 @@
 
 **For better data transmission, we need to upgrade our storage miner to latest version which is incompatible with the old version.**
 
-Add configuration: `apiendpoint` and `timeout`
+**Add configuration:** `apiendpoint` and `timeout`
 - apiendpoint: An external `ip:port` or `domain` which can be accessed by public network, default value: `hostPublicIP:port`
 - Timeout: Default `12` seconds for transaction with chain.
 
-Delete configuration: `Boot`
+**Delete configuration:** `Boot`
+
+**Attention:** Storage miner will not use `public tee nodes` on chain if set `custom tee nodes` in config.yaml
 
 ## Old Configuration File Schema
 
@@ -52,6 +54,7 @@ chain:
 ## For nodeadm user
 ```bash
 # step 1: update nodeadm client
+# https://github.com/CESSProject/cess-nodeadm/releases
 wget https://github.com/CESSProject/cess-nodeadm/archive/vx.x.x.tar.gz
 tar -xvf vx.x.x.tar.gz
 cd cess-nodeadm-x.x.x
@@ -74,7 +77,7 @@ $ sudo cess restart
 
 ```bash
 # step 1: update mineradm client
-sudo wget https://github.com/CESSProject/cess-multiminer-admin/archive/latest.tar.gz -O /tmp/latest.tar.gz
+sudo wget https://github.com/CESSProject/cess-multiminer-admin/archive/latest.tar.gz -O /tmp/latest.tar.gz && cd /tmp
 sudo tar -xvf latest.tar.gz
 cd cess-multiminer-admin-latest
 sudo bash ./install.sh --no-rmi --retain-config --skip-dep --keep-running
