@@ -170,22 +170,21 @@ After executing the above installation command, customize your own config file a
 
 - **UseSpace:** Storage capacity of the storage node, measured in GB.
 - **UseCpu:** Number of logical cores used by the storage node.
-- **TeeList:** Use this list to specify the TEE Nodes first.
-- **Timeout:** Default 12 second for transaction with chain.
-- **port:** Storage node use that port to communicat with each other, the port of each storage node must be different and not occupied by other process
+- **TeeList:** Storage miner will not use public tee nodes on chain if set custom tee nodes in config.yaml.
+- **port:** Storage node use that port to communicat with each other, the port of each storage node must be different and not occupied by other process.
 - **apiendpoint:** An external IP address or domain which can be accessed by internet, default value: `hostPublicIP:port`.
 - **diskPath:** Absolute system path where the storage node run, requiring a file system to be mounted at this path.
 - **earningsAcc:** Used to receive mining rewards. [Get earningsAcc and mnemonic](../../user/cess-account.md)
 - **mnemonic:** Account mnemonic, consisting of 12 words, with each storage node requiring a different mnemonic, set mnemonic as node's signatureAcc in /opt/cess/mineradm/config.yaml.
 - **stakingAcc:** Used to pay for staking TCESS. 4000 TCESS at least is required for stakingAcc([Get TCESS](https://cess.network/faucet.html)). SignatureAcc also can be a stakingAcc when delete property: stakingAcc or make it empty in /opt/cess/mineradm/config.yaml.
 - **chainWsUrl:** As an RPC node for blockchain synchronization. The priority of `miners[].chainWsUrl` is higher than `node.chainWsUrl` in /opt/cess/mineradm/config.yaml.
-- **backupChainWsUrls:** Backup RPC nodes that can be official RPC nodes or other RPC nodes you know. The priority of `miners[].backupChainWsUrls` is higher than `node.backupChainWsUrls` in
-  /opt/cess/mineradm/config.yaml.
-- **watchdog.enable:** enable watchdog to monitor the health of the storage node.
-- **watchdog.apiUrl:** a public url that can access to the watchdog service, user can set a `dns resolution` and `proxy service` to these watchdog server. default value: `http://<host public ip>:$port`
-- **watchdog.port:** watchdog server port
-- **watchdog.hosts:** watchdog server can scrape nodes data from these hosts, `ip` is the host ip, `port` is the port which docker daemon listen. TLS configuration must be set if scrape data from a host in a public network. [how to set docker daemon tls](../../cess-miners/storage-miner/troubleshooting.md)
-- **watchdog.alert:** enable alert or not. Watchdog will send alert to the email address you set in `watchdog.alert.email.receiver` and send webhook to the webhook url you set in `watchdog.alert.webhook` if alert enable.
+- **backupChainWsUrls:** Backup RPC nodes that can be official RPC nodes or other RPC nodes you know. The priority of `miners[].backupChainWsUrls` is higher than `node.backupChainWsUrls` in `/opt/cess/mineradm/config.yaml`.
+- **Timeout:** Timeout about storage miner transaction with chain.
+- **watchdog.enable:** Enable watchdog to monitor the health of the storage node.
+- **watchdog.apiUrl:** A public url that can access to the watchdog service, user can set a `dns resolution` and `proxy service` to these watchdog server. default value: `http://<host public ip>:$port`.
+- **watchdog.port:** Watchdog server listen at this port.
+- **watchdog.hosts:** Watchdog server can scrape nodes data from these hosts, `ip` is the host ip, `port` is the port which docker daemon listen. TLS configuration must be set if scrape data from a host in a public network. [how to set docker daemon tls](../../cess-miners/storage-miner/troubleshooting.md)
+- **watchdog.alert:** Enable alert or not. Watchdog will send alert to the email address you set in `watchdog.alert.email.receiver` and send webhook to the webhook url you set in `watchdog.alert.webhook` if alert enable.
 
 
 **/opt/cess/mineradm/config.yaml Template as below:**
@@ -200,7 +199,7 @@ After executing the above installation command, customize your own config file a
      # default chain url for storage node, can be overwritten in miners[] as below
      chainWsUrl: "ws://127.0.0.1:9944/"
      # default backup chain urls for storage node, can be overwritten in miners[] as below
-     backupChainWsUrls: [ "wss://testnet-rpc.cess.network/ws/" ]
+     backupChainWsUrls: [ "wss://testnet-rpc.cess.network" ]
 
    ## chain configurations
    ## set option: '--skip-chain' or '-s' to skip installing chain (mineradm install --skip-chain)
@@ -216,60 +215,52 @@ After executing the above installation command, customize your own config file a
    ## storage nodes configurations  (multi nodes mode)
    miners:
      - name: "miner1"
-       # P2P communication port
+       # Use this endpoint to receive/send file, can be a domain or ip:port, default value: hostPublicIp:port
+       apiendpoint: ""
+       # storage miner listen at this port
        port: 15001
-       # Maximum space used in each storage node, the unit is GiB
-       # The declaration space on chain is the UseSpace after round up to the closest TB
-       # If set UseSpace to 2100, that means declare 3 TiB space on the chain
-       # If set UseSpace to 300, that means declare 1 TiB space on the chain
+       # Maximum space used in each miner, the unit is GiB
+       # The declaration space on chain is auto set by the value of `UseSpace after round up to the closest TB` when the miner first run
+       # If set UseSpace 2300, that means declare 3 TiB space on the chain
+       # If set UseSpace 300, that means declare 1 TiB space on the chain
        UseSpace: 1000
-       # Number of cpu's used, 0 means use all
+       # Number of cpu's processor used, 0 means use all
        UseCpu: 2
        # earnings account
        earningsAcc: "cXxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
        # Staking account
-       # If you fill in the staking account, the staking will be paid by the staking account,
-       # otherwise the staking will be paid by the signatureAcc(mnemonic as signatureAcc).
-       stakingAcc: "cXxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+       # If you fill in the staking account, the staking will be paid by the staking account you set,
+       # otherwise the staking will be paid by the signatureAcc(mnemonic).
+       stakingAcc: ""
        # Signature account mnemonic
-       # each node's mnemonic should be different
+       # each miner's mnemonic should be different
        mnemonic: "aaaaa bbbbb ccccc ddddd eeeee fffff ggggg hhhhh iiiii jjjjj kkkkk lllll"
-       # storage node work at this path
+       # miner work at this path
        diskPath: "/mnt/cess_storage1"
        # The rpc endpoint of the chain
-       # `official chain: wss://testnet-rpc.cess.network/ws/"
-       chainWsUrl: "ws://127.0.0.1:9944/"
-       backupChainWsUrls: [ ]
-       # Bootstrap Nodes
-       Boot: "_dnsaddr.boot-miner-testnet.cess.network"
-
+       # `official chain: "wss://testnet-rpc.cess.network"`
+       chainWsUrl: "ws://127.0.0.1:9944"
+       backupChainWsUrls: [ "wss://testnet-rpc.cess.network" ]
+       # Timeout about storage miner transaction with chain 
+       Timeout: 12
+       # Tee list address
+       # Attention: Storage miner will not use public tee nodes on chain if set custom tee nodes in config.yaml
+       # TeeList:
+       #  - 127.0.0.1:8080
+       #  - 127.0.0.1:8081
+  
      - name: "miner2"
-       # P2P communication port
+       apiendpoint: ""
        port: 15002
-       # Maximum space used in each storage node, the unit is GiB
-       # The declaration space on chain is the UseSpace after round up to the closest TB
-       # If set UseSpace to 2100, that means declare 3 TiB space on the chain
-       # If set UseSpace to 300, that means declare 1 TiB space on the chain
        UseSpace: 1000
-       # Number of cpu's used
        UseCpu: 2
-       # earnings account
-       earningsAcc: "cXxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-       # Staking account
-       # If you fill in the staking account, the staking will be paid by the staking account,
-       # otherwise the staking will be paid by the signatureAcc(mnemonic as a signatureAcc).
-       stakingAcc: "cXxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-       # Signature account mnemonic
-       # each node's mnemonic should be different
-       mnemonic: "lllll kkkkk jjjjj iiiii hhhhh ggggg fffff eeeee ddddd ccccc bbbbb aaaaa"
-       # storage node work at this path
+       earningsAcc: "cXxxx"
+       stakingAcc: ""
+       mnemonic: "xxx"
        diskPath: "/mnt/cess_storage2"
-       # The rpc endpoint of the chain
-       # `official chain: wss://testnet-rpc.cess.network/ws/"
-       chainWsUrl: "ws://127.0.0.1:9944/"
-       backupChainWsUrls: [ ]
-       # Bootstrap Nodes
-       Boot: "_dnsaddr.boot-miner-testnet.cess.network"
+       chainWsUrl: "ws://127.0.0.1:9944"
+       backupChainWsUrls: [ "wss://testnet-rpc.cess.network" ]
+       Timeout: 12
        
        
    # nodes monitor service, send alert with email/webhook when nodes is down or get punishment
