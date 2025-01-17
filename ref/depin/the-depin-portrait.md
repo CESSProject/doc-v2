@@ -1,3 +1,5 @@
+*2024-11-14 by **CESS Research Institute*** 
+
 # The DePIN Portrait
 Over the past few decades, we have witnessed a remarkable evolution of the internet. From the early days of Web 1.0, which was primarily "read-only," to the more interactive and participatory Web 2.0, which brought us social media, e-commerce, and a new era of digital communication. However, this rapid development has not come without its challenges.
 
