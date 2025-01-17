@@ -1,5 +1,5 @@
 
-*2025-01-06 by CESS* 
+*2025-01-06 by **CESS Research Institute*** 
 
 On January 6th, 2025, **NVIDIA** founder and CEO **Jensen Huang** kicked off **CES 2025** with a 90-minute keynote that included new products to advance gaming, autonomous vehicles, robotics, and agentic AI.
 
