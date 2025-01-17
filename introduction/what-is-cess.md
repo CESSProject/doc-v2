@@ -1,14 +1,23 @@
-In this article, we will delve into the what, why, and how of CESS, exploring its features and benefits.
+In this article, we will delve into the what, when, why, where, who and how of CESS, exploring its features and benefits.
 
 # What is CESS?
 
-CESS is a decentralized data value network designed with a holistic three-layer architecture. Our network architecture integrates a decentralized cloud storage network and a CD²N, offering highly customizable solutions for decentralized data storage and real-time sharing, specifically tailored for modern high-frequency dynamic data storage and retrieval needs. We meet enterprise users' demands for massive storage capacity, location-based storage selection (LBSS), hierarchical permission management, and other custom requirements and/or compliance needs.
+CESS is **the first decentralized data infrastructure with L1 chain, infinite storage capacity and ethical AI.**
 
-Supporting applications including but not limited to personalized medicine to decentralized social media and responsible AI, CESS empowers industries with data integrity, privacy, availability and sovereignty.
+CESS is a blockchain-powered decentralized cloud storage network with native CD²N, where users and creators share data on-chain, and builders can create and deploy DApps. Offering the most optimal Web3 solution for storing and retrieving high-frequency dynamic data, CESS reshapes the value distribution and circulation of data assets whilst ensuring data sovereignty and complete user privacy. The vision of CESS is to create a secure, transparent, and high-throughput decentralized data value network. 
+
+CESS is a public blockchain network based on a distributed storage system with milliseconds high-speed Content Decentralized Delivery Network (CD²N) and empowers AI innovations by web3 protocols.
+
+CESS is a secure, efficient, and scalable decentralized cloud storage network that provides data storage services and data sharing platform.
+
+CESS is an innovative solution for entropy reduction in our ever-chaotic digital landscape.
 
 {% hint style="success" %}
-**CESS: Blockchain Powered Distributed Storage and Content Decentralized Delivery Network (CD²N) Infrastructure for Web3.**
+**CESS: The first decentralized data infrastructure with L1 chain, infinite storage capacity and ethical AI.**
 {% endhint %}
+
+# When did the story of CESS begin?
+Since its inception in **2019**, our team has been a beacon of youthful energy and innovation, hailing from the UK, USA, India, China (Hong Kong), UAE and Argentina. We are a diverse collective of cryptographers, data storage experts, and computer science engineers, united by a common vision to disrupt the status quo. With a passion for making a difference, we are committed to crafting solutions that not only challenge the boundaries of technology but also have the potential to positively impact the world around us. Our mission is to ingrain a prestigious legacy on the digital landscape, one innovative step at a time.
 
 # Why CESS?
 
@@ -19,6 +28,48 @@ Offering the most optimal Web3 solution for storing and retrieving high-frequenc
 By utilizing a decentralized physical infrastructure network (DePIN) model, CESS drives mass deployment of network nodes globally through incentives.
 
 CESS is also compatible with both EVM and WebAssembly (Wasm). The underlying blockchain framework allows cross-ecosystem, cross-chain applications to use CESS. Its technology stack supports most Web3 applications.
+
+So, why you choose CESS? 
+
+Here's the answer:
+
+**Location-based Storage Selection**
+
+Ensure data privacy with compliance routing, keeping data within borders and easing national security concerns.
+
+**User Privacy Authorization**
+
+CESS Proxy Re-Encryption Technology enables secure data sharing among authorized parties without revealing the data content.
+
+**Empower Responsible AI with Privacy**
+
+Empower Responsible AI with user consent, smart contracts, and privacy algorithms, safeguarding sensitive data.
+
+**Blockchain-based Disaster Recovery**
+
+CESS Proof of Data Reduplication and Recovery (PoDR²) mechanism prevents any data loss and guarantees data integrity under any circumstance while continuously challenging storage nodes to prove data validity and availability, all executed within TEE.
+
+**Millisecond Data Retrieval**
+
+Achieve millisecond-level hot data access in a decentralized storage system with CESS's CD²N.
+
+**The 1st Decentralized Storage Standard Protocol**
+
+Leading the industry with the first IEEE blockchain-based decentralized storage protocol, [**P3220.02**](https://standards.ieee.org/ieee/3220.02/11522/), for technological breakthroughs.
+
+# Where can CESS be used?
+You can find some use cases [here](use-cases.md).
+
+# Who can join CESS?
+There are many user roles in CESS ecosystem. If you have identified yourself as a certain role in the ecosystem, feel free to jump right in.
+
+* [dApp Users](../user/)
+* [dApp Developers](../developer/)
+* [Storage Miners](../cess-miners/storage-miner/)
+* [Consensus Miners](../cess-miners/consensus-miner/)
+* [Community Members](../community/)
+* [Products](../products/)
+
 
 # How does CESS work?
 
