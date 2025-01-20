@@ -12,3 +12,5 @@ Go SDK provides a wealth of sample programs for your reference or direct use. Ex
 | [StoreObject](https://github.com/CESSProject/cess-go-sdk/blob/main/core/process/file.go#L167) | [Store an object](object_file/StoreObject.md) |
 | [RetrieveFile](https://github.com/CESSProject/cess-go-sdk/blob/main/core/process/file.go#L232) | [Retrieve a file](object_file/RetrieveFile.md) |
 | [RetrieveObject](https://github.com/CESSProject/cess-go-sdk/blob/main/core/process/file.go#L313) | [Retrieve an object](object_file/RetrieveObject.md) |
+| [StoreFileToMiners](https://github.com/CESSProject/cess-go-sdk/blob/main/core/process/file.go#L313) | [Store a file to miners](object_file/StoreFileToMiners) |
+| [RetrieveFileFromMiners](https://github.com/CESSProject/cess-go-sdk/blob/main/core/process/file.go#L313) | [Retrieve a file from miners](object_file/RetrieveFileFromMiners) |

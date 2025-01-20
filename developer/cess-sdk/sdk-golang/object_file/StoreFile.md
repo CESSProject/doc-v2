@@ -6,7 +6,6 @@ This is the interface for uploading files to the gateway.
 // Receive parameter:
 //   - url: gateway url
 //   - file: stored file
-//   - bucket: bucket for storing file
 //   - territory: territory name
 //   - mnemonic: polkadot account mnemonic
 //
@@ -18,13 +17,10 @@ This is the interface for uploading files to the gateway.
 //  1. Account requires purchasing space, refer to [BuySpace] interface.
 //  2. Authorize the space usage rights of the account to the gateway account,
 //     refer to the [AuthorizeSpace] interface.
-//  3. Make sure the name of the bucket is legal, use the [CheckBucketName] method to check.
 //
 // Explanation:
 //   - Account refers to the account where you configured mnemonic when creating an SDK.
-//   - CESS public gateway address: [http://deoss-pub-gateway.cess.network/]
-//   - CESS public gateway account: [cXhwBytXqrZLr1qM5NHJhCzEMckSTzNKw17ci2aHft6ETSQm9]
-func StoreFile(url, file, bucket, territory, mnemonic string) (string, error)
+func StoreFile(url, file, territory, mnemonic string) (string, error)
 ```
 
 Example code:
@@ -58,7 +54,6 @@ var RPC_ADDRS = []string{
 const PublicGateway = "http://deoss-pub-gateway.cess.network/"
 const PublicGatewayAccount = "cXhwBytXqrZLr1qM5NHJhCzEMckSTzNKw17ci2aHft6ETSQm9"
 const UploadFile = "Your File"
-const BucketName = "Your Bucket"
 const Territory = "Your Territory"
 
 func main() {
@@ -84,7 +79,7 @@ func main() {
 	}
 
 	// upload file to gateway
-	fid, err := process.StoreFile(PublicGateway, UploadFile, BucketName, Territory, MY_MNEMONIC)
+	fid, err := process.StoreFile(PublicGateway, UploadFile, Territory, MY_MNEMONIC)
 	if err != nil {
 		panic(err)
 	}
