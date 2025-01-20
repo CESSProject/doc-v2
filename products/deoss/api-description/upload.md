@@ -8,7 +8,6 @@ This interface is used to upload files to the cess system. You need to submit th
 **Request Header:**
 | key              | description    |
 | ---------------- | -------------- |
-| Bucket           | bucket name    |
 | Territory        | territory name |
 | Cipher(optional) | cipher         |
 
@@ -23,7 +22,35 @@ The file is provided in the form.
 
 **Request example:**
 ```shell
-curl -X PUT URL/file -F 'file=@test.log;type=application/octet-stream' -H "Bucket: bucket_name" -H "Territory: territory_name" -H "Account: cX..." -H "Message: ..." -H "Signature: 0x..."
+curl -X PUT URL/file -F 'file=@test.log' -H "Territory: territory_name" -H "Account: cX..." -H "Message: ..." -H "Signature: 0x..."
+```
+
+## Upload multiple files
+This interface is similar to the ```/file``` interface, which can accept multiple form files at the same time.
+
+**HTTP Interface:**
+
+<span style="background-color: red; padding: 10px;"><b>PUT</b></span> &nbsp; <b>/files</b>
+
+**Request Header:**
+| key              | description    |
+| ---------------- | -------------- |
+| Territory        | territory name |
+| Cipher(optional) | cipher         |
+
+_Identity signature required: yes_
+
+**Request Body:**
+
+The file is provided in the form.
+| key  | value        |
+| ---- | ------------ |
+| file | file[binary] |
+| ......              |
+
+**Request example:**
+```shell
+curl -X PUT URL/files -F 'file=@test.log' -F 'file=@test1.log' -F 'file=@test2.log' -H "Territory: territory_name" -H "Account: cX..." -H "Message: ..." -H "Signature: 0x..."
 ```
 
 ## Upload an object
@@ -31,12 +58,11 @@ This interface is used to upload an object, you can write what you want to store
 
 **HTTP Interface:**
 
-<span style="background-color: red; padding: 10px;"><b>PUT</b></span> &nbsp; <b>/object</b>
+<span style="background-color: red; padding: 10px;"><b>PUT</b></span> &nbsp; <b>/object/<object_name></b>
 
 **Request Header:**
 | key              | description    |
 | ---------------- | -------------- |
-| Bucket           | bucket name    |
 | Territory        | territory name |
 | Cipher(optional) | cipher         |
 
@@ -48,7 +74,7 @@ _Identity signature required: yes_
 
 **Request example:**
 ```shell
-curl -X PUT URL/object --data "[content]" -H "Account: cX..." -H "Message: ..." -H "Signature: 0x..." -H "Bucket: bucket_name" -H "Territory: territory_name"
+curl -X PUT URL/object/<object_name> --data "[content]" -H "Account: cX..." -H "Message: ..." -H "Signature: 0x..." -H "Territory: territory_name"
 ```
 
 ## Specify miner storage
@@ -58,7 +84,7 @@ The method to specify the storage miner is to specify it by filling in the heade
 
 The example is as follows:
 ```shell
-curl -X PUT URL/file -F 'file=@test.log;type=application/octet-stream' -H "Miner: cX..." -H "Miner: cX..." -H "Miner: cX..." -H "Bucket: bucket_name" -H "Territory: territory_name" -H "Account: cX..." -H "Message: ..." -H "Signature: 0x..."
+curl -X PUT URL/file -F 'file=@test.log;type=application/octet-stream' -H "Miner: cX..." -H "Miner: cX..." -H "Miner: cX..." -H "Territory: territory_name" -H "Account: cX..." -H "Message: ..." -H "Signature: 0x..."
 ```
 
 ## Specify coordinate range storage
@@ -66,5 +92,5 @@ The gateway supports you to set a batch of longitude and latitude coordinate ran
 
 The example is as follows:
 ```shell
-curl -X PUT URL/file -F 'file=@test.log;type=application/octet-stream' -H "Latitude: 0.0" -H "Longitude: 0.0" -H "Latitude: 3.0" -H "Longitude: 3.0" -H "Latitude: -3.0" -H "Longitude: -3.0" -H "Bucket: bucket_name" -H "Territory: territory_name" -H "Account: cX..." -H "Message: ..." -H "Signature: 0x..."
+curl -X PUT URL/file -F 'file=@test.log;type=application/octet-stream' -H "Latitude: 0.0" -H "Longitude: 0.0" -H "Latitude: 3.0" -H "Longitude: 3.0" -H "Latitude: -3.0" -H "Longitude: -3.0" -H "Territory: territory_name" -H "Account: cX..." -H "Message: ..." -H "Signature: 0x..."
 ```

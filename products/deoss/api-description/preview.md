@@ -3,7 +3,7 @@ This interface is used to preview a file, it has two prerequisites: one is that 
 
 **HTTP Interface:**
 
-<span style="background-color: red; padding: 10px;"><b>GET</b></span> &nbsp; <b>/open/{fid}</b>
+<span style="background-color: red; padding: 10px;"><b>GET</b></span> &nbsp; <b>/file/open/<fid></b>
 
 **Request Header:**
 | key               | description        | example |
@@ -15,4 +15,4 @@ If you fill in the `Account`, the file will be previewed in the file type set by
 
 **Request example:**
 
-Open in browser: URL/open/{fid}
+Open in browser: URL/file/open/<fid>
