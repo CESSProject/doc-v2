@@ -100,9 +100,9 @@ Before running, if you have previously deployed a previous version of CESS conse
 The `cess-nodeadm` is a CESS node deployment and management tool. It helps deploying and managing storage nodes, consensus nodes, and full nodes, simplifying the devOps for all CESS miners.
 
 ```bash
-wget https://github.com/CESSProject/cess-nodeadm/archive/refs/tags/v0.5.7.tar.gz
-tar -xvf v0.5.7.tar.gz
-cd cess-nodeadm-0.5.7
+wget https://github.com/CESSProject/cess-nodeadm/archive/refs/tags/v0.6.0.tar.gz
+tar -xvf v0.6.0.tar.gz
+cd cess-nodeadm-0.6.0
 sudo ./install.sh
 ```
 
