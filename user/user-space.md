@@ -82,3 +82,29 @@ The guide will explain how to purchase territory, expand territory, renew territ
 `deadline`: Block height at expiration.
 
 `state`: The status of the space currently held by the user.
+
+## Buy territory for others
+
+1. To purchase territory for others, an arbitrary account must first create a purchase order. Select `Developer -> Extrinsics -> StorageHandler` module, then select the `createOrder` transaction. This transaction can be executed by any account, but a certain fee must be paid, and it can be used not only for purchasing but also for renewing and expanding. In our example, we will take purchasing as an example.
+
+![Create Order](../../assets/developer/guides/territory-operation/create_order.png)
+
+       targetAcc: Target account for purchase
+       territoryName: The name of the territory for purchase/renewal/expansion.
+       orderType: The type of this order is to choose for purchase/renewal/expansion.
+       gibCount: The size of the territory for purchase/expansion.
+       days: The validity period of the territory for purchase/renewal.
+       expired: The validity time of the order, in blocks.
+
+2. After submitting the create order transaction, the event will return an orderId, which is the unique identifier of the order. To pay for this order, the orderId will be needed.
+
+![Order Id](../../assets/developer/guides/territory-operation/order_id.png)
+
+As shown in the figure, we obtained an order id of `0xc49692668b58cc8e826e289e90e100542afe520fffe112dc76e18cb26e3573d3`, and next we need to pay for this order.
+
+3. Select `Developer -> Extrinsics -> StorageHandler` module, then select the `execOrder` transaction, and fill in the corresponding orderId. This step will deduct the tokens from the transaction account according to the order content and execute the order.
+
+![Exec Order](../../assets/developer/guides/territory-operation/exec_order.png)
+
+After the transaction is successfully executed, the operation of purchasing territory for others is completed.
+
