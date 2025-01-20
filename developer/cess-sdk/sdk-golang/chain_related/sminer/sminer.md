@@ -20,4 +20,4 @@ The list of interfaces is as follows:
 - [RegnstkSminer](RegnstkSminer.md)
 - [RegnstkAssignStaking](RegnstkAssignStaking.md)
 - [UpdateBeneficiary](UpdateBeneficiary.md)
-- [UpdateSminerPeerId](UpdateSminerPeerId.md)
+- [UpdateSminerEndpoint](UpdateSminerEndpoint.md)

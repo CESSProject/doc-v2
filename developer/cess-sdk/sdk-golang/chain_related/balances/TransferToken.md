@@ -7,9 +7,8 @@ TransferToken transfers to other accounts.
 //
 // Return:
 //   - string: block hash
-//   - string: target account
 //   - error: error message
-func (c *ChainClient) TransferToken(dest string, amount uint64) (string, string, error)
+func (c *ChainClient) TransferToken(dest string, amount uint64) (string, error)
 ```
 
 Example code:
