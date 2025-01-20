@@ -89,12 +89,13 @@ The guide will explain how to purchase territory, expand territory, renew territ
 
 ![Create Order](../assets/developer/guides/territory-operation/create_order.png)
 
-       targetAcc: Target account for purchase
-       territoryName: The name of the territory for purchase/renewal/expansion.
-       orderType: The type of this order is to choose for purchase/renewal/expansion.
-       gibCount: The size of the territory for purchase/expansion.
-       days: The validity period of the territory for purchase/renewal.
-       expired: The validity time of the order, in sec.
+- `targetAcc`: The account to which the purchased territory will be assigned.
+- `territoryName`: The name of the territory for purchase/renewal/expansion.
+- `orderType`: The type of this order is to choose for purchase/renewal/expansion.
+- `gibCount`: The size of the territory for purchase/expansion.
+- `days`: The validity period of the territory for purchase/renewal.
+- `expired`(0-99): The number of blocks until the order expires. For example, if you enter 10, the order will expire after 10 blocks. Each block takes approximately 6 seconds to be mined, meaning the order will expire in 60 seconds.
+
 
 2. After submitting the create order transaction, the event will return an orderId, which is the unique identifier of the order. To pay for this order, the orderId will be needed.
 
