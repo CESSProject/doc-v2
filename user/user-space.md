@@ -94,7 +94,7 @@ The guide will explain how to purchase territory, expand territory, renew territ
        orderType: The type of this order is to choose for purchase/renewal/expansion.
        gibCount: The size of the territory for purchase/expansion.
        days: The validity period of the territory for purchase/renewal.
-       expired: The validity time of the order, in blocks.
+       expired: The validity time of the order, in sec.
 
 2. After submitting the create order transaction, the event will return an orderId, which is the unique identifier of the order. To pay for this order, the orderId will be needed.
 
