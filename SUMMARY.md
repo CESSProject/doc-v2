@@ -1,7 +1,7 @@
 # Table of contents
 
 * [🗂 Introduction](README.md)
-  * [What is CESS](introduction/what-is-cess.md)
+  * [5Ws-1H about CESS](introduction/what-is-cess.md)
   * [Technical Highlight](introduction/technical-highlight.md)
   * [Use Cases](introduction/use-cases.md)
   * [Whitepaper](introduction/whitepaper.md)
@@ -12,6 +12,7 @@
     * [Running MultiNodes](cess-miners/storage-miner/multi-miner.md)
     * [Acceleration Guide](cess-miners/storage-miner/teeworker.md)
     * [Node Troubleshooting](cess-miners/storage-miner/troubleshooting.md)
+    * [Storage Miner Upgrade Guide](cess-miners/storage-miner/sminer-upgrade.md)
   * [Consensus Nodes](cess-miners/consensus-miner/README.md)
     * [Running a Consensus Node](cess-miners/consensus-miner/running.md)
     * [Reward Mechanism](cess-miners/consensus-miner/reward.md)
@@ -269,6 +270,7 @@
       * [View Bucket List](products/deoss/api-description/view_bucket_list.md)
       * [View Version](products/deoss/api-description/view_version.md)
 * [📚 References](ref/README.md)
+  <!--
   * [Concepts](ref/concepts/README.md)
     * [System Architecture](ref/concepts/system-arch.md)
     * [Blockchain Architecture](ref/concepts/blockchain-arch.md)
@@ -284,6 +286,7 @@
       * [Data Migration](ref/concepts/blockchain-core/data-migration.md)
       * [Off-chain Worker](ref/concepts/blockchain-core/off-chain-worker.md)
       * [Forkless Upgrade](ref/concepts/blockchain-core/forkless-upgrade.md)
+  -->
   * [Node Operations](ref/ops/README.md)
     * [Running RPC Node](ref/ops/running-rpc-node.md)
   * [In-depth Technical Features](ref/in-depth-feat/README.md)
@@ -300,6 +303,13 @@
     * [Node Discovery](ref/storage/node-discovery.md)
     * [Message Protocol](ref/storage/message-protocol.md)
     * [Storage Method](ref/storage/storage-method.md)
+  * [DePIN](ref/depin/README.md)
+    * [The DePIN Portrait](ref/depin/the-depin-portrait.md)
+  * [AI](ref/AI/README.md)
+    * [CESS: The Future of Decentralized Data Infrastructure for the AI-Driven World](ref/AI/CESS-De-Data-Infra-4-AI.md)
+    * [Decentralized Solutions for AI: How CESS is Shaping a Trusted Future](ref/AI/How-CESS-is-Shaping-a-Trusted-Future.md)
+    * [CESS in CES: Insights from Jensen Huang’s CES 2025 Speech and CESS Network’s Role in the AI Era](ref/AI/CES-CESS-2025.md)
+    * [CESS AI Agent Hub: Yahoo in the AI Times](ref/AI/AI-Agent-Hub.md)
 * [📖 Glossary](glossary.md)
 
 <!--

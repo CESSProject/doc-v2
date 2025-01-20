@@ -18,7 +18,7 @@ No fees will be charged for unsigned transactions, and no information of the req
 
 Therefore, the checking of unsigned transactions before execution must be very restrictive. In addition, since unsigned transactions are user-defined verification processes, they usually consume more resources than signed transactions.
 
-In CESS network, only the validator of current rotation can be the initiator of an unsigned transaction. The request content needs to be attached with the signature digest of the specific account in order to pass the user-defined verification in CESS network.
+In CESS network, only the validator of the current slot can be the initiator of an unsigned transaction. The request content needs to be attached with the signature digest of the specific account in order to pass the user-defined verification in CESS network.
 
 There is also a module using unsigned transactions in Substrate framework, namely [`pallet_im_online::pallet::Call::heartbeat`](https://paritytech.github.io/substrate/master/pallet_im_online/pallet/struct.Pallet.html#method.heartbeat) extrinsic. This transaction enables the validator node to send a message to the network to confirm that the node is online. For this transaction, Substrate has a strict verification process, and only accounts registered as validator nodes are allowed to send.
 
