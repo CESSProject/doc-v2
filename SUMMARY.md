@@ -24,7 +24,7 @@
 * [👥 CESS User Guide](user/README.md)
   * [CESS Account](user/cess-account.md)
   * [Testnet Faucet](user/testnet-faucet.md)
-  * [Buy Space](user/user-space.md)
+  * [Territory Operation](user/user-space.md)
 * [💻 Developers](developer/README.md)
   * [CESS SDK](developer/cess-sdk/README.md)
     * [Golang SDK](developer/cess-sdk/sdk-golang/README.md)
