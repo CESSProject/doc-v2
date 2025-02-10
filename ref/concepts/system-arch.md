@@ -4,7 +4,7 @@ CESS offers large-scale storage capacity, managing data files with up to space i
 
 CESS adopts layered and loosely coupled system architecture, which is divided into **CESS Protocol Suite** and **XESS AI Protocol Suite**.
 
-![CESS Architecture](../../assets/concepts/system-architecture/cess-arch.png)
+![CESS Architecture](../../assets/introduction/cess-architecture.png)
 
 **CESS Protocol Suite** includes a blockchain service layer, distributed storage resource layer, and distributed content delivery layer.
 
