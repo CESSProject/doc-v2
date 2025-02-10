@@ -16,7 +16,7 @@ CESS adopts layered and loosely coupled system architecture, which is divided in
 
 The **XESS AI Protocol Suite** leverages advanced AI technologies to enable secure, privacy-preserving collaborative model training across the CESS network. 
 
-- The core component of the XCESS AI Protocol Suite is the **CESS AI Gap**, which integrates federated learning mechanisms, allowing participants to train shared models without sharing their original data. Utilizing smart contracts, it delegates computational tasks to various nodes, ensuring efficient use of resources while maintaining data sovereignty. This suite enhances the network's AI capabilities, supporting complex AI applications and facilitating industry-wide collaboration without compromising data privacy.
+- The core component of the XCESS AI Protocol Suite is the **CESS AI LINK**, which integrates federated learning mechanisms, allowing participants to train shared models without sharing their original data. Utilizing smart contracts, it delegates computational tasks to various nodes, ensuring efficient use of resources while maintaining data sovereignty. This suite enhances the network's AI capabilities, supporting complex AI applications and facilitating industry-wide collaboration without compromising data privacy.
 
 The **Interface** provides CLI/RPC/API/SDK interfaces to support data storage service, blockchain service, high-speed content delivery service and AI tools, etc.
 
