@@ -1,4 +1,4 @@
-The CESS Network consists of four types of nodes: **Consensus Nodes**, **Storage Nodes**, **TEE Nodes**, and **CDN Nodes** . 
+The CESS Network consists of **4** types of nodes: **Consensus Nodes**, **Storage Nodes**, **TEE Nodes**, and **CDN Nodes** . 
 
 CESS testnet RPC address: `wss://testnet-rpc.cess.network/ws/`.
 
