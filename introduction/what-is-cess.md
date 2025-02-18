@@ -79,7 +79,7 @@ CESS Protocol Suite includes a **blockchain service layer**, **distributed stora
 
 The **XESS AI Protocol Suite** leverages advanced AI technologies to enable secure, privacy-preserving collaborative model training across the CESS network. 
 
-The **Interface** provides CLI/RPC/API/SDK interfaces to support data storage service, blockchain service, high-speed content delivery service and AI tools, etc.
+The **Interface** provides CLI/RPC/API/SDK interfaces to support data storage service, blockchain service, high-speed content delivery service and AI Agent Service, etc.
 
 <figure><img src="../assets/introduction/cess-architecture.png" alt="CESS Architecture"><figcaption><p>CESS Architecture</p></figcaption></figure>
 
