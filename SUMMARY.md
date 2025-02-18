@@ -10,7 +10,7 @@
   * [Consensus Nodes](cess-miners/consensus-miner/README.md)
     * [Running a Consensus Node](cess-miners/consensus-miner/running.md)
     * [Reward Mechanism](cess-miners/consensus-miner/reward.md)
-  * [TEE Node](cess-miners/tee-node/README.md)
+  * [TEE Nodes](cess-miners/tee-node/README.md)
     * [Running a TEE Node](cess-miners/tee-node/running.md)
   * [Storage Nodes](cess-miners/storage-miner/README.md)
     * [Running a Storage Node](cess-miners/storage-miner/running.md)
