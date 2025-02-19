@@ -63,6 +63,10 @@ A TEE worker is bound to a consensus node and can only work after registering a 
 If a CESS node is running in both full-node mode and TEE worker mode, it is eligible to be elected as a validator which responsible for producing and verifying blocks.
 {% endhint %}
 
+{% hint style="success" %}
+If you are interested in running a storage node, please refer to the section [**TEE Node**](tee-node/).
+{% endhint %}
+
 # CDN Node
 CDN Node is a collective term for nodes in the CESS CDN network, responsible for implementing data retrieval load balancing, preventing DDOS attacks, and bidirectional distribution of user data from users to the CESS network and from the CESS network to users. Moreover, CDN Node also implements native support for processing AI data/training datasets, models and other data in the underlying architecture, helping CESS contribute to the development of the AI ecosystem. CDN Node can be divided into two roles in the program: retriever and cacher. Cachers can run on a large number of DePin devices to achieve lightweight data caching functions and earn revenue by contributing data traffic; retrievers support functions such as data retrieval and processing, load scheduling, and data sharing between nodes, and earn revenue by contributing computing power and data traffic. Users can run script tools through dedicated nodes to monetize related resources by running any role of CDN Node as needed.
 CDN Node includes **Retriever** and **Cacher**.
@@ -72,7 +76,4 @@ The retriever includes data retrieval, caching, calculation, and scheduling func
 ## Cacher
 The cacher realizes lightweight data caching function and can run on low-power DePin devices, contributing traffic to obtain revenue. CESS achieves unlimited scalability of edge cache by deploying a large number of cachers.
 
-{% hint style="success" %}
-If you are interested in running a storage node, please refer to the section [**TEE Node**](tee-node/).
-{% endhint %}
 
