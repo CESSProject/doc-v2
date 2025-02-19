@@ -4,18 +4,30 @@ CESS testnet RPC address: `wss://testnet-rpc.cess.network/ws/`.
 
 # Consensus Nodes
 
-Consensus nodes are essential in validator elections and authoring blocks in the CESS blockchain. All consensus nodes have the following features:
+The Consensus Node is the foundational builder of the CESS blockchain, responsible for packaging and publishing blocks through the proprietary R²S consensus mechanism. R²S extends the classic PoS algorithm by introducing a dynamic selection process, choosing 11 consensus nodes as validators in each cycle. This selection is based on node workload, the number of staked tokens, and a randomized factor. Validators play a key role in block production and confirmation, earning CESS tokens as rewards for their efforts. 
+All consensus nodes have the following features:
 
 - Record and store the transaction results and state changes
 - Communicate among nodes that form a peer-to-peer network in a decentralized fashion
 - Execute consensus algorithm to ensure on-chain data's security and sustained growth
 - Contain cryptographic algorithm for signatures and transaction verifications
 
-Consensus node is developed using [Substrate](https://substrate.io/) framework.
-According to different responsibilities, the consensus node is divided into CESS Worker and TEE Worker. 
+Users can either run their own consensus node to become a **Validator**, or stake tokens and be a **Nominator** to support  validators, participating in the block production rewards.
 
-## CESS Worker
-CESS worker is responsible for the packaging of transactions, transaction verification, block generation and blockchain data storage for the entire network.
+## Validator
+The Validator is consensus node selected by the consensus algorithm within a specific period. They are responsible for block packaging and confirming the consistency of blockchain state within the current era. Validators who successfully produce blocks will receive block rewards.
+
+## Nominator
+The Nominator is a cryptocurrency holder who indirectly participates in blockchain consensus and shares profits by supporting validators through collateral tokens.
+
+# Storage Nodes
+
+Storage nodes play a crucial role in the distributed storage system. All nodes are peers and form a globally distributed storage network using P2P communication technology based on [libp2p](https://github.com/libp2p/go-libp2p) implementation.
+
+Storage nodes are responsible for providing storage space, storing data, providing downloads, and calculating data proof. They also control which disk to use and the maximum storage capacity to serve the CESS network. The larger the storage provided, the higher the rewards obtained.
+
+The CESS network incentivizes storage nodes to offer disk capacities of 4GB and above, preferably utilizing SSDs with a network bandwidth of no less than 2Mbps. Storage nodes satisfying this requirement can yield higher rewards at an accelerated pace.
+
 
 ## TEE Worker
 
@@ -32,14 +44,6 @@ If a CESS node is running in both full-node mode and TEE worker mode, it is elig
 {% hint style="success" %}
 If you are interested in running a consensus node, please refer to the section [**Consensus Nodes**](consensus-miner/).
 {% endhint %}
-
-# Storage Nodes
-
-Storage nodes play a crucial role in the distributed storage system. All nodes are peers and form a globally distributed storage network using P2P communication technology based on [libp2p](https://github.com/libp2p/go-libp2p) implementation.
-
-Storage nodes are responsible for providing storage space, storing data, providing downloads, and calculating data proof. They also control which disk to use and the maximum storage capacity to serve the CESS network. The larger the storage provided, the higher the rewards obtained.
-
-The CESS network incentivizes storage nodes to offer disk capacities of 4GB and above, preferably utilizing SSDs with a network bandwidth of no less than 2Mbps. Storage nodes satisfying this requirement can yield higher rewards at an accelerated pace.
 
 ## Chain Client Component
 
