@@ -73,6 +73,6 @@ The retriever includes data retrieval, caching, calculation, and scheduling func
 The cacher realizes lightweight data caching function and can run on low-power DePin devices, contributing traffic to obtain revenue. CESS achieves unlimited scalability of edge cache by deploying a large number of cachers.
 
 {% hint style="success" %}
-If you are interested in running a storage node, please refer to the section [**TEE Node**](tee-miner/).
+If you are interested in running a storage node, please refer to the section [**TEE Node**](tee-node/).
 {% endhint %}
 
