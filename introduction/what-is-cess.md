@@ -83,7 +83,7 @@ The **Interface** provides CLI/RPC/API/SDK interfaces to support data storage se
 
 <figure><img src="../assets/introduction/cess-architecture.png" alt="CESS Architecture"><figcaption><p>CESS Architecture</p></figcaption></figure>
 
-CESS guarantees data security and integrity through proprietary technologies with data ownership protection, Proof of Data Reduplication and Recovery (**PoDR²**), Multi-format Data Rights Confirmation (**MDRC**), and Proxy Re-encryption Technology (**PReT**).
+CESS guarantees data security and integrity through proprietary technologies with data ownership protection, Proof of Data Reduplication and Recovery (**PoDR²**), Multi-format Data Rights Confirmation (**MDRC**) and Proxy Re-encryption Technology (**PReT**).
 
 CESS leverages blockchain technology to ensure the integrity and security of the data stored within the system. When a user stores data on CESS, it is broken down into smaller encrypted fragments and then distributed across multiple nodes within the network. To access the data, the user needs to authenticate themselves and retrieve the encrypted fragments from the network. The fragments are combined and decrypted locally on the user's device, ensuring that the data is never exposed in its entirety during the retrieval process. This distributed and encrypted storage mechanism provides a high level of security and privacy, safeguarding user's data from unauthorized access.
 
