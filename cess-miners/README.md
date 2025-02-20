@@ -27,11 +27,7 @@ If you are interested in running a consensus node, please refer to the section [
 # Storage Nodes
 Storage Node is the main carrier for storing user data in the CESS network. It provides verifiable and effective idle storage space for the CESS network through the **Proof of Idle Space (PoIS)** mechanism, replaces sufficient idle space with intelligent space management technology to persistently store user data, and ensures the reliability of user data through the **Proof of Data Reduplication and Recovery (PoDR²)**. When some user data is accidentally lost, the entire network storage node will automatically perform data recovery to ensure that there is always enough redundancy to ensure data availability. The CESS network will randomly challenge storage nodes from time to time to verify the validity of their idle space and stored user data, and issue challenge rewards to storage nodes that pass the verification. Users can use node running script tools to quickly build a storage node with a small amount of configuration and commands, and join the CESS network to achieve resource monetization.
 
-Storage nodes play a crucial role in the distributed storage system. All nodes are peers and form a globally distributed storage network using P2P communication technology based on [libp2p](https://github.com/libp2p/go-libp2p) implementation.
-
 Storage nodes are responsible for providing storage space, storing data, providing downloads, and calculating data proof. They also control which disk to use and the maximum storage capacity to serve the CESS network. The larger the storage provided, the higher the rewards obtained.
-
-The CESS network incentivizes storage nodes to offer disk capacities of 4GB and above, preferably utilizing SSDs with a network bandwidth of no less than 2Mbps. Storage nodes satisfying this requirement can yield higher rewards at an accelerated pace.
 
 {% hint style="success" %}
 If you are interested in running a storage node, please refer to the section [**Storage Node**](storage-miner/).
