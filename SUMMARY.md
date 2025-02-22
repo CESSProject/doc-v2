@@ -7,7 +7,7 @@
   * [Whitepaper](introduction/whitepaper.md)
   * [Contact & Social Media](introduction/contact.md)
 * [⛏️ CESS Nodes](cess-miners/README.md)
-  * [Consensus Nodes](cess-miners/consensus-miner/README.md)
+  * [Consensus Node](cess-miners/consensus-miner/README.md)
     * [Running a Consensus Node](cess-miners/consensus-miner/running.md)
     * [Reward Mechanism](cess-miners/consensus-miner/reward.md)
   * [TEE Nodes](cess-miners/tee-node/README.md)
