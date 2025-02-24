@@ -5,7 +5,7 @@ The rise of AI has unlocked unprecedented possibilities across a range of indust
 
 One of the biggest bottlenecks in the AI industry today is the lack of seamless interoperability between agents across different domains. Each sector—whether it’s **medical**, **finance**, **education**, or **autonomous driving**—has its own set of specialized agents, models, and data systems. These systems often operate in silos, making it challenging to integrate them or have them work together effectively.
 
-Just like in the **web era**, **Yahoo** became the portal for various sites, the CESS AI Agent Hub aims to act as a decentralized entry point, bringing together thousands of specialized AI agents across industries like **medical**, **financial**, **autonomous driving**, and **education**. Whether you're looking to integrate an AI medical diagnostic agent, an autonomous driving controller, or an AI tutor, **CESS AI Agent Hub** provides a single service call to match all the agents you need.
+Just like in the web era, Yahoo became the portal for various sites, the CESS AI Agent Hub aims to act as a decentralized entry point, bringing together thousands of specialized AI agents across industries like **medical**, **financial**, **autonomous driving**, and **education**. Whether you're looking to integrate an AI medical diagnostic agent, an autonomous driving controller, or an AI tutor, **CESS AI Agent Hub** provides a single service call to match all the agents you need.
 
 ### **Technical Features of CESS AI Agent Hub**
 
