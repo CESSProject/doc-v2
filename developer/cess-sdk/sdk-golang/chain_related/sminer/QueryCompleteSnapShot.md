@@ -1,16 +1,17 @@
-This is the interface to query the total number of storage miners and the total power in an era.
+This is the interface to query the completed challenge snapshots of the miner.
 
 ```golang
-// QueryCompleteSnapShot query the number of storage miners and storage miner power in each era
-//   - era: era id
+// QueryCompleteMinerSnapShot query the completed challenge snapshots of miners
+//   - puk: account id
 //   - block: block number, less than 0 indicates the latest block
 //
 // Return:
-//   - uint32: the number of storage miners in current era
-//   - uint64: all storage miners power in current era
+//   - []MinerCompleteInfo: list of completed challenge snapshots
 //   - error: error message
-func (c *ChainClient) QueryCompleteSnapShot(era uint32, block int32) (uint32, uint64, error)
+func (c *ChainClient) QueryCompleteMinerSnapShot(puk []byte, block int32) ([]MinerCompleteInfo, error)
 ```
+
+For the type definition, please refer to [MinerCompleteInfo](../chain_type.md#MinerCompleteInfo)
 
 Example code:
 ```golang
@@ -45,6 +46,6 @@ func main() {
         panic(err)
     }
 
-    fmt.Println(sdk.QueryCompleteSnapShot(0, -1))
+    fmt.Println(sdk.QueryCompleteMinerSnapShot(0, -1))
 }
 ```

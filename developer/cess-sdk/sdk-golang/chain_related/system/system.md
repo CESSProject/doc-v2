@@ -4,3 +4,4 @@ The list of interfaces is as follows:
 - [QueryBlockNumber](QueryBlockNumber.md)
 - [QueryAccountInfo](QueryAccountInfo.md)
 - [QueryAccountInfoByAccountID](QueryAccountInfoByAccountID.md)
+- [QueryAllAccountInfo](QueryAllAccountInfo.md)

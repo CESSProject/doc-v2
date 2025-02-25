@@ -130,9 +130,9 @@ Please refer to [Creating CESS Accounts](../../user/cess-account.md) for creatin
 2. Download and install
 
    ```bash
-   wget https://github.com/CESSProject/cess-nodeadm/archive/v0.5.7.tar.gz
-   tar -xvzf v0.5.7.tar.gz
-   cd cess-nodeadm-0.5.7/
+   wget https://github.com/CESSProject/cess-nodeadm/archive/v0.6.0.tar.gz
+   tar -xvzf v0.6.0.tar.gz
+   cd cess-nodeadm-0.6.0/
    ./install.sh
    ```
 

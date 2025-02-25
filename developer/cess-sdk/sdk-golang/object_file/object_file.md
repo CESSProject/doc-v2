@@ -4,3 +4,5 @@ This section introduces object/file upload and download interfaces.
 - [StoreObject](StoreObject.md)
 - [RetrieveFile](RetrieveFile.md)
 - [RetrieveObject](RetrieveObject.md)
+- [StoreFileToMiners](StoreFileToMiners.md)
+- [StoreFileToMiners](StoreFileToMiners.md)

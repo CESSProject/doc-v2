@@ -16,14 +16,12 @@ We provide some public gateways, their information is as follows:
 - [Prerequisites](prerequisites.md)
 - [Identity Signature](identity_signature.md)
 - [Upload File/Object](upload.md)
-- [Chunked Upload](chunked_upload.md)
+- [Range Upload](range_upload.md)
 - [Download File](download.md)
 - [Preview File](preview.md)
 - [Delete File](delete_file.md)
-- [Delete Bucket](delete_bucket.md)
 - [View File Metadata](metadata.md)
-- [View Bucket](view_bucket.md)
-- [View Bucket List](view_bucket_list.md)
+- [View File Location](location.md)
 - [View Version](view_version.md)
 
 :warning: You can use it for testing, but it is not recommended to use it for production environments.

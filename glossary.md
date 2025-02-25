@@ -56,6 +56,3 @@
 | Used Space      | The space used by storage users                                                                                                                                                                        |
 | Validated Space | The space validated to store user's data                                                                                                                                                               |
 
-# Reference
-
-* [https://docs.cess.network/deoss/introduction/terminologies](https://docs.cess.network/deoss/introduction/terminologies)

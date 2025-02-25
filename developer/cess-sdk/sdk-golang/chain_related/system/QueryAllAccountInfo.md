@@ -1,14 +1,13 @@
-This interface is used to query the names of all storage buckets created by the user.
+This is the interface for querying all account information.
 
 ```golang
-// QueryAllBucketName query user's all bucket names
-//   - accountID: user account
+// QueryAllAccountInfo query all account information
 //   - block: block number, less than 0 indicates the latest block
 //
 // Return:
-//   - []string: all bucket names
+//   - []types.AccountInfo: all account info
 //   - error: error message
-func (c *ChainClient) QueryAllBucketName(accountID []byte, block int32) ([]string, error)
+func (c *ChainClient) QueryAllAccountInfo(block int32) ([]types.AccountInfo, error)
 ```
 
 Example code:
@@ -39,11 +38,6 @@ func main() {
     }
     defer sdk.Close()
 
-    account_id, err := utils.ParsingPublickey("cX...")
-    if err != nil {
-        panic(err)
-    }
-
-    fmt.Println(sdk.QueryAllBucketName(account_id, -1))
+    fmt.Println(sdk.QueryAllAccountInfo(1000))
 }
 ```
