@@ -124,7 +124,7 @@ Enter cess node name (current: cess, press enter to skip): cess
 Enter cess chain ws url (default: ws://cess-chain:9944):
 ```
 
-The next prompt you will asked to set the TEE worker port. You can either set a custom port or leave it as default. Once the port is set the public IP of the system is automaticallt detected. In case you find that the public ip is incorrect you can enter it manually. Instead or IP you can also use your domain name here.
+The next prompt you will asked to set the TEE Node port. You can either set a custom port or leave it as default. Once the port is set the public IP of the system is automaticallt detected. In case you find that the public ip is incorrect you can enter it manually. Instead or IP you can also use your domain name here.
 
 ```bash
 Enter the public port for TEE worker (current: 19999, press enter to skip):
@@ -133,12 +133,12 @@ Start configuring the endpoint to access TEE worker from the Internet
 Enter the TEE worker endpoint (current: http://xx.xxx.xx.xx:19999, press enter to skip)
 ```
 
-The current version of Tee worker supports two running remote attestation types. You can choose according to your machine. For details on how to know which remote attestation type your machine supports, please see the `Questions & Answers` at the end of the article.
+The current version of TEE Node supports two running remote attestation types. You can choose according to your machine. For details on how to know which remote attestation type your machine supports, please see the `Questions & Answers` at the end of the article.
 ```bash
 Enter the type of remote attestation method 'ias/dcap' (current: , press enter to skip):dcap
 ```
 
- You can choose role now. **`Full`** mode has all the capabilities of Tee worker, **`Verifier`** only has the capabilities of Tee worker to verify the proof from miners, and **`Marker`** only has the capabilities of Tee worker to tag file from miners. When you choose the **`Marker`** role, you do not need to fill in the CESS validator stash account in the next step.
+ You can choose role now. **`Full`** mode has all the capabilities of TEE Node, **`Verifier`** only has the capabilities of TEE Node to verify the proof from miners, and **`Marker`** only has the capabilities of TEE Node to tag file from miners. When you choose the **`Marker`** role, you do not need to fill in the CESS validator stash account in the next step.
  ```bash
  Enter what kind of tee worker would you want to be [Full/Verifier/Marker]: Full 
  ```

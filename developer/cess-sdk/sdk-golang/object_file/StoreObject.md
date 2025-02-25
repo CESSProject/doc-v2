@@ -5,7 +5,6 @@ This is the interface for uploading objects to the gateway.
 //
 // Receive parameter:
 //   - url: gateway url
-//   - bucket: the bucket for storing object, it will be created automatically
 //   - territory: territory name
 //   - mnemonic: polkadot account mnemonic
 //   - reader: strings, byte data, file streams, network streams, etc
@@ -18,13 +17,10 @@ This is the interface for uploading objects to the gateway.
 //  1. Account requires purchasing space, refer to [BuySpace] interface.
 //  2. Authorize the space usage rights of the account to the gateway account,
 //     refer to the [AuthorizeSpace] interface.
-//  3. Make sure the name of the bucket is legal, use the [CheckBucketName] method to check.
 //
 // Explanation:
 //   - Account refers to the account where you configured mnemonic when creating an SDK.
-//   - CESS public gateway address: [http://deoss-pub-gateway.cess.network/]
-//   - CESS public gateway account: [cXhwBytXqrZLr1qM5NHJhCzEMckSTzNKw17ci2aHft6ETSQm9]
-func StoreObject(url string, bucket, territory, mnemonic string, reader io.Reader) (string, error)
+func StoreObject(url string, territory, mnemonic string, reader io.Reader) (string, error)
 ```
 
 Example code:
@@ -57,7 +53,7 @@ var RPC_ADDRS = []string{
 
 const PublicGateway = "http://deoss-pub-gateway.cess.network/"
 const PublicGatewayAccount = "cXhwBytXqrZLr1qM5NHJhCzEMckSTzNKw17ci2aHft6ETSQm9"
-const BucketName = "Your Bucket"
+const Territory = "Your Territory"
 
 func main() {
 	sdk, err := sdkgo.New(
@@ -82,7 +78,7 @@ func main() {
 	}
 
 	// upload file to gateway
-	fid, err := process.StoreObject(PublicGateway, BucketName, MY_MNEMONIC, bytes.NewReader([]byte("test date")))
+	fid, err := process.StoreObject(PublicGateway, Territory, MY_MNEMONIC, bytes.NewReader([]byte("test date")))
 	if err != nil {
 		panic(err)
 	}

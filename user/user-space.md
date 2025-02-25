@@ -18,23 +18,23 @@ The guide will explain how to purchase territory, expand territory, renew territ
 
 1. After connecting to rpc node, the browser loads the blockchain information. We select Developer - Extrinsics as shown in the image below.
 
-![Enter The Transaction Page](../../assets/developer/guides/space-operation/pic1.png)
+![Enter The Transaction Page](../assets/developer/guides/space-operation/pic1.png)
 
 2. Select the `StorageHandler` module and select the `mintTerritory`.
 
-![mint territory](../../assets/developer/guides/territory-operation/buy_territory.png)
+![mint territory](../assets/developer/guides/territory-operation/buy_territory.png)
 
 3. Click `Sign and Submit` to confirm the signature, Then wait for the browser to call the wallet to sign. After entering your customized password, click `Sign the transaction` to sign the transaction.
 
-![Signature Transaction](../../assets/developer/guides/space-operation/pic5.png)
+![Signature Transaction](../assets/developer/guides/space-operation/pic5.png)
 
 4. Wait for the transaction to be packaged and then broadcast the confirmation. If you see the content shown in Figure 2 below, it means that the transaction you submitted has been successfully executed.
 
         It should be noted that if your account has already purchased space, calling this transaction will fail. If you want to expand or renew the lease, please call the corresponding transaction.
 
-![Broadcast](../../assets/developer/guides/space-operation/pic6.png)
+![Broadcast](../assets/developer/guides/space-operation/pic6.png)
 
-![Success](../../assets/developer/guides/space-operation/pic7.png)
+![Success](../assets/developer/guides/space-operation/pic7.png)
 
 ## Renewal Territory
 
@@ -43,7 +43,7 @@ The guide will explain how to purchase territory, expand territory, renew territ
        `territoryName` is the name of the territory you have purchased.
        `days` is the increased validity period days.
 
-![Renewal Territory](../../assets/developer/guides/territory-operation/renewal_territory.jpg)
+![Renewal Territory](../assets/developer/guides/territory-operation/renewal_territory.jpg)
 
 2. The subsequent operations are the same as purchasing space.
 
@@ -54,7 +54,7 @@ The guide will explain how to purchase territory, expand territory, renew territ
        `territoryName` is the name of the territory you have purchased.
        `gibCount` is the size of the expansion, in GiB.
 
-![Expand Territory](../../assets/developer/guides/territory-operation/expanding_territory.jpg)
+![Expand Territory](../assets/developer/guides/territory-operation/expanding_territory.jpg)
 
 2. The subsequent operations are the same as purchasing space.
 
@@ -65,7 +65,7 @@ The guide will explain how to purchase territory, expand territory, renew territ
        `AccountID32` is the account address where you purchased the territory.
        `Bytes` is the name of the territory.
 
-![Query Territory](../../assets/developer/guides/territory-operation/query_territory.jpg)
+![Query Territory](../assets/developer/guides/territory-operation/query_territory.jpg)
 
 `token`: is the unique identifier of the territory.
 
@@ -82,3 +82,30 @@ The guide will explain how to purchase territory, expand territory, renew territ
 `deadline`: Block height at expiration.
 
 `state`: The status of the space currently held by the user.
+
+## Buy territory for others
+
+1. To purchase territory for others, an arbitrary account must first create a purchase order. Select `Developer -> Extrinsics -> StorageHandler` module, then select the `createOrder` transaction. This transaction can be executed by any account, but a certain fee must be paid, and it can be used not only for purchasing but also for renewing and expanding. In our example, we will take purchasing as an example.
+
+![Create Order](../assets/developer/guides/territory-operation/create_order.png)
+
+- `targetAcc`: The account to which the purchased territory will be assigned.
+- `territoryName`: The name of the territory for purchase/renewal/expansion.
+- `orderType`: The type of this order is to choose for purchase/renewal/expansion.
+- `gibCount`: The size of the territory for purchase/expansion.
+- `days`: The validity period of the territory for purchase/renewal.
+- `expired`(0-99): The number of blocks until the order expires. For example, if you enter 10, the order will expire after 10 blocks. Each block takes approximately 6 seconds to be mined, meaning the order will expire in 60 seconds.
+
+
+2. After submitting the create order transaction, the event will return an orderId, which is the unique identifier of the order. To pay for this order, the orderId will be needed.
+
+![Order Id](../assets/developer/guides/territory-operation/order_id.png)
+
+As shown in the figure, we obtained an order id of `0xc49692668b58cc8e826e289e90e100542afe520fffe112dc76e18cb26e3573d3`, and next we need to pay for this order.
+
+3. Select `Developer -> Extrinsics -> StorageHandler` module, then select the `execOrder` transaction, and fill in the corresponding orderId. This step will deduct the tokens from the transaction account according to the order content and execute the order.
+
+![Exec Order](../assets/developer/guides/territory-operation/exec_order.png)
+
+After the transaction is successfully executed, the operation of purchasing territory for others is completed.
+

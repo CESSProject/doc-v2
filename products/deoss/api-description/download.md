@@ -3,7 +3,7 @@ This interface is used to download a file with a specified fid. If you encrypted
 
 **HTTP Interface:**
 
-<span style="background-color: red; padding: 10px;"><b>GET</b></span> &nbsp; <b>/download/{fid}</b>
+<span style="background-color: red; padding: 10px;"><b>GET</b></span> &nbsp; <b>/file/download/<fid></b>
 
 **Request Header:**
 | key              | description    |
@@ -12,5 +12,5 @@ This interface is used to download a file with a specified fid. If you encrypted
 
 **Request example:**
 ```shell
-curl -X GET -o <save_file> URL/download/<fid>
+curl -X GET -o <save_file> URL/file/download/<fid>
 ```
