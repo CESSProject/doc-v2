@@ -189,7 +189,7 @@ Set configurations successfully
 
 - If a staker payment account is provided, for testnet, the pledged space (answer to the **Enter cess storage space**) is **round up** to the closest TB unit and that amount multiply with 4,000 amount of TCESS will be locked as a miner deposit.
 - If a staker payment account is not provided, then the signature account will be used as the staking account. If the staking account different from signature account is provided, can only [increase stake in block browser manually](https://docs.cess.network/core/storage-miner/troubleshooting).
-- Default TEE worker endpoints for the chain will be used if you don't provide any TEE worker endpoints. This doesn't affect your reward as a storage miner.
+- Default TEE Node endpoints for the chain will be used if you don't provide any TEE Node endpoints. This doesn't affect your reward as a storage miner.
 
 Start CESS storage node
 
@@ -202,7 +202,7 @@ sudo cess start
  ✔ Container watchtower  Running                                                0.0s
 ```
 
-If you want to speed up your earnings, you can choose to deploy a Marker-type TEE Worker to help storage nodes certify space and mark user service files. Please refer to the [TEE Worker User Guide](./teeworker.md).
+If you want to speed up your earnings, you can choose to deploy a Marker-type TEE Node to help storage nodes certify space and mark user service files. Please refer to the [TEE Node User Guide](../tee-node/running.md).
 
 # Common Operations
 
