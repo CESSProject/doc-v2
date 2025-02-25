@@ -170,7 +170,7 @@ After executing the above installation command, customize your own config file a
 
 - **UseSpace:** Storage capacity of the storage node, measured in GB.
 - **UseCpu:** Number of logical cores used by the storage node.
-- **TeeList:** Storage miner will not use public tee nodes on chain if set custom tee nodes in config.yaml.
+- **TeeList:** The public key of tee node, storage miner will not use public tee nodes on chain if set custom tee nodes in config.yaml.
 - **port:** Storage node use that port to communicat with each other, the port of each storage node must be different and not occupied by other process.
 - **apiendpoint:** An external IP address or domain which can be accessed by internet, default value: `hostPublicIP:port`.
 - **diskPath:** Absolute system path where the storage node run, requiring a file system to be mounted at this path.
@@ -243,11 +243,11 @@ After executing the above installation command, customize your own config file a
        backupChainWsUrls: [ "wss://testnet-rpc.cess.network" ]
        # Timeout about storage miner transaction with chain 
        Timeout: 12
-       # Tee list address
+       # Tee public key, can get this key from the starting log of cifrost container
        # Attention: Storage miner will not use public tee nodes on chain if set custom tee nodes in config.yaml
        # TeeList:
-       #  - 127.0.0.1:8080
-       #  - 127.0.0.1:8081
+       #  - 0x3222602a6be742ec9edc3c31cb48dd8a48001bc6efba6c2ed59cd728cdf46a55
+       #  - 0x.....
   
      - name: "miner2"
        apiendpoint: ""
@@ -277,7 +277,7 @@ After executing the above installation command, customize your own config file a
      scrapeInterval: 60
      # watchdog can scrape nodes data from this hosts
      hosts:
-       - ip: 127.0.0.1 # 127.x, 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 is a private IP
+       - ip: 127.0.0.1 # 127.x, 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16
          # make sure docker daemon listen at 2375: https://docs.docker.com/config/daemon/remote-access/
          # will be bind at 127.0.0.1:2375 when install mineradm
          port: 2375
