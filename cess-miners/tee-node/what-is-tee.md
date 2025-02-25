@@ -1,4 +1,4 @@
-# What is TEE Node
+# TEE Nodes
 
 ## Introduction
 
