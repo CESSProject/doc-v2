@@ -107,6 +107,6 @@ The **Cacher** node focuses on **lightweight data caching** and can operate on *
 The deployment of **Cachers** enables the **unlimited scalability** of the edge cache, as the CESS network can expand by incorporating numerous small devices that contribute to the overall data distribution and traffic load.
 
 ### Monetization and Flexibility
-Users can easily deploy either role—**Retriever** or **Cacher**—using simple script tools and dedicated nodes, allowing them to monetize their resources based on the role they choose to run. This flexibility enables a wide range of participants to contribute to the CESS network, whether by providing computational power, storage, or network bandwidth, and earn rewards in return.
+Users can easily deploy either role-**Retriever** or **Cacher**-using simple script tools and dedicated nodes, allowing them to monetize their resources based on the role they choose to run. This flexibility enables a wide range of participants to contribute to the CESS network, whether by providing computational power, storage, or network bandwidth, and earn rewards in return.
 
 
