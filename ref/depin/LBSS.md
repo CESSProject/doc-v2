@@ -88,6 +88,39 @@ Where:
 By adjusting the weights of these factors, businesses and developers can tailor the LBSS system to meet their specific use case needs - whether they prioritize data security, performance, or cost.
 
 ---
+### High Level Design
+LBSS uses DeOSS, gateway and client file sharding and directional push technology to logically "enclose" specific data in a specific geographical area, thereby ensuring that the data is always in a compliant and controlled state. LBSS uses the CESS node selection tool to direct data to storage nodes. Users only need to implement the user's data storage range based on the map in DeOSS file upload or new interface, and then convert these enclosed ranges into longitude and latitude range constraints, and select nodes that meet the constraints (that is, IP coordinates are within the enclosed range) in the node selector to store data.
+#### **1: Get the data storage location range required by the user**
+The way to set the range includes: selecting a country or region, selecting a sub-level administrative unit (such as a state, province, or city), or customizing the range. Range acquisition requires the following sub-functions:
+1. Users can query the number of nodes that DeOSS can effectively access within the set range. If it is less than 12, the range is invalid;
+2. Users can save one or more data range settings and edit them at any time;
+3. When users upload files, they can select their data range settings and use them to limit the storage range of the files;
+4. When users upload files, they can also set a specific storage range for the file separately, and do not save the settings in DeOSS;
+This function interacts with users in the form of an interface, and the application can expand the visual graphical interface operation based on the interface.
+
+#### **2: Node selection**
+The node with the shortest connection time is selected by default. On top of this, you can also customize the selection conditions, node number and other parameters to achieve the above goals. The usage process of the node selection tool is as follows:
+1. Configure the node selector and set the maximum number of nodes to be recorded (for official DeOSS, you can set more to meet different needs);
+2. Configure the policy file, such as specifying the blacklist and whitelist of storage nodes, whether to store data only with specified miners, etc.;
+3. Create a new selector instance to select the specified number of miners or miners that meet the specified conditions from the node records;
+4. Iterate the miners in the selector to obtain their PeerId and Muti-Address.
+
+<figure><img src="../../assets/ref/depin/Node-selection-tool.png" alt="Source Code of the Node Selection with conditions"><figcaption><p>Source Code of the Node Selection with conditions</p></figcaption></figure>
+
+
+#### **3: Location display**
+Enables users to query the storage miner and storage location information of the file after entering the FID of the file (displayed with coordinates).
+
+#### **4: Data diversion**
+Supports the list of storage miners specified in the directional iteration configuration file, or the list of active miners found by the node discovery mechanism; the newly added iterator can be used to realize the diversion storage of data.
+To distinguish the diverted data, please add a request parameter when uploading the file. Users can choose whether to divert 1/3 of the data to the CESS storage miner (or other storage miners, determined by the DeOSS configuration file) based on this parameter.
+ 
+{% hint style="success" %}
+The Node selection tool repository:: `https://github.com/CESSProject/cess-go-tools`.
+{% endhint %}
+
+---
+
 ### **Anti-VPN: Enhancing Compliance with Geo-Location Authentication**
 
 In the context of managing data across multiple jurisdictions, the use of **VPNs (Virtual Private Networks)** can create complications for maintaining regulatory compliance, as VPNs can obscure the true geographic location of the data origin. This can lead to data being stored or processed in regions that may violate local data sovereignty laws. For example, a user attempting to access EU-based data while physically located outside of the EU could bypass geographical restrictions via a VPN, which could result in violations of **GDPR** or other regional data protection laws.
