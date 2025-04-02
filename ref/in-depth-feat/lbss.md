@@ -4,7 +4,7 @@
 
 ### **Introduction**
 
-As industries across the globe increasingly adopt AI and machine learning, the need for secure, scalable, and highly performant data infrastructure is more critical than ever. Data is central to the development and operation of AI systems, but managing it across a diverse range of regulatory environments, geographical boundaries, and data privacy standards presents a significant challenge.
+As industries across the globe increasingly adopt AI and machine learning, the need for secure, scalable, and highly performant data infrastructure is more critical than ever. Data is central to the development and operation of AI systems, but managing it across a diverse range of regulatory environments, geographical boundaries(or Geo-Fence), and data privacy standards presents a significant challenge.
 
 One of the key obstacles in managing AI data is ensuring **data sovereignty** and **regulatory compliance** while simultaneously meeting the performance requirements of modern AI applications. These applications often require access to vast amounts of real-time data, while data protection regulations such as **General Data Protection Regulation (GDPR)** in the EU, **Health Insurance Portability and Accountability Act (HIPAA)** in the US, and China’s **Cybersecurity Law** impose stringent rules on how and where data can be stored, processed, and shared.
 
@@ -90,7 +90,7 @@ By adjusting the weights of these factors, businesses and developers can tailor 
 
 ---
 ### High Level Design
-LBSS leverages DeOSS, gateway mechanisms, client-side file sharding, and directional push technology to logically constrain data within a defined geographical boundary. This ensures that data storage remains compliant and under strict access control. LBSS utilizes the CESS **Node Selection Tool** to dynamically allocate data to storage nodes based on geographic constraints. Users can define their storage boundaries via DeOSS's mapping interface or API, which translates these regions into latitude-longitude constraints. The system then filters storage nodes whose IP coordinates fall within the defined region and selects the most suitable nodes for data placement.
+LBSS leverages DeOSS, gateway mechanisms, client-side file sharding, and directional push technology to logically constrain data within a defined Geo-boundary / Geo-fence. This ensures that data storage remains compliant and under strict access control. LBSS utilizes the CESS **Node Selection Tool** to dynamically allocate data to storage nodes based on geographic constraints. Users can define their storage boundaries via DeOSS's mapping interface or API, which translates these regions into latitude-longitude constraints. The system then filters storage nodes whose IP coordinates fall within the defined region and selects the most suitable nodes for data placement.
 
 #### **1. Data Storage Location Selection**
 Users specify their desired data storage range through various selection methods:
