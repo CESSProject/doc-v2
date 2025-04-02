@@ -278,6 +278,7 @@
     * [Running RPC Node](ref/ops/running-rpc-node.md)
   * [In-depth Technical Features](ref/in-depth-feat/README.md)
     * [R²S](ref/in-depth-feat/r2s.md)
+    * [RRC](ref/in-depth-feat/rrc.md)
   * [Data Lifecycle](ref/data-lifecycle/README.md)
     * [Data Upload](ref/data-lifecycle/upload.md)
     * [Data Download](ref/data-lifecycle/download.md)
