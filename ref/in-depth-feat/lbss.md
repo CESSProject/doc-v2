@@ -133,7 +133,7 @@ Selection Workflow:
 - Users can specify whether 1/3 of the data should be diverted to CESS storage miners (or alternate storage providers) based on DeOSS configuration settings.
 
 {% hint style="success" %}
-The Node selection tool repository:: `https://github.com/CESSProject/cess-go-tools`.
+The Node selection tool repository: `https://github.com/CESSProject/cess-go-tools`.
 {% endhint %}
 
 ---
