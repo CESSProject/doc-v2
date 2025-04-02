@@ -2,7 +2,7 @@ Consensus is a mechanism for coming to an agreement over a shared state. In orde
 
 # Validator Selection: Random Rotation Selection
 
-CESS uses the R²S (random rotation Selection) as its mechanism to select the validator nodes. Participants interested in maintaining the network can run the validator node. The validator plays the role of producing new blocks, verifying blocks and ensuring finality. Refer to [**Random Rotation Consensus**](./rrc.md) for details.
+CESS uses the R²S (random rotation Selection) as its mechanism to select the validator nodes. Participants interested in maintaining the network can run the validator node. The validator plays the role of producing new blocks, verifying blocks and ensuring finality. Refer to [**Random Rotation Consensus**](https://doc.cess.network/ref/in-depth-feat/rrc) for details.
 
 # Block Production: BABE
 
