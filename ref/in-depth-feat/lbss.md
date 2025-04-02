@@ -4,11 +4,12 @@
 
 ### **Introduction**
 
-As industries across the globe increasingly adopt AI and machine learning, the need for secure, scalable, and highly performant data infrastructure is more critical than ever. Data is central to the development and operation of AI systems, but managing it across a diverse range of regulatory environments, geographical boundaries(or Geo-Fence), and data privacy standards presents a significant challenge.
+As industries across the globe increasingly adopt AI and machine learning, the need for secure, scalable, and highly performant data infrastructure is more critical than ever. Data is central to the development and operation of AI systems, but managing it across a diverse range of regulatory environments, geographical boundaries (or Geo-Fence), national security concerns, and data privacy standards presents a significant challenge.
 
-One of the key obstacles in managing AI data is ensuring **data sovereignty** and **regulatory compliance** while simultaneously meeting the performance requirements of modern AI applications. These applications often require access to vast amounts of real-time data, while data protection regulations such as **General Data Protection Regulation (GDPR)** in the EU, **Health Insurance Portability and Accountability Act (HIPAA)** in the US, and China’s **Cybersecurity Law** impose stringent rules on how and where data can be stored, processed, and shared.
+One of the key obstacles in managing AI data is ensuring data sovereignty and regulatory compliance while simultaneously meeting the performance requirements of modern AI applications. These applications often require access to vast amounts of real-time data, while data protection regulations such as the **GDPR (General Data Protection Regulation)** in EU, the **HIPAA (Health Insurance Portability and Accountability Act)** in US, and the **Cybersecurity Law** in China, various national security policies impose stringent rules on how and where data can be stored, processed, and shared.
 
-The **LBSS (Location-Based Storage Selection)** feature within the **CESS Network** aims to address this challenge by offering businesses the ability to store their data in specific geographic regions in a way that balances compliance with performance and cost considerations. This article explores the technical details of the LBSS feature, the algorithms behind it, and its application in real-world AI scenarios.
+The **LBSS (Location-Based Storage Selection)** feature within the **CESS Network** aims to address this challenge by offering businesses the ability to store their data in specific geographic regions in a way that balances compliance with performance, cost considerations, and national security requirements. This article explores the technical details of the LBSS feature, the algorithms behind it, and its application in real-world AI scenarios.
+
 <figure><img src="../../assets/ref/in-depth-feat/lbss/LBSS.png" style="width:100%;display:block;margin:0 auto;" alt="LBSS"><figcaption><p>LBSS</p></figcaption></figure>
 
 ---
