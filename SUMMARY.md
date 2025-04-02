@@ -279,7 +279,7 @@
   * [In-depth Technical Features](ref/in-depth-feat/README.md)
     * [R²S](ref/in-depth-feat/r2s.md)
     * [RRC](ref/in-depth-feat/rrc.md)
-    * [LBSS of CESS Network: A New Paradigm for Data Sovereignty and Compliance in the AI Era](ref/in-depth-feat/rrc.md)
+    * [LBSS of CESS Network: A New Paradigm for Data Sovereignty and Compliance in the AI Era](ref/in-depth-feat/lbss.md)
   * [Data Lifecycle](ref/data-lifecycle/README.md)
     * [Data Upload](ref/data-lifecycle/upload.md)
     * [Data Download](ref/data-lifecycle/download.md)
