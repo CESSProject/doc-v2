@@ -47,14 +47,14 @@ The compliance factor in LBSS ensures that data storage decisions are made in ac
 - **HIPAA**: Data related to healthcare and medical records in the US must be stored with high levels of security and specific encryption standards.
 - **Local Data Sovereignty Laws**: Many countries, including Russia, China, and Brazil, have strict rules that require data about their citizens to be stored domestically.
 
-The **compliance score**  ($C_{compliance}(L, D) $) is a key parameter in the LBSS decision-making process and reflects the legal alignment of a storage location with the relevant jurisdiction’s laws. The algorithm dynamically adjusts its compliance checks based on the dataset’s associated legal framework, guiding the selection of the most appropriate storage region.
+The **compliance score**  ($$C_{compliance}(L, D) $$) is a key parameter in the LBSS decision-making process and reflects the legal alignment of a storage location with the relevant jurisdiction’s laws. The algorithm dynamically adjusts its compliance checks based on the dataset’s associated legal framework, guiding the selection of the most appropriate storage region.
 
 #### **2. Latency Factor**
 
 AI applications often require **real-time data access** for decision-making. To minimize data retrieval times, the LBSS algorithm calculates the **latency** associated with each potential storage location. 
 
 ##### **Latency Calculation**:
-The latency function, denoted as ( $T_{latency}(L, D) $), measures the round-trip time for data to travel between the storage location $L$ and the user or AI model requesting the data. In the context of AI applications, low-latency access is essential for use cases like:
+The latency function, denoted as ( $$T_{latency}(L, D) $$), measures the round-trip time for data to travel between the storage location $$L$$ and the user or AI model requesting the data. In the context of AI applications, low-latency access is essential for use cases like:
 - **Autonomous vehicles** (which require near-instantaneous data to make driving decisions).
 - **Real-time fraud detection** (which must access transaction data in milliseconds).
 - **Healthcare applications** (which use AI to process medical data and provide diagnosis recommendations in real-time).
@@ -65,17 +65,17 @@ The LBSS system takes into account the **physical proximity** of data centers to
 
 Storing data in some geographic locations can be more expensive than others due to factors like energy costs, infrastructure expenses, and transaction fees. For example, storing data in the **US** or **EU** often comes at a premium compared to data centers in **Asia** or **Latin America**.
 
-The cost factor $C_{cost}(L, D)$ calculates the total cost of storing data in a particular location $L$. This includes factors such as:
+The cost factor $$C_{cost}(L, D)$$ calculates the total cost of storing data in a particular location $$L$$. This includes factors such as:
 - **Operational costs**: These may vary based on the infrastructure requirements and energy consumption in the data center.
 - **Transaction fees**: Blockchain-based systems like CESS often involve transaction fees for data retrieval and storage, which can differ between regions.
 
-The LBSS algorithm seeks to minimize $C_{cost}(L, D)$, selecting storage locations that balance the legal and latency requirements with cost efficiency.
+The LBSS algorithm seeks to minimize $$C_{cost}(L, D)$$, selecting storage locations that balance the legal and latency requirements with cost efficiency.
 
 ---
 
 ### **The LBSS Algorithm: Optimizing Storage Decisions**
 
-The **LBSS** system uses a multi-factor optimization algorithm to balance compliance, latency, and cost. The general **objective function** for selecting the optimal storage location $L_{optimal}$ for a dataset $D$ can be represented as:
+The **LBSS** system uses a multi-factor optimization algorithm to balance compliance, latency, and cost. The general **objective function** for selecting the optimal storage location $$L_{optimal}$$ for a dataset $$D$$ can be represented as:
 
 $$
 L_{optimal} = \arg \min_{L \in \mathcal{L_{set}}} \left( \alpha \cdot T_{latency}(L, D) + \beta \cdot C_{compliance}(L, D) + \gamma \cdot C_{cost}(L, D) \right)
@@ -83,8 +83,8 @@ $$
 
 Where:
 - $$\mathcal{L_{set}}$$ is the set of all possible storage locations.
-- $\alpha$, $\beta$, $\gamma$ are weighting factors that define the relative importance of latency, compliance, and cost. These factors can be dynamically adjusted based on the specific needs of the application (e.g., an AI-powered medical diagnostic tool may prioritize compliance over cost).
-- $T_{latency}(L, D) $, $C_{compliance}(L, D) $, and $C_{cost}(L, D)$ are the latency, compliance, and cost factors, respectively, as described above.
+- $$\alpha$$, $$\beta$$, $$\gamma$$ are weighting factors that define the relative importance of latency, compliance, and cost. These factors can be dynamically adjusted based on the specific needs of the application (e.g., an AI-powered medical diagnostic tool may prioritize compliance over cost).
+- $$T_{latency}(L, D) $$, $$C_{compliance}(L, D) $$, and $$C_{cost}(L, D)$$ are the latency, compliance, and cost factors, respectively, as described above.
 
 By adjusting the weights of these factors, businesses and developers can tailor the LBSS system to meet their specific use case needs - whether they prioritize data security, performance, or cost.
 
