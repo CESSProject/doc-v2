@@ -1,8 +1,8 @@
-### **LBSS of CESS Network: A New Paradigm for Data Sovereignty and Compliance in the AI Era**
+## **LBSS of CESS Network: A New Paradigm for Data Sovereignty and Compliance in the AI Era**
 
 *2025-04-02 by **CESS Research Institute*** 
 
-#### **Introduction**
+### **Introduction**
 
 As industries across the globe increasingly adopt AI and machine learning, the need for secure, scalable, and highly performant data infrastructure is more critical than ever. Data is central to the development and operation of AI systems, but managing it across a diverse range of regulatory environments, geographical boundaries, and data privacy standards presents a significant challenge.
 
@@ -82,7 +82,7 @@ L_{optimal} = \arg \min_{L \in \mathcal{L_{set}}} \left( \alpha \cdot T_{latency
 $$
 
 Where:
-- $\mathcal{L_{set}}$ is the set of all possible storage locations.
+- $$\mathcal{L_{set}}$$ is the set of all possible storage locations.
 - $\alpha$, $\beta$, $\gamma$ are weighting factors that define the relative importance of latency, compliance, and cost. These factors can be dynamically adjusted based on the specific needs of the application (e.g., an AI-powered medical diagnostic tool may prioritize compliance over cost).
 - $T_{latency}(L, D) $, $C_{compliance}(L, D) $, and $C_{cost}(L, D)$ are the latency, compliance, and cost factors, respectively, as described above.
 
