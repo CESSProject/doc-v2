@@ -100,7 +100,7 @@ Users specify their desired data storage range through various selection methods
 - Predefined geographic units: Select a country, state, province, or city.
 - Custom-defined boundaries: Specify a latitude-longitude bounding box for finer control.
 Key Functionalities:
-- Node Availability Check: Users can query the number of eligible storage nodes within the defined region. A range is considered invalid if fewer than 12 nodes are available.
+- Node Availability Check: Users can query the number of eligible storage nodes within the defined region. A range is considered **invalid** if less than **12** nodes are available.
 - Persistent Range Configurations: Users can save, modify, and reuse multiple storage range settings.
 - Storage Range Enforcement: When uploading files, users can:
   - Apply previously saved storage settings.
