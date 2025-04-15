@@ -8,7 +8,7 @@ Random rotational consensus is an important component of the CESS protocol. Unli
 
     {% hint style="success" %}
    $$
-    **Final Credits** = (reputation credits * 50%) + (staked score * 30%) + (random credits * 20%).
+    Final Credits = (reputation credits * 50\%) + (staked score * 30\%) + (random credits * 20\%)
    $$
     {% endhint %}
 
