@@ -29,5 +29,7 @@ Each consensus node entering the CESS network needs to maintain the network stat
 The reputation value is calculated as follows:
 
 {% hint style="success" %}
-**Scheduler Reputation Value** = 1000 * processing bytes ratio - (10 * penalty times)
+$$
+Scheduler Reputation Value = 1000 * processing bytes ratio - (10 * penalty times)
+$$
 {% endhint %}
