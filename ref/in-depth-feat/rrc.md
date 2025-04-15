@@ -7,14 +7,16 @@ Random rotational consensus is an important component of the CESS protocol. Unli
 3. The final credit rating is calculated based on reputation credits, staked score (calculated from both self and delegated), and random credits.
 
     {% hint style="success" %}
+   $$
     **Final Credits** = (reputation credits * 50%) + (staked score * 30%) + (random credits * 20%).
+   $$
     {% endhint %}
 
-4. The block producer selection mechanism is the same as [BABE](https://wiki.polkadot.network/docs/learn-consensus#block-production-babe), where each block producer is randomly selected from 11 validation nodes through VRF.
+5. The block producer selection mechanism is the same as [BABE](https://wiki.polkadot.network/docs/learn-consensus#block-production-babe), where each block producer is randomly selected from 11 validation nodes through VRF.
 
-5. The method of confirming blocks is the same as [GRANDPA](https://wiki.polkadot.network/docs/learn-consensus#finality-gadget-grandpa).
+6. The method of confirming blocks is the same as [GRANDPA](https://wiki.polkadot.network/docs/learn-consensus#finality-gadget-grandpa).
 
-6. At the 5th epoch of each era, the validator node of the next era will be selected.
+7. At the 5th epoch of each era, the validator node of the next era will be selected.
 
 # Reputation Model
 
