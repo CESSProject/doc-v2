@@ -32,7 +32,7 @@ The Storage Node is a fundamental component of the CESS network, acting as the p
 
 To safeguard data, the network employs the **Proof of Data Reduplication and Recovery (PoDR²)** mechanism, which ensures data redundancy and quick recovery in case of data loss. In the event of accidental data loss, the network's storage nodes automatically engage in data recovery procedures to maintain sufficient redundancy, ensuring high data availability.
 
-The CESS network periodically challenges storage nodes to verify both the availability of idle space and the integrity of the stored data. Storage nodes that successfully pass these challenges are rewarded with incentives for their participation. Users can easily deploy a storage node using simple command-line tools, minimizing configuration efforts while enabling them to monetize idle storage resources.
+The CESS chain periodically challenges storage nodes to verify both the availability of idle space and the integrity of the stored data. Storage nodes that successfully pass these challenges are rewarded with incentives for their participation. Users can easily deploy a storage node using simple command-line tools, minimizing configuration efforts while enabling them to monetize idle storage resources.
 
 Storage nodes are responsible for managing their local disk resources, controlling the maximum storage capacity, and ensuring that they deliver data storage, retrieval, and proof calculation services. Nodes that provide larger amounts of storage are eligible for greater rewards, incentivizing the contribution of more substantial storage resources to the network.
 
