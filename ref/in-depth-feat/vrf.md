@@ -10,7 +10,7 @@ CESS uses VRF.
 
 VRF is a mathematical function that takes some input and generates a random number, along with a proof of authenticity that can be verified by anyone. Any challenger can verify this proof to ensure effective random number generation.
 
-The VRF used by CESS is similar to the one used in [*Ouroboros Praos*](https://eprint.iacr.org/2017/573.pdf). Ouroboros randomness is safe for block production and works well for BABE. The difference is that the VRF of CESS does not rely on the central clock (where the problem become: whose central clock it is?), but rather relies on its past results to determine current and future results, and uses time slot numbers as clock simulators to estimate time.
+The VRF used by many projects is safe for block production and works well for BABE, but CESS goes a step further. The difference is that the VRF of CESS does not rely on the central clock (where the problem become: whose central clock it is?), but rather relies on its past results to determine current and future results, and uses time slot numbers as clock simulators to estimate time.
 
 # Working mechanism
 
