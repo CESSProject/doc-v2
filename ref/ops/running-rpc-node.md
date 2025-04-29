@@ -94,12 +94,13 @@ RPC nodes do not directly participate in block production like consensus nodes. 
 
 4. Start the RPC service
    ```shell
-   ./target/release/cess-node --base-path 【Your custom database path】 --chain cess-testnet --port 【Your custom p2p port】 --rpc-port 【Your custom rpc port】 --prometheus-external --unsafe-rpc-external --name 【Your custom name】 --rpc-cors all --rpc-max-connections 5000 --state-pruning archive --wasm-runtime-overrides 【spec wasm path】
+   ./target/release/cess-node --base-path 【Your custom database path】 --chain cess-testnet --port 【Your custom p2p port】 --rpc-port 【Your custom rpc port】 --prometheus-external --unsafe-rpc-external --name 【Your custom name】 --rpc-cors all --rpc-max-connections 5000 --state-pruning archive --wasm-runtime-overrides ./scripts/wasm_overrides/testnet/
+
    ```
 
    You can use the `-h` flag to view more command options.
 
-   ⚠️ **Special note for --wasm-runtime-overrides**: Due to the online upgrade of SGX in the current testnet, it is necessary to specify special wasm files for overriding. For example, if the `spec_100.wasm` file is located at `/opt/wasm/`, the parameter should be filled in as `--wasm-runtime-overrides /opt/wasm`. You only need to specify the directory path, not the file path.
+   ⚠️ **Special note for --wasm-runtime-overrides**: Due to the online upgrade of SGX in the current testnet, it is necessary to specify special wasm files for overriding. For example, if the `spec_100.wasm` file is located at `/opt/wasm/`, the parameter should be filled in as `--wasm-runtime-overrides /opt/wasm`. You only need to specify the directory path, not the file path. Currently, we have placed the spec_100.wasm file in the `/scripts/wasm_overrides/testnet/` path within the cess repository.
 
    If the node is printing block synchronization logs, it means it's running successfully.
 
