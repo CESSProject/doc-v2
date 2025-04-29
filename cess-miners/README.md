@@ -1,4 +1,4 @@
-The CESS Network consists of **4** types of nodes: **Consensus Nodes**, **Storage Nodes**, **TEE Nodes**, and **CDN Nodes**. 
+The CESS Network consists of **4** types of nodes: **Consensus Nodes**, **Storage Nodes**, **CDN Nodes**, and **TEE Nodes**. 
 
 
 {% hint style="success" %}
@@ -32,13 +32,36 @@ The Storage Node is a fundamental component of the CESS network, acting as the p
 
 To safeguard data, the network employs the **Proof of Data Reduplication and Recovery (PoDR²)** mechanism, which ensures data redundancy and quick recovery in case of data loss. In the event of accidental data loss, the network's storage nodes automatically engage in data recovery procedures to maintain sufficient redundancy, ensuring high data availability.
 
-The CESS network periodically challenges storage nodes to verify both the availability of idle space and the integrity of the stored data. Storage nodes that successfully pass these challenges are rewarded with incentives for their participation. Users can easily deploy a storage node using simple command-line tools, minimizing configuration efforts while enabling them to monetize idle storage resources.
+The CESS chain periodically challenges storage nodes to verify both the availability of idle space and the integrity of the stored data. Storage nodes that successfully pass these challenges are rewarded with incentives for their participation. Users can easily deploy a storage node using simple command-line tools, minimizing configuration efforts while enabling them to monetize idle storage resources.
 
 Storage nodes are responsible for managing their local disk resources, controlling the maximum storage capacity, and ensuring that they deliver data storage, retrieval, and proof calculation services. Nodes that provide larger amounts of storage are eligible for greater rewards, incentivizing the contribution of more substantial storage resources to the network.
 
 {% hint style="success" %}
 If you are interested in running a storage node, please refer to the section [**Storage Node**](storage-miner/).
 {% endhint %}
+
+# CDN Node
+The **CDN Node** refers to nodes within the CESS Content Delivery Network (CDN), which play a vital role in optimizing data retrieval, balancing network load, mitigating DDoS (Distributed Denial of Service) attacks, and facilitating bidirectional data distribution between users and the CESS network. These nodes ensure seamless, low-latency delivery of data, both from users to the network and vice versa. Additionally, CDN Nodes are designed to support the processing of AI-related data, such as training datasets, models, and other AI assets, contributing significantly to the broader AI ecosystem within the CESS framework.
+
+The CDN Node ecosystem is divided into two distinct roles: **Retriever** and **Cacher**.
+
+### **Retriever**
+The **Retriever** node is responsible for a range of critical functions, including:
+- **Data Retrieval**: Efficiently fetching user data when needed.
+- **Caching**: Temporarily storing frequently accessed data to reduce latency.
+- **Computation**: Performing necessary processing on data, such as transformations or analytics.
+- **Load Scheduling**: Managing data flow and balancing network load.
+- **Traffic Proof Verification**: Ensuring that the traffic associated with cached data is valid and effective.
+
+Retrievers share cached data across the CESS network, facilitating decentralized and highly efficient data interoperability within the CDN. Retrievers earn rewards by contributing computational power, data traffic, and supporting the overall performance of the network.
+
+### **Cacher**
+The **Cacher** node focuses on **lightweight data caching** and can operate on **low-power DePIN devices**. Its main role is to store and cache frequently requested data, improving network responsiveness. Cachers help scale the edge cache infrastructure by leveraging a large number of low-cost, distributed devices. By contributing to the network's traffic distribution and data availability, cachers earn revenue based on the data they store and serve.
+
+The deployment of **Cachers** enables the **unlimited scalability** of the edge cache, as the CESS network can expand by incorporating numerous small devices that contribute to the overall data distribution and traffic load.
+
+### Monetization and Flexibility
+Users can easily deploy either role-**Retriever** or **Cacher**-using simple script tools and dedicated nodes, allowing them to monetize their resources based on the role they choose to run. This flexibility enables a wide range of participants to contribute to the CESS network, whether by providing computational power, storage, or network bandwidth, and earn rewards in return.
 
 # TEE Nodes
 
@@ -85,28 +108,3 @@ If a CESS node is running in both full-node mode and TEE worker mode, it is elig
 {% hint style="success" %}
 If you are interested in running a storage node, please refer to the section [**TEE Node**](tee-node/).
 {% endhint %}
-
-# CDN Node
-The **CDN Node** refers to nodes within the CESS Content Delivery Network (CDN), which play a vital role in optimizing data retrieval, balancing network load, mitigating DDoS (Distributed Denial of Service) attacks, and facilitating bidirectional data distribution between users and the CESS network. These nodes ensure seamless, low-latency delivery of data, both from users to the network and vice versa. Additionally, CDN Nodes are designed to support the processing of AI-related data, such as training datasets, models, and other AI assets, contributing significantly to the broader AI ecosystem within the CESS framework.
-
-The CDN Node ecosystem is divided into two distinct roles: **Retriever** and **Cacher**.
-
-### **Retriever**
-The **Retriever** node is responsible for a range of critical functions, including:
-- **Data Retrieval**: Efficiently fetching user data when needed.
-- **Caching**: Temporarily storing frequently accessed data to reduce latency.
-- **Computation**: Performing necessary processing on data, such as transformations or analytics.
-- **Load Scheduling**: Managing data flow and balancing network load.
-- **Traffic Proof Verification**: Ensuring that the traffic associated with cached data is valid and effective.
-
-Retrievers share cached data across the CESS network, facilitating decentralized and highly efficient data interoperability within the CDN. Retrievers earn rewards by contributing computational power, data traffic, and supporting the overall performance of the network.
-
-### **Cacher**
-The **Cacher** node focuses on **lightweight data caching** and can operate on **low-power DePIN devices**. Its main role is to store and cache frequently requested data, improving network responsiveness. Cachers help scale the edge cache infrastructure by leveraging a large number of low-cost, distributed devices. By contributing to the network's traffic distribution and data availability, cachers earn revenue based on the data they store and serve.
-
-The deployment of **Cachers** enables the **unlimited scalability** of the edge cache, as the CESS network can expand by incorporating numerous small devices that contribute to the overall data distribution and traffic load.
-
-### Monetization and Flexibility
-Users can easily deploy either role—**Retriever** or **Cacher**—using simple script tools and dedicated nodes, allowing them to monetize their resources based on the role they choose to run. This flexibility enables a wide range of participants to contribute to the CESS network, whether by providing computational power, storage, or network bandwidth, and earn rewards in return.
-
-
