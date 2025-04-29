@@ -70,10 +70,10 @@ RPC nodes do not directly participate in block production like consensus nodes. 
 
    You can get the latest version using one of the following methods:
 
-   **Method 1**: Download and unzip the release (e.g., v0.7.5 as example):
+   **Method 1**: Download and unzip the release (e.g., cess-0.7.9-venus as example):
    ```shell
-   wget https://github.com/CESSProject/cess/archive/v0.7.5.tar.gz
-   tar -zxvf v0.7.5.tar.gz
+   wget https://github.com/CESSProject/cess/archive/refs/tags/cess-v0.7.9-venus.tar.gz
+   tar -zxvf cess-v0.7.9-venus.tar.gz
    ```
 
    **Method 2**: Clone the repository with the latest tag:
