@@ -2,11 +2,11 @@
 
 Install multi-nodes can be illustrated as below:
 
-- watchTower: When there is a difference between the local storage node image and the official storage node image, watchtower will automatically pull the new official image, create a new miner, and then delete the old one.
-- storage node: A storage node communicate with each other via P2P. The ports configured in the config template are: 15001, 15002.
-- chain: A chain node. storage node query blockchain data through the chain node's 9944 port by default; chain nodes synchronize data among themselves through the default port: 30336.
-- watchdog: storage nodes monitor. can scrape node's data from different hosts and alert user when some exception occurs.
-- dashboard: The dashboard of storage node monitor. can display the storage node data in a web page.
+- WatchTower: When there is a difference between the local storage node image and the official storage node image, watchtower will automatically pull the new official image, create a new miner, and then delete the old one.
+- Storage node: A storage node communicate with each other via HTTP. The ports configured in the config template are: 15001, 15002.
+- Chain: A chain node. storage node query blockchain data through the chain node's 9944 port by default; chain nodes synchronize data among themselves through the default port: 30336.
+- Watchdog: storage nodes monitor. can scrape node's data from different hosts and alert user when some exception occurs.
+- Dashboard: The dashboard of storage node monitor. can display the storage node data in a web page.
 
 ![Multi-miner Architecture](../../assets/storage-miner/multi-miner/multi-miner-arch.png)
 
@@ -170,7 +170,7 @@ After executing the above installation command, customize your own config file a
 
 - **UseSpace:** Storage capacity of the storage node, measured in GB.
 - **UseCpu:** Number of logical cores used by the storage node.
-- **TeeList:** The public key of tee node, storage miner will not use public tee nodes on chain if set custom tee nodes in config.yaml.
+- **TeeList:** The public key of tee node, storage node will not use public tee nodes on chain if set custom tee nodes in config.yaml.
 - **port:** Storage node use that port to communicat with each other, the port of each storage node must be different and not occupied by other process.
 - **apiendpoint:** An external IP address or domain which can be accessed by internet, default value: `hostPublicIP:port`.
 - **diskPath:** Absolute system path where the storage node run, requiring a file system to be mounted at this path.
@@ -584,7 +584,7 @@ After this node **has exited CESS Network** (see above), run
   sudo mineradm purge
 ```
 
-# 6. upgrade mineradm client
+# 6. Upgrade mineradm client
 
 Upgrade the mineradm client by execute command as below:
 

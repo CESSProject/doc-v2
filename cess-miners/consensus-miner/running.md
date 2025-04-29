@@ -35,7 +35,7 @@ curl -4 ifconfig.co
 
 Before setting up your CESS wallet accounts, you must select the type of consensus miner you would like to run.
 
-Starting from version **CESS v0.7.6**, users can select the consensus miner's operational capacity. Depending on the type of operational capacity the work load of TEE differs.
+Starting from version **CESS v0.7.9-venus**, users can select the consensus miner's operational capacity. Depending on the type of operational capacity the work load of TEE differs.
 
 - **Full**: A full node is a type of node that has all the necessary functions to operate as a fully-capable consensus miner. This includes generating random challenges, verifying data, computing tags, and generating and replacing space holder data, etc. Moreover, these nodes participate in the network consensus. To register as a full node, **binding to consensus nodes** is required.
 
@@ -66,7 +66,7 @@ After the wallet account is created, navigate to [CESS Explorer](https://polkado
 # Binding Funds
 
 {% hint style="info" %}
-_As of CESS v0.7.6, the controller account has been removed from the binding fund operation._
+_As of CESS v0.7.9-venus, the controller account has been removed from the binding fund operation._
 {% endhint %}
 
 Open [CESS Explorer](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc.cess.network%2Fws%2F#/) and Select **Network** > **Staking** > **Accounts** > **Stash**
