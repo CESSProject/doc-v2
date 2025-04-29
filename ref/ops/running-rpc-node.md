@@ -73,7 +73,7 @@ RPC nodes do not directly participate in block production like consensus nodes. 
    **Method 1**: Download and unzip the release (e.g., cess-0.7.9-venus as example):
    ```shell
    wget https://github.com/CESSProject/cess/archive/refs/tags/cess-v0.7.9-venus.tar.gz
-   tar -zxvf cess-v0.7.9-venus.tar.gz
+   tar -zxvf cess-cess-v0.7.9-venus.tar.gz
    ```
 
    **Method 2**: Clone the repository with the latest tag:
