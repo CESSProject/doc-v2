@@ -1,4 +1,4 @@
-[**R²S**](r2s.md)
+[**R²S(Random Rotation Selection)**](r2s.md)
 
 [**RRC**](rrc.md)
 
