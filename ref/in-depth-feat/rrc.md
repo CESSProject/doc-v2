@@ -1,4 +1,4 @@
-Random rotational consensus is an important component of the CESS protocol. Unlike the Polkadot consensus mechanism, random rotation consensus changes the process of verifying node elections. The following is the overall process flow:
+**Random Rotational Consensus** is an important component of the CESS protocol. Unlike the Polkadot consensus mechanism, random rotation consensus changes the process of verifying node elections. The following is the overall process flow:
 
 1. A node stakes 3 million tokens to register as a consensus node.
 
