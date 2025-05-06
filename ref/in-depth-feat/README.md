@@ -1,6 +1,6 @@
-[**R²S**](r2s.md)
+[**R²S(Random Rotation Selection)**](r2s.md)
 
-[**RRC**](rrc.md)
+[**RRC(Random Rotational Consensus)**](rrc.md)
 
-[**LBSS**](lbss.md)
+[**LBSS(Location-Based Storage Selection)**](lbss.md)
 
