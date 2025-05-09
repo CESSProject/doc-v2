@@ -126,9 +126,9 @@ Please refer to [Creating CESS Accounts](../../user/cess-account.md) for creatin
 2. Download and install
 
    ```bash
-   wget https://github.com/CESSProject/cess-nodeadm/archive/v0.6.0.tar.gz
-   tar -xvzf v0.6.0.tar.gz
-   cd cess-nodeadm-0.6.0/
+   wget https://github.com/CESSProject/cess-nodeadm/archive/v0.6.1.tar.gz
+   tar -xvzf v0.6.1.tar.gz
+   cd cess-nodeadm-0.6.1/
    ./install.sh
    ```
 
@@ -169,7 +169,7 @@ sudo cess profile testnet
 ```bash
 sudo cess config set
 
-Enter cess node mode from 'authority/storage/rpcnode' (current: storage, press enter to skip): storage
+Enter cess node mode from 'tee/storage/validator/rpcnode' (current: storage, press enter to skip): storage
 Enter cess storage listener port (current: 15001, press enter to skip): 
 Start configuring the endpoint to access Storage-Miner from the internet
   Do you need to automatically detect extranet address as endpoint? (y/n) y
