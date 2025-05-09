@@ -43,13 +43,13 @@ Running a TEE node can increase the reputation points of a running Consensus Nod
 
 # Prepare CESS Wallet Accounts
 
-To run the TEE node in both `Full` and `Verifier` operational capacities, you need two separate accounts.
+To run the TEE node in both `full` and `verifier` operational capacities, you need two separate accounts.
 
 - **Stash Account**: This is the account where you keep all the tokens you want to stake. This account requires at least 3,000,000 TCESS for staking it can be either from the node owner itself or delegated by other users.
 
 - **Controller Account**: This account is a wallet used to pay the transaction gas fees required to run the TEE node and that these tokens are not safe, please do not put too much token in this account.
 
-If you only run a TEE node with the `Marker` role, then you only need prepare the `Controller Account`
+If you only run a TEE node with the `marker` role, then you only need prepare the `Controller Account`
 
 {% hint style="info" %}
 You can also refer to the artcle [Creating CESS Accounts](../../user/cess-account.md) for creating a CESS account.
@@ -72,9 +72,9 @@ Before running, if you have previously deployed a previous version of CESS Tee N
 The `cess-nodeadm` is a CESS node deployment and management tool. It helps deploying and managing Storage nodes, Tee nodes, and Consensus nodes, simplifying the devOps for all CESS miners.
 
 ```bash
-wget https://github.com/CESSProject/cess-nodeadm/archive/refs/tags/v0.5.8.tar.gz
-tar -xvf v0.5.8.tar.gz
-cd cess-nodeadm-0.5.8
+wget https://github.com/CESSProject/cess-nodeadm/archive/refs/tags/v0.6.1.tar.gz
+tar -xvf v0.6.1.tar.gz
+cd cess-nodeadm-0.6.1
 sudo ./install.sh
 
 ```
@@ -95,17 +95,17 @@ Execute:
 sudo cess config set
 ```
 
-The following is an operational example of running the miner in the `Full` capacity mode:
+The following is an operational example of running the miner in the `full` capacity mode:
 
 _Tips: You can press Enter to skip when the default value of 'current' is suitable_
 
 ```bash
-Enter cess node mode from 'authority/storage/rpcnode' (current: authority, press enter to skip): authority
+Enter cess node mode from 'tee/storage/validator/rpcnode' (current: tee, press enter to skip): tee
 ```
 
-If you select the "authority" option, the Intel SGX driver on your device will be initiated in software mode. You might encounter a notification that reads "Software enable has been set. Please reboot your system to finish enabling Intel SGX." Therefore, it is recommended that you restart your device after completing the configuration and before moving on to the next steps.
+If you select the "tee" option, the Intel SGX driver on your device will be initiated in software mode. You might encounter a notification that reads "Software enable has been set. Please reboot your system to finish enabling Intel SGX." Therefore, it is recommended that you restart your device after completing the configuration and before moving on to the next steps.
 
-You will see the follwing message printed on the screen.
+You will see the following message printed on the screen.
 
 ``` bash
 Begin install sgx_enable ...
@@ -138,9 +138,9 @@ The current version of TEE Node supports two running remote attestation types. Y
 Enter the type of remote attestation method 'ias/dcap' (current: , press enter to skip):dcap
 ```
 
- You can choose role now. **`Full`** mode has all the capabilities of TEE Node, **`Verifier`** only has the capabilities of TEE Node to verify the proof from miners, and **`Marker`** only has the capabilities of TEE Node to tag file from miners. When you choose the **`Marker`** role, you do not need to fill in the CESS validator stash account in the next step.
+ You can choose role now. **`full`** mode has all the capabilities of TEE Node, **`verifier`** only has the capabilities of TEE Node to verify the proof from miners, and **`marker`** only has the capabilities of TEE Node to tag file from miners. When you choose the **`marker`** role, you do not need to fill in the CESS validator stash account in the next step.
  ```bash
- Enter what kind of tee worker would you want to be [Full/Verifier/Marker]: Full 
+ Enter what kind of tee worker would you want to be [full/verifier/marker]: full 
  ```
 
  Then enter your CESS Controller account mnemonic phrase.
@@ -215,7 +215,7 @@ cess down
 ## Remove All Chain Data
 
 {% hint style="warning" %}
-If your has some serious problems and you want to completely reinstall your Tee Node, you can use the following command to clear all runtime data from you instance.
+If your has some serious problems, and you want to completely reinstall your Tee Node, you can use the following command to clear all runtime data from you instance.
 {% endhint %}
 
 ```bash
@@ -231,8 +231,6 @@ cd cess-nodeadm-<new-version>
 ./install.sh --skip-dep
 ```
 
-Currently [the most updated version](https://github.com/CESSProject/cess-nodeadm/tags) is **v0.5.5**.
-
 ## Pull Images
 
 ```bash
@@ -247,12 +245,15 @@ cess pullimg
 
    ```bash
    .....
-   Enter the kaleido endpoint (current: http://tee-xxx.cess.network, press enter to skip): http://tee-xxx.cess.network
-   Do you need to configure a domain name proxy with one click? (y/n): y
+   $ cess config set
+   Start configuring the endpoint to access TEE worker from the Internet
+   Try to get your external IP ...
+   Enter the TEE worker endpoint (current: http://x.x.x.x:19999, press enter to skip): https://tee1.cess.network
+   Do you want to configure a domain name proxy with one click? (y/n): y
    .....
    ```
 
-   Alternatively, you can manually configure an nginx proxy. Please avoid using the intermediate proxy provided by the domain service provider.
+   Alternatively, you can manually configure a nginx proxy. Please avoid using the intermediate proxy provided by the domain service provider.
 
 2. How do I know if the program is working properly?
 

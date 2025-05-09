@@ -4,7 +4,7 @@ RPC nodes do not directly participate in block production like consensus nodes. 
 
 1. Check the latest version of cess-nodeadm
    Latest version of cess-nodeadm: <https://github.com/CESSProject/cess-nodeadm/tags><br/>
-   ⚠️ Replace all occurrences of `x.x.x` in the following text with the latest version number. For example, if the latest version is `v0.6.0`, then replace `x.x.x` with `0.6.0`.
+   ⚠️ Replace all occurrences of `x.x.x` in the following text with the latest version number. For example, if the latest version is `v0.6.1`, then replace `x.x.x` with `0.6.1`.
 
 2. Check the installed version of cess-nodeadm
    Enter `cess version` in the console to check if the `nodeadm version` is the latest.
@@ -26,7 +26,7 @@ RPC nodes do not directly participate in block production like consensus nodes. 
 **The archive mode saves all blocks, which is suitable for full node operation, otherwise, you can set the number of blocks to be saved**
    
    ```shell
-   Enter cess node mode from 'authority/storage/rpcnode' (current: rpcnode, press enter to skip): rpcnode
+   Enter cess node mode from 'tee/storage/validator/rpcnode' (current: rpcnode, press enter to skip): rpcnode
    Enter cess node name (current: cess, press enter to skip): local-chain
    Enter cess chain pruning mode, 'archive' or number (current: archive, press enter to skip): archive  #number of blocks saved
    ```
