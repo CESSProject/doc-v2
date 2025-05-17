@@ -41,7 +41,7 @@ If you are interested in running a storage node, please refer to the section [**
 {% endhint %}
 
 # CDN Node
-The **CDN Node** refers to nodes within the CESS Content Delivery Network (CDN), which play a vital role in optimizing data retrieval, balancing network load, mitigating DDoS (Distributed Denial of Service) attacks, and facilitating bidirectional data distribution between users and the CESS network. These nodes ensure seamless, low-latency delivery of data, both from users to the network and vice versa. Additionally, CDN Nodes are designed to support the processing of AI-related data, such as training datasets, models, and other AI assets, contributing significantly to the broader AI ecosystem within the CESS framework.
+The **CDN Node** refers to nodes within the CESS CD²N, which play a vital role in optimizing data retrieval, balancing network load, mitigating DDoS (Distributed Denial of Service) attacks, and facilitating bidirectional data distribution between users and the CESS network. These nodes ensure seamless, low-latency delivery of data, both from users to the network and vice versa. Additionally, CDN Nodes are designed to support the processing of AI-related data, such as training datasets, models, and other AI assets, contributing significantly to the broader AI ecosystem within the CESS framework.
 
 The CDN Node ecosystem is divided into two distinct roles: **Retriever** and **Cacher**.
 
