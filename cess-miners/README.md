@@ -65,7 +65,7 @@ Users can easily deploy either role-**Retriever** or **Cacher**-using simple scr
 
 # TEE Nodes
 
-The TEE Node operates within the Intel SGX (Software Guard Extensions) trusted execution environment, serving a crucial role in verifying the integrity of idle storage space and managing the initialization of user data, all based on the PoDR² (Proof of Data Reduplication and Recovery) algorithm. By leveraging the secure enclave provided by Intel SGX, the TEE Node ensures that data processing and verification occur in a trusted and tamper-proof environment, adding an extra layer of security and reliability to the network.
+The TEE Node operates within the Intel SGX (Software Guard Extensions) trusted execution environment, serving a crucial role in verifying the integrity of idle storage space and managing the initialization of user data. By leveraging the secure enclave provided by Intel SGX, the TEE Node ensures that data processing and verification occur in a trusted and tamper-proof environment, adding an extra layer of security and reliability to the network.
 
 The TEE Node functions as an intermediary for consensus nodes, facilitating efficient validation of random challenges related to both idle space availability and the correctness of in-service data. While the TEE Node itself does not directly receive rewards, its operation enhances the overall performance of storage nodes, thereby indirectly benefiting the associated consensus nodes by increasing the likelihood of those nodes being selected as validators.
 
