@@ -50,7 +50,7 @@ The **Retriever** node is responsible for a range of critical functions, includi
 - **Data Retrieval**: Efficiently fetching user data when needed.
 - **Caching**: Temporarily storing frequently accessed data to reduce latency.
 - **Computation**: Performing necessary processing on data, such as transformations or analytics.
-- **Load Scheduling**: Managing data flow and balancing network load.
+- **Load Sharing**: Managing data flow and balancing network load.
 - **Traffic Proof Verification**: Ensuring that the traffic associated with cached data is valid and effective.
 
 Retrievers share cached data across the CESS network, facilitating decentralized and highly efficient data interoperability within the CDN. Retrievers earn rewards by contributing computational power, data traffic, and supporting the overall performance of the network.
