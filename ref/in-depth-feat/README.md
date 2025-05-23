@@ -4,3 +4,5 @@
 
 [**LBSS(Location-Based Storage Selection)**](lbss.md)
 
+[**VRF(Verifiable Random Function)**](vrf.md)
+
