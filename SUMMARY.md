@@ -280,6 +280,7 @@
     * [R²S](ref/in-depth-feat/r2s.md)
     * [RRC](ref/in-depth-feat/rrc.md)
     * [LBSS](ref/in-depth-feat/lbss.md)
+    * [VRF](ref/in-depth-feat/vrf.md)
   * [Data Lifecycle](ref/data-lifecycle/README.md)
     * [Data Upload](ref/data-lifecycle/upload.md)
     * [Data Download](ref/data-lifecycle/download.md)
