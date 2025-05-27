@@ -122,14 +122,22 @@ Account Set 2:
 
     ![Transfer ERC-20 Tokens (#3 -> #4)](../../assets/developer/guides/substrate-evm/transfer-erc20.png)
 
-2. Now, on the Polkadot.js Apps side, let's use Alice's account to issue extrinsic `evm.withdraw` to withdraw the ERC-20 token and convert it back to the chain native tokens. Put the following as parameters:
+2. You can check your balance from [Runtime calls](https://testnet.cess.network/#/runtime)
+    From Runtime calls select **ethereumRuntimeRPCApi** and select **accountBasics(address)** and enter the address `0xd43593c715fdd31c61141abd04a99fd6822c8558`. Lastly, click on `Submit Runtime Call`.
+   
+![image](https://github.com/user-attachments/assets/5311574f-bbff-4653-b003-f7d24de70d7a)
+
+ - This will return the balance that you can withdraw from your EVM address. You can copy the balance amount you want to transfer. 
+
+
+4. Now, on the Polkadot.js Apps side, let's use Alice's account to issue extrinsic `evm.withdraw` to withdraw the ERC-20 token and convert it back to the chain native tokens. Put the following as parameters:
 
     - address: our EVM-mapped address: **0xd43593c715fdd31c61141abd04a99fd6822c8558**
     - value: the amount to withdraw, **2500000000000000000**.
 
     ![Send `evm.withdraw()` Extrinsic at Account #1](../../assets/developer/guides/substrate-evm/evm-withdraw-extrinsic.png)
 
-3. After the extrinsic is processed, we should see Alice's account updated from 90M to 92.5M units.
+5. After the extrinsic is processed, we should see Alice's account updated from 90M to 92.5M units.
 
     ![Account #1 Final Balance](../../assets/developer/guides/substrate-evm/1-final.png)
 
