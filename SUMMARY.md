@@ -21,6 +21,8 @@
   * [TEE Nodes](cess-miners/tee-node/README.md)
     * [What is TEE Node](cess-miners/tee-node/what-is-tee.md)
     * [Running a TEE Node](cess-miners/tee-node/running.md)
+  * [Misc](cess-miners/misc/README.md)
+    * [Running a RPC Node](cess-miners/misc/running-rpc-node.md)
 * [🌏 Community Members](community/README.md)
   * [Ambassador Program](community/ambassador.md)
   * [Community Governance](community/governance.md)
