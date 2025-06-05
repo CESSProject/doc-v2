@@ -1,16 +1,16 @@
 RPC nodes do not directly participate in block production like consensus nodes. Instead, they are responsible for verifying transactions and facilitating communication between different nodes and between nodes and clients, promoting transaction verification and on-chain information retrieval.
 
-## 1 Run with cess-nodeadm
+## 1. Run with cess-nodeadm
 
-1. Check the latest version of cess-nodeadm
+1.1 Check the latest version of cess-nodeadm
    Latest version of cess-nodeadm: <https://github.com/CESSProject/cess-nodeadm/tags><br/>
    ⚠️ Replace all occurrences of `x.x.x` in the following text with the latest version number. For example, if the latest version is `v0.6.1`, then replace `x.x.x` with `0.6.1`.
 
-2. Check the installed version of cess-nodeadm
+1.2 Check the installed version of cess-nodeadm
    Enter `cess version` in the console to check if the `nodeadm version` is the latest.
    If nodeadm is the latest version, you can skip step 3. If not, proceed to step 3 to install. If you do not see nodeadm version, it means cess-nodeadm is not installed, and you need to proceed to step 3 to install.
 
-3. Download and install the cess-nodeadm
+1.3 Download and install the cess-nodeadm
    ```shell
    wget https://github.com/CESSProject/cess-nodeadm/archive/vx.x.x.tar.gz
    tar -xvf vx.x.x.tar.gz
@@ -18,10 +18,10 @@ RPC nodes do not directly participate in block production like consensus nodes. 
    ./install.sh
    ```
 
-4. Stop the RPC node service
+1.4 Stop the RPC node service
    Enter the command: `cess stop chain` to stop the running RPC node service.
 
-5. Define script configuration parameters
+1.5 Define script configuration parameters
 
 **The archive mode saves all blocks, which is suitable for full node operation, otherwise, you can set the number of blocks to be saved**
    
@@ -31,12 +31,12 @@ RPC nodes do not directly participate in block production like consensus nodes. 
    Enter cess chain pruning mode, 'archive' or number (current: archive, press enter to skip): archive  #number of blocks saved
    ```
 
-6. Start the RPC node
+1.6 Start the RPC node
    ```shell
    cess start chain
    ```
 
-7. Check if the RPC node is synchronizing blocks normally
+1.7 Check if the RPC node is synchronizing blocks normally
   ```shell
   docker logs chain
   ```
@@ -45,9 +45,9 @@ RPC nodes do not directly participate in block production like consensus nodes. 
 An RPC node will also be started automatically when the user runs the storage node using `nodeadm` or `mineradm`, unless an external chain is specified.
 {% endhint %}
 
-## 2 Run with source code
+## 2. Run with source code
 
-1. Environment Setup Requirements
+2.1 Environment Setup Requirements
    - OS required: Ubuntu 20+
    - Rust install: 
      ```shell
@@ -69,7 +69,7 @@ An RPC node will also be started automatically when the user runs the storage no
        && protoc --version
      ```
 
-2. Get the latest release version of cess-node
+2.2 Get the latest release version of cess-node
    [Check the latest version of cess-node](https://github.com/CESSProject/cess/tags)
 
    You can get the latest version using one of the following methods:
@@ -87,7 +87,7 @@ An RPC node will also be started automatically when the user runs the storage no
    git checkout $(git describe --tags $(git rev-list --tags --max-count=1))
    ```
 
-3. Compile **cess-node**
+2.3 Compile **cess-node**
 
    Enter the cess-node directory:
    ```shell
@@ -96,7 +96,7 @@ An RPC node will also be started automatically when the user runs the storage no
 
    ⚠️ Note: The compilation may take approximately 25 minutes on an 8-core machine.
 
-4. Start the RPC service
+2.4 Start the RPC service
    ```shell
    ./target/release/cess-node --base-path 【Your custom database path】 --chain cess-testnet --port 【Your custom p2p port】 --rpc-port 【Your custom rpc port】 --prometheus-external --unsafe-rpc-external --name 【Your custom name】 --rpc-cors all --rpc-max-connections 5000 --state-pruning archive --wasm-runtime-overrides ./scripts/wasm_overrides/testnet/
    ```
@@ -109,16 +109,16 @@ An RPC node will also be started automatically when the user runs the storage no
 
    ⚠️ It is recommended to use `systemd`, `screen` or `tmux` commands to run cess-node(RPC) if you want to keep cess-node running.
 
-## 3 Run with Container
+## 3. Run with Container
 
-1. Environment Setup Requirements
+3.1 Environment Setup Requirements
      ```shell
      curl -fsSL https://get.docker.com | bash
      docker --version
      docker pull cesslab/cess-chain:testnet
      ```
 
-2. Running Command
+3.2 Running Command
 
    **Make sure that port 30336 and 9944 are not occupied by other processes.**
 
@@ -150,7 +150,7 @@ An RPC node will also be started automatically when the user runs the storage no
    **Execute `docker run -it --rm --entrypoint /opt/cess/cess-node cesslab/cess-chain:testnet --help` to get more information about the command options.**
 
 
-3. Check if the RPC node is synchronizing blocks normally
+3.3 Check if the RPC node is synchronizing blocks normally
 
    ```bash
       docker logs testnet-rpc
