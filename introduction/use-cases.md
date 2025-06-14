@@ -4,11 +4,9 @@ The DA (Data Availability) Service is a crucial use case of the CESS network, of
 - Layer 2 Storage for Blockchain Networks: The DA Service can perform as a Layer 2 storage solution for major blockchain networks like Bitcoin (BTC), Ethereum (ETH), etc. This use case allows these blockchain networks to offload large datasets to the CESS network, reducing on-chain storage costs and improving transaction speeds while maintaining decentralized and secure storage.
 - Applications in Various Sectors: The robust and scalable nature of the DA Service makes it suitable for a wide range of applications, including decentralized finance (DeFi), enterprise storage solutions, and large-scale data management systems. These applications benefit from the DA Service's ability to provide reliable and secure data storage without relying on centralized services.
 
-## Personal Network Drive
+## VR Streaming Media
 
-CESS offers distributed network drive to end users, so individuals can securely store personal data such as photos and documents in it. Compared to traditional network drives, CESS has significant advantages on security, ownership protection, cost, and capacity. CESS disks do not require cloud servers, effectively avoiding dependency on centralized servers. Instead, user data are stored in multiple peer-to-peer (p2p) storage nodes.
-
-By adopting blockchain-based cryptographic algorithms to encrypt stored data, CESS ensures the data privacy without the risk of data loss or central server outages.
+The CESS network is ideal for VR streaming media, offering high-speed data transfer and low latency. CESS combines CDN and P2P technologies to deliver smooth VR content streaming, offering users an engaging and immersive experience. The decentralized nature of the network eliminates bottlenecks and single points of failure, enhancing the reliability and quality of VR streaming.
 
 ## Decentralized Streaming and Social Media
 
