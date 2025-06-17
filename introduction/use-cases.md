@@ -24,8 +24,10 @@ On CESS, all data file retrieval records are recorded on blockchain and hence ar
 
 ![Decentralized data marketplace on CESS](../assets/introduction/use-cases-02.png)
 
-## Enabling Secure and Compliant Global AI Development
+## Distributed AI Training
 
 Various organizations with private data face challenges in utilizing it for AI development due to sensitivity and legal constraints. The CESS network provides a solution by enabling the secure exchange of encrypted parameters and models through CESS AI-LINK. This allows organizations to collaborate on building a global AI model while ensuring data privacy and compliance with regulations. The use of the CESS network facilitates the creation of industry-wide or global AI frameworks, leveraging diverse data sources without compromising privacy or regulatory requirements.
+
+CESS facilitates distributed AI training by providing secure and scalable storage for training data. The network's high bandwidth and low latency ensure efficient data transfer between nodes, allowing faster training times. Leveraging the CESS network enables AI developers to collaborate on training models while maintaining data privacy and security. This is achieved through the implementation of federated learning and encryption technologies.
 
 ![Enabling Secure and Compliant Global AI Development](../assets/introduction/use-cases-03.png)
