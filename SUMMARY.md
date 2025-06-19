@@ -258,6 +258,8 @@
       * [Delete File](products/deoss/api-description/delete_file.md)
       * [View File Metadata](products/deoss/api-description/metadata.md)
       * [View Version](products/deoss/api-description/view_version.md)
+* [💰 Tokenomics](tokenomics/README.md)
+
 * [📚 References](ref/README.md)
   <!--
   * [Concepts](ref/concepts/README.md)
