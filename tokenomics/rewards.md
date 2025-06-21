@@ -23,7 +23,12 @@ During the k-th challenge of the N-th challenge cycle, the reward for a Storage 
 - IdleSpace： The amount of verified idle storage space held by the miner during the challenge.
 - TotalStoragePower： The total storage power of all miners who passed the challenges during that cycle.
 
-<figure><img src="../assets/tokenomics/distribution.png" alt=""><figcaption><p> </p></figcaption></figure>
+$$
+StoragePower_{k} = InserviceSpace_{k} \times 0.95 + IdleSpace_{k} \times 0.05
+$$
+$$
+Reward_{order_{k}} = TotalReward_{N} \times \frac{StoragePower_{k}}{TotalStoragePower_{N}}
+$$
 
 ## Reward Release
 When a Storage Node claims their reward, the amount is calculated based on the snapshot. Once the reward is determined, 50% is released immediately, while the remaining 50% is linearly released over the following 90 block days (approximately 24 hours), with 1/90 of the remaining amount becoming available each block day.
