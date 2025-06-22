@@ -127,7 +127,7 @@ Validators are expected to maintain a robust network infrastructure to ensure no
  Let MSA = Minimum Staking Amount
 ```
 $$
-min \left(\frac{3 \times (x-(\frac{n}{10} +1)}{n}, 1\right) \times 5\\% \times MSA
+min \left(\frac{3 \times \left(x-(\frac{n}{10} +1)\right)}{n}, 1\right) \times 5\\% \times MSA
 $$
 
 ### Equivocation Slashing
