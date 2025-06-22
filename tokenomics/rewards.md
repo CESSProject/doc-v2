@@ -163,7 +163,7 @@ To encourage early infrastructure development and healthy network growth, the re
 - For Retrieval Service Nodes, rewards are distributed based on the proportion of retrieval orders fulfilled by a node within each service cycle, relative to the total number of orders.
 
 $$
-Reward_{retrieval}=Income_{retrievalOrder}*95\\%+\cfrac{RetrievalPower}{TotalRetrievalPower}*Reward_{serviceCycle}
+Reward_{retrieval}=Income_{retrievalOrder}*95\%+\cfrac{RetrievalPower}{TotalRetrievalPower}*Reward_{serviceCycle}
 $$
 
 - For Caching Service Nodes, rewards are issued in the form of mining points, determined by the workload and share of caching tasks completed during each service cycle.
