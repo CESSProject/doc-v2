@@ -34,8 +34,9 @@ $$
 When a Storage Node claims their reward, the amount is calculated based on the snapshot. Once the reward is determined, 50% is released immediately, while the remaining 50% is linearly released over the following 90 block days (approximately 24 hours), with 1/90 of the remaining amount becoming available each block day.
 
 The miner’s available reward on the i-th block day can be calculated accordingly:
+
 $$
-AvailableReward_i = (RewardOrder_¡ \times 50\%) + \sum_{i=0}^{i} \frac{RewardOrdert_i \times 50\%}{90} 
+AvailableReward_i = (RewardOrder_¡ \times 0.5) + \sum_{t=0}^{i} \frac{RewardOrder_t \times 0.5}{90} 
 $$
 
 The Reward Order will be deleted once the entire amount has been distributed. Note that the 90-round release schedule may be subject to change on the mainnet.
@@ -51,7 +52,13 @@ However, if a Storage Node fails to submit Proof of Inservice Space, the consequ
 - For miners who have never received mining rewards, failing to submit Proof of Inservice Space during a random challenge results in a 5% slashing of $CESS from their stake.
 - For miners who have previously earned mining rewards, slashing is applied based on specific rules, taking into account the amount of Inservice Space involved.
 
-<figure><img src="../assets/tokenomics/distribution.png" alt=""><figcaption><p> </p></figcaption></figure>
+$$
+StorageSpace = IdleSpace + InserviceSpace
+$$
+
+$$
+SlashLimit = \left(2000\$CESS/TiB\right) \times StorageSpace \times 0.05 (in ~ TiB, round ~ up ~ to ~ integer)
+$$
 
 Even if the actual service space is less than 1 TiB, it will still be treated as 1 TiB for slashing calculations.
 
@@ -61,9 +68,16 @@ If a miner fails to submit Proof of Inservice Space five times in a row, they wi
 If a Storage Node submits the Proof of Idle Space during a random challenge but the proof fails validation, no slashing occurs; however, no reward will be calculated for that challenge.
 
 - If a miner fails Proof of Inservice Space validation once, there is no slashing.
-- If a miner fails Proof of Inservice Space validation two or more consecutive times, staking penalties will be applied for each failure according to the following rules.
+- If a miner fails Proof of Inservice Space validation two or more consecutive times, staking penalties will be applied for each failure according to the following rules:
 
-<figure><img src="../assets/tokenomics/distribution.png" alt=""><figcaption><p> </p></figcaption></figure>
+$$
+StorageSpace = IdleSpace + InserviceSpace
+$$
+
+$$
+SlashLimit = \left(2000\$CESS/TiB\right) \times StorageSpace \times 0.05 (in ~ TiB, round ~ up ~ to ~ integer)
+$$
+
 
 If a miner successfully passes validation in a subsequent challenge round, all prior failure records are cleared, and the count of failed challenges resets.
 
@@ -86,9 +100,12 @@ For each Era, Consensus nodes receive proportional rewards based on the Era poin
 Uncle Blocks are relay chain blocks that are valid in every aspect but failed to become canonical. This usually happens when two or more validators produce a block in the same slot, and one validator's block reaches the next block producer first. These delayed blocks are referred to as Uncle Blocks.
 
 The reward calculation for Consensus nodes follows these rules:
-xxx
 
-Consensus nodes can manually claim rewards after each ERA. Rewards can be accumulated for up to 84 ERAs before needing to be claimed.
+$$
+Reward = TotalReward_{Era} \times \frac{Points_{Era}}{TotalPoints_{Era}}
+$$
+
+Consensus nodes can manually claim rewards after each Era. Rewards can be accumulated for up to 84 Eras before needing to be claimed.
 
 ## Reward Release
 Rewards are released at the end of each Era. Regardless of the amount staked, block production rewards are generally evenly distributed among all Consensus nodes.
@@ -104,21 +121,29 @@ Consensus nodes may also receive tips from transaction senders as an incentive f
 If a validator fails to produce any blocks during an Era and also does not send a Heartbeat Signal, they are flagged as “Unresponsive.” Depending on the number of repeated offences and the overall number of other Unresponsive or offline validators during that ERA, the validator may be subject to slashing of their staked tokens.
 
 Validators are expected to maintain a robust network infrastructure to ensure node uptime and minimize the risk of slashing or being placed into a cooldown period. It is recommended to implement high availability setups with backup nodes—but only activate a backup after confirming the primary node is offline, in order to avoid double-signing or other ambiguous behaviors that could trigger more severe penalties (see below):
-
+```
  Let x = number of offending validators
  Let n = total number of validators in the active set
  Let MSA = Minimum Staking Amount
-xxx
+```
+$$
+min \left(\frac{3 \times (x-(\frac{n}{10} +1)}{n}), 1\right) \times 0.05 \times MSA
+$$
 
 ### Equivocation Slashing
 Equivocation in both GRANDPA and BABE consensus mechanisms follows the same slashing formula:
 - GRANDPA Equivocation: When a validator signs two or more conflicting votes in the same round.
 - BABE Equivocation: When a validator produces two or more blocks in the same slot.
  Formula:
+
+
+
  Let x = number of offending validators
  Let n = total number of validators in the active set
  Let MSA = Minimum Staking Amount
-xxx
+ $$
+min \left(\frac{3 \times (x-(\frac{n}{10} +1)}{n}), 1\right) \times 5\% \times MSA
+$$
 
 Validators can operate nodes on multiple machines to ensure redundancy. However, they must exercise extreme caution when managing these nodes. Improper configuration may result in equivocation, which is penalized more harshly than standard downtime or non-responsiveness.
 
