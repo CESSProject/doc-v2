@@ -127,7 +127,7 @@ Validators are expected to maintain a robust network infrastructure to ensure no
  Let MSA = Minimum Staking Amount
 ```
 $$
-min \left(\frac{3 \times (x-(\frac{n}{10} +1)}{n}), 1\right) \times 0.05 \times MSA
+min \left(\frac{3 \times (x-(\frac{n}{10} +1)}{n}, 1\right) \times 5\\% \times MSA
 $$
 
 ### Equivocation Slashing
@@ -135,14 +135,13 @@ Equivocation in both GRANDPA and BABE consensus mechanisms follows the same slas
 - GRANDPA Equivocation: When a validator signs two or more conflicting votes in the same round.
 - BABE Equivocation: When a validator produces two or more blocks in the same slot.
  Formula:
-
-
-
+```
  Let x = number of offending validators
  Let n = total number of validators in the active set
  Let MSA = Minimum Staking Amount
- $$
-min \left(\frac{3 \times (x-(\frac{n}{10} +1)}{n}), 1\right) \times 5\% \times MSA
+```
+$$
+min \left((\frac{3 \times x}{n})^2, 1\right) \times 5\\% \times MSA
 $$
 
 Validators can operate nodes on multiple machines to ensure redundancy. However, they must exercise extreme caution when managing these nodes. Improper configuration may result in equivocation, which is penalized more harshly than standard downtime or non-responsiveness.
@@ -162,9 +161,16 @@ The CESS CD²N network is designed to facilitate peer-to-peer value exchange bet
 
 To encourage early infrastructure development and healthy network growth, the reward release rules are as follows:
 - For Retrieval Service Nodes, rewards are distributed based on the proportion of retrieval orders fulfilled by a node within each service cycle, relative to the total number of orders.
-xxx
+
+$$
+Reward_{retrieval}=Income_{retrievalOrder}*95\\%+\cfrac{RetrievalPower}{TotalRetrievalPower}*Reward_{serviceCycle}
+$$
+
 - For Caching Service Nodes, rewards are issued in the form of mining points, determined by the workload and share of caching tasks completed during each service cycle.
-  xxx
+
+$$
+Points_{cache}=BytesNum_{cacheOrder}*Point_{base}+\cfrac{CachedBytes}{TotalCachedBytes}*Point_{serviceCycle}
+$$
 
 Caching nodes can redeem their mining points for CESS token rewards.
 
