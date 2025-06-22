@@ -2,5 +2,5 @@ The total supply of CESS is 10 billion tokens. After the mainnet launched, 3.5 b
 
 A new block is generated approximately every 6 seconds, and every 14,400 blocks (roughly every 24 hours) constitute a reward settlement cycle.
 
-Before the CESS Network mainnet launch, an equivalent amount of the same-name tokens will be issued on the BNB Smart Chain. Once the mainnet launches, $CESS on BNB Smart Chain can be exchanged for $CESS on the mainnet via a cross-chain bridge.
+Before the CESS Network mainnet launch, an equivalent amount of the same-name tokens will be issued on the BNB Smart Chain. Once the mainnet launches, $CESS on BNB Smart Chain can be mapped for $CESS on the mainnet via a cross-chain bridge.
 <figure><img src="../assets/tokenomics/distribution.png" alt="Token Distribution of CESS"><figcaption><p>Token Distribution of CESS</p></figcaption></figure>
