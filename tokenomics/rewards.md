@@ -9,7 +9,7 @@ The network relies on storage nodes to supply storage resources, along with some
 **CD²N Node Providers (Content Decentralized Delivery Network)**: 
 A large number of decentralized CD²N nodes contribute bandwidth and caching resources, forming high-speed, cross-regional data delivery bridges between the CESS storage network and application endpoints. Incentivizing these nodes is key to building a more robust and efficient content delivery network.
 
-In short, mining rewards are more than just a form of distribution—they are an investment. CESS is making a long-term commitment to its community, ensuring that the platform is not only viable today but remains strong and sustainable well into the future.
+In short, mining rewards are more than just a form of distribution-they are an investment. CESS is making a long-term commitment to its community, ensuring that the platform is not only viable today but remains strong and sustainable well into the future.
 
 # Storage nodes
 ## Mining Rewards
@@ -34,8 +34,9 @@ $$
 When a Storage Node claims their reward, the amount is calculated based on the snapshot. Once the reward is determined, 50% is released immediately, while the remaining 50% is linearly released over the following 90 block days (approximately 24 hours), with 1/90 of the remaining amount becoming available each block day.
 
 The miner’s available reward on the i-th block day can be calculated accordingly:
-
-<figure><img src="../assets/tokenomics/distribution.png" alt=""><figcaption><p> </p></figcaption></figure>
+$$
+AvailableReward_i = (RewardOrder_¡ \times 50\%) + \sum_{i=0}^{i} \frac{RewardOrdert_i \times 50\%}{90} 
+$$
 
 The Reward Order will be deleted once the entire amount has been distributed. Note that the 90-round release schedule may be subject to change on the mainnet.
 
