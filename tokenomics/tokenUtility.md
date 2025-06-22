@@ -1,6 +1,6 @@
 The CESS token is the native token in the CESS ecosystem and plays a multifaceted role：
 # Transactional Utility 
-Firstly, the CESS token serves as the standard medium of exchange within the CESS Network. When demand-side participants wish to purchase storage space and bandwidth resources, they interact with node operators and pay them with CESS tokens for their storage capacity and content acceleration capabilities. This is reflected in CESS’s three main business models: cloud storage space, bandwidth resources, and the AI Gap.
+Firstly, the CESS token serves as the standard medium of exchange within the CESS Network. When demand-side participants wish to purchase storage space and bandwidth resources, they interact with node operators and pay them with CESS tokens for their storage capacity and content acceleration capabilities. This is reflected in CESS’s three main business models: cloud storage space, bandwidth resources, and the AI-LINK.
 # Diversified Application
 In addition to its use in cloud storage, bandwidth resources, and AI applications, the utility of the CESS token continues to expand alongside the development of the ecosystem. As the ecosystem thrives and the integrated marketplace is introduced, the CESS token will remain as the preferred means of transaction, demonstrating its adaptability, relevance, and potential for future integration. This opens the door to a wide range of potential use cases for CESS.
 # Governance and Participation
