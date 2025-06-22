@@ -127,7 +127,7 @@ Validators are expected to maintain a robust network infrastructure to ensure no
  Let MSA = Minimum Staking Amount
 ```
 $$
-min \left(\frac{3 \times \left(x-(\frac{n}{10} +1)\right)}{n}, 1\right) \times 5\\% \times MSA
+min \left(\frac{3 \times \left(x-(\frac{n}{10} +1)\right)}{n}, 1\right) \times 5\% \times MSA
 $$
 
 ### Equivocation Slashing
@@ -141,7 +141,7 @@ Equivocation in both GRANDPA and BABE consensus mechanisms follows the same slas
  Let MSA = Minimum Staking Amount
 ```
 $$
-min \left((\frac{3 \times x}{n})^2, 1\right) \times 5\\% \times MSA
+min \left((\frac{3 \times x}{n})^2, 1\right) \times 5\% \times MSA
 $$
 
 Validators can operate nodes on multiple machines to ensure redundancy. However, they must exercise extreme caution when managing these nodes. Improper configuration may result in equivocation, which is penalized more harshly than standard downtime or non-responsiveness.
