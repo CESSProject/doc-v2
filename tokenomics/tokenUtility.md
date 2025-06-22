@@ -1,4 +1,4 @@
-The $CESS is the native token in the CESS ecosystem and plays a multifaceted role：
+The $CESS is the native token in the CESS ecosystem and plays a multifaceted role:
 # Transactional Utility 
 Firstly, the $CESS serves as the standard medium of exchange within the CESS Network. When demand-side participants wish to purchase storage space and bandwidth resources, they interact with node operators and pay them with $CESSs for their storage capacity and content acceleration capabilities. This is reflected in CESS’s three main business models: cloud storage space, bandwidth resources, and the AI-LINK.
 # Diversified Application
