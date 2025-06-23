@@ -24,7 +24,7 @@ During the k-th challenge of the N-th challenge cycle, the reward for a Storage 
 - TotalStoragePower： The total storage power of all miners who passed the challenges during that cycle.
 
 $$
-StoragePower_{k} = InserviceSpace_{k} \times 0.95 + IdleSpace_{k} \times 0.05
+StoragePower_{k} = InserviceSpace_{k} \times 95\% + IdleSpace_{k} \times 5\%
 $$
 $$
 Reward_{order_{k}} = TotalReward_{N} \times \frac{StoragePower_{k}}{TotalStoragePower_{N}}
@@ -36,7 +36,7 @@ When a Storage Node claims their reward, the amount is calculated based on the s
 The miner’s available reward on the i-th block day can be calculated accordingly:
 
 $$
-AvailableReward_i = (RewardOrder_¡ \times 0.5) + \sum_{t=0}^{i} \frac{RewardOrder_t \times 0.5}{90} 
+AvailableReward_i = (RewardOrder_¡ \times 50\%) + \sum_{t=0}^{i} \frac{RewardOrder_t \times 50\%}{90} 
 $$
 
 The Reward Order will be deleted once the entire amount has been distributed. Note that the 90-round release schedule may be subject to change on the mainnet.
@@ -57,7 +57,7 @@ StorageSpace = IdleSpace + InserviceSpace
 $$
 
 $$
-SlashLimit = \left(2000 ~ \$CESS/TiB\right) \times StorageSpace \times 0.05 (in ~ TiB, round ~ up ~ to ~ integer)
+SlashLimit = \left(2000 ~ \$CESS/TiB\right) \times StorageSpace \times 5\% (in ~ TiB, round ~ up ~ to ~ integer)
 $$
 
 Even if the actual service space is less than 1 TiB, it will still be treated as 1 TiB for slashing calculations.
@@ -75,7 +75,7 @@ StorageSpace = IdleSpace + InserviceSpace
 $$
 
 $$
-SlashLimit = \left(2000 ~ \$CESS/TiB\right) \times StorageSpace \times 0.05 (in ~ TiB, round ~ up ~ to ~ integer)
+SlashLimit = \left(2000 ~ \$CESS/TiB\right) \times StorageSpace \times 5\% (in ~ TiB, round ~ up ~ to ~ integer)
 $$
 
 
