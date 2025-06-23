@@ -57,7 +57,7 @@ StorageSpace = IdleSpace + InserviceSpace
 $$
 
 $$
-SlashLimit = \left(2000\$CESS/TiB\right) \times StorageSpace \times 0.05 (in ~ TiB, round ~ up ~ to ~ integer)
+SlashLimit = \left(2000 ~ \$CESS/TiB\right) \times StorageSpace \times 0.05 (in ~ TiB, round ~ up ~ to ~ integer)
 $$
 
 Even if the actual service space is less than 1 TiB, it will still be treated as 1 TiB for slashing calculations.
@@ -75,7 +75,7 @@ StorageSpace = IdleSpace + InserviceSpace
 $$
 
 $$
-SlashLimit = \left(2000\$CESS/TiB\right) \times StorageSpace \times 0.05 (in ~ TiB, round ~ up ~ to ~ integer)
+SlashLimit = \left(2000 ~ \$CESS/TiB\right) \times StorageSpace \times 0.05 (in ~ TiB, round ~ up ~ to ~ integer)
 $$
 
 
