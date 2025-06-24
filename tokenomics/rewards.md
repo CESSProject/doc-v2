@@ -15,7 +15,7 @@ In short, mining rewards are more than just a form of distribution-they are an i
 ## Mining Rewards
 Storage Nodes must pass random on-chain challenges in order to earn mining rewards. The amount of the reward depends on the reward pool for that challenge round and the proportion of the miner's storage power relative to the total network. Once rewards are issued, Storage Nodes must manually initiate a transaction to claim them.
 
-The CESS Network uses a challenge cycle of every 4 Eras (approximately 24 hours) to take snapshots of miners who have passed challenges, and rewards are calculated based on these snapshots. The reward pool for a given challenge cycle is sourced from a fixed number of tokens distributed over those 4 Eras. (Currently, each Era lasts about 6 hours, and around 324,688 $CESS are issued per Era. This follows a halving every 4 years rule, with a portion of each issuance allocated to the reward pool.)
+The CESS Network uses a challenge cycle of every ***4 Eras*** (approximately 24 hours) to take snapshots of miners who have passed challenges, and rewards are calculated based on these snapshots. The reward pool for a given challenge cycle is sourced from a fixed number of tokens distributed over those 4 Eras. (Currently, each Era lasts about ***6 hours***, and around 324,688 $CESS are issued per Era. This follows a halving every ***4 years*** rule, with a portion of each issuance allocated to the reward pool.)
 During the k-th challenge of the N-th challenge cycle, the reward for a Storage Node is calculated based on the following parameters:
 
 - Total Reward： The total amount of tokens accumulated in the reward pool at the end of the challenge cycle.
@@ -86,7 +86,7 @@ If a miner successfully passes validation in a subsequent challenge round, all p
 There is no upper limit to the number of slashing events for Inservice Punishment. A miner may lose their entire stake over multiple consecutive failures, and may even fall into debt.
 
 If a miner's staked amount falls below the required amount for their declared storage space:
-- The miner will be placed in a “Frozen” state.
+- The miner will be placed in a "Frozen" state.
 - Frozen miners cannot validate idle space or serve data, and cannot receive mining rewards.
 - They will still be subject to random challenges, but will not be eligible for any rewards from them.
 
@@ -118,7 +118,7 @@ Consensus nodes may also receive tips from transaction senders as an incentive f
 
 ## Slashing Mechanism
 ### Unresponsiveness Slashing
-If a validator fails to produce any blocks during an Era and also does not send a Heartbeat Signal, they are flagged as “Unresponsive.” Depending on the number of repeated offences and the overall number of other Unresponsive or offline validators during that ERA, the validator may be subject to slashing of their staked tokens.
+If a validator fails to produce any blocks during an Era and also does not send a Heartbeat Signal, they are flagged as "Unresponsive." Depending on the number of repeated offences and the overall number of other Unresponsive or offline validators during that ERA, the validator may be subject to slashing of their staked tokens.
 
 Validators are expected to maintain a robust network infrastructure to ensure node uptime and minimize the risk of slashing or being placed into a cooldown period. It is recommended to implement high availability setups with backup nodes—but only activate a backup after confirming the primary node is offline, in order to avoid double-signing or other ambiguous behaviors that could trigger more severe penalties (see below):
 ```
@@ -181,4 +181,4 @@ CD²N node rewards are released to each dedicated reward pool for nodes at the e
 - The remaining 50% can be claimed in future service cycles
 
 ### Slashing Mechanism
-CESS implements a proactive incentive model for the CD²N network-no penalties or slashing are applied. Nodes are encouraged to “earn more by working more”, promoting positive participation without punitive deterrents.
+CESS implements a proactive incentive model for the CD²N network-no penalties or slashing are applied. Nodes are encouraged to earn more by working more", promoting positive participation without punitive deterrents.
