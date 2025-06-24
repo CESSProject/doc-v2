@@ -1,4 +1,4 @@
-The CESS Network has strategically chosen to allocate a significant portion of its Total Token Supply (TTS) to mining rewards—an initiative aimed at strengthening its ecosystem. This allocation clearly reflects the network's recognition of the value contributed by its participants. The rationale behind this distribution is as follows:
+The CESS Network has strategically chosen to allocate a significant portion of its Total Token Supply (TTS) to mining rewards-an initiative aimed at strengthening its ecosystem. This allocation clearly reflects the network's recognition of the value contributed by its participants. The rationale behind this distribution is as follows:
 
 **Consensus Node Operators**: 
 As the backbone of the CESS Network, consensus node operators provide essential computing power, bandwidth, and storage. The incentive fund is designed to attract more operators and ensure their continued commitment.
@@ -15,7 +15,7 @@ In short, mining rewards are more than just a form of distribution-they are an i
 ## Mining Rewards
 Storage Nodes must pass random on-chain challenges in order to earn mining rewards. The amount of the reward depends on the reward pool for that challenge round and the proportion of the miner's storage power relative to the total network. Once rewards are issued, Storage Nodes must manually initiate a transaction to claim them.
 
-The CESS Network uses a challenge cycle of every ***4 Eras*** (approximately 24 hours) to take snapshots of miners who have passed challenges, and rewards are calculated based on these snapshots. The reward pool for a given challenge cycle is sourced from a fixed number of tokens distributed over those 4 Eras. (Currently, each Era lasts about ***6 hours***, and around 324,688 $CESS are issued per Era. This follows a halving every ***4 years*** rule, with a portion of each issuance allocated to the reward pool.)
+The CESS Network uses a challenge cycle of every ***4 Eras*** (approximately 24 hours) to take snapshots of miners who have passed challenges, and rewards are calculated based on these snapshots. The reward pool for a given challenge cycle is sourced from a fixed number of tokens distributed over those 4 Eras. (Currently, each Era lasts about ***6 hours***, and around ***324,688 $CESS*** are issued per Era. This follows a halving every ***4 years*** rule, with a portion of each issuance allocated to the reward pool.)
 During the k-th challenge of the N-th challenge cycle, the reward for a Storage Node is calculated based on the following parameters:
 
 - Total Reward： The total amount of tokens accumulated in the reward pool at the end of the challenge cycle.
@@ -31,7 +31,7 @@ Reward_{order_{k}} = TotalReward_{N} \times \frac{StoragePower_{k}}{TotalStorage
 $$
 
 ## Reward Release
-When a Storage Node claims their reward, the amount is calculated based on the snapshot. Once the reward is determined, 50% is released immediately, while the remaining 50% is linearly released over the following 90 block days (approximately 24 hours), with 1/90 of the remaining amount becoming available each block day.
+When a Storage Node claims their reward, the amount is calculated based on the snapshot. Once the reward is determined, *50%* is released immediately, while the remaining *50%* is linearly released over the following *90 blocks* days (approximately 24 hours), with *1/90* of the remaining amount becoming available each block day.
 
 The miner’s available reward on the i-th block day can be calculated accordingly:
 
@@ -39,7 +39,7 @@ $$
 AvailableReward_i = (RewardOrder_¡ \times 50\%) + \sum_{t=0}^{i} \frac{RewardOrder_t \times 50\%}{90} 
 $$
 
-The Reward Order will be deleted once the entire amount has been distributed. Note that the 90-round release schedule may be subject to change on the mainnet.
+The Reward Order will be deleted once the entire amount has been distributed. Note that the *90-round* release schedule may be subject to change on the mainnet.
 
 Once a miner's reward is calculated, it is stored in the Reward Order Pool. Miners must manually send a transaction to claim their rewards. They may choose to wait until the last and claim it all at once to save on transaction fees.
 
@@ -49,7 +49,7 @@ Storage Nodes may be subject to slashing under certain conditions, where a porti
 If a Storage Node fails to submit Proof of Idle Space during a random challenge, no slashing occurs, but it will also not receive any rewards for that challenge.
 
 However, if a Storage Node fails to submit Proof of Inservice Space, the consequences depend on their mining history:
-- For miners who have never received mining rewards, failing to submit Proof of Inservice Space during a random challenge results in a 5% slashing of $CESS from their stake.
+- For miners who have never received mining rewards, failing to submit Proof of Inservice Space during a random challenge results in a *5%* slashing of $CESS from their stake.
 - For miners who have previously earned mining rewards, slashing is applied based on specific rules, taking into account the amount of Inservice Space involved.
 
 $$
@@ -114,20 +114,22 @@ However, as mentioned above, an individual miner's share may vary based on the E
 
 While Era points involve an element of randomness and may be slightly affected by factors like network latency, well-performing Consensus nodes should accumulate similar amounts of Era points over time across many Eras.
 
-Consensus nodes may also receive tips from transaction senders as an incentive for including transactions in the blocks they produce. Miners receive 20% of these tips directly. The remaining 80% goes into the treasury as a reserve fund.
+Consensus nodes may also receive tips from transaction senders as an incentive for including transactions in the blocks they produce. Miners receive *20%* of these tips directly. The remaining *80%* goes into the treasury as a reserve fund.
 
 ## Slashing Mechanism
 ### Unresponsiveness Slashing
 If a validator fails to produce any blocks during an Era and also does not send a Heartbeat Signal, they are flagged as "Unresponsive." Depending on the number of repeated offences and the overall number of other Unresponsive or offline validators during that ERA, the validator may be subject to slashing of their staked tokens.
 
 Validators are expected to maintain a robust network infrastructure to ensure node uptime and minimize the risk of slashing or being placed into a cooldown period. It is recommended to implement high availability setups with backup nodes—but only activate a backup after confirming the primary node is offline, in order to avoid double-signing or other ambiguous behaviors that could trigger more severe penalties (see below):
+
 ```
  Let x = number of offending validators
  Let n = total number of validators in the active set
  Let MSA = Minimum Staking Amount
 ```
+
 $$
-min \left(\frac{3 \times \left(x-(\frac{n}{10} +1)\right)}{n}, 1\right) \times 5\% \times MSA
+ min \left(\frac{3 \times \left(x-(\frac{n}{10} +1)\right)}{n}, 1\right) \times 5\% \times MSA
 $$
 
 ### Equivocation Slashing
@@ -177,8 +179,8 @@ Caching nodes can redeem their mining points for CESS token rewards.
 ## Reward Release
 CD²N node rewards are released to each dedicated reward pool for nodes at the end of every service cycle. Nodes must manually initiate a transaction to claim their rewards.
 - Each node can claim once per service cycle
-- Each claim can only withdraw 50% of the total available rewards
-- The remaining 50% can be claimed in future service cycles
+- Each claim can only withdraw *50%* of the total available rewards
+- The remaining *50%* can be claimed in future service cycles
 
 ### Slashing Mechanism
 CESS implements a proactive incentive model for the CD²N network-no penalties or slashing are applied. Nodes are encouraged to earn more by working more", promoting positive participation without punitive deterrents.
