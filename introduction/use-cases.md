@@ -12,9 +12,17 @@ The CESS network is ideal for VR streaming media, offering high-speed data trans
 
 CESS supports the creation of data lakes, enabling organizations to store and analyze large volumes of unstructured data. The system's polymorphic data storage access interface provides a unified API for accessing object, block, and file storage, making it easy to integrate various data sources. With CESS, organizations can build scalable, cost-effective data lakes that support advanced analytics and machine learning applications.
 
-## Distributed Enterprise Storage Service
+## Distributed AI Training
 
-As a decentralized cloud storage system with a tremendous amount of storage resource pool, CESS meets the demand of enterprise data storage service perfectly. CESS storage network is built on blockchain technology with multiple storage proof mechanisms. This make the system provide a fast and secure storage solution at lower cost compared to centralized storage providers. Enterprises can also utilize CESS for their data archival and backup.
+Various organizations with private data face challenges in utilizing it for AI development due to sensitivity and legal constraints. The CESS network provides a solution by enabling the secure exchange of encrypted parameters and models through CESS AI-LINK. This allows organizations to collaborate on building a global AI model while ensuring data privacy and compliance with regulations. The use of the CESS network facilitates the creation of industry-wide or global AI frameworks, leveraging diverse data sources without compromising privacy or regulatory requirements.
+
+CESS facilitates distributed AI training by providing secure and scalable storage for training data. The network's high bandwidth and low latency ensure efficient data transfer between nodes, allowing faster training times. Leveraging the CESS network enables AI developers to collaborate on training models while maintaining data privacy and security. This is achieved through the implementation of federated learning and encryption technologies.
+
+![Enabling Secure and Compliant Global AI Development](../assets/introduction/use-cases-03.png)
+
+## AIGC Innovation
+
+CESS supports AI-generated content (AIGC) innovation by providing a secure and scalable platform for storing and processing large datasets. The network's distributed architecture allows efficient data sharing and cooperation among AI researchers and developers. With CESS, AIGC applications can leverage the power of decentralized storage to enhance creativity and innovation while maintaining data integrity and security.
 
 ## Decentralized Data Marketplace
 
@@ -24,10 +32,4 @@ On CESS, all data file retrieval records are recorded on blockchain and hence ar
 
 ![Decentralized data marketplace on CESS](../assets/introduction/use-cases-02.png)
 
-## Distributed AI Training
 
-Various organizations with private data face challenges in utilizing it for AI development due to sensitivity and legal constraints. The CESS network provides a solution by enabling the secure exchange of encrypted parameters and models through CESS AI-LINK. This allows organizations to collaborate on building a global AI model while ensuring data privacy and compliance with regulations. The use of the CESS network facilitates the creation of industry-wide or global AI frameworks, leveraging diverse data sources without compromising privacy or regulatory requirements.
-
-CESS facilitates distributed AI training by providing secure and scalable storage for training data. The network's high bandwidth and low latency ensure efficient data transfer between nodes, allowing faster training times. Leveraging the CESS network enables AI developers to collaborate on training models while maintaining data privacy and security. This is achieved through the implementation of federated learning and encryption technologies.
-
-![Enabling Secure and Compliant Global AI Development](../assets/introduction/use-cases-03.png)
