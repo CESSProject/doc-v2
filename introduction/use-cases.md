@@ -24,12 +24,8 @@ CESS facilitates distributed AI training by providing secure and scalable storag
 
 CESS supports AI-generated content (AIGC) innovation by providing a secure and scalable platform for storing and processing large datasets. The network's distributed architecture allows efficient data sharing and cooperation among AI researchers and developers. With CESS, AIGC applications can leverage the power of decentralized storage to enhance creativity and innovation while maintaining data integrity and security.
 
-## Decentralized Data Marketplace
+## RWA
 
-When users upload data files to CESS, they get to choose its values. CESS generates data file attributes based on these user inputs. The data attributes include pricing model type, access control list, etc. Data attributes are published together with user data. Whenever a data file is retrieved, CESS checks if the accessor has permission to retrieve the file. If yes, the system will issue charge to the buyer based on the data file pricing model, and then start the data download.
-
-On CESS, all data file retrieval records are recorded on blockchain and hence are backward traceable. The CESS data rights protection mechanism maintains a recording module to allow users to view their data file retrieval records, providing strong evidence for user data rights protection.
-
-![Decentralized data marketplace on CESS](../assets/introduction/use-cases-02.png)
+CESS enables the tokenization and secure storage of real-world assets (RWA) on the blockchain. Users can trade and manage these assets securely and transparently by digitizing physical assets, such as real estate or art, and storing their provenance and ownership data on the CESS network. This approach ensures the integrity and authenticity of asset data, providing a reliable foundation for RWA transactions.
 
 
