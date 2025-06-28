@@ -32,4 +32,18 @@ he CESS network enhances Web3 gaming by providing secure and scalable storage fo
 
 CESS enables the tokenization and secure storage of real-world assets (RWA) on the blockchain. Users can trade and manage these assets securely and transparently by digitizing physical assets, such as real estate or art, and storing their provenance and ownership data on the CESS network. This approach ensures the integrity and authenticity of asset data, providing a reliable foundation for RWA transactions.
 
+## Decentralized Digital Assets Marketplace
+
+The secure storage, decentralization of digital assets, and trading data are imperative for building trust in the digital assets marketplace. To validate NFTs, developers and owners upload their files to be verified by CESS using the Multi-format Data Rights Confirmation Mechanism (MDRC). The data files are distributed to storage nodes following this verification process.
+
+CESS automatically captures important structural, subject, and semantic characteristics in its vector space for accurate indexing, mapping, improving public discovery, and secure private retrieval of digital assets within the system.
+
+
+A typical CESS client and platform interaction involves several steps:
+-	**Querying Storage Price**: The data storage client queries the CESS chain to obtain the current storage price.
+-	**Placing an Order**: The client submits an order for data files via an on-chain smart contract.
+-	**Uploading Data**: Once the payment is made and the order is approved, the client uploads the data file using the API. The file is not directly uploaded to storage nodes but to a CESS storage scheduling node.
+-	**Data Processing**: The scheduling node, with a secure hardware environment (Trusted Execution Environment or TEE) processes, encrypts, and shards the data file.
+-	**Data Distribution**: The scheduling node distributes data segments to storage nodes.
+
 
