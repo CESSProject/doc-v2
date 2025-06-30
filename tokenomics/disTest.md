@@ -16,25 +16,25 @@ Before the CESS Network mainnet launch, an equivalent amount of the same-name to
     <tbody class="ne-table-inner">
         <tr class="ne-tr ne-tr-sticky"
             style="top: 79px; width: 709px; height: 37.0938px; grid-template-columns: 242px 106px 120px 240px;">
-            <td class="ne-td" colspan="2" data-col="0" style="vertical-align: middle;background-color:#074a92;color: #d9eafc;text-align: center;">
+            <td class="ne-td" colspan="2" data-col="0" style="vertical-align: middle;background-color:#074a92;color: #d9eafc;text-align: center;font-weight: bolder;">
                 <div class="ne-td-content"><ne-p id="ub57d2611" data-lake-id="ub57d2611" ne-alignment="center"><ne-text
                             id="u5f2e8563">Allocation</ne-text><span class="ne-viewer-b-filler"
                             ne-filler="block"><br></span></ne-p></div>
                 <div class="ne-td-break" contenteditable="false"></div>
             </td>
-            <td class="ne-td" data-col="2" style="vertical-align: middle;background-color:#074a92;color: #d9eafc;text-align: center;">
+            <td class="ne-td" data-col="2" style="vertical-align: middle;background-color:#074a92;color: #d9eafc;text-align: center;font-weight: bolder;">
                 <div class="ne-td-content"><ne-p id="u6f0beeac" data-lake-id="u6f0beeac" ne-alignment="center"><ne-text
                             id="u97390d1e">Percentage</ne-text><span class="ne-viewer-b-filler"
                             ne-filler="block"><br></span></ne-p></div>
                 <div class="ne-td-break" contenteditable="false"></div>
             </td>
-            <td class="ne-td" data-col="3" style="vertical-align: middle;background-color:#074a92;color: #d9eafc;text-align: center;">
+            <td class="ne-td" data-col="3" style="vertical-align: middle;background-color:#074a92;color: #d9eafc;text-align: center;font-weight: bolder;">
                 <div class="ne-td-content"><ne-p id="u87840c65" data-lake-id="u87840c65" ne-alignment="center"><ne-text
                             id="uaa633264">Amount</ne-text><span class="ne-viewer-b-filler"
                             ne-filler="block"><br></span></ne-p></div>
                 <div class="ne-td-break" contenteditable="false"></div>
             </td>
-            <td class="ne-td" data-col="4" style="vertical-align: middle;background-color:#074a92;color: #d9eafc;text-align: center;">
+            <td class="ne-td" data-col="4" style="vertical-align: middle;background-color:#074a92;color: #d9eafc;text-align: center;font-weight: bolder;">
                 <div class="ne-td-content"><ne-p id="ubb1d3c01" data-lake-id="ubb1d3c01" ne-alignment="center"><ne-text
                             id="uc20eac99">Vesting Period</ne-text><span class="ne-viewer-b-filler"
                             ne-filler="block"><br></span></ne-p></div>
@@ -76,7 +76,7 @@ Before the CESS Network mainnet launch, an equivalent amount of the same-name to
                 <div class="ne-td-break" contenteditable="false"></div>
             </td>
         </tr>
-        <tr class="ne-tr" style="height: 37px;">
+        <tr class="ne-tr" style="height: 71px;">
             <td class="ne-td" data-col="1" style="background-color: rgb(244, 245, 245); vertical-align: middle;text-align: center;font-weight: bolder;">
                 <div class="ne-td-content"><ne-p id="uf28814f4" data-lake-id="uf28814f4" ne-alignment="center"><ne-text
                             id="u222fee76" ne-bold="true" ne-fontsize="13">Consensus Nodes</ne-text><span
@@ -266,5 +266,4 @@ Before the CESS Network mainnet launch, an equivalent amount of the same-name to
         </tr>
     </tbody>
 </table>
-
-<figure><img src="../assets/tokenomics/distribution.png" alt="Token Distribution of CESS"><figcaption><p>Token Distribution of CESS</p></figcaption></figure>
+<div style="margin: 0 auto;width: 709px;"><p>Token Distribution of CESS</p></div>
