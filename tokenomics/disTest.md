@@ -267,4 +267,3 @@ Before the CESS Network mainnet launch, an equivalent amount of the same-name to
     </tbody>
 </table>
 <div style="margin: 0 auto;width: 709px;"><p>Token Distribution of CESS</p></div>
-<!-- <div style="margin: 0 auto;width: 705px;"><figure><img src="../assets/tokenomics/distribution.png" alt="Token Distribution of CESS"><figcaption><p>Token Distribution of CESS</p></figcaption></figure></div> -->
