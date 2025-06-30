@@ -18,10 +18,10 @@ Storage Nodes must pass random on-chain challenges in order to earn mining rewar
 The CESS Network uses a challenge cycle of every ***4 Eras*** (approximately 24 hours) to take snapshots of miners who have passed challenges, and rewards are calculated based on these snapshots. The reward pool for a given challenge cycle is sourced from a fixed number of tokens distributed over those 4 Eras. (Currently, each Era lasts about ***6 hours***, and around ***324,688 $CESS*** are issued per Era. This follows a halving every ***4 years*** rule, with a portion of each issuance allocated to the reward pool.)
 During the k-th challenge of the N-th challenge cycle, the reward for a Storage Node is calculated based on the following parameters:
 
-- Total Reward： The total amount of tokens accumulated in the reward pool at the end of the challenge cycle.
-- InserviceSpace： The amount of storage space that the miner has actively used to serve users during the challenge.
-- IdleSpace： The amount of verified idle storage space held by the miner during the challenge.
-- TotalStoragePower： The total storage power of all miners who passed the challenges during that cycle.
+- Total Reward: The total amount of tokens accumulated in the reward pool at the end of the challenge cycle.
+- InserviceSpace: The amount of storage space that the miner has actively used to serve users during the challenge.
+- IdleSpace: The amount of verified idle storage space held by the miner during the challenge.
+- TotalStoragePower: The total storage power of all miners who passed the challenges during that cycle.
 
 $$
 StoragePower_{k} = InserviceSpace_{k} \times 95\% + IdleSpace_{k} \times 5\%
@@ -150,7 +150,7 @@ If a validator is reported for any offence, they are removed from the active val
 They are immediately marked as Inactive and must re-declare their intent to validate in order to return to the active set.
 
 # CD²N nodes
-The CESS CD²N consists of a large and modular lineup of components, with two primary types of miner nodes：
+The CESS CD²N consists of a large and modular lineup of components, with two primary types of miner nodes:
 - CD²N nodes offering enterprise-grade high-performance data upload and retrieval services (e.g., DeOSS)
 - CD²N nodes providing content distribution services, such as lightweight caching nodes
 
