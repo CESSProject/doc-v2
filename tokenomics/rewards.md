@@ -81,8 +81,6 @@ $$
 
 If a miner successfully passes validation in a subsequent challenge round, all prior failure records are cleared, and the count of failed challenges resets.
 
-If a miner successfully passes validation in a subsequent challenge round, all prior failure records are cleared, and the count of failed challenges resets.
-
 There is no upper limit to the number of slashing events for Inservice Punishment. A miner may lose their entire stake over multiple consecutive failures, and may even fall into debt.
 
 If a miner's staked amount falls below the required amount for their declared storage space:
