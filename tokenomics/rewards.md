@@ -95,8 +95,6 @@ For each Era, Consensus nodes receive proportional rewards based on the Era poin
 - Including references to previously unreferenced Uncle Blocks
 - Referencing Uncle Blocks that have already been included
 
-Uncle Blocks are relay chain blocks that are valid in every aspect but failed to become canonical. This usually happens when two or more validators produce a block in the same slot, and one validator's block reaches the next block producer first. These delayed blocks are referred to as Uncle Blocks.
-
 The reward calculation for Consensus nodes follows these rules:
 
 $$
