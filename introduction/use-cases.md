@@ -38,6 +38,7 @@ The secure storage, decentralization of digital assets, and trading data are imp
 
 CESS automatically captures important structural, subject, and semantic characteristics in its vector space for accurate indexing, mapping, improving public discovery, and secure private retrieval of digital assets within the system.
 
+![Client-Platform Interaction](../assets/introduction/use-cases-client-plat.png)
 
 A typical CESS client and platform interaction involves several steps:
 -	**Querying Storage Price**: The data storage client queries the CESS chain to obtain the current storage price.
