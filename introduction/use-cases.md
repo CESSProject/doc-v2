@@ -47,4 +47,13 @@ A typical CESS client and platform interaction involves several steps:
 -	**Data Processing**: The scheduling node, with a secure hardware environment (Trusted Execution Environment or TEE) processes, encrypts, and shards the data file.
 -	**Data Distribution**: The scheduling node distributes data segments to storage nodes.
 
+## Data Rights Protection
+
+From the clients' perspective, CESS delivers as a decentralized and user-managed data content-sharing platform. The platform's mission is to return data ownership to users, encouraging them to explore the value of their digital assets while safeguarding their rights. CESS has implemented an on-chain smart contract-based data-sharing platform that is self-executing, fair, and transparent. This encompasses the entire data rights confirmation, tracking, and protection lifecycle.
+
+CESS offers two types of smart contracts with different client-profit models. When users upload data files, they can choose their preferred model values. Data file attributes are generated based on user inputs, including client-profit model type, whitelist, blacklist, and other preferences. These attributes are published alongside the user data.
+
+The underlying smart contract runs based on the instructions set by the file's owner when clients of a data provider access a data file. The system checks the file attributes to see if the data buyers are authorized. If authorization is confirmed, the system charges the buyers following the client-profit model and initiates the data download.
+
+Data users on CESS can customize their data file attributes. All data file retrieval records are recorded on the blockchain, providing a traceable history. A recording module that lets users see their data file retrieval records is part of the CESS data rights protection mechanism, providing compelling proof that user data rights are protected.
 
