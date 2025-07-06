@@ -32,6 +32,9 @@ he CESS network enhances Web3 gaming by providing secure and scalable storage fo
 
 CESS enables the tokenization and secure storage of real-world assets (RWA) on the blockchain. Users can trade and manage these assets securely and transparently by digitizing physical assets, such as real estate or art, and storing their provenance and ownership data on the CESS network. This approach ensures the integrity and authenticity of asset data, providing a reliable foundation for RWA transactions.
 
+## Distributed Network Disk
+CESS provides a unique Distributed Network Disk service for end users that offers several key benefits over traditional providers of Network Disk services. These advantages include enhanced security, protection of ownership rights, cost-effectiveness, and increased storage capacity. Unlike conventional cloud server-based storage solutions, CESS stores data across multiple independent nodes, eliminating reliance on centralized services. This decentralized approach establishes faster download and upload speeds without restrictions. CESS guarantees data privacy and security without central servers or potential risks of data loss using blockchain technology and cutting-edge cryptographic technology.  Additionally, CESS storage nodes can dynamically join the network and contribute their unused space, allowing limitless expansion of the network's storage capabilities.
+
 ## Decentralized Digital Assets Marketplace
 
 The secure storage, decentralization of digital assets, and trading data are imperative for building trust in the digital assets marketplace. To validate NFTs, developers and owners upload their files to be verified by CESS using the Multi-format Data Rights Confirmation Mechanism (MDRC). The data files are distributed to storage nodes following this verification process.
