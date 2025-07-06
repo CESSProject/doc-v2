@@ -57,3 +57,4 @@ The underlying smart contract runs based on the instructions set by the file's o
 
 Data users on CESS can customize their data file attributes. All data file retrieval records are recorded on the blockchain, providing a traceable history. A recording module that lets users see their data file retrieval records is part of the CESS data rights protection mechanism, providing compelling proof that user data rights are protected.
 
+![Data Right Confirmation and Protection](../assets/introduction/use-cases-data-right.png)
