@@ -96,12 +96,11 @@ Open the `nodeadm/config/retriever_config.yaml` file and configure it as follows
 ```yaml
 DiskConfig:
   # The unit of disk size configuration is GiB
-  # Ipfs disk is the main location where Retriever node store cache data
   # File buffer is used to temporarily store intermediate data
   FileBuffervize: 128
   # Gateway cache is used to cache complete files uploaded by users to improve access efficiency
   GatewayCachevize: 128
-  # Except for the ipfs disk, all the data of the node will be stored in workspace.
+  # all the data of the node will be stored in workspace.
   Workvpace: "./cd2n_retriever"
 
 ChainConfig:
@@ -135,8 +134,6 @@ ServerConfig:
   LaunchGateway: true
   # Debug mode, do not enable it in production environments!!!
   Debug: true
-  # ipfs node address, default is local node
-  IpfsAddress: "http://ipfs_host:5001"
   # Required configuration, default is local node
   RedisAddress: "domain name or external ip:6379"
   # TEE(justicar) service address, currently it must be a local node
