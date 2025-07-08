@@ -41,7 +41,7 @@ If you are interested in running a storage node, please refer to the section [**
 {% endhint %}
 
 # CDN Node
-The **CDN Node** refers to nodes within the CESS Content Delivery Network (CDN), which play a vital role in optimizing data retrieval, balancing network load, mitigating DDoS (Distributed Denial of Service) attacks, and facilitating bidirectional data distribution between users and the CESS network. These nodes ensure seamless, low-latency delivery of data, both from users to the network and vice versa. Additionally, CDN Nodes are designed to support the processing of AI-related data, such as training datasets, models, and other AI assets, contributing significantly to the broader AI ecosystem within the CESS framework.
+The **CDN Node** refers to nodes within the CESS CD²N, which play a vital role in optimizing data retrieval, balancing network load, mitigating DDoS (Distributed Denial of Service) attacks, and facilitating bidirectional data distribution between users and the CESS network. These nodes ensure seamless, low-latency delivery of data, both from users to the network and vice versa. Additionally, CDN Nodes are designed to support the processing of AI-related data, such as training datasets, models, and other AI assets, contributing significantly to the broader AI ecosystem within the CESS framework.
 
 The CDN Node ecosystem is divided into two distinct roles: **Retriever** and **Cacher**.
 
@@ -50,7 +50,7 @@ The **Retriever** node is responsible for a range of critical functions, includi
 - **Data Retrieval**: Efficiently fetching user data when needed.
 - **Caching**: Temporarily storing frequently accessed data to reduce latency.
 - **Computation**: Performing necessary processing on data, such as transformations or analytics.
-- **Load Scheduling**: Managing data flow and balancing network load.
+- **Load Sharing**: Managing data flow and balancing network load.
 - **Traffic Proof Verification**: Ensuring that the traffic associated with cached data is valid and effective.
 
 Retrievers share cached data across the CESS network, facilitating decentralized and highly efficient data interoperability within the CDN. Retrievers earn rewards by contributing computational power, data traffic, and supporting the overall performance of the network.
@@ -65,7 +65,7 @@ Users can easily deploy either role-**Retriever** or **Cacher**-using simple scr
 
 # TEE Nodes
 
-The TEE Node operates within the Intel SGX (Software Guard Extensions) trusted execution environment, serving a crucial role in verifying the integrity of idle storage space and managing the initialization of user data, all based on the PoDR² (Proof of Data Reduplication and Recovery) algorithm. By leveraging the secure enclave provided by Intel SGX, the TEE Node ensures that data processing and verification occur in a trusted and tamper-proof environment, adding an extra layer of security and reliability to the network.
+The TEE Node operates within the Intel SGX (Software Guard Extensions) trusted execution environment, serving a crucial role in verifying the integrity of idle storage space and managing the initialization of user data. By leveraging the secure enclave provided by Intel SGX, the TEE Node ensures that data processing and verification occur in a trusted and tamper-proof environment, adding an extra layer of security and reliability to the network.
 
 The TEE Node functions as an intermediary for consensus nodes, facilitating efficient validation of random challenges related to both idle space availability and the correctness of in-service data. While the TEE Node itself does not directly receive rewards, its operation enhances the overall performance of storage nodes, thereby indirectly benefiting the associated consensus nodes by increasing the likelihood of those nodes being selected as validators.
 

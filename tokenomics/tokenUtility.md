@@ -1,0 +1,9 @@
+The $CESS is the native token in the CESS ecosystem and plays a multifaceted role:
+# Transactional Utility 
+Firstly, the $CESS serves as the standard medium of exchange within the CESS Network. When demand-side participants wish to purchase storage space and bandwidth resources, they interact with node operators and pay them with $CESSs for their storage capacity and content acceleration capabilities. This is reflected in CESS’s three main business models: storage space, bandwidth resources, and the AI-LINK.
+# Diversified Application
+In addition to its use in storage space, bandwidth resources, and AI agents/applications, the utility of the $CESS continues to expand alongside the development of the ecosystem. As the ecosystem thrives and the integrated marketplace is introduced, the $CESS will remain as the preferred means of transaction, demonstrating its adaptability, relevance, and potential for future integration. This opens the door to a wide range of potential use cases for CESS.
+# Governance and Participation
+Furthermore, as CESS progresses toward establishing its DAO (Decentralized Autonomous Organization), the $CESS takes on an additional role in governance. Token holders have the right to propose, discuss, and vote on platform changes, ensuring that the CESS Network remains aligned with its decentralized ethos.
+# Staking 
+To contribute to the CESS ecosystem, new node operators, including both storage and consensus nodes, are required to stake $CESSs as an initial commitment. This staking mechanism ensures that participants are economically aligned with the platform’s goals. Beyond symbolising commitment, the staked $CESSs also serve as a safeguard against potential misconduct. If any node operator deviates from platform standards or engages in any form of improper behaviour, they risk having part or all of their staked $CESSs slashed, as these tokens act as collateral.
