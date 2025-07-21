@@ -253,7 +253,7 @@
       * [View Version](products/deoss/api-description/view_version.md)
 * [💰 Tokenomics](tokenomics/README.md)
    * [Token Overview](tokenomics/overview.md)
-   * [Token Distribution](tokenomics/tokenDistribution.md)
+   * [Token Distribution](tokenomics/distribution.md)
    * [Token’s Utility & Purpose](tokenomics/tokenUtility.md)
    * [Node Staking and Redemption](tokenomics/staking.md)
    * [Node Rewards and Token Release](tokenomics/rewards.md)
