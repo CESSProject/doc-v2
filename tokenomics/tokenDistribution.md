@@ -6,7 +6,7 @@ Before the CESS Network mainnet launch, an equivalent amount of the same-name to
 
 
 | Category | Percentage | Amount | Vesting |
-| ----------------------------- | :-----: | --------: | -------------------------------------------------- |
+| ----------------------------- | :-----: | :--------: | -------------------------------------------------- |
 | Storage Nodes | 30% | 3,000,000,000 | halved every 4 years |
 | Consensus Nodes | 15% | 1,500,000,000 | halved every 4 years |
 | Influencer | 5% | 500,000,000 | 60% at TGE, 40% after 6 months |
