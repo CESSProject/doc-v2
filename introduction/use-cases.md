@@ -18,7 +18,7 @@ Various organizations with private data face challenges in utilizing it for AI d
 
 CESS facilitates distributed AI training by providing secure and scalable storage for training data. The network's high bandwidth and low latency ensure efficient data transfer between nodes, allowing faster training times. Leveraging the CESS network enables AI developers to collaborate on training models while maintaining data privacy and security. This is achieved through the implementation of federated learning and encryption technologies.
 
-![Enabling Secure and Compliant Global AI Development](../assets/introduction/use-cases-03.png)
+![Enabling Secure and Compliant Global AI Development](../assets/introduction/use-cases-ai-link.png)
 
 ## AIGC Innovation
 
