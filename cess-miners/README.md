@@ -79,7 +79,7 @@ The **TEE Node** operates in three distinct modes: **Full Mode**, **Marker Mode*
 - **Authentication and Replacement of Idle Space**: Verifying the integrity of unused storage and repurposing it for data storage.
 - **Verification of Random Challenges**: Performing random challenge validation for both idle space and in-service data to ensure integrity and availability.
 
-Nodes running in Full Mode perform all the critical tasks needed to verify and maintain data within the CESS network, contributing to the overall security and trustworthiness of the system.
+The TEE nodes in Full Mode can perform all the critical tasks needed to verify and maintain data within the CESS network, contributing to the overall security and trustworthiness of the system.
 
 ### **Marker Mode**
 **Marker Mode** is a more specialized operational mode, where the TEE Node focuses solely on specific tasks excluding random challenge verification. These tasks generally include:
