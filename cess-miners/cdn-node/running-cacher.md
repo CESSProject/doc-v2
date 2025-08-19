@@ -56,7 +56,7 @@ WorkSpace: "./cacher"
 # CacheSize: 17179869184 #default 16GB
 # The RPC address of the blockchain where the cache protocol smart contract is deployed, usually the CESS chain
 Rpcs: 
-  - "wss://xxx.cess.cloud/ws/"
+  - "wss://xxx.cess.network"
 # SecretKey is the key of the node working account (Ethereum wallet account), which is used to initiate a call request to the cache protocol contract (working on EVM). 
 # By default, it is not filled in, which means that it does not participate in the CD2N network and only has the most basic data interaction with the gateway.
 SecretKey: ""
