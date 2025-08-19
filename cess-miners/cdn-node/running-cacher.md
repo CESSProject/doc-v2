@@ -56,7 +56,7 @@ WorkSpace: "./cacher"
 # CacheSize: 17179869184 #default 16GB
 # The RPC address of the blockchain where the cache protocol smart contract is deployed, usually the CESS chain
 Rpcs: 
-  - "wss://testnet-rpc.cess.cloud/ws/"
+  - "wss://xxx.cess.network"
 # SecretKey is the key of the node working account (Ethereum wallet account), which is used to initiate a call request to the cache protocol contract (working on EVM). 
 # By default, it is not filled in, which means that it does not participate in the CD2N network and only has the most basic data interaction with the gateway.
 SecretKey: ""
@@ -95,7 +95,7 @@ Download the cesslab/cacher image from Docker Hub and launch with:
 sudo docker run -d --name cacher  \
     -v /opt/cd2n/cacher:/opt/cess  \
     -v /opt/cess/config.yaml:/opt/cess/config.yaml \
-    cesslab/cacher:testnet -c config.yaml run
+    cesslab/cacher:premainnet -c config.yaml run
 ```
 Replace /opt/cd2n/cacher with your host's data directory and `/opt/cess/config.yaml` with your config file path. Configuration updates require container restart.
 

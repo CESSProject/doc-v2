@@ -73,7 +73,7 @@ Two Ethereum wallet accounts required:
 ## Configuration & Operation
 
 ### Nodeadm GUI Management
-The Python-based [Nodeadm](https://github.com/CD2N/nodeadm.git) tool provides graphical configuration for:
+The Python-based [Nodeadm](https://github.com/CESSProject/cd2n-nodeadm.git) tool provides graphical configuration for:
 1. Justicar settings
 2. Retrieval module parameters
 3. Redis pub/sub configuration
@@ -109,7 +109,7 @@ ChainConfig:
   # You can fill in multiple RPC addresses. It is recommended to fill in one official and one local address.
   Rpcs:
     - "ws://cess-chain:9944" 
-    - "wss://testnet-rpc.cess.network"
+    - "wss://xxx.cess.network"
   # Cache protocol smart contract address
   ProtoContract: "0xD185AF24121d0D6a9A3e128fB27C3704569b5E91"
   # When the cache capacity is insufficient, the cache capacity of the configuration is automatically recharged
