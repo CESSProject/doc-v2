@@ -8,7 +8,7 @@
 
 {% hint style="success" %}
 $$
-Final Credits = (reputation credits * 50\%) + (staked score * 30\%) + (random credits * 20\%)
+Final Credits = (reputation Credits * 50\%) + (staked Score * 30\%) + (random Credits * 20\%)
 $$
 {% endhint %}
 
