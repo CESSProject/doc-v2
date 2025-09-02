@@ -30,6 +30,6 @@ The reputation value is calculated as follows:
 
 {% hint style="success" %}
 $$
-Scheduler Reputation Value = 1000 * processing bytes ratio - (10 * penalty times)
+Scheduler Reputation Value = 1000 * processing Bytes Ratio - (10 * penalty Times)
 $$
 {% endhint %}
