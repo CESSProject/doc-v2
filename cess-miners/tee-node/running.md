@@ -4,7 +4,7 @@ If you're planning to run the Tee node, it's important to make sure your system 
 
 | Resource                      | Specification               |
 |-------------------------------|-----------------------------|
-| Recommended OS                | Ubuntu\_x64 20.04 or higher |
+| Recommended OS                | Ubuntu-22.04(x64) or higher |
 | CPU Processor Num             | ≥ 4                         |
 | Intel SGX Enabled             | required                    |
 | Memory (SGX encrypted memory) | ≥ 16 GB                     |
@@ -54,7 +54,7 @@ If you only run a TEE node with the `marker` role, then you only need prepare th
 {% hint style="info" %}
 You can also refer to the artcle [Creating CESS Accounts](../../user/cess-account.md) for creating a CESS account.
 
-You can either use [CESS testnet faucet](https://cess.network/faucet.html) to get TCESS, or [contact us](../../introduction/contact.md) to receive TCESS tokens for staking.
+You can either use [CESS premainnet faucet](https://cess.network/faucet.html) to get TCESS, or [contact us](../../introduction/contact.md) to receive TCESS tokens for staking.
 {% endhint %}
 
 # Install CESS Client
@@ -72,9 +72,9 @@ Before running, if you have previously deployed a previous version of CESS Tee N
 The `cess-nodeadm` is a CESS node deployment and management tool. It helps deploying and managing Storage nodes, Tee nodes, and Consensus nodes, simplifying the devOps for all CESS miners.
 
 ```bash
-wget https://github.com/CESSProject/cess-nodeadm/archive/refs/tags/v0.6.1.tar.gz
-tar -xvf v0.6.1.tar.gz
-cd cess-nodeadm-0.6.1
+wget https://github.com/CESSProject/cess-nodeadm/archive/refs/tags/v0.7.0.tar.gz
+tar -xvf v0.7.0.tar.gz
+cd cess-nodeadm-0.7.0
 sudo ./install.sh
 
 ```
@@ -117,13 +117,6 @@ sgx_enable install successful
 Intel SGX is already enabled on this system
 ```
 
-Give your node a `name` then you can either enter `CESS chain ws url` or leave it as default.
-
-```bash
-Enter cess node name (current: cess, press enter to skip): cess
-Enter cess chain ws url (default: ws://cess-chain:9944):
-```
-
 The next prompt you will asked to set the TEE Node port. You can either set a custom port or leave it as default. Once the port is set the public IP of the system is automaticallt detected. In case you find that the public ip is incorrect you can enter it manually. Instead or IP you can also use your domain name here.
 
 ```bash
@@ -133,10 +126,7 @@ Start configuring the endpoint to access TEE worker from the Internet
 Enter the TEE worker endpoint (current: http://xx.xxx.xx.xx:19999, press enter to skip)
 ```
 
-The current version of TEE Node supports two running remote attestation types. You can choose according to your machine. For details on how to know which remote attestation type your machine supports, please see the `Questions & Answers` at the end of the article.
-```bash
-Enter the type of remote attestation method 'ias/dcap' (current: , press enter to skip):dcap
-```
+The current version of TEE Node supports `DCAP` remote attestation only.
 
  You can choose role now. **`full`** mode has all the capabilities of TEE Node, **`verifier`** only has the capabilities of TEE Node to verify the proof from miners, and **`marker`** only has the capabilities of TEE Node to tag file from miners. When you choose the **`marker`** role, you do not need to fill in the CESS validator stash account in the next step.
  ```bash
@@ -146,7 +136,7 @@ Enter the type of remote attestation method 'ias/dcap' (current: , press enter t
  Then enter your CESS Controller account mnemonic phrase.
  ```bash
  Enter cess validator stash account (current: null, press enter to skip): cXic3WhctsJ9cExmjE9vog49xaLuVbDLcFi2odeEnvV5Sbq4f
- Enter cess validator controller phrase: xxxxxxxxxxxxxx
+ Enter the wallet mnemonic for sending transactions: xxxxxxxxxxxxxx
  ```
 
 Lastly, you will see the following messages printed on the screen which downloads all the required docker images.
@@ -154,8 +144,8 @@ Lastly, you will see the following messages printed on the screen which download
 ```bash
 Set configurations successfully
 Start generate configurations and docker compose file
-Unable to find image 'cesslab/config-gen:testnet' locally
-testnet: Pulling from cesslab/config-gen
+Unable to find image 'cesslab/config-gen:premainnet' locally
+premainnet: Pulling from cesslab/config-gen
 7264a8db6415: Pull complete 
 eee371b9ce3f: Pull complete 
 93b3025fe103: Pull complete 
@@ -167,7 +157,7 @@ e205f8927d12: Pull complete
 5a1ea37daadf: Pull complete 
 a8485f413033: Pull complete 
 Digest: sha256:07808904b7fb5bf097b21f06739f7623d9e6be2d94c179aff05fcde9df87a012
-Status: Downloaded newer image for cesslab/config-gen:testnet
+Status: Downloaded newer image for cesslab/config-gen:premainnet
 debug: Loading config file: config.yaml
 info: Generating configurations done
 info: Generating docker compose file done
@@ -190,10 +180,9 @@ $ cess status
 
 -----------------------------------------
  NAMES           STATUS
-cifrost         Up 2 minutes
-ceseal          Up 2 minutes
-chain           Up 2 minutes
-watchtower      Up 2 minutes
+ceseal          Up 2 minutes (healthy)
+watchtower      Up 2 minutes (healthy)
+autoheal        Up 2 minutes (healthy)
 -----------------------------------------
 ```
 

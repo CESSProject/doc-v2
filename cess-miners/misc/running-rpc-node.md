@@ -4,7 +4,7 @@ RPC nodes do not directly participate in block production like consensus nodes. 
 
 1.1 Check the latest version of cess-nodeadm
    Latest version of cess-nodeadm: <https://github.com/CESSProject/cess-nodeadm/tags><br/>
-   ⚠️ Replace all occurrences of `x.x.x` in the following text with the latest version number. For example, if the latest version is `v0.6.1`, then replace `x.x.x` with `0.6.1`.
+   ⚠️ Replace all occurrences of `x.x.x` in the following text with the latest version number. For example, if the latest version is `v0.7.0`, then replace `x.x.x` with `0.7.0`.
 
 1.2 Check the installed version of cess-nodeadm
    Enter `cess version` in the console to check if the `nodeadm version` is the latest.
@@ -48,7 +48,7 @@ An RPC node will also be started automatically when the user runs the storage no
 ## 2. Run with source code
 
 2.1 Environment Setup Requirements
-   - OS required: Ubuntu 20+
+   - OS required: Ubuntu 22+
    - Rust install: 
      ```shell
      curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
@@ -76,8 +76,8 @@ An RPC node will also be started automatically when the user runs the storage no
 
    **Method 1**: Download and unzip the release (e.g., cess-0.7.9-venus as example):
    ```shell
-   wget https://github.com/CESSProject/cess/archive/refs/tags/cess-v0.7.9-venus.tar.gz
-   tar -zxvf cess-cess-v0.7.9-venus.tar.gz
+   wget https://github.com/CESSProject/cess/archive/refs/tags/v0.8.0-premainnet.tar.gz
+   tar -zxvf v0.8.0-premainnet.tar.gz
    ```
 
    **Method 2**: Clone the repository with the latest tag:
@@ -90,20 +90,18 @@ An RPC node will also be started automatically when the user runs the storage no
 2.3 Compile **cess-node**
 
    Enter the cess-node directory:
-   ```shell
-   cargo build --release --features only-attestation --features verify-cesealbin
+   ```shell   
+   make
    ```
 
    ⚠️ Note: The compilation may take approximately 25 minutes on an 8-core machine.
 
 2.4 Start the RPC service
    ```shell
-   ./target/release/cess-node --base-path 【Your custom database path】 --chain cess-testnet --port 【Your custom p2p port】 --rpc-port 【Your custom rpc port】 --prometheus-external --unsafe-rpc-external --name 【Your custom name】 --rpc-cors all --rpc-max-connections 5000 --state-pruning archive --wasm-runtime-overrides ./scripts/wasm_overrides/testnet/
+   ./target/release/cess-node --base-path 【Your custom database path】 --chain cess-premainnet --port 【Your custom p2p port】 --rpc-port 【Your custom rpc port】 --prometheus-external --unsafe-rpc-external --name 【Your custom name】 --rpc-cors all --rpc-max-connections 5000 --state-pruning archive
    ```
 
    Use the `-h` flag to view more command options.
-
-   ⚠️ **Special note for --wasm-runtime-overrides**: Due to the online upgrade of SGX in the current testnet, it is necessary to specify special wasm files for overriding. For example, if the `spec_100.wasm` file is located at `/opt/wasm/`, the parameter should be filled in as `--wasm-runtime-overrides /opt/wasm`. You only need to specify the directory path, not the file path. Currently, we have placed the spec_100.wasm file in the `/scripts/wasm_overrides/testnet/` path within the cess repository.
 
    If the node is printing block synchronization logs, it means it's running successfully.
 
@@ -115,7 +113,7 @@ An RPC node will also be started automatically when the user runs the storage no
      ```shell
      curl -fsSL https://get.docker.com | bash
      docker --version
-     docker pull cesslab/cess-chain:testnet
+     docker pull cesslab/cess-chain:premainnet
      ```
 
 3.2 Running Command
@@ -123,16 +121,16 @@ An RPC node will also be started automatically when the user runs the storage no
    **Make sure that port 30336 and 9944 are not occupied by other processes.**
 
    ```bash
-   mkdir -p /opt/cess/testnet-rpc-data
+   mkdir -p /opt/cess/premainnet-rpc-data
 
    docker run -d \
-   --name testnet-rpc \
-   -v /opt/cess/testnet-rpc-data:/opt/cess/data \
+   --name premainnet-rpc \
+   -v /opt/cess/premainnet-rpc-data:/opt/cess/data \
    -p 30336:30336 \
    -p 9944:9944 \
-   cesslab/cess-chain:testnet \
+   cesslab/cess-chain:premainnet \
    --base-path /opt/cess/data \
-   --chain cess-testnet \
+   --chain cess-premainnet \
    --port 30336 \
    --rpc-port 9944 \
    --rpc-external \
@@ -143,32 +141,28 @@ An RPC node will also be started automatically when the user runs the storage no
    --state-pruning archive \
    --rpc-max-connections 65535 \
    --rpc-cors all \
-   --prometheus-external \
-   --wasm-runtime-overrides /opt/cess/wasms
+   --prometheus-external
    ```
 
-   **Execute `docker run -it --rm --entrypoint /opt/cess/cess-node cesslab/cess-chain:testnet --help` to get more information about the command options.**
+   **Execute `docker run -it --rm --entrypoint /opt/cess/cess-node cesslab/cess-chain:premainnet --help` to get more information about the command options.**
 
 
 3.3 Check if the RPC node is synchronizing blocks normally
 
    ```bash
-      docker logs testnet-rpc
+      docker logs premainnet-rpc
    ```
 
    The rpc node log is down below and start to synchronize blocks.
 
    ```text
       2025-04-30 09:47:13 CESS Node
-      2025-04-30 09:47:13 ✌️  version 0.9.0-9936f4e
+      2025-04-30 09:47:13 ✌️  version 0.10.0-c902006
       2025-04-30 09:47:13 ❤️  by CESS LAB, 2017-2025
-      2025-04-30 09:47:13 📋 Chain specification: cess-testnet
+      2025-04-30 09:47:13 📋 Chain specification: cess-premainnet
       2025-04-30 09:47:13 🏷  Node name: better-ink-0467
       2025-04-30 09:47:13 👤 Role: FULL
-      2025-04-30 09:47:13 💾 Database: RocksDb at /opt/cess/data/chains/cess-testnet/db/full
-      2025-04-30 09:47:17 Found wasm override. version=cess-node-100 (cess-node-0.tx1.au1) file=/opt/cess/wasms/spec_100.wasm
-      2025-04-30 09:47:17 Found wasm override. version=cess-node-100 (cess-node-0.tx1.au1) file=/opt/cess/wasms/spec_100.wasm
-      2025-04-30 09:47:20 Using default protocol ID "sup" because none is configured in the chain specs
+      2025-04-30 09:47:13 💾 Database: RocksDb at /opt/cess/data/chains/cess-premainnet/db/full
       2025-04-30 09:47:20 🏷  Local node identity is: 12D3KooWJJbr7xMCByzzHCUD8NXz52JDRC7pcXdf6otopvZCAreG
       2025-04-30 09:47:20 Running libp2p network backend
       2025-04-30 09:47:20 💻 Operating system: linux
@@ -178,7 +172,7 @@ An RPC node will also be started automatically when the user runs the storage no
       2025-04-30 09:47:20 💻 CPU cores: 40
       2025-04-30 09:47:20 💻 Memory: 257412MB
       2025-04-30 09:47:20 💻 Kernel: 6.8.0-51-generic
-      2025-04-30 09:47:20 💻 Linux distribution: Ubuntu 20.04.6 LTS
+      2025-04-30 09:47:20 💻 Linux distribution: Ubuntu 22.04.5 LTS
       2025-04-30 09:47:20 💻 Virtual machine: no
       2025-04-30 09:47:20 📦 Highest known block at #2370
       2025-04-30 09:47:20 Running JSON-RPC server: addr=0.0.0.0:9944,[::]:36421
