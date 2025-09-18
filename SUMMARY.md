@@ -302,6 +302,7 @@
     * [Node Discovery](ref/storage/node-discovery.md)
     * [Message Protocol](ref/storage/message-protocol.md)
     * [Storage Method](ref/storage/storage-method.md)
+    * [Consensus Security](ref/storage/consensus-cecurity.md)
   * [DePIN](ref/depin/README.md)
     * [The DePIN Portrait](ref/depin/the-depin-portrait.md)
   * [AI](ref/AI/README.md)
