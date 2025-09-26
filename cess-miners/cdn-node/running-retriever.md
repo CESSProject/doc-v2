@@ -1,6 +1,6 @@
 # Running the Retriever
 
-Retriever nodes serve as the data retrieval backbone of CD2N, requiring high-performance CPUs with SGX support, substantial memory, and large-capacity storage. When handling data requests via FID/CID identifiers, Retrievers first check local storage before querying Cacher nodes if necessary. Retrieved data may be cached locally based on retention policies before returning to requesters. Key operational features include:
+Retriever nodes serve as the data retrieval backbone of CD²N, requiring high-performance CPUs with SGX support, substantial memory, and large-capacity storage. When handling data requests via FID/CID identifiers, Retrievers first check local storage before querying Cacher nodes if necessary. Retrieved data may be cached locally based on retention policies before returning to requesters. Key operational features include:
 - **Fee-for-Service Model**: Requesters prepay retrieval fees before service initiation
 - **SGX-Based Verification**: Data validation occurs within SGX enclaves for audit integrity
 - **Incentive Distribution**: Rewards are proportionally allocated to participating nodes post-validation
@@ -20,7 +20,7 @@ The containerized Justicar module operates independently with HTTP communication
 
 Rewards accumulate per operational cycle with cooling periods before distribution. Nodes must claim rewards before cycle completion.
 
-![CD2N retrieval/caching architecture](../../assets/consensus-miner/running/CD2N-retriever1.png)
+![CD²N retrieval/caching architecture](../../assets/consensus-miner/running/CD2N-retriever1.png)
 
 ## Gateway Integration
 Retrievers feature an optional built-in gateway module with DeOSS-equivalent capabilities:
@@ -64,7 +64,7 @@ Two Ethereum wallet accounts required:
 - Prefunded with tokens for storage order creation
 
 **Authorization Process**:
-1. Generate node-token binding signature using CD2N signing tools
+1. Generate node-token binding signature using CD²N signing tools
 2. Use token account's private key to sign:
    - Operational account
    - Token metadata
@@ -73,7 +73,7 @@ Two Ethereum wallet accounts required:
 ## Configuration & Operation
 
 ### Nodeadm GUI Management
-The Python-based [Nodeadm](https://github.com/CD2N/nodeadm.git) tool provides graphical configuration for:
+The Python-based [Nodeadm](https://github.com/CESSProject/cd2n-nodeadm.git) tool provides graphical configuration for:
 1. Justicar settings
 2. Retrieval module parameters
 3. Redis pub/sub configuration
@@ -87,7 +87,7 @@ The Python-based [Nodeadm](https://github.com/CD2N/nodeadm.git) tool provides gr
 
 ![nodeadm gui submod](../../assets/consensus-miner/running/cd2n-nodeadm-2.png)
 
-Through the nodeadm program, you can perform simple configurations on each module, such as configuring the working directory, port, working account, etc. After completing the configuration of each sub-module, click the `Save and Return` button to save the configuration, or click the `Cancel` button to cancel the save. After the configuration is completed, return to the homepage and click the `Run CD2N Right Now!` button to start all modules in a containerized manner with one click, and click `Stop CD2N!` to stop all services with one click.
+Through the nodeadm program, you can perform simple configurations on each module, such as configuring the working directory, port, working account, etc. After completing the configuration of each sub-module, click the `Save and Return` button to save the configuration, or click the `Cancel` button to cancel the save. After the configuration is completed, return to the homepage and click the `Run CD²N Right Now!` button to start all modules in a containerized manner with one click, and click `Stop CD²N!` to stop all services with one click.
 
 In addition, you can also enter the nodeam/config directory to configure Retriever and Redis in more detail:
 
@@ -109,7 +109,7 @@ ChainConfig:
   # You can fill in multiple RPC addresses. It is recommended to fill in one official and one local address.
   Rpcs:
     - "ws://cess-chain:9944" 
-    - "wss://testnet-rpc.cess.network"
+    - "wss://xxx.cess.network"
   # Cache protocol smart contract address
   ProtoContract: "0xD185AF24121d0D6a9A3e128fB27C3704569b5E91"
   # When the cache capacity is insufficient, the cache capacity of the configuration is automatically recharged
@@ -128,7 +128,7 @@ NodeConfig:
   Mnemonic: "spatial paper alcohol less zoo defy please glare stumble pony your title"
 
 ServerConfig:
-  # Mining pool name, default is "CEvv CD2N OFFICAL POOL"
+  # Mining pool name, default is "CEvv CD²N OFFICAL POOL"
   PoolName: ""
   # Whether to run the gateway. If true, the node comes with the gateway function.
   LaunchGateway: true

@@ -253,7 +253,7 @@
       * [View Version](products/deoss/api-description/view_version.md)
 * [💰 Tokenomics](tokenomics/README.md)
    * [Token Overview](tokenomics/overview.md)
-   * [Token Distribution](tokenomics/distribution.md)
+   * [Token Distribution](tokenomics/tokenDistribution.md)
    * [Token’s Utility & Purpose](tokenomics/tokenUtility.md)
    * [Node Staking and Redemption](tokenomics/staking.md)
    * [Node Rewards and Token Release](tokenomics/rewards.md)
@@ -281,9 +281,10 @@
       * [Data Migration](ref/concepts/blockchain-core/data-migration.md)
       * [Off-chain Worker](ref/concepts/blockchain-core/off-chain-worker.md)
       * [Forkless Upgrade](ref/concepts/blockchain-core/forkless-upgrade.md)
-  -->
+  
   * [Node Operations](ref/ops/README.md)
     * [Running RPC Node](ref/ops/running-rpc-node.md)
+  -->
   * [In-depth Technical Features](ref/in-depth-feat/README.md)
     * [R²S](ref/in-depth-feat/r2s.md)
     * [RRC](ref/in-depth-feat/rrc.md)

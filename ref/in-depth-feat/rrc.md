@@ -6,13 +6,13 @@
 
 3. The final credit rating is calculated based on reputation credits, staked score (calculated from both self and delegated), and random credits.
 
-    {% hint style="success" %}
-   $$
-    Final Credits = (reputation credits * 50\%) + (staked score * 30\%) + (random credits * 20\%)
-   $$
-    {% endhint %}
+{% hint style="success" %}
+$$
+Final Credits = (reputation Credits * 50\%) + (staked Score * 30\%) + (random Credits * 20\%)
+$$
+{% endhint %}
 
-5. The block producer selection mechanism is the same as [BABE](https://wiki.polkadot.network/docs/learn-consensus#block-production-babe), where each block producer is randomly selected from 11 validation nodes through VRF.
+5. The block producer selection mechanism is the same as [BABE](https://wiki.polkadot.network/docs/learn-consensus#block-production-babe), where each block producer is randomly selected from 11 validation nodes through [VRF](https://doc.cess.network/ref/in-depth-feat/vrf).
 
 6. The method of confirming blocks is the same as [GRANDPA](https://wiki.polkadot.network/docs/learn-consensus#finality-gadget-grandpa).
 
@@ -30,6 +30,6 @@ The reputation value is calculated as follows:
 
 {% hint style="success" %}
 $$
-Scheduler Reputation Value = 1000 * processing bytes ratio - (10 * penalty times)
+Scheduler Reputation Value = 1000 * processing Bytes Ratio - (10 * penalty Times)
 $$
 {% endhint %}

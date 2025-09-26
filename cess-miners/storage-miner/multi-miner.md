@@ -185,6 +185,7 @@ After executing the above installation command, customize your own config file a
 - **watchdog.port:** Watchdog server listen at this port.
 - **watchdog.hosts:** Watchdog server can scrape nodes data from these hosts, `ip` is the host ip, `port` is the port which docker daemon listen. TLS configuration must be set if scrape data from a host in a public network. [how to set docker daemon tls](../../cess-miners/storage-miner/troubleshooting.md)
 - **watchdog.alert:** Enable alert or not. Watchdog will send alert to the email address you set in `watchdog.alert.email.receiver` and send webhook to the webhook url you set in `watchdog.alert.webhook` if alert enable.
+- **watchdog.auth:** Auth Configuration for web
 
 
 **/opt/cess/mineradm/config.yaml Template as below:**
@@ -307,6 +308,11 @@ After executing the above installation command, customize your own config file a
          receive_addr:
            - example1@gmail.com
            - example2@outlook.com
+     auth:
+       username: "admin" # env: WATCHDOG_USERNAME, default: cess
+       password: "passwd" # env: WATCHDOG_PASSWORD, default: Cess123456
+       jwt_secret_key: "your-random-secret-key" # env: WATCHDOG_JWT_SECRET
+       token_expiry: 1  # 1 hour # env: WATCHDOG_TOKEN_EXPIRY
    ```
 
 # 3. Generate configuration
