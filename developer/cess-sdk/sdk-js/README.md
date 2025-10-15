@@ -21,7 +21,7 @@ This section explains how to use all three CESS packages (`@cessnetwork/api`, `@
 ### Step 1: Initialize CESS Client
 
 ```typescript
-import { CESS, CESSConfig, downloadFile, ExtendedDownloadOptions, getToken, isKeyringReady, SDKError, uploadFile } from '@cessnetwork/api';
+import { CESS, CESSConfig, downloadFile, ExtendedDownloadOptions, GenGatewayAccessToken, isKeyringReady, SDKError, uploadFile } from '@cessnetwork/api';
 import { safeSignUnixTime, } from '@cessnetwork/util';
 import { GatewayConfig, OssAuthorityList, OssDetail, UploadResponse } from "@cessnetwork/types";
 import { u8aToHex } from "@polkadot/util";
@@ -58,77 +58,99 @@ console.log("signature:", signature);
 
 ```typescript
 // Check if territory exists, if not create one
-const myTerritory = "default";
-const territory = await cess.queryTerritory(cess.getSignatureAcc(), myTerritory);
+let territoryToken
+const myTerritory = "default"
+const territory = await cess.queryTerritory(accountAddress, myTerritory) as Territory;
+const curBlockHeight = await cess.queryBlockNumberByHash()
+console.log('Current Block Height:', curBlockHeight);
 
 if (!territory) {
     try {
         const result = await cess.mintTerritory(
-            1, // gibCount - size of territory in GiB
+            1, // gibCount
             myTerritory,
-            30, // days - duration of territory
+            30, // days
         );
 
         if (result.success) {
-            console.log('✅ Territory mint successful!', {
-                txHash: result.txHash,
-                blockHash: result.blockHash
-            });
+            console.log('✅ Mint successful!', {txHash: result.txHash, blockHash: result.blockHash});
 
+            // Wait and query the minted territory
+            console.log('Waiting 6 seconds before querying territory...');
             await new Promise(resolve => setTimeout(resolve, 6000));
-            const territory = await cess.queryTerritory(cess.getSignatureAcc(), myTerritory);
+
+            const territory = await cess.queryTerritory(accountAddress, myTerritory) as Territory;
+            territoryToken = territory?.token
             console.log('Territory details:', territory);
+            console.log('Territory Token:', territoryToken);
         } else {
             console.error('❌ Territory minting failed:', result.error);
         }
     } catch (error) {
         console.error('❌ Error during territory minting:', error);
     }
+} else if (territory.deadline - curBlockHeight <= 100800) {
+    // 100800 block means 7 days
+    const renewalRes = await cess.renewalTerritory(myTerritory, 10)
+    console.log('renew territory successfully:', renewalRes.blockHash);
+} else if (territory.state != "Active" || curBlockHeight >= territory.deadline) {
+    // data will be reset when re-activate territory
+    const reactivateRes = await cess.reactivateTerritory(myTerritory, 30)
+    console.log('reactivate territory successfully:', reactivateRes.blockHash);
+} else if (territory.remainingSpace <= 1024 * 1024 * 1024) {
+    // remaining space <= 1GiB
+    const expandRes = await cess.expandingTerritory(myTerritory, 1)
+    console.log('expand territory successfully:', expandRes.blockHash);
 } else {
-    console.log("Territory already exists: ", territory);
+    console.log("territory exist: ", territory)
 }
 ```
 
 ### Step 4: Authorize Gateway Access
 
 ```typescript
-// Find the gateway account and authorize it to access your territory
-const gatewayUrl = "http://154.194.34.195:1306"; // Replace with your gateway URL
-let gatewayAcc = "";
-
-// Query all OSS accounts to find the one matching the gateway URL
-const ossAccList = await cess.queryOssByAccountId() as unknown as OssDetail[];
+let gatewayAcc = ""
+// get oss public acc by domain name
+const ossAccList = await cess.queryOssByAccountId() as unknown as OssDetail[]
 for (let i = 0; i < ossAccList.length; i++) {
     if (ossAccList[i].ossInfo.domain == gatewayUrl) {
-        gatewayAcc = ossAccList[i].account;
+        gatewayAcc = ossAccList[i].account
         break;
     }
 }
+if (!gatewayAcc) {
+    console.error("gateway not found.");
+    return;
+}
 
-try {
-    console.log("Starting authorization process");
-    const result = await cess.authorize(gatewayAcc);
-    if (result.success) {
-        console.log('✅ Authorization successful!', {
-            txHash: result.txHash,
-            blockHash: result.blockHash
-        });
-    } else {
-        console.error('❌ Authorization failed:', result.error);
+// auth my territory to gateway acc
+const authList = await cess.queryAuthorityListByAccountId(gatewayAcc) as unknown as OssAuthorityList[]
+const authorizedAccounts: string[] = authList.map(item => item.authorizedAcc);
+if (!authorizedAccounts.indexOf(accountAddress)) {
+    try {
+        console.log("start to auth")
+        const result = await cess.authorize(gatewayAcc);
+        if (result.success) {
+            console.log('✅ Authorization successful!', {txHash: result.txHash, blockHash: result.blockHash});
+        } else {
+            console.error('❌ Authorization failed:', result.error);
+        }
+    } catch (error) {
+        console.error('❌ Error during authorization:', error);
     }
-} catch (error) {
-    console.error('❌ Error during authorization:', error);
+} else {
+    console.log("already auth")
 }
 ```
 
 ### Step 5: Obtain Gateway Token
 
 ```typescript
-const token = await getToken(gatewayUrl, {
+const token = await GenGatewayAccessToken(gatewayUrl, {
     account: cess.getSignatureAcc(),
     message: sign_message,
     sign: u8aToHex(signature), // Convert signature to hex format
-    expire: 1 // Token expiration in days
+    expire: 1 // Token expiration in hours
 });
 
 ```
@@ -144,10 +166,12 @@ const gatewayConfig: GatewayConfigType = {
 
 // Upload file to the gateway
 let uploadResult: UploadResponse;
-uploadResult = await uploadFile(gatewayConfig, "./path/to/your/file.txt", {
-    territory: myTerritory
+uploadResult = await upload(gatewayConfig, "./path/to/your/file.txt", {
+    territory: myTerritory,
+    uploadFileWithProgress: (progress) => {
+        console.log(`\rUpload progress: ${progress.percentage}% (${progress.loaded}/${progress.total} bytes) - ${progress.file}`);
+    }
 });
-
 if (uploadResult.code == 200) {
     const fid = uploadResult.data; // File ID returned by the gateway
     console.log("File ID (FID): ", fid);
@@ -162,7 +186,7 @@ if (uploadResult.code == 200) {
 // Define download options
 const downloadOptions: ExtendedDownloadOptions = {
     fid: fid, // The file ID from the upload step
-    savePath: "./path/to/downloaded/file.txt", // Local path to save the file
+    savePath: "./path/to/downloaded/file.txt",
     overwrite: true,
     createDirectories: true,
 };
@@ -193,11 +217,3 @@ if (dealMap) {
 
 await cess.close()
 ```
-
-## Documentation
-
-For more detailed documentation, please visit [CESS official documentation](https://doc.cess.network/developer/cess-sdk/javascript-sdk).
-
-## License
-
-This project is licensed under the Apache-2.0 License.
