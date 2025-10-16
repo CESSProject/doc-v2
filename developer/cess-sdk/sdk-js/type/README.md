@@ -16,12 +16,12 @@ This package provides TypeScript type definitions for the CESS (Content Edge Sto
 
 This package exports type definitions organized into three main categories:
 
-### 1. Core Types (`./types`)
+### 1. Core Types
 - Common utility types and constants
 - Type aliases for blockchain primitives
 - Event interfaces
 
-### 2. Pallet Types (`./pallets`)
+### 2. Pallet Types
 - **Audit**: Types for auditing and proof verification (ChallengeInfo, MinerSnapShot, SpaceProof, etc.)
 - **Balances**: Types for token and balance management
 - **File Bank**: Types for file storage and management (FileMetadata, BucketInfo, etc.)
@@ -33,7 +33,7 @@ This package exports type definitions organized into three main categories:
 - **System**: System-level types
 - **TEE**: Types for Trusted Execution Environment operations
 
-### 3. HTTP Types (`./http`)
+### 3. HTTP Types
 - Common HTTP response types
 - Gateway API response types
 - Sminer-related HTTP response types
@@ -128,11 +128,3 @@ console.log(Size.SIZE_1GiB); // 1073741824
 // Address format for mainnet and testnet
 console.log(AddressSs58Format.MAIN_NET); // 11331
 ```
-
-## Documentation
-
-For more detailed documentation, please visit [CESS official documentation](https://doc.cess.network/developer/cess-sdk/javascript-sdk).
-
-## License
-
-This project is licensed under the Apache-2.0 License.

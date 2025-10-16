@@ -48,7 +48,6 @@ The Session pallet manages validator sessions and helps maintain the active vali
 ## Usage
 
 ### Basic Usage
-
 ```typescript
 import { CESS, CESSConfig } from '@cessnetwork/api';
 
