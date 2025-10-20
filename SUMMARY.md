@@ -161,6 +161,9 @@
           * [SystemVersion](developer/cess-sdk/sdk-golang/chain_related/rpc_calls/SystemVersion.md)
       * [Toolset](developer/cess-sdk/sdk-golang/toolset.md)
     * [Javascript SDK](developer/cess-sdk/sdk-js/README.md)
+      * [api](developer/cess-sdk/sdk-js/api/README.md)
+      * [util](developer/cess-sdk/sdk-js/util/README.md)
+      * [type](developer/cess-sdk/sdk-js/type/README.md)
     * [Rust SDK](developer/cess-sdk/sdk-rust/README.md)
       * [Preface](developer/cess-sdk/sdk-rust/preface.md)
       * [chain](developer/cess-sdk/sdk-rust/chain/README.md)
@@ -281,14 +284,16 @@
       * [Data Migration](ref/concepts/blockchain-core/data-migration.md)
       * [Off-chain Worker](ref/concepts/blockchain-core/off-chain-worker.md)
       * [Forkless Upgrade](ref/concepts/blockchain-core/forkless-upgrade.md)
-  -->
+  
   * [Node Operations](ref/ops/README.md)
     * [Running RPC Node](ref/ops/running-rpc-node.md)
+  -->
   * [In-depth Technical Features](ref/in-depth-feat/README.md)
     * [R²S](ref/in-depth-feat/r2s.md)
     * [RRC](ref/in-depth-feat/rrc.md)
-    * [LBSS](ref/in-depth-feat/lbss.md)
     * [VRF](ref/in-depth-feat/vrf.md)
+    * [CD²N](ref/in-depth-feat/cddn.md)
+    * [LBSS](ref/in-depth-feat/lbss.md)
   * [Data Lifecycle](ref/data-lifecycle/README.md)
     * [Data Upload](ref/data-lifecycle/upload.md)
     * [Data Download](ref/data-lifecycle/download.md)

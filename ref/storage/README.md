@@ -7,9 +7,10 @@ CESS uses the token incentive mechanism to effectively utilize idle storage reso
 CESS builds a decentralized cloud storage ecosystem based on blockchain to realize commercial storage, meet the actual needs of commercial applications for large-scale valuable data storage, prevent data leakage and loss, and protect data security and privacy. It solves the security issues of data storage that have been plaguing mankind, and develops an ecosystem centered on data security storage, circulation, and open, transparent, co-construction, sharing, and co-prosperity. CESS strives to provide a safe and reliable user data and build a transparent, efficient and equal new storage transaction market.
 
 In this section, we will cover how the peer-to-peer network used in CESS Network works and how nodes discover each others within the network.
-
+<!--
 - [Identification](identification.md)
 - [Consistency Guarantee](consensus-security.md)
 - [Node Discovery](node-discovery.md)
 - [Message Protocol](message-protocol.md)
 - [Storage Method](storage-method.md)
+-->

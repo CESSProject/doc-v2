@@ -17,11 +17,11 @@ If you're planning to run a consensus miner, it's important to make sure your sy
 
 You can also refer to the page [Creating CESS Accounts](../../user/cess-account.md) for creating a CESS account.
 
-You can either use [CESS testnet faucet](https://cess.network/faucet.html) to get TCESS, or [contact us](../../introduction/contact.md) to receive TCESS tokens for staking.
+You can either use [CESS premainnet faucet](https://cess.network/faucet.html) to get TCESS, or [contact us](../../introduction/contact.md) to receive TCESS tokens for staking.
 
 # Binding Funds to Stash Account
 
-Open [CESS Explorer](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc.cess.network%2Fws%2F#/) and Select **Network** > **Staking** > **Accounts** > **Stash**
+Open [CESS Explorer](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ft2-rpc.cess.network%2Fws%2F#/) and Select **Network** > **Staking** > **Accounts** > **Stash**
 
 ![Add a Stash](../../assets/consensus-miner/running/consensus-pic1.png)
 
@@ -54,9 +54,9 @@ Please purge all of previous data before running a CESS consensus node on machin
 The `cess-nodeadm` is a CESS node deployment and management tool. It helps to deploy and manage storage nodes, consensus nodes, and rpc node, simplifying the devOps for all CESS miners.
 
 ```bash
-wget https://github.com/CESSProject/cess-nodeadm/archive/refs/tags/v0.6.1.tar.gz
-tar -xvf v0.6.1.tar.gz
-cd cess-nodeadm-0.6.1
+wget https://github.com/CESSProject/cess-nodeadm/archive/refs/tags/v0.7.0.tar.gz
+tar -xvf v0.7.0.tar.gz
+cd cess-nodeadm-0.7.0
 sudo ./install.sh
 ```
 
@@ -90,7 +90,6 @@ Configurations generated at: /opt/cess/nodeadm/build
 $ cess start
 [+] Running 3/3
  ✔ Container chain       Started
- ✔ Container miner       Started
  ✔ Container watchtower  Started
 ```
 
@@ -100,7 +99,7 @@ $ cess start
      ```shell
      curl -fsSL https://get.docker.com | bash
      docker --version
-     docker pull cesslab/cess-chain:testnet
+     docker pull cesslab/cess-chain:premainnet
      ```
 
 2. Running Command
@@ -110,16 +109,16 @@ $ cess start
    ```bash
    mkdir -p /opt/cess/validator
    
-   docker run --rm -v /opt/cess/validator:/opt/cess/data cesslab/cess-chain:testnet key generate-node-key --base-path /opt/cess/data --chain cess-testnet >/dev/null 2>&1
+   docker run --rm -v /opt/cess/validator:/opt/cess/data cesslab/cess-chain:premainnet key generate-node-key --base-path /opt/cess/data --chain cess-premainnet >/dev/null 2>&1
 
    docker run -d \
-   --name testnet-rpc \
+   --name premainnet-rpc \
    -v /opt/cess/validator:/opt/cess/data \
    -p 30336:30336 \
    -p 9944:9944 \
-   cesslab/cess-chain:testnet \
+   cesslab/cess-chain:premainnet \
    --base-path /opt/cess/data \
-   --chain cess-testnet \
+   --chain cess-premainnet \
    --port 30336 \
    --rpc-port 9944 \
    --rpc-external \
@@ -132,7 +131,6 @@ $ cess start
    --max-runtime-instances 32 \
    --rpc-cors all \
    --prometheus-external \
-   --wasm-runtime-overrides /opt/cess/wasms \
    --rpc-methods unsafe
    ```
 
@@ -140,27 +138,22 @@ $ cess start
 
 ### Download source files
 
-**Get the latest `release` and `wasms` from [Github](https://github.com/CESSProject/cess/releases)**
+**Get the latest `release` from [Github](https://github.com/CESSProject/cess/releases)**
 
 ```bash
 mkidr -p /opt/cess/validator
 cd /opt/cess/validator
-wget https://github.com/CESSProject/cess/releases/download/cess-v0.7.9-venus/cess-node-v0.9.0-Ubuntu -O cess-node
-wget https://github.com/CESSProject/cess/releases/download/cess-v0.7.9-venus/wasm_overrides.tar -O wasm_overrides.tar
-tar -xvf wasm_overrides.tar
-mv .wasm_overrides/testnet/ ./wasms
-mv ./wasms /opt/cess/
+wget https://github.com/CESSProject/cess/releases/download/cess-v0.8.0-premainnet/cess-node-v0.10.0-ubuntu22 -O cess-node
 ```
 
 **Get the source files from a local container**
 
 ```bash
 rm -rf /opt/cess/chain-tmp && mkdir -p /opt/cess/chain-tmp
-docker pull cesslab/cess-chain:testnet
-docker run -d --name chain-tmp -p 30337:30336 -p 9945:9944 -v /opt/cess/chain-tmp:/opt/cess/data cesslab/cess-chain:testnet --base-path /opt/cess/data --chain cess-testnet --port 30336 --name cess --rpc-port 9944 --rpc-external --execution WASM --wasm-execution compiled --in-peers 75 --out-peers 75 --state-pruning archive --rpc-cors all --prometheus-external --wasm-runtime-overrides /opt/cess/wasms
+docker pull cesslab/cess-chain:premainnet
+docker run -d --name chain-tmp -p 30337:30336 -p 9945:9944 -v /opt/cess/chain-tmp:/opt/cess/data cesslab/cess-chain:premainnet --base-path /opt/cess/data --chain cess-premainnet --port 30336 --name cess --rpc-port 9944 --rpc-external --execution WASM --wasm-execution compiled --in-peers 75 --out-peers 75 --state-pruning archive --rpc-cors all --prometheus-external
 
 docker cp chain-tmp:/opt/cess/cess-node /opt/cess/validator/cess-node
-docker cp chain-tmp:/opt/cess/.wasm_overrides/testnet /opt/cess/wasms
 docker stop chain-tmp && docker rm chain-tmp
 ```
 
@@ -169,16 +162,16 @@ docker stop chain-tmp && docker rm chain-tmp
 ```bash
 mkdir -p /opt/cess/validator
 
-/opt/cess/validator/cess-node key generate-node-key --base-path /opt/cess/validator --chain cess-testnet >/dev/null 2>&1
+/opt/cess/validator/cess-node key generate-node-key --base-path /opt/cess/validator --chain cess-premainnet >/dev/null 2>&1
 
 cat > /lib/systemd/system/validator.service << EOF
 [Unit]
-Description=CESS-TESTNET-Validator
+Description=CESS-PREMAINNET-Validator
 After=network.target
 [Service]
 Type=simple
 User=root
-ExecStart=/opt/cess/validator/cess-node --base-path /opt/cess/validator --chain cess-testnet --port 30336 --rpc-port 9944 --prometheus-external --name cess-testnet --validator --max-runtime-instances 32 --state-pruning archive --wasm-runtime-overrides /opt/cess/wasms --rpc-methods unsafe 
+ExecStart=/opt/cess/validator/cess-node --base-path /opt/cess/validator --chain cess-premainnet --port 30336 --rpc-port 9944 --prometheus-external --name cess-premainnet --validator --max-runtime-instances 32 --state-pruning archive --rpc-methods unsafe 
 WorkingDirectory=/opt/cess/validator
 StandardOutput=append:/opt/cess/validator/validator.log
 StandardError=append:/opt/cess/validator/validator.log
@@ -243,7 +236,7 @@ $ ps -efww | grep cess-node
 
 3. Set up a session key
 
-    Navigate to [CESS Explorer](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc.cess.network%2Fws%2F#/), choose **Network** > **Staking** > **Accounts** > **Session Key**
+    Navigate to [CESS Explorer](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ft2-rpc.cess.network%2Fws%2F#/), choose **Network** > **Staking** > **Accounts** > **Session Key**
 
     ![Session Key 01](../../assets/consensus-miner/running/session-key-01.png)
 
@@ -257,7 +250,7 @@ $ ps -efww | grep cess-node
 
 4. Becoming a validator
 
-    Navigate to [CESS Explorer](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc.cess.network%2Fws%2F#/), click **Network** > **Staking** > **Accounts** > **Validate**
+    Navigate to [CESS Explorer](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ft2-rpc.cess.network%2Fws%2F#/), click **Network** > **Staking** > **Accounts** > **Validate**
 
     ![Validator 01](../../assets/consensus-miner/running/validator-01.webp)
 
@@ -271,7 +264,7 @@ $ ps -efww | grep cess-node
 
     ![Validator 03](../../assets/consensus-miner/running/validator-03.png)
 
-    After completing the steps above, open the [CESS Explorer](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc.cess.network%2Fws%2F#/) and click **Network** > **Staking** > **Waiting**.
+    After completing the steps above, open the [CESS Explorer](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ft2-rpc.cess.network%2Fws%2F#/) and click **Network** > **Staking** > **Waiting**.
 
     ![Validator 04](../../assets/consensus-miner/running/validator-04.webp)
 
@@ -295,13 +288,13 @@ Please claim the reward within 84 era (each era of the test network is 6 hours),
 
 1. Stop the Consensus
 
-    In [CESS Explorer](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc.cess.network%2Fws%2F#/), navigate to: **Network > Staking > Account Actions > Stop**.
+    In [CESS Explorer](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ft2-rpc.cess.network%2Fws%2F#/), navigate to: **Network > Staking > Account Actions > Stop**.
 
     ![Exiting-01](../../assets/consensus-miner/running/exiting-01.png)
 
 2. Clear Session Keys
 
-    In [CESS Explorer](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc.cess.network%2Fws%2F#/), navigate to: **Developer -> Submission**
+    In [CESS Explorer](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ft2-rpc.cess.network%2Fws%2F#/), navigate to: **Developer -> Submission**
 
     ![Exiting-02](../../assets/consensus-miner/running/exiting-02.png)
 
@@ -317,7 +310,7 @@ Please claim the reward within 84 era (each era of the test network is 6 hours),
 
 1. Unbond fund
 
-    After 28 eras (each era of the test network is 6 hours), goto [CESS Explorer](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc.cess.network%2Fws%2F#/), navigate to: **Network > Staking > Account Actions > Unbond Funds**.
+    After 28 eras (each era of the test network is 6 hours), goto [CESS Explorer](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ft2-rpc.cess.network%2Fws%2F#/), navigate to: **Network > Staking > Account Actions > Unbond Funds**.
 
     ![Staking 01](../../assets/consensus-miner/running/staking-01.png)
 
