@@ -1,6 +1,6 @@
 # Running the Cacher
 
-Cacher nodes are edge caching nodes distributed across the CD2N network, designed to operate efficiently with minimal resources. They are suitable for deployment on various devices including personal computers, servers, smartphones, and Raspberry Pi. The primary functions of Cacher nodes include providing or caching user data for Retrievers in CD2N, creating value through contributions of cache storage and bandwidth resources. Cacher nodes currently operate in three modes:
+Cacher nodes are edge caching nodes distributed across the CD²N network, designed to operate efficiently with minimal resources. They are suitable for deployment on various devices including personal computers, servers, smartphones, and Raspberry Pi. The primary functions of Cacher nodes include providing or caching user data for Retrievers in CD²N, creating value through contributions of cache storage and bandwidth resources. Cacher nodes currently operate in three modes:
 1. Receiving user data shards from gateways and distributing them to connected storage nodes, accelerating persistent storage processes;
 2. Retrieving data shards from local cache, storage nodes, or alternative sources (e.g., IPFS) to fulfill data requests from Retriever nodes;
 3. Storing user data offloaded from Retriever nodes in local cache for rapid response, enabling dynamic scaling of Retriever node cache capacity;
@@ -25,7 +25,7 @@ Cacher node rewards are calculated based on verifiable data volume contributed t
 
 Operating a Cacher node requires two Ethereum wallet accounts:
 1. **Node Operational Account**: For node registration and reward collection
-2. **Token Account**: Holds the NFT access certificate for CD2N network participation
+2. **Token Account**: Holds the NFT access certificate for CD²N network participation
 
 Key considerations:
 - Both accounts interact with smart contracts on CESS consensus nodes' EVM
@@ -43,7 +43,7 @@ Setup steps:
    - Generate Ethereum wallet
    - Acquire token via purchase or community distribution
 3. Generate Token Authorization:
-   - Use CD2N signing tool with token account's private key
+   - Use CD²N signing tool with token account's private key
    - Sign node operational account and token details
    - This signature serves as proof of token-node binding
 
@@ -58,16 +58,16 @@ WorkSpace: "./cacher"
 Rpcs: 
   - "wss://xxx.cess.network"
 # SecretKey is the key of the node working account (Ethereum wallet account), which is used to initiate a call request to the cache protocol contract (working on EVM). 
-# By default, it is not filled in, which means that it does not participate in the CD2N network and only has the most basic data interaction with the gateway.
+# By default, it is not filled in, which means that it does not participate in the CD²N network and only has the most basic data interaction with the gateway.
 SecretKey: ""
-# Token is the NFT access certificate for nodes to join the CD2N network and will be released in subsequent versions.
+# Token is the NFT access certificate for nodes to join the CD²N network and will be released in subsequent versions.
 Token: ""
 # TokenAcc is the holder account(Ethereum wallet account) of the above NFT token.
 TokenAcc: ""
 # TokenAccSign is an Ethereum account signature, which is the token holder's proof of holding the token. 
 # Signature methods and tools will be published in the document.
 TokenAccSign: ""
-# CD2N cache protocol contract address, which is responsible for node traffic statistics and reward distribution, and works on EVM.
+# CD²N cache protocol contract address, which is responsible for node traffic statistics and reward distribution, and works on EVM.
 ProtoContract: "0xce078A9098dF68189Cbe7A42FC629A4bDCe7dDD4"
 # Local storage nodes configuration file, currently only available for the "Cess Multi-Miner Admin" script.
 # The cacher automatically imports the storage node information started by the script through it.
