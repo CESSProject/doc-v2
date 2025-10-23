@@ -4,6 +4,13 @@ Traditional independent storage media suffer from inherent limitations in reliab
 
 To overcome these issues, the CESS Network implements a blockchain-based decentralized data infrastructure known as CESS Storage, which preserves the scalability and accessibility of traditional cloud storage while eliminating the single points of failure inherent to centralized infrastructures. This constitutes the first foundational phase of the CESS system.
 
+## Resource Virtualization and Network Composition
+
+CESS adopts a token-incentivized economic model to aggregate and efficiently utilize globally distributed idle storage, bandwidth, and computing resources. Any participant can contribute resources to the network and become a storage or consensus node, achieving effectively unbounded scalability.
+
+Through virtualization and cloud orchestration technologies, CESS abstracts heterogeneous resources into a unified global data lake that supports massive-scale distributed data storage. Nodes interconnect via the CESS protocol suite, forming a cohesive peer-to-peer (P2P) topology optimized for high-throughput, low-latency operations across geographies. This architecture is designed to sustain storage capacities at the 100 PB scale and beyond, delivering enterprise-grade performance in a decentralized manner.
+
+
 <!--
 - [Identification](identification.md)
 - [Consistency Guarantee](consensus-security.md)
