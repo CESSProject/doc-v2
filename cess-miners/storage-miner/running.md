@@ -157,11 +157,13 @@ Please refer to [Creating CESS Accounts](../../user/cess-account.md) for creatin
 ## Setup a Running Network
 
 ```bash
-# Running the storage node on development network:
-sudo cess profile devtnet
 
-# or running the storage node on test network:
-sudo cess profile testnet
+
+# Running the storage node on test network:
+sudo cess profile premainnet
+
+# or Running the storage node on local development network:
+sudo cess profile devtnet
 ```
 
 ## Setup Configuration
