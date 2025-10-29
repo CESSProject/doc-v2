@@ -10,6 +10,14 @@ CESS adopts a token-incentivized economic model to aggregate and efficiently uti
 
 Through virtualization and cloud orchestration technologies, CESS abstracts heterogeneous resources into a unified global data lake that supports massive-scale distributed data storage. Nodes interconnect via the CESS protocol suite, forming a cohesive peer-to-peer (P2P) topology optimized for high-throughput, low-latency operations across geographies. This architecture is designed to sustain storage capacities at the 100 PB scale and beyond, delivering enterprise-grade performance in a decentralized manner.
 
+## Data Sharding, Redundancy, and Recovery (PoDR²)
+
+Data uploaded to the CESS Network undergoes client-side encryption followed by fragmentation (sharding). Each encrypted shard is then randomly distributed to multiple miner nodes across the network to achieve redundancy and fault tolerance.
+
+The Proof of Data Reduplication and Recovery (PoDR²) mechanism, a core innovation of CESS, ensures that all storage miners maintain the correct number of data replicas as defined by system parameters or user preferences. The default replication factor is three, though users may configure additional redundancy for mission-critical datasets. Extra replicas require corresponding CESS token payments as compensation to storage providers.
+
+PoDR² employs a homomorphic signature verification scheme to provide cryptographic proof of retrievability without exposing underlying data. This ensures that storage miners cannot falsify or omit replicas, thereby maintaining data integrity and availability under distributed conditions. Even in the event of partial node failures or regional network disruptions, the recovery protocol guarantees the continuity and completeness of user data.
+
 
 <!--
 - [Identification](identification.md)
