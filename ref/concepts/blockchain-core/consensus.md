@@ -1,8 +1,8 @@
 Consensus is a mechanism for coming to an agreement over a shared state. In order for the state of the blockchain to continue to build and move forward, most nodes in the network should agree and come to consensus. It is the way that the nodes in a decentralized network are able to stay synced with each other. Without consensus for the decentralized network of nodes in a blockchain, there is no way to ensure that the state one node believes is true will be shared and verified by the other nodes. Consensus aims to provide the objective view of the state amid participants who each have their own subjective views of the network. It is the process by which these nodes communicate and come to an agreement with each other, which enable the building of new blocks.
 
-# Validator Selection: Reputation Rotation Consensus
+# Validator Selection: Random Rotation Selection
 
-CESS uses the R²S (reputation rotation consensus) as its mechanism to select the validator nodes. Participants interested in maintaining the network can run the validator node. The validator plays the role of producing new blocks, verifying blocks and ensuring finality. Refer to [**Reputation Rotation Consensus**](../../ref/rrc.md) for details.
+CESS uses the R²S (random rotation Selection) as its mechanism to select the validator nodes. Participants interested in maintaining the network can run the validator node. The validator plays the role of producing new blocks, verifying blocks and ensuring finality. Refer to [**Random Rotation Consensus**](../../in-depth-feat/rrc.md) for details.
 
 # Block Production: BABE
 

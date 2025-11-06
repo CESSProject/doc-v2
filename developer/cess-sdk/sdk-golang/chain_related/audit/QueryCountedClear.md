@@ -2,7 +2,7 @@ QueryCountedClear query the number of times to clear the challenge failure count
 
 
 ```golang
-// QueryCounterdClear query the number of times to clear the challenge failure count
+// QueryCounterdClear query the number of times to clear the miner has not submitted the service proof.
 //   - accountID: signature account of the storage miner
 //   - block: block number, less than 0 indicates the latest block
 //

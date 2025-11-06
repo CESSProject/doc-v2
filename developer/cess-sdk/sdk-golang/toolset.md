@@ -3,18 +3,17 @@ This section focuses on the use of some of the tools.
 The list of interfaces is as follows:
 | Method Name | Description |
 | ----------- | ----------- |
-| [BytesToFileHash]([BytesToChainType.md](https://github.com/CESSProject/cess-go-sdk/blob/main/chain/util.go#L21)) | Convert byte arrays to FileHash |
-| [BytesToWorkPublickey](https://github.com/CESSProject/cess-go-sdk/blob/main/chain/util.go#L32) | Convert byte arrays to WorkPublickey |
-| [BytesToPoISKeyInfo](https://github.com/CESSProject/cess-go-sdk/blob/main/chain/util.go#L43) | Convert byte arrays to PoISKeyInfo |
-| [BytesToBloomFilter](https://github.com/CESSProject/cess-go-sdk/blob/main/chain/util.go#L54) | Convert byte arrays to BloomFilter |
-| [RrscAppPublicToByte](https://github.com/CESSProject/cess-go-sdk/blob/main/chain/util.go#L74) | Convert RRSC public key to bytes |
-| [H160ToSS58](https://github.com/CESSProject/cess-go-sdk/blob/main/chain/util.go#L89) | Converting Ether addresses to polka addresses |
-| [IsWorkerPublicKeyAllZero](https://github.com/CESSProject/cess-go-sdk/blob/main/chain/util.go#L65) | Determine if the WorkerPublicKey is 0 |
+| [BytesToFileHash](https://github.com/CESSProject/cess-go-sdk/blob/main/chain/util.go#L23) | Convert byte arrays to FileHash |
+| [BytesToWorkPublickey](https://github.com/CESSProject/cess-go-sdk/blob/main/chain/util.go#L34) | Convert byte arrays to WorkPublickey |
+| [BytesToPoISKeyInfo](https://github.com/CESSProject/cess-go-sdk/blob/main/chain/util.go#L45) | Convert byte arrays to PoISKeyInfo |
+| [BytesToBloomFilter](https://github.com/CESSProject/cess-go-sdk/blob/main/chain/util.go#L56) | Convert byte arrays to BloomFilter |
+| [RrscAppPublicToByte](https://github.com/CESSProject/cess-go-sdk/blob/main/chain/util.go#L76) | Convert RRSC public key to bytes |
+| [H160ToSS58](https://github.com/CESSProject/cess-go-sdk/blob/main/chain/util.go#L91) | Converting Ether addresses to polka addresses |
+| [IsWorkerPublicKeyAllZero](https://github.com/CESSProject/cess-go-sdk/blob/main/chain/util.go#L67) | Determine if the WorkerPublicKey is 0 |
 | [ParsingPublickey](https://github.com/CESSProject/cess-go-sdk/blob/main/utils/account.go#L23) | Parse the public key of the polka account |
-| [EncodePublicKeyAsSubstrateAccount](https://github.com/CESSProject/cess-go-sdk/blob/main/chain/util.go#L44) | Encoding the public key into the original polka account |
-| [EncodePublicKeyAsCessAccount](https://github.com/CESSProject/cess-go-sdk/blob/main/chain/util.go#L59) | Encoding the public key as a CESS account |
-| [VerityAddress](https://github.com/CESSProject/cess-go-sdk/blob/main/chain/util.go#L81) | Verify that the account is legitimate |
-| [CheckBucketName](https://github.com/CESSProject/cess-go-sdk/blob/main/utils/bucket.go#L19) | Check if the storage bucket name is legal |
+| [EncodePublicKeyAsSubstrateAccount](https://github.com/CESSProject/cess-go-sdk/blob/main/utils/account.go#L44) | Encoding the public key into the original polka account |
+| [EncodePublicKeyAsCessAccount](https://github.com/CESSProject/cess-go-sdk/blob/main/utils/account.go#L44) | Encoding the public key as a CESS account |
+| [VerityAddress](https://github.com/CESSProject/cess-go-sdk/blob/main/utils/account.go#L81) | Verify that the account is legitimate |
 | [GetDirFreeSpace](https://github.com/CESSProject/cess-go-sdk/blob/main/utils/cpu.go#L16) | Get the free space of a directory |
 | [GetSysMemAvailable](https://github.com/CESSProject/cess-go-sdk/blob/main/utils/cpu.go#L21) | Get system memory available |
 | [CalcPathSHA256](https://github.com/CESSProject/cess-go-sdk/blob/main/utils/hash.go#L21) | Calculate the sha256 hash value of a file |
@@ -35,5 +34,5 @@ The list of interfaces is as follows:
 | [ VerifySR25519WithPublickey](https://github.com/CESSProject/cess-go-sdk/blob/main/utils/sign.go#L48) | Verify SR25519 signature with account public key |
 | [ VerifyPolkadotJsHexSign](https://github.com/CESSProject/cess-go-sdk/blob/main/utils/sign.go#L75) | Verify polkadot signature with account public key |
 | [ParseEthAccFromEthSign](https://github.com/CESSProject/cess-go-sdk/blob/main/utils/sign.go#L106) | Resolving addresses from eth signatures |
-| [IsInterfaceNIL](https://github.com/CESSProject/cess-go-sdk/blob/main/utils/utils.go#L21) | Determine if the interface is nil |
-| [CompareSlice](https://github.com/CESSProject/cess-go-sdk/blob/main/utils/utils.go#L36) | Compare whether two slices are the same |
+| [IsInterfaceNIL](https://github.com/CESSProject/cess-go-sdk/blob/main/utils/utils.go#L14) | Determine if the interface is nil |
+| [CompareSlice](https://github.com/CESSProject/cess-go-sdk/blob/main/utils/utils.go#L29) | Compare whether two slices are the same |

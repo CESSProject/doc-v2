@@ -1,4 +1,4 @@
-Here we will highlight some community-built dApps for users. In general, you should have a [CESS account](../community/cess-account.md) created first.
+Here we will highlight some community-built dApps for users. In general, you should have a [CESS account](./cess-account.md) created first.
 
 # dApps Built On CESS
 
@@ -6,6 +6,5 @@ Here we will highlight some community-built dApps for users. In general, you sho
 | -------------------------------------------------- | --------------------------- | ----------------------------------------------------------- |
 | [VideOwn](https://videown.io/)                 | [CESS](https://cess.network/) | Decentralized video-sharing platform                        |
 | [DeShare](https://cess.network/deshare.html)         | [CESS](https://cess.network/) | dApp to quickly upload documents to CESS and share them out |
-| [Faucet (testnet)](https://cess.network/faucet.html) | [CESS](https://cess.network/) | CESS token faucet for testnet                               |
-| [Substats (testnet)](https://substats.cess.network/) | [CESS](https://cess.network/) | CESS blockchain explorer for testnet                        |
-| [DeOSS](https://docs.cess.network/deoss)             | [CESS](https://cess.network/) | Decentralized Object Storage Service (🏗 in construction)   |
+| [DeCloud](https://decloud.cess.network/) | [CESS](https://cess.network/) | Decentralized cloud storage                               |
+| [CESS Scan](https://scan.cess.network/) | [CESS](https://cess.network/) | CESS blockchain explorer                        |

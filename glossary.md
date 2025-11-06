@@ -36,7 +36,7 @@
 
 | Term                                 | Definition |
 | ------------------------------------ | ---------- |
-| Bucket                               | Buckets are containers for storing objects. Each private key/account can manage up to 1,000 storage containers. |
+| Territory                            | Territories are containers for storing objects. Each private key/account can manage up to many territories. Territory and the data within it can be transferred, sold and given away together |
 | Decentralized Object Storage Service | Storage service that store user data as object and are accessible via CESS APIs. |
 | Object                               | An Object is a basic unit for storing data. Unlike traditional file systems, objects do not have the hierarchical relational structure of a file directory. An object includes data, metadata, and fid. |
 | Data | User's data includes but is not limited to high-definition pictures, audio, video, and backup files in websites and applications |
@@ -45,17 +45,17 @@
 
 # Storage Miner
 
-| Term            | Definition                                                                                                                                                                                             |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Earning Account | The account that the reward is sending to                                                                                                                                                              |
-| Locked Space    | The space locked by CESS Network                                                                                                                                                                       |
-| Peer ID         | The id for peer communication                                                                                                                                                                          |
-| Staking Account | The account to stake TCESS, should have a minimum of 2000 TCESS                                                                                                                                        |
-| Staking Amount  | The amount of TCESS being staked                                                                                                                                                                       |
-| State           | <p><strong>Positive</strong>: Working fine<br><strong>Frozen</strong>: Out of staking<br><strong>Exit</strong>: Exiting CESS Network<br><strong>Offline</strong>: Being kicked out of CESS Network</p> |
-| Used Space      | The space used by storage users                                                                                                                                                                        |
-| Validated Space | The space validated to store user's data                                                                                                                                                               |
-
-# Reference
-
-* [https://docs.cess.network/deoss/introduction/terminologies](https://docs.cess.network/deoss/introduction/terminologies)
+| Term              | Definition                                                                                                                                                                                             |
+|-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Endpoint          | A public endpoint for storage miner to communicate with CESS Network                                                                                                                                   |
+| State             | <p><strong>Positive</strong>: Working fine<br><strong>Frozen</strong>: Out of staking<br><strong>Exit</strong>: Exiting CESS Network<br><strong>Offline</strong>: Being kicked out of CESS Network</p> |
+| Staking Amount    | The amount of TCESS that the miner stakes                                                                                                                                                              |                                                                                                                                                                                                   |
+| Staking Start     | The block height when the miner first run                                                                                                                                                              |                                                                                                                                                                                      |
+| Debt Amount       | The debt amount of TCESS that the miner owes                                                                                                                                                              |                                                                                                                                                                                      |                                                                                                                                                                                                 |                                                                                                                                                                                      |
+| Declaration Space | The declaration space on chain is auto set by the value of UseSpace after round up to the closest TB when the miner first run                                                                          |
+| Validated Space   | The space validated to store user's data                                                                                                                                                               |
+| Used Space        | The space used by storage network                                                                                                                                                                      |
+| Locked Space      | The space locked by CESS Network                                                                                                                                                                       |
+| Signature Account | The unique account in cess network, it prove the ownership of the storage miner                                                                                                                        |
+| Staking Account   | The account that stakes TCESS, 4000 TCESS per TiB, It usually be the same as the Signature Account                                                                                                     |
+| Earning Account   | The account that the reward is sending to                                                                                                                                                              |

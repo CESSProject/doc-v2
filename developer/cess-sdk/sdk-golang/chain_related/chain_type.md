@@ -24,12 +24,6 @@ const (
     // number of redundant slices after redundancy
     ParShards    = 8
 
-    // minimum length of bucket name
-    MinBucketNameLength = 3
-
-    // maximum length of a bucket name
-    MaxBucketNameLength = 63
-
     // maximum length of gateway domain names
     MaxDomainNameLength = 100
 
@@ -178,14 +172,6 @@ type OssInfo struct {
 }
 ```
 
-### BucketInfo
-```golang
-type BucketInfo struct {
-    FileList  []FileHash
-    Authority []types.AccountID
-}
-```
-
 ### StorageOrder
 ```golang
 type StorageOrder struct {
@@ -238,9 +224,9 @@ type SegmentInfo struct {
 ### UserBrief
 ```golang
 type UserBrief struct {
-    User       types.AccountID
-    FileName   types.Bytes
-    BucketName types.Bytes
+    User          types.AccountID
+    FileName      types.Bytes
+    TerriortyName types.Bytes
 }
 ```
 
@@ -288,7 +274,7 @@ type ExpendersInfo struct {
 type MinerInfo struct {
     BeneficiaryAccount types.AccountID
     StakingAccount     types.AccountID
-    PeerId             PeerId
+    Endpoint           types.Bytes
     Collaterals        types.U128
     Debt               types.U128
     State              types.Bytes // positive, exit, frozen, lock
@@ -516,6 +502,16 @@ type StakingValidatorPrefs struct {
 type CompleteSnapShotType struct {
     MinerCount types.U32
     TotalPower types.U128
+}
+```
+
+### MinerCompleteInfo
+```
+type MinerCompleteInfo struct {
+	EraIndex    types.U32
+	Issued      types.Bool
+	FinishBlock types.U32
+	Power       types.U128
 }
 ```
 

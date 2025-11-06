@@ -4,7 +4,7 @@ CESS offers large-scale storage capacity, managing data files with up to space i
 
 CESS adopts layered and loosely coupled system architecture, which is divided into **CESS Protocol Suite** and **XESS AI Protocol Suite**.
 
-![CESS Architecture](../../assets/concepts/system-architecture/cess-arch.png)
+![CESS Architecture](../../assets/introduction/cess-architecture.png)
 
 **CESS Protocol Suite** includes a blockchain service layer, distributed storage resource layer, and distributed content delivery layer.
 
@@ -16,7 +16,9 @@ CESS adopts layered and loosely coupled system architecture, which is divided in
 
 The **XESS AI Protocol Suite** leverages advanced AI technologies to enable secure, privacy-preserving collaborative model training across the CESS network. 
 
-- The core component of the XCESS AI Protocol Suite is the **CESS AI Gap**, which integrates federated learning mechanisms, allowing participants to train shared models without sharing their original data. Utilizing smart contracts, it delegates computational tasks to various nodes, ensuring efficient use of resources while maintaining data sovereignty. This suite enhances the network's AI capabilities, supporting complex AI applications and facilitating industry-wide collaboration without compromising data privacy.
+- At the core of the **CESS AI Agent Hub** is CESS Network’s decentralized infrastructure and XESS AI Protocol Suite, which leverages distributed storage, computing, and blockchain-based security to aggregate and serve AI agents. What truly sets CESS AI Agent Hub apart is its decentralized architecture. Powered by Blockchain and distributed computing, the platform allows for the decentralized deployment and orchestration of AI agents. 
+
+- The core component of the XCESS AI Protocol Suite is the **CESS AI-LINK**, which integrates federated learning mechanisms, allowing participants to train shared models without sharing their original data. Utilizing smart contracts, it delegates computational tasks to various nodes, ensuring efficient use of resources while maintaining data sovereignty. This suite enhances the network's AI capabilities, supporting complex AI applications and facilitating industry-wide collaboration without compromising data privacy.
 
 The **Interface** provides CLI/RPC/API/SDK interfaces to support data storage service, blockchain service, high-speed content delivery service and AI tools, etc.
 

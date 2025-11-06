@@ -1,10 +1,10 @@
 Referring to CESS overall tokenomics as below:
 
-<figure><img src="../assets/storage-miner/reward/tokenomics-v1.png" alt=""><figcaption><p>CESS Tokenomics</p></figcaption></figure>
+<figure><img src="../../assets/storage-miner/reward/tokenomics-v1.png" alt=""><figcaption><p>CESS Miner Revenue (Estimated)</p></figcaption></figure>
 
 The CESS network will issue a total of **10 billion tokens**, with **30% allocated as rewards for Storage Miners** and **15% for Consensus Miners**.
 
-In the first year, a total of **187.5 million tokens** are issued, and they are distributed evenly throughout the year in each era. The total rewards decrease in a stepwise manner each year, with an annual decay rate of 0.841 (0.5<sup>0.25</sup>), resulting in a halving of rewards every four years.
+In the first year, approximately **1.018 billion tokens** will be issued for miners, distributed evenly throughout the year in each era. The total rewards decrease in a stepwise manner each year, with an annual decay rate of 0.841 (0.5<sup>0.25</sup>), resulting in a halving of rewards every four years.
 
 # Reward
 
