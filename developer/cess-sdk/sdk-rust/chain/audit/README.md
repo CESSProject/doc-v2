@@ -17,7 +17,8 @@ The following query APIs allow you to retrieve audit-related information directl
 - [challenge_snapshot](query/challenge_snapshot.md) - Retrieve challenge snapshot information for a specific miner or block.
 - [counted_clear](query/counted_clear.md) - Query the count of cleared (successfully completed) challenges.
 - [counted_service_failed](query/counted_service_failed.md) - Retrieve the count of failed service challenges for a miner.
-
+- [challenge_slip](query/challenge_slip.md) - Check if a challenge slip exists for a given miner at a specific block, representing the deadline for proof submission.
+- [verify_slip](query/verify_slip.md) - Verify whether a challenge slip has been validated, storing the verification and liquidation time node along with the corresponding miner.
 ---
 
 ## Transaction Interfaces
@@ -35,5 +36,6 @@ The following call (transaction) APIs allow miners or validators to interact wit
 
 All query and transaction functions under the `audit` module can be accessed through:
 ```rust
-use cess_rust_sdk::chain::audit::{AuditQuery, AuditTransaction};
+use cess_rust_sdk::chain::audit::query::StorageQuery as AuditQuery;
+use cess_rust_sdk::chain::audit::transaction::StorageTransaction as AuditTransaction
 ```
