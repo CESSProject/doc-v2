@@ -48,7 +48,7 @@ use cess_rust_sdk::chain::audit::query::StorageQuery as AuditQuery;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let account = "cXgaaRfFRcVtA3MSPJfcyCUw2FD7hMFeFaj7EGyF795Ep5VcG";
+    let account = "cXgaee2N8E77JJv9gdsGAckv1Qsf3hqWYf7NL4q6ZuQzuAUtB";
 
     let result = AuditQuery::challenge_snapshot(account, None).await?;
 

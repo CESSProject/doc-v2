@@ -45,7 +45,7 @@ use cess_rust_sdk::chain::audit::query::StorageQuery as AuditQuery;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let account = "cXfg2SYcq85nyZ1U4ccx6QnAgSeLQB8aXZ2jstbw9CPGSmhXY";
+    let account = "cXgaee2N8E77JJv9gdsGAckv1Qsf3hqWYf7NL4q6ZuQzuAUtB";
 
     let result = AuditQuery::counted_clear(account, None).await?;
 
