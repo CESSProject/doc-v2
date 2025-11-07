@@ -1,6 +1,6 @@
 # Query: counted_clear
 
-Retrieves the number of times a given account has failed to submit the required service proof for a challenge on the CESS chain. This is an important metric for evaluating a miner's consistency and reliability in fulfilling service requirements.
+Retrieves the number of consecutive unsubmitted proofs for the miner's current challenge. This metric tracks the number of times the miner has failed to submit the required proof for the ongoing challenge. Once the miner submits the proof, the record will be reset to 0.
 
 ---
 
@@ -16,8 +16,9 @@ pub async fn counted_clear(
 
 ## Description
 
-This asynchronous query fetches the count of cleared service failures (i.e., the number of times the miner failed to submit the required service proof for the challenge) for a specific account.
-You can provide a block_hash to query the state at a particular block or omit it to query the current state of the chain.
+This asynchronous query retrieves the count of consecutive unsubmitted service proofs for a given account. Each time a miner fails to submit the required proof, the count is incremented. If the miner submits the proof, the count is reset to 0.
+
+You can provide a block_hash to query the state at a specific block or omit it to get the most recent state of the chain.
 
 ---
 
@@ -32,8 +33,8 @@ You can provide a block_hash to query the state at a particular block or omit it
 ## Returns 
 |Type|Description|
 |--|--|
-|Ok(Some(u8))|The number of times the specified account has failed to submit a service proof.|
-|Ok(None)|No record of service failure count for the account.|
+|Ok(Some(u8))|The number of consecutive unsubmitted proofs for the given account.|
+|Ok(None)|No record of unsubmitted proofs for the account, meaning the miner has either submitted proofs consistently or there is no relevant data.|
 |Err(Error)|If the query fails due to invalid data, connectivity issues, or other errors.|
 
 ---
@@ -46,12 +47,12 @@ use cess_rust_sdk::chain::audit::query::StorageQuery as AuditQuery;
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let account = "cXfg2SYcq85nyZ1U4ccx6QnAgSeLQB8aXZ2jstbw9CPGSmhXY";
 
-    // Query the number of service failures
+    // Query the number of consecutive unsubmitted service proofs
     let result = AuditQuery::counted_clear(account, None).await?;
 
     match result {
-        Some(count) => println!("Account {} has {} cleared service failures.", account, count),
-        None => println!("No record of cleared service failures found for account {}.", account),
+        Some(count) => println!("Account {} has {} consecutive unsubmitted service proofs.", account, count),
+        None => println!("No record of consecutive unsubmitted service proofs found for account {}.", account),
     }
 
     Ok(())
