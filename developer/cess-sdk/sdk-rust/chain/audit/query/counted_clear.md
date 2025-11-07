@@ -47,7 +47,6 @@ use cess_rust_sdk::chain::audit::query::StorageQuery as AuditQuery;
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let account = "cXfg2SYcq85nyZ1U4ccx6QnAgSeLQB8aXZ2jstbw9CPGSmhXY";
 
-    // Query the number of consecutive unsubmitted service proofs
     let result = AuditQuery::counted_clear(account, None).await?;
 
     match result {

@@ -47,7 +47,6 @@ use cess_rust_sdk::chain::audit::query::StorageQuery;
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let account = "cXgaee2N8E77JJv9gdsGAckv1Qsf3hqWYf7NL4q6ZuQzuAUtB";
 
-    // Query the number of service failures
     let result = StorageQuery::counted_service_failed(account, None).await?;
 
     match result {
