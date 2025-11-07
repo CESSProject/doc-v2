@@ -2,6 +2,20 @@
 
 The CESS network currently has two types of gateways: one is the old version gateway, namely DeOSS, which has stopped maintenance; the other is the CD²N gateway, which is the gateway that natively supports the CESS CDN network. This SDK only supports interaction with the CD²N gateway. 
 
+### Authorize the gateway
+
+Before uploading files using a gateway, you need to authorize it. You can use `retriever.AuthorizeGateways` in the SDK to authorize the gateway pointed to by a given URL and all its peer gateways within the same cluster. 
+
+``` golang
+	gatewayUrl := "http://gateway.cess.network"
+	rpc := "wss://t2-rpc.cess.network"
+	mnemonic := "outcome follow exile ethics sick excess show deliver medal jump update default"
+
+	if err := retriever.AuthorizeGateways(gatewayUrl, rpc, mnemonic); err != nil {
+		log.Fatal(err)
+	}
+```
+
 ### Get a token
 
 Before requesting operations such as file upload, you need to apply for a JWT token, which is valid for any gateway node in the cluster within the specified expiration time. When the expiration time is set to zero, the default maximum expiration time is 72 hours.
