@@ -1,53 +1,60 @@
-# Query `counted_clear`
+# Query: counted_clear
+
+Retrieves the number of times a given account has failed to submit the required service proof for a challenge on the CESS chain. This is an important metric for evaluating a miner's consistency and reliability in fulfilling service requirements.
+
+---
+
+## Function Definition
 
 ```rust
-/// Asynchronously retrieves the number of times the miner has not submitted the service proof.
-/// 
-/// This function queries the CESS chain to determine the number of consecutive times
-/// the miner has failed to submit the service proof. An optional block hash can be 
-/// provided to query the state at a specific block.
-/// 
-/// # Arguments
-/// 
-/// * `account` - A valid account identifier string for which the count is to be queried.
-/// * `block_hash` - An optional `H256` block hash. If provided, the function queries 
-///   the state at the specified block. If not provided, the function queries the latest state.
-/// 
-/// # Returns
-/// 
-/// * `Result<Option<u8>, Box<dyn std::error::Error>>` 
-///   - On success, returns an `Option` containing the count of times the miner failed 
-///     to submit the service proof. Ok<Some<0>> is returned if miner is functioning normally. 
-///   - If the account has no records of the service proof count, returns `Ok(None)`.
-///   - On failure, returns an `Err` containing the error information.
-///
 pub async fn counted_clear(
     account: &str,
     block_hash: Option<H256>,
-) -> Result<Option<u8>, Box<dyn std::error::Error>>
-
+) -> Result<Option<u8>, Error>
 ```
+---
+
+## Description
+
+This asynchronous query fetches the count of cleared service failures (i.e., the number of times the miner failed to submit the required service proof for the challenge) for a specific account.
+You can provide a block_hash to query the state at a particular block or omit it to query the current state of the chain.
+
+---
+
+## Parameters
+|Name|Type|Description|
+|--|--|--|
+|account|&str|A valid SS58-encoded account representing the miner or storage provider to query.
+|block_hash|Option<H256>|(Optional) Block hash for querying state at a specific point in the blockchain. If omitted, the query returns the most recent state.|
+
+---
+
+## Returns 
+|Type|Description|
+|--|--|
+|Ok(Some(u8))|The number of times the specified account has failed to submit a service proof.|
+|Ok(None)|No record of service failure count for the account.|
+|Err(Error)|If the query fails due to invalid data, connectivity issues, or other errors.|
+
+---
 
 ## Example
-
 ```rust
-#[cfg(test)]
-mod test {
-    use super::*;
+use cess_rust_sdk::chain::audit::query::StorageQuery as AuditQuery;
 
-    #[tokio::test]
-    async fn test_counted_clear() {
-        let account = "cXgaee2N8E77JJv9gdsGAckv1Qsf3hqWYf7NL4q6ZuQzuAUtB";
-        let block_hash = None;
-        let csf = StorageQuery::counted_clear(account, block_hash).await.unwrap_or(None);
-        match csf {
-            Some(value) => {
-                assert_eq!(value, 0);
-            },
-            None => {
-                assert!(csf.is_none());
-            }
-        }
+#[tokio::main]
+async fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let account = "cXfg2SYcq85nyZ1U4ccx6QnAgSeLQB8aXZ2jstbw9CPGSmhXY";
+
+    // Query the number of service failures
+    let result = AuditQuery::counted_clear(account, None).await?;
+
+    match result {
+        Some(count) => println!("Account {} has {} cleared service failures.", account, count),
+        None => println!("No record of cleared service failures found for account {}.", account),
     }
+
+    Ok(())
 }
+
 ```
