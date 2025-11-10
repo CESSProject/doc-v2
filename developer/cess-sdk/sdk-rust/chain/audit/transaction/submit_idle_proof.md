@@ -2,12 +2,6 @@
 
 Submits an idle proof to the blockchain, verifying that the miner’s storage node was idle yet responsive during the audit challenge period.
 
-pub async fn submit_idle_proof(
-    &self,
-    idle_prove: BoundedVec<u8>,
-) -> Result<(TxHash, SubmitIdleProof), Box<dyn std::error::Error>>
-```
-
 ---
 
 ## Function Definition
