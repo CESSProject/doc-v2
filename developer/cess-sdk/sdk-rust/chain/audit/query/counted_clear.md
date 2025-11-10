@@ -1,53 +1,60 @@
-# Query `counted_clear`
+# Query: counted_clear
+
+Retrieves the number of consecutive unsubmitted proofs for the miner's current challenge. This metric tracks the number of times the miner has failed to submit the required proof for the ongoing challenge. Once the miner submits the proof, the record will be reset to 0.
+
+---
+
+## Function Definition
 
 ```rust
-/// Asynchronously retrieves the number of times the miner has not submitted the service proof.
-/// 
-/// This function queries the CESS chain to determine the number of consecutive times
-/// the miner has failed to submit the service proof. An optional block hash can be 
-/// provided to query the state at a specific block.
-/// 
-/// # Arguments
-/// 
-/// * `account` - A valid account identifier string for which the count is to be queried.
-/// * `block_hash` - An optional `H256` block hash. If provided, the function queries 
-///   the state at the specified block. If not provided, the function queries the latest state.
-/// 
-/// # Returns
-/// 
-/// * `Result<Option<u8>, Box<dyn std::error::Error>>` 
-///   - On success, returns an `Option` containing the count of times the miner failed 
-///     to submit the service proof. Ok<Some<0>> is returned if miner is functioning normally. 
-///   - If the account has no records of the service proof count, returns `Ok(None)`.
-///   - On failure, returns an `Err` containing the error information.
-///
 pub async fn counted_clear(
     account: &str,
     block_hash: Option<H256>,
-) -> Result<Option<u8>, Box<dyn std::error::Error>>
-
+) -> Result<Option<u8>, Error>
 ```
+---
+
+## Description
+
+This asynchronous query retrieves the count of consecutive unsubmitted service proofs for a given account. Each time a miner fails to submit the required proof, the count is incremented. If the miner submits the proof, the count is reset to 0.
+
+You can provide a block_hash to query the state at a specific block or omit it to get the most recent state of the chain.
+
+---
+
+## Parameters
+|Name|Type|Description|
+|--|--|--|
+|account|&str|A valid SS58-encoded account representing the miner or storage provider to query.
+|block_hash|Option<H256>|(Optional) Block hash for querying state at a specific point in the blockchain. If omitted, the query returns the most recent state.|
+
+---
+
+## Returns 
+|Type|Description|
+|--|--|
+|Ok(Some(u8))|The number of consecutive unsubmitted proofs for the given account.|
+|Ok(None)|No record of unsubmitted proofs for the account, meaning the miner has either submitted proofs consistently or there is no relevant data.|
+|Err(Error)|If the query fails due to invalid data, connectivity issues, or other errors.|
+
+---
 
 ## Example
-
 ```rust
-#[cfg(test)]
-mod test {
-    use super::*;
+use cess_rust_sdk::chain::audit::query::StorageQuery as AuditQuery;
 
-    #[tokio::test]
-    async fn test_counted_clear() {
-        let account = "cXgaee2N8E77JJv9gdsGAckv1Qsf3hqWYf7NL4q6ZuQzuAUtB";
-        let block_hash = None;
-        let csf = StorageQuery::counted_clear(account, block_hash).await.unwrap_or(None);
-        match csf {
-            Some(value) => {
-                assert_eq!(value, 0);
-            },
-            None => {
-                assert!(csf.is_none());
-            }
-        }
+#[tokio::main]
+async fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let account = "cXgaee2N8E77JJv9gdsGAckv1Qsf3hqWYf7NL4q6ZuQzuAUtB";
+
+    let result = AuditQuery::counted_clear(account, None).await?;
+
+    match result {
+        Some(count) => println!("Account {} has {} consecutive unsubmitted service proofs.", account, count),
+        None => println!("No record of consecutive unsubmitted service proofs found for account {}.", account),
     }
+
+    Ok(())
 }
+
 ```

@@ -1,54 +1,65 @@
-# Query `challenge_snapshot`
+# Query: challenge_snapshot
+
+Retrieves the challenge snapshot data for a specific account. This snapshot contains metadata about the ongoing or most recent challenge for the miner, including various details such as challenge state, failure count, and other associated information.
+
+---
+
+## Function Definition
 
 ```rust
-/// Asynchronously retrieves the challenge snapshot data of the miner
-/// 
-/// This function queries the CESS chain to determine the challenge snapshot data of 
-/// the miner. An optional block hash can be provided to query the state at a specific block.
-/// 
-/// # Arguments
-/// 
-/// * `account` - A valid account identifier string for which the challenge snapshot 
-///   data is to be queried.
-/// * `block_hash` - An optional `H256` block hash. If provided, the function queries 
-///   the state at the specified block. If not provided, the function queries the latest state.
-/// 
-/// # Returns
-/// 
-/// * `Result<Option<u8>, Box<dyn std::error::Error>>` 
-///   - On success, returns an `Option` containing the snapshot data for the challenge. 
-///   - If the account has no records of the service proof count, returns `Ok(None)`.
-///   - On failure, returns an `Err` containing the error information.
-///
-
 pub async fn challenge_snapshot(
     account: &str,
     block_hash: Option<H256>,
-) -> Result<Option<ChallengeInfo>, Box<dyn std::error::Error>>
+) -> Result<Option<ChallengeInfo>, Error>
+
 ```
+
+---
+
+## Description
+This asynchronous query retrieves the challenge snapshot for the given account. The snapshot provides critical information about the miner's current challenge, such as challenge status, the number of failed attempts, and other related data.
+
+You can provide a block_hash to query the state at a specific block or omit it to get the most recent state of the chain.
+
+---
+## Parameters
+
+| Name         | Type           | Description                                                                                                                            |
+| ------------ | -------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| `account`    | `&str`         | A valid **SS58-encoded account** representing the miner or storage provider to query.                                                  |
+| `block_hash` | `Option<H256>` | *(Optional)* Block hash for querying state at a specific point in the blockchain. If omitted, the query returns the most recent state. |
+
+---
+
+## Returns
+| Type                      | Description                                                                                                                               |
+| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| `Ok(Some(ChallengeInfo))` | The challenge snapshot for the specified account. Contains metadata like challenge state, failure count, and other details.               |
+| `Ok(None)`                | No challenge snapshot available for the account, meaning the miner is not currently involved in a challenge or there is no relevant data. |
+| `Err(Error)`              | If the query fails due to invalid data, connectivity issues, or other errors.                                                             |
+
+
+---
 
 ## Example
 
 ```rust
-#[cfg(test)]
-mod test {
-    use super::*;
+use cess_rust_sdk::chain::audit::query::StorageQuery as AuditQuery;
 
-    #[tokio::test]
-    async fn test_challenge_snapshot() {
-        let account = "cXgaee2N8E77JJv9gdsGAckv1Qsf3hqWYf7NL4q6ZuQzuAUtB";
-        let block_hash = None;
-        let csf = StorageQuery::challenge_snapshot(account, block_hash).await.unwrap_or(None);
-        match csf {
-            Some(value) => {
-                // Verify the snapshot
-                // For this example we are just printing it using dbg! macro
-                dbg!(&value);
-            },
-            None => {
-                assert!(csf.is_none());
-            }
+#[tokio::main]
+async fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let account = "cXgaee2N8E77JJv9gdsGAckv1Qsf3hqWYf7NL4q6ZuQzuAUtB";
+
+    let result = AuditQuery::challenge_snapshot(account, None).await?;
+
+    match result {
+        Some(snapshot) => {
+            println!("Challenge Snapshot for account {}: {:?}", account, snapshot);
+        },
+        None => {
+            println!("No challenge snapshot found for account {}.", account);
         }
     }
+    Ok(())
 }
 ```
