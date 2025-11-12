@@ -46,15 +46,9 @@ In response to the insufficient hardware redundancy exposed by Azure's cooling s
 The essence of cloud computing is to achieve "unlimited availability" through technical means. However, the successive outages of AWS and Azure have proven that centralized architectures are difficult to break through their own infrastructure limitations. With a decentralized architecture as its foundation, CESS Network accurately fills the underlying defects of centralized cloud services through core technologies such as R²S, PoDR², and TEE from three dimensions: architectural design, verification mechanism, and fault tolerance. It provides a safer and more reliable infrastructure choice for the global digital economy.
 
 ## References
-1. AWS Outage Technical Analysis: 
-https://aws.amazon.com/message/101925/
-https://www.getpanto.ai/blog/aws-outage-2025-retry-storm
-2. Azure Global Outage Report: 
-https://azure.status.microsoft/status/history (29th, October 2025,Post Incident Review (PlR) - Azure Front Door - Connectivity issues across multiple regions
-Tracking lD: YKYN-BWZ)
-3. Azure Western Europe Cooling System Failure: 
-https://w.media/thermal-event-at-microsoft-azure-data-center-causes-an-outage-in-west-europe/
-4. CESS Network Core Technology Documentation: 
-https://cess.cloud/about.html
-5. CESS Whitepaper: 
-https://github.com/CESSProject/Whitepaper/blob/main/cess-whitepaper.pdf
+[1]  [AWS Outage Technical Analysis](https://aws.amazon.com/message/101925/) 
+[2]  [Azure Global Outage Report(29th, October 2025,Post Incident Review (PlR) - Azure Front Door - Connectivity issues across multiple regions
+Tracking lD: YKYN-BWZ)](https://azure.status.microsoft/status/history) 
+[3]  [Azure Western Europe Cooling System Failure](https://w.media/thermal-event-at-microsoft-azure-data-center-causes-an-outage-in-west-europe/) 
+[4]  [CESS Network Core Technology Documentation](https://cess.cloud/about.html) 
+[5]  [CESS Whitepaper](https://github.com/CESSProject/Whitepaper/blob/main/cess-whitepaper.pdf) 
