@@ -313,6 +313,7 @@
     * [Storage Method](ref/storage/storage-method.md)
   * [DePIN](ref/depin/README.md)
     * [The DePIN Portrait](ref/depin/the-depin-portrait.md)
+    * [The Infrastructure Dilemma Behind Cloud Giants' Outages: CESS Network's Decentralized Solution](ref/depin/Giants_Outages_CESS_Solution.md)
   * [AI](ref/AI/README.md)
     * [CESS: The Future of Decentralized Data Infrastructure for the AI-Driven World](ref/AI/CESS-De-Data-Infra-4-AI.md)
     * [Decentralized Solutions for AI: How CESS is Shaping a Trusted Future](ref/AI/How-CESS-is-Shaping-a-Trusted-Future.md)
