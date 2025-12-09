@@ -18,6 +18,11 @@ The Proof of Data Reduplication and Recovery (PoDR²) mechanism, a core innovati
 
 PoDR² employs a homomorphic signature verification scheme to provide cryptographic proof of retrievability without exposing underlying data. This ensures that storage miners cannot falsify or omit replicas, thereby maintaining data integrity and availability under distributed conditions. Even in the event of partial node failures or regional network disruptions, the recovery protocol guarantees the continuity and completeness of user data.
 
+## Security, Privacy, and Data Rights
+
+CESS incorporates a multi-layered cryptographic framework combining symmetric encryption, digital signatures, and blockchain-based audit trails to achieve end-to-end data confidentiality and traceability. The system’s friendly account subsystem and novel consensus mechanism underpin a trusted distributed storage infrastructure, ensuring low operational cost, privacy preservation, and data stability.
+
+Beyond technical storage security, the blockchain layer provides verifiable data ownership, usage rights, and access control, enabling a data rights protection model that prevents unauthorized redistribution and ensures that data contributors retain full control of their digital assets.
 
 <!--
 - [Identification](identification.md)
