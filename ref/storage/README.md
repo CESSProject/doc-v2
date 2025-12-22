@@ -28,6 +28,10 @@ Beyond technical storage security, the blockchain layer provides verifiable data
 
 Through its decentralized data infrastructure, CESS aims to enable commercial-grade data storage suitable for enterprise, AI, and large-scale industrial applications. The platform mitigates risks of data leakage, tampering, and censorship while fostering an open, transparent, and equitable data economy. By redefining data storage as a shared, co-constructed ecosystem, CESS establishes a secure foundation for global data circulation and monetization.
 
+## P2P Network and Node Discovery
+
+In the following section, we detail the peer-to-peer networking framework that enables node discovery, communication, and consensus participation within the CESS Network. We will describe how nodes identify peers, form overlay connections, and maintain routing tables to ensure efficient and reliable data exchange across the decentralized topology.
+
 <!--
 - [Identification](identification.md)
 - [Consistency Guarantee](consensus-security.md)
